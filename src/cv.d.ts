@@ -6,7 +6,7 @@ export interface CV {
   awards: Array<Awards>;
   certificates: Array<Certificates>;
   publications: Array<Publications>;
-  skills: Array<Skills>;
+  skills: Array<Skills>; // dividir en soft y hard, y por tecnologías (lenguajes, frameworks, librerias, etc)
   languages: Array<Languages>;
   interests: Array<Interests>;
   references: Array<References>;

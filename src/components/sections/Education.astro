@@ -2,7 +2,7 @@
 import Section from '../Section.astro'
 
 import { education } from '@cv'
-import { certificates } from '@cv'
+// import { certificates } from '@cv'
 ---
 
 <Section className={Astro.props.className} title='Education'>
@@ -53,7 +53,7 @@ import { certificates } from '@cv'
     }
   </ul>
 
-  {
+  <!-- {
     certificates.length > 0 && (
       <>
         <h4>Certificates</h4>
@@ -98,5 +98,5 @@ import { certificates } from '@cv'
         </ul>
       </>
     )
-  }
+  } -->
 </Section>
