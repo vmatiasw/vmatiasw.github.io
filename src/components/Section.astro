@@ -3,6 +3,6 @@ const { className, title } = Astro.props;
 ---
 
 <section class:list={["flex flex-col gap-4 print:gap-0", className]}>
-	{title && <h3 class="section-title">{title}</h3>}
-	<slot />
+  {title && <h3 class="section-title">{title}</h3>}
+  <slot />
 </section>

@@ -34,7 +34,7 @@ interface Location {
 }
 
 interface Profiles {
-  icon: string,
+  icon: string;
   network: string;
   username: string;
   url: string;
@@ -63,7 +63,7 @@ interface Volunteer {
 }
 
 interface Skills {
-  icon: string,
+  icon: string;
   name: string;
   keywords: Array<string>;
 }

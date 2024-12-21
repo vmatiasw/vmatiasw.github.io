@@ -1,7 +1,7 @@
 ---
 import ArtPlums from "@/components/ArtPlums.astro";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import '../globals.css'
+import "../globals.css";
 import CV from "@cv";
 
 interface Props {
@@ -72,7 +72,7 @@ const { image, summary, url, theme } = CV.basics;
       h2,
       h3,
       h4 {
-        @apply text-skin-base font-sans;
+        @apply font-sans text-skin-base;
         margin: 0;
       }
 

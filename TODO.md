@@ -24,6 +24,7 @@
 - Visual Studio Code
 - Jupyter Notebooks
 ```
+
 en herramientas hacer tm un cuadro con por ej:
 control de versiones: git, ...
 

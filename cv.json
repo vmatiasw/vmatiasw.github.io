@@ -81,121 +81,62 @@
     {
       "name": "SQLAlchemy",
       "icon": "simple-icons:python",
-      "keywords": [
-        "ORM",
-        "Databases",
-        "Python",
-        "Backend",
-        "SQL"
-      ]
+      "keywords": ["ORM", "Databases", "Python", "Backend", "SQL"]
     },
     {
       "name": "Django",
       "icon": "simple-icons:django",
-      "keywords": [
-        "Web Framework",
-        "Backend",
-        "Python",
-        "API",
-        "MVC"
-      ]
+      "keywords": ["Web Framework", "Backend", "Python", "API", "MVC"]
     },
     {
       "name": "Pydantic",
       "icon": "simple-icons:python",
-      "keywords": [
-        "Data Validation",
-        "Python",
-        "Pydantic",
-        "API",
-        "Validation"
-      ]
+      "keywords": ["Data Validation", "Python", "Pydantic", "API", "Validation"]
     },
     {
       "name": "Pytest",
       "icon": "simple-icons:python",
-      "keywords": [
-        "Testing",
-        "Python",
-        "Unit Testing",
-        "Backend",
-        "TDD"
-      ]
+      "keywords": ["Testing", "Python", "Unit Testing", "Backend", "TDD"]
     },
     {
       "name": "FastAPI",
       "icon": "simple-icons:python",
-      "keywords": [
-        "Web Framework",
-        "Backend",
-        "Python"
-      ]
-      },
+      "keywords": ["Web Framework", "Backend", "Python"]
+    },
     {
       "name": "SQL",
       "icon": "simple-icons:mysql",
-      "keywords": [
-        "Databases",
-        "SQL",
-        "Data Storage",
-        "Backend"
-      ]
+      "keywords": ["Databases", "SQL", "Data Storage", "Backend"]
     },
     {
       "name": "MongoDB",
       "icon": "simple-icons:mongodb",
-      "keywords": [
-        "Databases",
-        "File",
-        "Data Storage",
-        "Backend"
-      ]
+      "keywords": ["Databases", "File", "Data Storage", "Backend"]
     },
     {
       "name": "Git",
       "icon": "mdi:git",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code"]
     },
     {
       "name": "GitHub",
       "icon": "mdi:github",
-      "keywords": [
-        "Version Control",
-        "Collaboration",
-        "Source Code",
-        "Git"
-      ]
+      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
     },
     {
       "name": "Bash",
       "icon": "simple-icons:gnu",
-      "keywords": [
-        "Scripting",
-        "Automation",
-        "Linux"
-      ]
+      "keywords": ["Scripting", "Automation", "Linux"]
     },
     {
       "name": "C",
       "icon": "simple-icons:c",
-      "keywords": [
-        "Programming",
-        "Low-level",
-        "Systems"
-      ]
+      "keywords": ["Programming", "Low-level", "Systems"]
     },
     {
       "name": "Linux",
       "icon": "simple-icons:linux",
-      "keywords": [
-        "OS",
-        "Scripting",
-        "Automation"
-      ]
+      "keywords": ["OS", "Scripting", "Automation"]
     }
   ],
   "languages": [
@@ -225,6 +166,6 @@
       ],
       "url": "https://github.com/vmatiasw/DeltaDB",
       "github": "https://github.com/vmatiasw/DeltaDB"
-    }    
+    }
   ]
 }

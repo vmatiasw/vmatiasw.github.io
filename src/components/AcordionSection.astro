@@ -1,6 +1,6 @@
 ---
-import Section from './Section.astro'
-const {className, title} = Astro.props;
+import Section from "./Section.astro";
+const { className, title } = Astro.props;
 ---
 
 <Section className={className}>
@@ -13,14 +13,20 @@ const {className, title} = Astro.props;
 </Section>
 
 <style lang="css">
-  
-  @keyframes sweep { /*FIXME: Esto no anda */
-    0%    {opacity: 0; transform: translateX(-10px)}
-    100%  {opacity: 1; transform: translateX(0)}
+  @keyframes sweep {
+    /*FIXME: Esto no anda */
+    0% {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   details[open] summary ~ * {
-    animation: sweep .5s ease-in-out;
+    animation: sweep 0.5s ease-in-out;
   }
 
   summary {
