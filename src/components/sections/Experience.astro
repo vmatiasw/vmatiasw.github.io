@@ -1,10 +1,10 @@
 ---
-import Section from '../Section.astro'
+import AcordionSection from '../AcordionSection.astro'
 import { work } from '@cv'
 import { Icon } from 'astro-icon/components'
 ---
 
-<Section className={Astro.props.className} title="Experience">
+<AcordionSection className={Astro.props.className} title="Experience">
   <ul class="flex flex-col">
     {work.map(({ name, startDate, endDate, position, summary, responsibilities, achievements, skills, location, location_type }) => {
       const startYear = new Date(startDate).getFullYear()
@@ -94,7 +94,7 @@ import { Icon } from 'astro-icon/components'
       )
     })}
   </ul>
-</Section>
+</AcordionSection>
 <script>
   const expandButton = document.querySelectorAll('.expand-button');
 

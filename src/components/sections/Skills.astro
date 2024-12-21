@@ -1,10 +1,10 @@
 ---
-import Section from '../Section.astro'
+import AcordionSection from '../AcordionSection.astro'
 import { skills } from '@cv'
 import { Icon } from 'astro-icon/components'
 ---
 
-<Section className={Astro.props.className} title='Skills'>
+<AcordionSection className={Astro.props.className} title='Skills'>
   <ul
     class='inline-flex print:mt-4 flex-wrap gap-4 [&>li>svg]:text-skin-hue [&>li]:text-sm'>
     {
@@ -18,4 +18,4 @@ import { Icon } from 'astro-icon/components'
       })
     }
   </ul>
-</Section>
+</AcordionSection>
