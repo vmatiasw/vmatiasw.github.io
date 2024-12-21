@@ -1,10 +1,10 @@
 ---
-import { basics } from "@cv";
+import CV from "@cv";
 import Section from "@/components/Section.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
-const { name, label, image, location, profiles, email } = basics;
+const { name, label, image, location, profiles, email } = CV.basics;
 const { city, region, address } = location;
 ---
 

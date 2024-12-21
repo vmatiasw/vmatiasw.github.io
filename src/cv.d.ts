@@ -1,15 +1,13 @@
 export interface CV {
   basics: Basics;
   work: Array<Work>;
-  volunteer: Array<Volunteer>;
+  // volunteer: Array<Volunteer>;
   education: Array<Education>;
-  awards: Array<Awards>;
-  certificates: Array<Certificates>;
-  publications: Array<Publications>;
-  skills: Array<Skills>; // dividir en soft y hard, y por tecnologías (lenguajes, frameworks, librerias, etc)
+  // awards: Array<Awards>;
+  // certificates: Array<Certificates>;
+  // publications: Array<Publications>;
+  skills: Array<Skills>;
   languages: Array<Languages>;
-  interests: Array<Interests>;
-  references: Array<References>;
   projects: Array<Projects>;
 }
 
@@ -44,20 +42,18 @@ interface Work {
   name: string;
   position: string;
   url: string;
-  startDate: DateStr;
-  endDate: DateStr | null;
+  startDate: string;
+  endDate: string | null;
   summary: string;
   highlights: Highlight;
 }
-
-type DateStr = `${string}-${string}-${string}`;
 
 interface Volunteer {
   organization: string;
   position: string;
   url: string;
-  startDate: DateStr;
-  endDate: DateStr;
+  startDate: string;
+  endDate: string | null;
   summary: string;
   highlights: Highlight;
 }
@@ -77,7 +73,7 @@ interface Awards {
 
 interface Certificates {
   name: string;
-  date: DateStr;
+  date: string;
   issuer: string;
   url: string;
 }
@@ -85,7 +81,7 @@ interface Certificates {
 interface Publications {
   name: string;
   publisher: string;
-  releaseDate: DateStr;
+  releaseDate: string;
   url: string;
   summary: string;
 }
@@ -95,9 +91,9 @@ interface Education {
   url: string;
   area: string;
   studyType: string;
-  startDate: DateStr;
-  endDate: DateStr;
-  score: string;
+  startDate: string;
+  endDate: string | null;
+  score: int;
   courses: Array<string>;
 }
 

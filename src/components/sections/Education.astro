@@ -1,8 +1,8 @@
 ---
 import AcordionSection from "../AcordionSection.astro";
 
-import { education } from "@cv";
-// import { certificates } from '@cv'
+import CV from "@cv";
+const { education } = CV;
 ---
 
 <AcordionSection className={Astro.props.className} title="Education">

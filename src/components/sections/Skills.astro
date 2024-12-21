@@ -1,7 +1,9 @@
 ---
 import AcordionSection from "../AcordionSection.astro";
-import { skills } from "@cv";
+import CV from "@cv";
 import { Icon } from "astro-icon/components";
+
+const { skills } = CV;
 ---
 
 <AcordionSection className={Astro.props.className} title="Skills">

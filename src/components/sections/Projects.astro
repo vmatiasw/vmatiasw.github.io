@@ -2,8 +2,10 @@
 import AcordionSection from "../AcordionSection.astro";
 import { Icon } from "astro-icon/components";
 
-import { projects } from "@cv";
+import CV from "@cv";
 import { Image } from "astro:assets";
+
+const { projects } = CV;
 ---
 
 <AcordionSection className={Astro.props.className} title="Projects">
