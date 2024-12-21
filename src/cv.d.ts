@@ -46,6 +46,11 @@ interface Work {
   endDate: string | null;
   summary: string;
   highlights: Highlight;
+  responsibilities: Array<string>;
+  achievements: Array<string>;
+  skills: Record<string, string>;
+  location: string;
+  location_type: string;
 }
 
 interface Volunteer {
@@ -127,6 +132,11 @@ interface Projects {
   highlights: Highlight;
   url: string;
   github?: string;
+  image: Image;
+}
+interface Image {
+  url: string;
+  position: string;
 }
 
 interface Interests {
