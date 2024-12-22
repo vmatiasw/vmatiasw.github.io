@@ -14,6 +14,9 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 rm -rf ./dist
+
+npx prettier --write .
+
 git add .
 git commit -m "${1:1:-1}"
 git push

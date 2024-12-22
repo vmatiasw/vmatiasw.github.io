@@ -1,7 +1,14 @@
-import type {CV, Basics, Work, Education, Skills, Languages, Projects} from "./cv.d.ts";
-import fs from 'fs';
-const dataSource = JSON.parse(fs.readFileSync('./cv.json', 'utf-8'));
-
+import type {
+  CV,
+  Basics,
+  Work,
+  Education,
+  Skills,
+  Languages,
+  Projects,
+} from "./cv.d.ts";
+import fs from "fs";
+const dataSource = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
 
 class CVRepository implements CV {
   public basics: Basics = dataSource.basics;
