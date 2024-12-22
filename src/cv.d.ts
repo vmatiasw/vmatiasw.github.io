@@ -2,13 +2,27 @@ export interface CV {
   basics: Basics;
   work: Array<Work>;
   education: Array<Education>;
-  skills: Array<Skills>;
   projects: Array<Projects>;
 }
 
 // ------------------------- Common -------------------------
 
-type Highlight = Array<String>;
+interface nameAndIcon {
+  name: string;
+  icon: string;
+}
+
+interface Language extends nameAndIcon {
+  frameworks?: string[];
+  standardLibraries?: string[];
+  thirdPartyLibraries?: string[];
+  tools?: string[];
+}
+interface Skills {
+  languages?: Language[];
+  tools?: nameAndIcon[];
+  soft?: nameAndIcon[];
+}
 
 interface Location {
   address: string;
@@ -16,12 +30,6 @@ interface Location {
   city: string;
   countryCode: string;
   region: string;
-}
-
-interface Skills {
-  icon: string;
-  name: string;
-  keywords: Array<string>;
 }
 
 // ------------------------- Basics -------------------------
@@ -34,34 +42,16 @@ interface Basics {
   url: string;
   summary: string;
   location: Location;
-  languages: Array<Languages>;
-  profiles: Array<Profiles>;
+  languages: Array<SpeakLanguage>;
+  profiles: Array<Profile>;
 }
 
-interface Languages {
-  language: Language;
-  fluency: string;
+interface SpeakLanguage {
+  language: string;
+  proficiency: "basic" | "intermediate" | "advanced" | "native";
 }
 
-type Language =
-  | "Spanish"
-  | "English"
-  | "German"
-  | "France"
-  | "Italian"
-  | "Korean"
-  | "Portuguese"
-  | "Chinese"
-  | "Arabic"
-  | "Dutch"
-  | "Finnish"
-  | "Russian"
-  | "Turkish"
-  | "Hindi"
-  | "Bengali"
-  | string;
-
-interface Profiles {
+interface Profile {
   icon: string;
   network: string;
   username: string;
@@ -77,10 +67,10 @@ interface Work {
   startDate: string;
   endDate: string | null;
   summary: string;
-  highlights: Highlight;
-  responsibilities: Array<string>;
-  achievements: Array<string>;
-  skills: Record<string, string>;
+  highlights: string[];
+  responsibilities: string[];
+  achievements: string[];
+  skills: Skills;
   location: string;
   location_type: string;
 }
@@ -94,14 +84,16 @@ interface Education {
   startDate: string;
   endDate: string | null;
   score: int;
-  courses: Array<string>;
+  skills: Skills;
+  courses: string[];
 }
 // ------------------------- Projects -------------------------
 interface Projects {
   name: string;
   isActive: boolean;
   description: string;
-  highlights: Highlight;
+  skills: Skills;
+  highlights: Array<string>;
   url: string;
   github?: string;
   image: Image;

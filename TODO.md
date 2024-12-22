@@ -3,8 +3,10 @@
 - [x] que cada seccion sea desplegable.
 - [x] crear un repositoty con los datos del cv
 - [x] hacer que la pagina se divida en dos columnas y que bajar en una no haga bajar en otra.
-- [] eliminar skills, que se calculen segun las que haya en proyectos,...
-- [] poner al inicio skills y subdividir en habilidades tecnicas y blandas. en habilidades tecnicas poner lo siguiente aprox:
+- [x] eliminar skills, que se calculen segun las que haya en proyectos,...
+- [] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos.
+- [] agregar skills a lo demas
+- [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 
 ```markdown
 ## 🚀 Tecnologías

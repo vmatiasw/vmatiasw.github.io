@@ -14,6 +14,16 @@
       "countryCode": "ARG",
       "region": "Argentina"
     },
+    "languages": [
+      {
+        "language": "Spanish",
+        "fluency": "Native speaker"
+      },
+      {
+        "language": "English",
+        "fluency": "Intermediate"
+      }
+    ],
     "profiles": [
       {
         "network": "GitHub",
@@ -26,13 +36,96 @@
   "education": [
     {
       "institution": "Facultad de matematica, astronomia, fisica y computacion",
-      "url": "https://www.famaf.unc.edu.ar/",
+      "url": "https://www.famaf.unc.edu.ar/academica/grado/licenciatura-en-ciencias-de-la-computaci%C3%B3n/",
       "area": "Regular Student",
       "studyType": "Full-time student",
       "startDate": "2021-03-24",
       "endDate": null,
       "score": 8.5,
-      "courses": []
+      "courses": [],
+      "skills": {
+        "languages": [{
+          "name": "Python",
+          "icon": "simple-icons:python"
+        }, {
+          "name": "Java",
+          "icon": null
+        }, {
+          "name": "C",
+          "icon": "simple-icons:c"
+        }, {
+          "name": "SQL",
+          "icon": "simple-icons:mysql"
+        }, {
+          "name": "Haskell",
+          "icon": "simple-icons:haskell"
+        }, {
+          "name": "C++",
+          "icon": "simple-icons:cplusplus"
+        }, {
+          "name":"MongoDB",
+          "icon":"simple-icons:mongodb"
+        }, {
+          "name":"Assembly",
+          "icon": null
+        }, {
+          "name":"SystemVerilog",
+          "icon": null
+        }],
+        "tools": [{
+          "name": "Quartus",
+          "icon": "simple-icons:quartus"
+        },
+        {
+          "name": "Git",
+          "icon": "mdi:git"
+        },
+        {
+          "name": "GitHub",
+          "icon": "mdi:github"
+        },
+        {
+          "name": "Linux",
+          "icon": "simple-icons:linux"
+        },
+        {
+          "name": "Omnet++",
+          "icon": "simple-icons:omnetplusplus"
+        }],
+        "soft": [{
+          "name": "Problem Solving",
+          "icon": "mdi:lightbulb-on-outline"
+        },
+        {
+          "name": "Teamwork",
+          "icon": "mdi:account-group"
+        },
+        {
+          "name": "Communication",
+          "icon": "mdi:forum"
+        },
+        {
+          "name": "Time Management",
+          "icon": "mdi:timer"
+        },
+        {
+          "name": "Adaptability",
+          "icon": "mdi:adjust"
+        },
+        {
+          "name": "Creativity",
+          "icon": "mdi:palette"
+        },
+        {
+          "name": "Critical Thinking",
+          "icon": "mdi:thought-bubble"
+        },
+        {
+          "name": "Leadership",
+          "icon": "mdi:account-tie"
+        }
+        ]
+      }
     }
   ],
   "work": [
@@ -57,98 +150,23 @@
         "Delivered tailored solutions, ensuring client satisfaction and accurate trading insights."
       ],
       "skills": {
-        "Pine Script": "simple-icons:python",
-        "Python": "simple-icons:python",
-        "TradingView": "mdi:chart-line"
+        "languages": [{
+          "name": "Python",
+          "icon": "simple-icons:python",
+          "thirdPartyLibraries": ["yfinance", "matplotlib", "numpy", "scipy"]
+        }, {
+          "name": "Pine Script",
+          "icon": "mdi:chart-line"
+        }],
+        "tools": [{
+          "name": "TradingView",
+          "icon": "mdi:chart-line"
+        }],
+        "soft": [{
+          "name": "Problem Solving",
+          "icon": "mdi:lightbulb-on-outline"
+        }]
       }
-    }
-  ],
-  "skills": [
-    {
-      "name": "Python",
-      "icon": "simple-icons:python",
-      "keywords": [
-        "Programming",
-        "Backend",
-        "Data Science",
-        "Machine Learning",
-        "ORMs",
-        "API Development",
-        "Databases",
-        "Web Development",
-        "Trading",
-        "Automation"
-      ]
-    },
-    {
-      "name": "SQLAlchemy",
-      "icon": "simple-icons:python",
-      "keywords": ["ORM", "Databases", "Python", "Backend", "SQL"]
-    },
-    {
-      "name": "Django",
-      "icon": "simple-icons:django",
-      "keywords": ["Web Framework", "Backend", "Python", "API", "MVC"]
-    },
-    {
-      "name": "Pydantic",
-      "icon": "simple-icons:python",
-      "keywords": ["Data Validation", "Python", "Pydantic", "API", "Validation"]
-    },
-    {
-      "name": "Pytest",
-      "icon": "simple-icons:python",
-      "keywords": ["Testing", "Python", "Unit Testing", "Backend", "TDD"]
-    },
-    {
-      "name": "FastAPI",
-      "icon": "simple-icons:python",
-      "keywords": ["Web Framework", "Backend", "Python"]
-    },
-    {
-      "name": "SQL",
-      "icon": "simple-icons:mysql",
-      "keywords": ["Databases", "SQL", "Data Storage", "Backend"]
-    },
-    {
-      "name": "MongoDB",
-      "icon": "simple-icons:mongodb",
-      "keywords": ["Databases", "File", "Data Storage", "Backend"]
-    },
-    {
-      "name": "Git",
-      "icon": "mdi:git",
-      "keywords": ["Version Control", "Collaboration", "Source Code"]
-    },
-    {
-      "name": "GitHub",
-      "icon": "mdi:github",
-      "keywords": ["Version Control", "Collaboration", "Source Code", "Git"]
-    },
-    {
-      "name": "Bash",
-      "icon": "simple-icons:gnu",
-      "keywords": ["Scripting", "Automation", "Linux"]
-    },
-    {
-      "name": "C",
-      "icon": "simple-icons:c",
-      "keywords": ["Programming", "Low-level", "Systems"]
-    },
-    {
-      "name": "Linux",
-      "icon": "simple-icons:linux",
-      "keywords": ["OS", "Scripting", "Automation"]
-    }
-  ],
-  "languages": [
-    {
-      "language": "Spanish",
-      "fluency": "Native speaker"
-    },
-    {
-      "language": "English",
-      "fluency": "Intermediate"
     }
   ],
   "projects": [
@@ -167,7 +185,28 @@
         "🚀 Facilitates automatic generation of unit and integration tests for database-driven applications"
       ],
       "url": "https://github.com/vmatiasw/DeltaDB",
-      "github": "https://github.com/vmatiasw/DeltaDB"
+      "github": "https://github.com/vmatiasw/DeltaDB",
+      "skills": {
+        "languages": [{
+          "name": "Python",
+          "icon": "simple-icons:python",
+          "standardLibraries": ["collections", "typing", "dataclasses", "os", "logging", "contextlib", "abc", "random"],
+          "thirdPartyLibraries": ["SQLAlchemy", "Django", "Pytest"],
+          "tools": ["black"]
+        }],
+        "tools": [
+          {"name": "Git",
+          "icon": "mdi:git"},
+          {"name": "GitHub",
+          "icon": "mdi:github"},
+          {"name": "Linux",
+          "icon": "simple-icons:linux"}
+        ],
+        "soft": [{
+          "name": "Problem Solving",
+          "icon": "mdi:lightbulb-on-outline"
+        }]
+      }
     }
   ]
 }
