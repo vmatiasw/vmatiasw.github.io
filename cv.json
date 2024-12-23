@@ -202,7 +202,7 @@
         "🎯 Designed to seamlessly integrate with popular ORMs like SQLAlchemy and Django",
         "✨ Supports multiple database backends (e.g., MySQL, PostgreSQL)",
         "💡 Captures database snapshots for accurate comparisons between test states",
-        "🚀 Facilitates automatic generation of unit and integration tests for database-driven applications"
+        "🚀 Facilitates automatic generation of functional tests for database-driven applications"
       ],
       "url": "https://github.com/vmatiasw/DeltaDB",
       "github": "https://github.com/vmatiasw/DeltaDB",

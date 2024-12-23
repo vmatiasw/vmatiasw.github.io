@@ -5,7 +5,7 @@ import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/Projects.astro";
-import Skills from "@/components/sections/Skills.astro";
+import SkillsMenu from "@/components/sections/SkillsMenu.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 import ThemeSwitch from "@/components/ThemeSwitch.astro";
 
@@ -34,7 +34,7 @@ const { name, label } = CV.basics;
           <>
             <Projects className="print:hidden" />
             {CV?.education && <Education className="order-first" />}
-            <Skills className="print:hidden" />
+            <SkillsMenu className="print:hidden" />
           </>
         )
       }

@@ -1,5 +1,6 @@
 ---
 import AcordionSection from "../AcordionSection.astro";
+import Skills from "../Skills.astro";
 import CV from "@cv";
 import { Icon } from "astro-icon/components";
 
@@ -104,18 +105,7 @@ const { work } = CV;
                         <span class="expand-text">Show more</span>
                         <Icon name="ri:arrow-up-s-line" class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out group-data-[expanded=true]:rotate-180" width={24} height={24}></Icon>
                       </button>
-                      <ul class="flex print:hidden flex-wrap gap-2" aria-label="Technologies used">
-                        {skills.languages && skills.languages.map(({name, icon}) =>  (
-                            <li class="bg-skin-button-accent/20 border-skin-hue/20 text-skin-hue print:p-0 print:bg-transparent print:text-zinc-800 flex gap-1 items-center border-solid print:border-none border rounded-md px-2 py-0.5 text-xs backdrop-blur-sm">
-                              {icon && <Icon name={icon} width={16} height={16} />} <span>{name}</span>
-                            </li>
-                          )
-                        )
-                        }
-                      </ul>
-
-
-
+                      <Skills skills={skills} />
                     )}
                   </div>
                 </div>

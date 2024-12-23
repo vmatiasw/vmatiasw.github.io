@@ -6,7 +6,7 @@ import type {
   Skills,
   Projects,
   NameAndIcon,
-} from "./cv.d.ts";
+} from "./cv-types";
 import fs from "fs";
 const dataSource: CV = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
 

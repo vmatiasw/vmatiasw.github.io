@@ -7,24 +7,24 @@ export interface CV {
 
 // ------------------------- Common -------------------------
 
-interface NameAndIcon {
+export interface NameAndIcon {
   name: string;
   icon: string;
 }
 
-interface Language extends NameAndIcon {
+export interface Language extends NameAndIcon {
   frameworks?: string[];
   standardLibraries?: string[];
   thirdPartyLibraries?: string[];
   tools?: string[];
 }
-interface Skills {
+export interface Skills {
   languages?: Language[];
   tools?: NameAndIcon[];
   soft?: NameAndIcon[];
 }
 
-interface Location {
+export interface Location {
   address: string;
   postalCode: string;
   city: string;
@@ -33,7 +33,7 @@ interface Location {
 }
 
 // ------------------------- Basics -------------------------
-interface Basics {
+export interface Basics {
   name: string;
   label: string;
   image: string;
@@ -46,12 +46,12 @@ interface Basics {
   profiles: Profile[];
 }
 
-interface SpeakLanguage {
+export interface SpeakLanguage {
   language: string;
   proficiency: "basic" | "intermediate" | "advanced" | "native";
 }
 
-interface Profile {
+export interface Profile {
   icon: string;
   network: string;
   username: string;
@@ -60,7 +60,7 @@ interface Profile {
 
 // ------------------------- Work -------------------------
 
-interface Work {
+export interface Work {
   name: string;
   position: string;
   url: string;
@@ -76,7 +76,7 @@ interface Work {
 }
 
 // ------------------------- Education -------------------------
-interface Education {
+export interface Education {
   institution: string;
   url: string;
   area: string;
@@ -88,7 +88,7 @@ interface Education {
   courses: string[];
 }
 // ------------------------- Projects -------------------------
-interface Projects {
+export interface Projects {
   name: string;
   isActive: boolean;
   description: string;
@@ -98,7 +98,7 @@ interface Projects {
   github?: string;
   image: Image;
 }
-interface Image {
+export interface Image {
   url: string;
   position: string;
 }
