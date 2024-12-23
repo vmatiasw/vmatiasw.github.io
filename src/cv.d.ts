@@ -7,12 +7,12 @@ export interface CV {
 
 // ------------------------- Common -------------------------
 
-interface nameAndIcon {
+interface NameAndIcon {
   name: string;
   icon: string;
 }
 
-interface Language extends nameAndIcon {
+interface Language extends NameAndIcon {
   frameworks?: string[];
   standardLibraries?: string[];
   thirdPartyLibraries?: string[];
@@ -20,8 +20,8 @@ interface Language extends nameAndIcon {
 }
 interface Skills {
   languages?: Language[];
-  tools?: nameAndIcon[];
-  soft?: nameAndIcon[];
+  tools?: NameAndIcon[];
+  soft?: NameAndIcon[];
 }
 
 interface Location {

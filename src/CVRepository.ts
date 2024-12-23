@@ -1,15 +1,16 @@
-import type { CV, Basics, Work, Education, Skills, Projects } from "./cv.d.ts";
+import type { CV, Basics, Work, Education, Skills, Projects, NameAndIcon } from "./cv.d.ts";
 import fs from "fs";
-const dataSource = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
+const dataSource: CV = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
 
 class CVRepository implements CV {
   public basics: Basics = dataSource.basics;
   public work: Work[] = dataSource.work;
   public education: Education[] = dataSource.education;
   public projects: Projects[] = dataSource.projects;
-  public skills: Skills = this.calculateSkills();
+  public skills: Skills = this.extractSkills();
 
-  private calculateSkills(): Skills {
+  // ------------------------- Private -------------------------
+  private extractSkills(): Skills {
     const skills: Skills = {
       languages: [],
       tools: [],
@@ -28,57 +29,34 @@ class CVRepository implements CV {
     items: Array<Work | Education | Projects>,
   ): void {
     items.forEach((item) => {
-      const languages = item.skills?.languages || [];
-      const tools = item.skills?.tools || [];
-      const soft = item.skills?.soft || [];
+      this.addSkills(skills.languages || [], item.skills?.languages);
+      this.addSkills(skills.tools || [], item.skills?.tools);
+      this.addSkills(skills.soft || [], item.skills?.soft);
+    });
+  }
 
-      languages.forEach((language) => {
-        const lang = skills?.languages?.find(
-          (lang) => lang.name === language.name,
-        );
-        if (lang) {
-          lang.frameworks = Array.from(
-            new Set([
-              ...(lang.frameworks || []),
-              ...(language.frameworks || []),
-            ]),
-          );
+  private addSkills(target: NameAndIcon[], source: NameAndIcon[] = []): void {
+    source.forEach((skill) => {
+      const existingSkill = target.find((s) => s.name === skill.name);
+      if (existingSkill) {
+        this.mergeSkill(existingSkill, skill);
+      } else {
+        target.push(skill);
+      }
+    });
+  }
 
-          lang.standardLibraries = Array.from(
-            new Set([
-              ...(lang.standardLibraries || []),
-              ...(language.standardLibraries || []),
-            ]),
-          );
-
-          lang.thirdPartyLibraries = Array.from(
-            new Set([
-              ...(lang.thirdPartyLibraries || []),
-              ...(language.thirdPartyLibraries || []),
-            ]),
-          );
-
-          lang.tools = Array.from(
-            new Set([...(lang.tools || []), ...(language.tools || [])]),
-          );
-        } else {
-          skills.languages?.push(language);
-        }
-      });
-
-      tools.forEach((tool) => {
-        if (!skills.tools?.find((t) => t.name === tool.name)) {
-          skills.tools?.push(tool);
-        }
-      });
-
-      soft.forEach((soft) => {
-        if (!skills.soft?.find((s) => s.name === soft.name)) {
-          skills.soft?.push(soft);
-        }
-      });
+  private mergeSkill(target: any, source: any): void {
+    Object.keys(source).forEach((key) => {
+      if (Array.isArray(source[key])) {
+        target[key] = [...new Set([...(target[key] || []), ...source[key]])];
+      } else {
+        target[key] = source[key];
+      }
     });
   }
 }
 
+// This instance of CVRepository is created once during the build process.
+// The data is pre-calculated and included in the static files, improving performance.
 export default new CVRepository();

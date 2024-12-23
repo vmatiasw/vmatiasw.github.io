@@ -4,8 +4,7 @@
 - [x] crear un repositoty con los datos del cv
 - [x] hacer que la pagina se divida en dos columnas y que bajar en una no haga bajar en otra.
 - [x] eliminar skills, que se calculen segun las que haya en proyectos,...
-- [] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos.
-- [] precargar los datos del repositorio?
+- [x] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos o precargar los datos del repositorio. (ya se hace)
 - [] agregar skills a lo demas
 - [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 
