@@ -1,4 +1,12 @@
-import type { CV, Basics, Work, Education, Skills, Projects, NameAndIcon } from "./cv.d.ts";
+import type {
+  CV,
+  Basics,
+  Work,
+  Education,
+  Skills,
+  Projects,
+  NameAndIcon,
+} from "./cv.d.ts";
 import fs from "fs";
 const dataSource: CV = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
 
