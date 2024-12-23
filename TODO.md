@@ -5,6 +5,7 @@
 - [x] hacer que la pagina se divida en dos columnas y que bajar en una no haga bajar en otra.
 - [x] eliminar skills, que se calculen segun las que haya en proyectos,...
 - [] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos.
+- [] precargar los datos del repositorio?
 - [] agregar skills a lo demas
 - [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 

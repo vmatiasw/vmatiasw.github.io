@@ -44,86 +44,99 @@
       "score": 8.5,
       "courses": [],
       "skills": {
-        "languages": [{
-          "name": "Python",
-          "icon": "simple-icons:python"
-        }, {
-          "name": "Java",
-          "icon": null
-        }, {
-          "name": "C",
-          "icon": "simple-icons:c"
-        }, {
-          "name": "SQL",
-          "icon": "simple-icons:mysql"
-        }, {
-          "name": "Haskell",
-          "icon": "simple-icons:haskell"
-        }, {
-          "name": "C++",
-          "icon": "simple-icons:cplusplus"
-        }, {
-          "name":"MongoDB",
-          "icon":"simple-icons:mongodb"
-        }, {
-          "name":"Assembly",
-          "icon": null
-        }, {
-          "name":"SystemVerilog",
-          "icon": null
-        }],
-        "tools": [{
-          "name": "Quartus",
-          "icon": "simple-icons:quartus"
-        },
-        {
-          "name": "Git",
-          "icon": "mdi:git"
-        },
-        {
-          "name": "GitHub",
-          "icon": "mdi:github"
-        },
-        {
-          "name": "Linux",
-          "icon": "simple-icons:linux"
-        },
-        {
-          "name": "Omnet++",
-          "icon": "simple-icons:omnetplusplus"
-        }],
-        "soft": [{
-          "name": "Problem Solving",
-          "icon": "mdi:lightbulb-on-outline"
-        },
-        {
-          "name": "Teamwork",
-          "icon": "mdi:account-group"
-        },
-        {
-          "name": "Communication",
-          "icon": "mdi:forum"
-        },
-        {
-          "name": "Time Management",
-          "icon": "mdi:timer"
-        },
-        {
-          "name": "Adaptability",
-          "icon": "mdi:adjust"
-        },
-        {
-          "name": "Creativity",
-          "icon": "mdi:palette"
-        },
-        {
-          "name": "Critical Thinking",
-          "icon": "mdi:thought-bubble"
-        },
-        {
-          "name": "Leadership",
-          "icon": "mdi:account-tie"
-        }
+        "languages": [
+          {
+            "name": "Python",
+            "icon": "simple-icons:python"
+          },
+          {
+            "name": "Java",
+            "icon": null
+          },
+          {
+            "name": "C",
+            "icon": "simple-icons:c"
+          },
+          {
+            "name": "SQL",
+            "icon": "simple-icons:mysql"
+          },
+          {
+            "name": "Haskell",
+            "icon": "simple-icons:haskell"
+          },
+          {
+            "name": "C++",
+            "icon": "simple-icons:cplusplus"
+          },
+          {
+            "name": "MongoDB",
+            "icon": "simple-icons:mongodb"
+          },
+          {
+            "name": "Assembly",
+            "icon": null
+          },
+          {
+            "name": "SystemVerilog",
+            "icon": null
+          }
+        ],
+        "tools": [
+          {
+            "name": "Quartus",
+            "icon": "simple-icons:quartus"
+          },
+          {
+            "name": "Git",
+            "icon": "mdi:git"
+          },
+          {
+            "name": "GitHub",
+            "icon": "mdi:github"
+          },
+          {
+            "name": "Linux",
+            "icon": "simple-icons:linux"
+          },
+          {
+            "name": "Omnet++",
+            "icon": "simple-icons:omnetplusplus"
+          }
+        ],
+        "soft": [
+          {
+            "name": "Problem Solving",
+            "icon": "mdi:lightbulb-on-outline"
+          },
+          {
+            "name": "Teamwork",
+            "icon": "mdi:account-group"
+          },
+          {
+            "name": "Communication",
+            "icon": "mdi:forum"
+          },
+          {
+            "name": "Time Management",
+            "icon": "mdi:timer"
+          },
+          {
+            "name": "Adaptability",
+            "icon": "mdi:adjust"
+          },
+          {
+            "name": "Creativity",
+            "icon": "mdi:palette"
+          },
+          {
+            "name": "Critical Thinking",
+            "icon": "mdi:thought-bubble"
+          },
+          {
+            "name": "Leadership",
+            "icon": "mdi:account-tie"
+          }
         ]
       }
     }
@@ -150,22 +163,29 @@
         "Delivered tailored solutions, ensuring client satisfaction and accurate trading insights."
       ],
       "skills": {
-        "languages": [{
-          "name": "Python",
-          "icon": "simple-icons:python",
-          "thirdPartyLibraries": ["yfinance", "matplotlib", "numpy", "scipy"]
-        }, {
-          "name": "Pine Script",
-          "icon": "mdi:chart-line"
-        }],
-        "tools": [{
-          "name": "TradingView",
-          "icon": "mdi:chart-line"
-        }],
-        "soft": [{
-          "name": "Problem Solving",
-          "icon": "mdi:lightbulb-on-outline"
-        }]
+        "languages": [
+          {
+            "name": "Python",
+            "icon": "simple-icons:python",
+            "thirdPartyLibraries": ["yfinance", "matplotlib", "numpy", "scipy"]
+          },
+          {
+            "name": "Pine Script",
+            "icon": "mdi:chart-line"
+          }
+        ],
+        "tools": [
+          {
+            "name": "TradingView",
+            "icon": "mdi:chart-line"
+          }
+        ],
+        "soft": [
+          {
+            "name": "Problem Solving",
+            "icon": "mdi:lightbulb-on-outline"
+          }
+        ]
       }
     }
   ],
@@ -187,25 +207,35 @@
       "url": "https://github.com/vmatiasw/DeltaDB",
       "github": "https://github.com/vmatiasw/DeltaDB",
       "skills": {
-        "languages": [{
-          "name": "Python",
-          "icon": "simple-icons:python",
-          "standardLibraries": ["collections", "typing", "dataclasses", "os", "logging", "contextlib", "abc", "random"],
-          "thirdPartyLibraries": ["SQLAlchemy", "Django", "Pytest"],
-          "tools": ["black"]
-        }],
-        "tools": [
-          {"name": "Git",
-          "icon": "mdi:git"},
-          {"name": "GitHub",
-          "icon": "mdi:github"},
-          {"name": "Linux",
-          "icon": "simple-icons:linux"}
+        "languages": [
+          {
+            "name": "Python",
+            "icon": "simple-icons:python",
+            "standardLibraries": [
+              "collections",
+              "typing",
+              "dataclasses",
+              "os",
+              "logging",
+              "contextlib",
+              "abc",
+              "random"
+            ],
+            "thirdPartyLibraries": ["SQLAlchemy", "Django", "Pytest"],
+            "tools": ["black"]
+          }
         ],
-        "soft": [{
-          "name": "Problem Solving",
-          "icon": "mdi:lightbulb-on-outline"
-        }]
+        "tools": [
+          { "name": "Git", "icon": "mdi:git" },
+          { "name": "GitHub", "icon": "mdi:github" },
+          { "name": "Linux", "icon": "simple-icons:linux" }
+        ],
+        "soft": [
+          {
+            "name": "Problem Solving",
+            "icon": "mdi:lightbulb-on-outline"
+          }
+        ]
       }
     }
   ]

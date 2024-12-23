@@ -1,8 +1,8 @@
 export interface CV {
   basics: Basics;
-  work: Array<Work>;
-  education: Array<Education>;
-  projects: Array<Projects>;
+  work: Work[];
+  education: Education[];
+  projects: Projects[];
 }
 
 // ------------------------- Common -------------------------
@@ -42,8 +42,8 @@ interface Basics {
   url: string;
   summary: string;
   location: Location;
-  languages: Array<SpeakLanguage>;
-  profiles: Array<Profile>;
+  languages: SpeakLanguage[];
+  profiles: Profile[];
 }
 
 interface SpeakLanguage {
@@ -93,7 +93,7 @@ interface Projects {
   isActive: boolean;
   description: string;
   skills: Skills;
-  highlights: Array<string>;
+  highlights: string[];
   url: string;
   github?: string;
   image: Image;
