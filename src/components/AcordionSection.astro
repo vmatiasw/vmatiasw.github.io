@@ -1,6 +1,13 @@
 ---
 import Section from "./Section.astro";
-const { className, title } = Astro.props;
+
+interface Props {
+  className?: string;
+  title: string;
+  children: any;
+}
+
+const { className, title }: Props = Astro.props;
 ---
 
 <Section className={className}>
