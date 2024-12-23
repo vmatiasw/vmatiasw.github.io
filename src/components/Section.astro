@@ -1,5 +1,11 @@
 ---
-const { className, title } = Astro.props;
+interface Props {
+  className?: string;
+  title?: string;
+  children: any;
+}
+
+const { className, title }: Props = Astro.props;
 ---
 
 <section class:list={["flex flex-col gap-4 print:gap-0", className]}>

@@ -8,6 +8,9 @@ const { work } = CV;
 ---
 
 <AcordionSection className={Astro.props.className} title="Experience">
+  { work.length === 0 ? (
+    <p class="text-skin-muted">No experience to show</p>
+  ) : (
   <ul class="flex flex-col">
     {
       work.map(
@@ -116,6 +119,7 @@ const { work } = CV;
       )
     }
   </ul>
+  )}
 </AcordionSection>
 
 <script>

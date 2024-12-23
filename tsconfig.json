@@ -5,6 +5,10 @@
     "paths": {
       "@cv": ["src/CVRepository.ts"],
       "@/*": ["src/*"]
-    }
-  }
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "types": ["astro/client", "react", "react-dom"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
 }
