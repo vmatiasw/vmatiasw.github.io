@@ -17,6 +17,5 @@ rm -rf ./dist
 
 npx prettier --write .
 
-git add .
 git commit -m "${1:1:-1}"
 git push
