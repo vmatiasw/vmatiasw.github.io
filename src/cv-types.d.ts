@@ -96,9 +96,5 @@ export interface Projects {
   highlights: string[];
   url: string;
   github?: string;
-  image: Image;
-}
-export interface Image {
-  url: string;
-  position: string;
+  image?: string;
 }

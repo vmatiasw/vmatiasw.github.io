@@ -192,10 +192,6 @@
   "projects": [
     {
       "name": "DB ORM Test Library",
-      "image": {
-        "url": "https://www.google.com/url?sa=i&url=https%3A%2F%2Frealpython.com%2Fpython-testing%2F&psig=AOvVaw0JDIXCF_vHZxlxxWOX-V35&ust=1734565762784000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCr6pf_r4oDFQAAAAAdAAAAABAE",
-        "position": "container"
-      },
       "isActive": false,
       "description": "A Python library for testing relational databases and ORMs. It captures the database state between two points and compares them to generate complete and accurate tests.",
       "highlights": [

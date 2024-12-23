@@ -22,8 +22,6 @@ const { projects } = CV;
           image,
           skills,
         }) => {
-          const isBackgroundImage = image && image?.position === "background";
-          const isContainerImage = image && image?.position === "container";
           return (
             <div
               role="contentinfo"
@@ -31,17 +29,6 @@ const { projects } = CV;
                 "project-container grid-span-1 group relative flex min-h-80 flex-col overflow-hidden rounded-md bg-skin-button-muted/50 p-5 shadow-sm ring-1 ring-skin-muted",
               ]}
             >
-              {isBackgroundImage && (
-                <a data-src={image.url} data-fancybox="projects">
-                  <div
-                    class:list={[
-                      "absolute inset-0 transform bg-cover bg-center bg-no-repeat opacity-30 blur-sm grayscale transition-all duration-300",
-                      "",
-                    ]}
-                    style={{ backgroundImage: `url(${image.url})` }}
-                  />
-                </a>
-              )}
               <div
                 class={`relative z-10 flex items-center justify-between space-x-[10px]`}
               >
@@ -87,10 +74,10 @@ const { projects } = CV;
                   return <li>{highlight}</li>;
                 })}
               </ul>
-              {isContainerImage && (
-                <a data-src={image.url} data-fancybox="projects">
+              {image && (
+                <a data-src={image} data-fancybox="projects">
                   <Image
-                    src={image.url}
+                    src={image}
                     alt=""
                     width={800}
                     height={1080}
@@ -98,11 +85,7 @@ const { projects } = CV;
                   />
                 </a>
               )}
-              {isBackgroundImage && (
-                <p class="absolute bottom-2 right-2 font-mono text-sm text-skin-muted">
-                  Click blank to enlarge
-                </p>
-              )}
+
               <Skills skills={skills} />
             </div>
           );
