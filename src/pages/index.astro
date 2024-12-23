@@ -37,24 +37,21 @@ const { name, label } = CV.basics;
   <KeyboardManager />
 </Layout>
 
-  <style is:global>
-    main {
-      margin: auto;
-      width: 100%;
+<style is:global>
+  main {
+    margin: auto;
+    width: 100%;
+  }
+  @keyframes slide-enter {
+    0% {
+      transform: translateY(10px);
+      opacity: 0;
     }
-
-    @keyframes slide-enter {
-      0% {
-        transform: translateY(10px);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    to {
+      transform: translateY(0);
+      opacity: 1;
     }
-
+  }
   @media (prefers-reduced-motion: no-preference) {
     .slide-enter,
     .slide-enter-content > *:not(:has(.table-of-contents)) {
