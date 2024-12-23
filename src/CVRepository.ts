@@ -43,19 +43,34 @@ class CVRepository implements CV {
   }
 
   public addSkills(skills: Skills): void {
-    this.mergeSkills(this.selectedSkills.languages || [], skills.languages || []);
+    this.mergeSkills(
+      this.selectedSkills.languages || [],
+      skills.languages || [],
+    );
     this.mergeSkills(this.selectedSkills.tools || [], skills.tools || []);
     this.mergeSkills(this.selectedSkills.soft || [], skills.soft || []);
   }
 
   public removeSkills(skills: Skills): void {
-    this.removeSkillsFromList(this.selectedSkills.languages || [], skills.languages || []);
-    this.removeSkillsFromList(this.selectedSkills.tools || [], skills.tools || []);
-    this.removeSkillsFromList(this.selectedSkills.soft || [], skills.soft || []);
+    this.removeSkillsFromList(
+      this.selectedSkills.languages || [],
+      skills.languages || [],
+    );
+    this.removeSkillsFromList(
+      this.selectedSkills.tools || [],
+      skills.tools || [],
+    );
+    this.removeSkillsFromList(
+      this.selectedSkills.soft || [],
+      skills.soft || [],
+    );
   }
 
   // ------------------------- Private -------------------------
-  private removeSkillsFromList(target: NameAndIcon[], source: NameAndIcon[]): void {
+  private removeSkillsFromList(
+    target: NameAndIcon[],
+    source: NameAndIcon[],
+  ): void {
     source.forEach((skill) => {
       const existingSkill = target.find((s) => s.name === skill.name);
       if (existingSkill) {
@@ -67,7 +82,9 @@ class CVRepository implements CV {
   private removeSkill(target: any, source: any): void {
     Object.keys(source).forEach((key) => {
       if (Array.isArray(source[key])) {
-        target[key] = target[key].filter((item: any) => !source[key].includes(item));
+        target[key] = target[key].filter(
+          (item: any) => !source[key].includes(item),
+        );
       } else {
         delete target[key];
       }

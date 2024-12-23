@@ -36,9 +36,9 @@ control de versiones: git, ...
 
 - [] optimizar con webAssembly y sqlite
 - [] mejorar lo visual:
-    - [] corregir el desplazamiento de la barra de scroll
-    - [] corregir los laterales del avatar
-    - [] elegir solo un tema de color para modo light y dark
+  - [] corregir el desplazamiento de la barra de scroll
+  - [] corregir los laterales del avatar
+  - [] elegir solo un tema de color para modo light y dark
 - [] mejorar el avatar, o mejor poner mi foto y para la pagina un logo?
 - [] mejorar la accesibilidad, investigar,...
 - [] mejorar cv pdf para imprimir: definir un formato de imprecion, por ejemplo solo imprimir las experiencias laborales seleccionadas, o solo N. imprimir skills y cuantas LOC tengo en cada una de ellas? ,... estadisticas? resumir mucha info sobre mi en lo menos posible, definir que es lo importante que este, averiguar y uscar modelos,...
