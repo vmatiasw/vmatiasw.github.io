@@ -1,0 +1,11 @@
+---
+import AcordionSection from "../AcordionSection.astro";
+import CV from "@cv";
+import SkillsMenu from "@/components/SkillsMenu.tsx";
+
+const { skills } = CV;
+---
+
+<AcordionSection className={Astro.props.className} title="Skills">
+  <SkillsMenu skills={skills}/>
+</AcordionSection>

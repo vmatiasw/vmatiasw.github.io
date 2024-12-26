@@ -1,0 +1,14 @@
+---
+import type { Skills } from "@/cv-types";
+import SkillsMenu from "@/components/SkillsMenu.tsx";
+
+interface Props {
+  skills: Skills;
+}
+
+const { skills }: Props = Astro.props;
+---
+
+<section class="mt-2">
+  <SkillsMenu skills={skills}/>
+</section>

@@ -47,45 +47,45 @@
         "languages": [
           {
             "name": "Python",
-            "icon": "simple-icons:python"
+            "icon": "language"
           },
           {
             "name": "Java",
-            "icon": null
+            "icon": "language"
           },
           {
             "name": "C",
-            "icon": "simple-icons:c"
+            "icon": "language"
           },
           {
             "name": "SQL",
-            "icon": "simple-icons:mysql"
+            "icon": "database"
           },
           {
             "name": "Haskell",
-            "icon": "simple-icons:haskell"
+            "icon": "language"
           },
           {
             "name": "C++",
-            "icon": "simple-icons:cplusplus"
+            "icon": "language"
           },
           {
             "name": "MongoDB",
-            "icon": "simple-icons:mongodb"
+            "icon": "database"
           },
           {
             "name": "Assembly",
-            "icon": null
+            "icon": "language"
           },
           {
             "name": "SystemVerilog",
-            "icon": null
+            "icon": "language"
           }
         ],
         "tools": [
           {
             "name": "Quartus",
-            "icon": "simple-icons:quartus"
+            "icon": "tools"
           },
           {
             "name": "Git",
@@ -97,11 +97,11 @@
           },
           {
             "name": "Linux",
-            "icon": "simple-icons:linux"
+            "icon": "linux"
           },
           {
             "name": "Omnet++",
-            "icon": "simple-icons:omnetplusplus"
+            "icon": "network"
           }
         ],
         "soft": [
@@ -166,7 +166,7 @@
         "languages": [
           {
             "name": "Python",
-            "icon": "simple-icons:python",
+            "icon": "language",
             "thirdPartyLibraries": ["yfinance", "matplotlib", "numpy", "scipy"]
           },
           {
@@ -206,7 +206,7 @@
         "languages": [
           {
             "name": "Python",
-            "icon": "simple-icons:python",
+            "icon": "language",
             "standardLibraries": [
               "collections",
               "typing",
@@ -224,7 +224,7 @@
         "tools": [
           { "name": "Git", "icon": "mdi:git" },
           { "name": "GitHub", "icon": "mdi:github" },
-          { "name": "Linux", "icon": "simple-icons:linux" }
+          { "name": "Linux", "icon": "linux" }
         ],
         "soft": [
           {
