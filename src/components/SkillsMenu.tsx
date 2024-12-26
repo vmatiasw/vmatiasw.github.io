@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
-import type { Skills as SkillsType } from '@/cv-types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinux } from '@fortawesome/free-brands-svg-icons';
-import { faCode, faDatabase, faLeaf, faProjectDiagram, faNetworkWired } from '@fortawesome/free-solid-svg-icons';
-import CV from '@cv';
+import React, { useState } from "react";
+import type { Skills as SkillsType } from "@/cv-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinux } from "@fortawesome/free-brands-svg-icons";
+import {
+  faCode,
+  faDatabase,
+  faLeaf,
+  faProjectDiagram,
+  faNetworkWired,
+} from "@fortawesome/free-solid-svg-icons";
+import CV from "@cv";
 
 const iconMap: Record<string, any> = {
   language: faCode,
@@ -25,7 +31,7 @@ const SkillsMenu: React.FC<Props> = ({ skills }) => {
     (skills.languages || []).reduce((acc: Record<string, boolean>, skill) => {
       acc[skill.name] = true;
       return acc;
-    }, {})
+    }, {}),
   );
 
   const toggleSkill = (skills: SkillsType) => {
@@ -59,11 +65,13 @@ const SkillsMenu: React.FC<Props> = ({ skills }) => {
             key={index}
             className={`flex items-center gap-1 rounded-md border border-solid px-1 py-0.5 text-xs print:border-none print:bg-transparent print:p-0 print:text-zinc-800 ${
               isSelected
-                ? 'border-skin-hue/20 bg-skin-button-accent/20 text-skin-hue'
-                : 'border-gray-300 bg-gray-100 text-gray-500'
+                ? "border-skin-hue/20 bg-skin-button-accent/20 text-skin-hue"
+                : "border-gray-300 bg-gray-100 text-gray-500"
             }`}
-            onClick={() => toggleSkill({"languages":[{"name":name, "icon":icon}]})}
-            style={{ cursor: 'pointer' }}
+            onClick={() =>
+              toggleSkill({ languages: [{ name: name, icon: icon }] })
+            }
+            style={{ cursor: "pointer" }}
           >
             {icon && (
               <FontAwesomeIcon
