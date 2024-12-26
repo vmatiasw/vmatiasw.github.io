@@ -24,6 +24,7 @@ const { city, region, address } = location;
         {
           email && (
             <a
+              class="button-hover-effect size-8"
               href={`mailto:${email}`}
               title={`Send email to me`}
               target="_blank"
@@ -42,6 +43,7 @@ const { city, region, address } = location;
           profiles.map(({ network, url, icon }) => {
             return (
               <a
+                class="button-hover-effect size-8"
                 href={url}
                 title={`Visit ${name} profile on ${network}`}
                 target="_blank"
@@ -53,9 +55,7 @@ const { city, region, address } = location;
             );
           })
         }
-        <div
-          class="footer-button group flex h-8 w-9 cursor-pointer items-center justify-center rounded-md text-skin-hue hover:bg-skin-button-accent hover:text-skin-inverted max-sm:hidden print:hidden [&>span]:hover:text-skin-inverted"
-        >
+        <div class="button-hover-effect size-8">
           <Icon name="ri:command-fill" class="h-5 w-5" />
         </div>
       </footer>
@@ -113,11 +113,6 @@ const { city, region, address } = location;
 
   footer {
     @apply mt-2 flex gap-1 text-sm;
-  }
-
-  footer a,
-  footer button {
-    @apply inline-flex size-8 items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent hover:text-skin-inverted;
   }
 
   @media (width <= 700px) {

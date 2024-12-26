@@ -1,6 +1,7 @@
 ---
 import AcordionSection from "../AcordionSection.astro";
 import Skills from "../Skills.astro";
+import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
 import CV from "@cv";
 const { education } = CV;
 ---
@@ -16,7 +17,9 @@ const { education } = CV;
           const years = `${startYear} - ${endYear}`;
 
           return (
-            <div class="flex items-baseline">
+            <div
+              class={`flex items-baseline${getSkillsClassIds(skills)} ${SKILL_FILTER_CLASS}`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

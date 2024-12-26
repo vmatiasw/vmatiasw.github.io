@@ -6,6 +6,9 @@
 - [x] eliminar skills, que se calculen segun las que haya en proyectos,...
 - [x] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos o precargar los datos del repositorio. (ya se hace)
 - [x] agregar skills a lo demas
+- [x] poner al inicio habilidades tecnicas y permitir filtrar en experiencias, proyectos y educacion por donde use o adquiri las mismas.
+- [] eliminar ./push.sh y crear un hook para ello.
+- [] separar en una carpeta los tipos
 - [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 
 ```markdown
@@ -33,8 +36,14 @@
 en herramientas hacer tm un cuadro con por ej:
 control de versiones: git, ...
 
-- [] poner al inicio habilidades tecnicas y permitir filtrar en experiencias y proyectos por donde use o adquiri las mismas.
+- [] optimizar con webAssembly y sqlite
+- [] mejorar lo visual:
+  - [] corregir el desplazamiento de la barra de scroll
+  - [] corregir los laterales del avatar
+  - [] elegir solo un tema de color para modo light y dark
 - [] mejorar el avatar, o mejor poner mi foto y para la pagina un logo?
-- [] mejorar lo visual, elegir solo un tema de color para modo light y dark.
 - [] mejorar la accesibilidad, investigar,...
-- [] mejorar cv pdf para imprimir
+- [] mejorar cv pdf para imprimir: definir un formato de imprecion, por ejemplo solo imprimir las experiencias laborales seleccionadas, o solo N. imprimir skills y cuantas LOC tengo en cada una de ellas? ,... estadisticas? resumir mucha info sobre mi en lo menos posible, definir que es lo importante que este, averiguar y uscar modelos,...
+- [] limpiar o entender codigo que no se que hace aun
+- [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
+- [] agregar este proyecto a mis proyectos
