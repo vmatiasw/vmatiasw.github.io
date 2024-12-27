@@ -7,7 +7,7 @@
 - [x] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos o precargar los datos del repositorio. (ya se hace)
 - [x] agregar skills a lo demas
 - [x] poner al inicio habilidades tecnicas y permitir filtrar en experiencias, proyectos y educacion por donde use o adquiri las mismas.
-- [] eliminar ./push.sh y crear un hook para ello.
+- [x] eliminar ./push.sh y crear un hook para ello.
 - [] separar en una carpeta los tipos
 - [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 
