@@ -58,49 +58,50 @@ const { skills } = CV;
   import { SKILL_FILTER_CLASS } from "../../classes-generator";
 
   document.addEventListener("DOMContentLoaded", () => {
-    const checkAllBtn = document.querySelector(
-      "#skills-check-all-btn",
+    const checkAllBtn = document.getElementById(
+      "skills-check-all-btn",
     ) as HTMLButtonElement;
-    const uncheckAllBtn = document.querySelector(
-      "#skills-uncheck-all-btn",
+    const uncheckAllBtn = document.getElementById(
+      "skills-uncheck-all-btn",
     ) as HTMLButtonElement;
-    const filterCheckbox = document.querySelector(
-      "#skills-filter-checkbox",
+    const filterCheckbox = document.getElementById(
+      "skills-filter-checkbox",
     ) as HTMLInputElement;
-    const checkboxes = document.querySelectorAll(
-      ".skill-checkbox",
-    ) as NodeListOf<HTMLInputElement>;
+    const checkboxes = [
+      ...document.querySelectorAll(".skill-checkbox"),
+    ] as HTMLInputElement[];
+    const skillFilterElements = [
+      ...document.querySelectorAll(`.${SKILL_FILTER_CLASS}`),
+    ] as HTMLElement[];
 
     const toggleCheckboxes = (checked: boolean) => {
       checkboxes.forEach((checkbox) => (checkbox.checked = checked));
+      filterCheckbox.dispatchEvent(new Event("change"));
     };
-
     checkAllBtn.addEventListener("click", () => toggleCheckboxes(true));
-
     uncheckAllBtn.addEventListener("click", () => toggleCheckboxes(false));
 
-    filterCheckbox.addEventListener("change", () => {
-      const selectedSkills = new Set<string>();
-      checkboxes.forEach((checkbox) => {
-        if (checkbox.checked) {
-          selectedSkills.add(checkbox.id);
-        }
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        filterCheckbox.dispatchEvent(new Event("change"));
       });
+    });
 
-      Array.from(document.getElementsByClassName(SKILL_FILTER_CLASS)).forEach(
-        (element) => {
-          (element as HTMLElement).style.display = filterCheckbox.checked
-            ? "none"
-            : "block";
-        },
+    filterCheckbox.addEventListener("change", () => {
+      const displayStyle = filterCheckbox.checked ? "none" : "block";
+      skillFilterElements.forEach(
+        (element) => (element.style.display = displayStyle),
       );
 
       if (filterCheckbox.checked) {
-        selectedSkills.forEach((skill: string) => {
-          Array.from(document.getElementsByClassName(skill)).forEach(
-            (element) => ((element as HTMLElement).style.display = "block"),
-          );
-        });
+        checkboxes
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => checkbox.id)
+          .forEach((skill: string) => {
+            [...document.getElementsByClassName(skill)].forEach(
+              (element) => ((element as HTMLElement).style.display = "block"),
+            );
+          });
       }
     });
   });
