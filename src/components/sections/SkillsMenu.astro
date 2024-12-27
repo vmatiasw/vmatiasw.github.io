@@ -35,21 +35,58 @@ const { skills } = CV;
       })
     }
   </ul>
-  <button id="apply-filter-btn" class="button-hover-effect mt-4">
-    Filter
-  </button>
+  <div class="mt-4 flex gap-4">
+    <label>
+      <input type="checkbox" id="skills-filter-checkbox" />
+      <span class="button-hover-effect">Filter</span>
+    </label>
+    <button
+      id="skills-check-all-btn"
+      class="button-hover-effect"
+      aria-label="Select all skills"
+    >
+      Select All
+    </button>
+    <button
+      id="skills-uncheck-all-btn"
+      class="button-hover-effect"
+      aria-label="Deselect all skills"
+    >
+      Deselect All
+    </button>
+  </div>
 </AcordionSection>
 
 <script>
   import { SKILL_FILTER_CLASS } from "../../classes-generator";
 
   document.addEventListener("DOMContentLoaded", () => {
+    const checkAllBtn = document.querySelector(
+      "#skills-check-all-btn",
+    ) as HTMLButtonElement;
+    const uncheckAllBtn = document.querySelector(
+      "#skills-uncheck-all-btn",
+    ) as HTMLButtonElement;
+    const filterCheckbox = document.querySelector(
+      "#skills-filter-checkbox",
+    ) as HTMLInputElement;
     const checkboxes = document.querySelectorAll(
       ".skill-checkbox",
     ) as NodeListOf<HTMLInputElement>;
-    const filterBtn = document.querySelector("#apply-filter-btn");
 
-    filterBtn?.addEventListener("click", () => {
+    checkAllBtn.addEventListener("click", () => {
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = true;
+      });
+    });
+
+    uncheckAllBtn.addEventListener("click", () => {
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+      });
+    });
+
+    filterCheckbox.addEventListener("change", () => {
       const selectedSkills: Set<string> = new Set();
       checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
@@ -60,15 +97,19 @@ const { skills } = CV;
       const elementsToHide =
         document.getElementsByClassName(SKILL_FILTER_CLASS);
       Array.from(elementsToHide).forEach((element) => {
-        (element as HTMLElement).style.display = "none";
+        (element as HTMLElement).style.display = filterCheckbox.checked
+          ? "none"
+          : "block";
       });
 
-      selectedSkills.forEach((skill) => {
-        const elementsToShow = document.getElementsByClassName(skill);
-        Array.from(elementsToShow).forEach((element) => {
-          (element as HTMLElement).style.display = "block";
+      if (filterCheckbox.checked) {
+        selectedSkills.forEach((skill) => {
+          const elementsToShow = document.getElementsByClassName(skill);
+          Array.from(elementsToShow).forEach((element) => {
+            (element as HTMLElement).style.display = "block";
+          });
         });
-      });
+      }
     });
   });
 </script>

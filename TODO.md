@@ -8,7 +8,7 @@
 - [x] agregar skills a lo demas
 - [x] poner al inicio habilidades tecnicas y permitir filtrar en experiencias, proyectos y educacion por donde use o adquiri las mismas.
 - [x] eliminar ./push.sh y crear un hook para ello.
-- [] separar en una carpeta los tipos
+- [x] boton de seleccionar todo y des seleccionar todo. y que filter se pueda seleccionar y desseleccionar
 - [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
 
 ```markdown
@@ -44,6 +44,8 @@ control de versiones: git, ...
 - [] mejorar el avatar, o mejor poner mi foto y para la pagina un logo?
 - [] mejorar la accesibilidad, investigar,...
 - [] mejorar cv pdf para imprimir: definir un formato de imprecion, por ejemplo solo imprimir las experiencias laborales seleccionadas, o solo N. imprimir skills y cuantas LOC tengo en cada una de ellas? ,... estadisticas? resumir mucha info sobre mi en lo menos posible, definir que es lo importante que este, averiguar y uscar modelos,...
+- [] agregar boton para compartir link
+- [] agregar vista previa en el link de la pagina
 - [] limpiar o entender codigo que no se que hace aun
 - [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
 - [] agregar este proyecto a mis proyectos
