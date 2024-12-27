@@ -12,27 +12,24 @@ const { skills } = CV;
     class="inline-flex flex-wrap gap-4 print:mt-4 [&>li>svg]:text-skin-hue [&>li]:text-sm"
   >
     {
-      skills.languages?.map((language) => {
-        const { name, icon } = language;
-        return (
-          <li>
-            <input
-              type="checkbox"
-              id={getclassId("languages", name)}
-              value={name}
-              class="skill-checkbox hidden"
-              checked
-            />
-            <label
-              for={getclassId("languages", name)}
-              class="flex cursor-pointer items-center gap-1 rounded-md border border-solid border-skin-hue/20 bg-skin-button-accent/20 px-1 py-0.5 text-xs text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800"
-            >
-              {icon && <Icon name={icon} width={16} height={16} />}
-              <span>{name}</span>
-            </label>
-          </li>
-        );
-      })
+      skills.languages?.map(({ name, icon }) => (
+        <li>
+          <input
+            type="checkbox"
+            id={getclassId("languages", name)}
+            value={name}
+            class="skill-checkbox hidden"
+            checked
+          />
+          <label
+            for={getclassId("languages", name)}
+            class="flex cursor-pointer items-center gap-1 rounded-md border border-solid border-skin-hue/20 bg-skin-button-accent/20 px-1 py-0.5 text-xs text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800"
+          >
+            {icon && <Icon name={icon} width={16} height={16} />}
+            <span>{name}</span>
+          </label>
+        </li>
+      ))
     }
   </ul>
   <div class="mt-4 flex gap-4">
@@ -74,40 +71,35 @@ const { skills } = CV;
       ".skill-checkbox",
     ) as NodeListOf<HTMLInputElement>;
 
-    checkAllBtn.addEventListener("click", () => {
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = true;
-      });
-    });
+    const toggleCheckboxes = (checked: boolean) => {
+      checkboxes.forEach((checkbox) => (checkbox.checked = checked));
+    };
 
-    uncheckAllBtn.addEventListener("click", () => {
-      checkboxes.forEach((checkbox) => {
-        checkbox.checked = false;
-      });
-    });
+    checkAllBtn.addEventListener("click", () => toggleCheckboxes(true));
+
+    uncheckAllBtn.addEventListener("click", () => toggleCheckboxes(false));
 
     filterCheckbox.addEventListener("change", () => {
-      const selectedSkills: Set<string> = new Set();
+      const selectedSkills = new Set<string>();
       checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
           selectedSkills.add(checkbox.id);
         }
       });
 
-      const elementsToHide =
-        document.getElementsByClassName(SKILL_FILTER_CLASS);
-      Array.from(elementsToHide).forEach((element) => {
-        (element as HTMLElement).style.display = filterCheckbox.checked
-          ? "none"
-          : "block";
-      });
+      Array.from(document.getElementsByClassName(SKILL_FILTER_CLASS)).forEach(
+        (element) => {
+          (element as HTMLElement).style.display = filterCheckbox.checked
+            ? "none"
+            : "block";
+        },
+      );
 
       if (filterCheckbox.checked) {
-        selectedSkills.forEach((skill) => {
-          const elementsToShow = document.getElementsByClassName(skill);
-          Array.from(elementsToShow).forEach((element) => {
-            (element as HTMLElement).style.display = "block";
-          });
+        selectedSkills.forEach((skill: string) => {
+          Array.from(document.getElementsByClassName(skill)).forEach(
+            (element) => ((element as HTMLElement).style.display = "block"),
+          );
         });
       }
     });
