@@ -1,7 +1,7 @@
 ---
-import AcordionSection from "../AcordionSection.astro";
+import Section from "../Section.astro";
 import { Icon } from "astro-icon/components";
-import Skills from "../Skills.astro";
+import ItemSkills from "../ItemSkills.astro";
 import CV from "@cv";
 import { Image } from "astro:assets";
 import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
@@ -9,7 +9,7 @@ import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
 const { projects } = CV;
 ---
 
-<AcordionSection className={Astro.props.className} title="Projects">
+<Section className={Astro.props.className} title="Projects">
   <div class="grid grid-cols-1 gap-3 md:grid-cols-2 print:flex print:flex-col">
     {
       projects.map(
@@ -87,14 +87,14 @@ const { projects } = CV;
                 </a>
               )}
 
-              <Skills skills={skills} />
+              <ItemSkills skills={skills} />
             </div>
           );
         },
       )
     }
   </div>
-</AcordionSection>
+</Section>
 <script>
   import { Fancybox } from "@fancyapps/ui";
   Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });

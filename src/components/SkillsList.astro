@@ -1,0 +1,50 @@
+---
+import type { NameAndIcon } from "@/cv-types";
+import { Icon } from "astro-icon/components";
+import { getclassId } from "../classes-generator";
+
+interface Props {
+  items: NameAndIcon[];
+  type: "languages" | "tools";
+  input?: boolean;
+}
+
+const { items, type, input = false }: Props = Astro.props;
+
+---
+
+<ul class="flex flex-wrap gap-2">
+  {
+    items.map(({ name, icon }) =>
+      input ? (
+        <li class="cursor-pointer">
+          <input
+            type="checkbox"
+            id={getclassId(type, name)}
+            value={name}
+            class="input-skill-box hidden"
+            checked
+          />
+          <label
+            for={getclassId(type, name)}
+            class="flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm"
+          >
+            {icon && <Icon name={icon} width={16} height={16} />}
+            <span>{name}</span>
+          </label>
+        </li>
+      ) : (
+        <li class={`child-${getclassId(type, name)} child-skill-box flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm`}>
+          {icon && <Icon name={icon} width={16} height={16} />}
+          <span>{name}</span>
+        </li>
+      ),
+    )
+  }
+</ul>
+
+<style> 
+  .input-skill-box:not(:checked) + label {
+    background-color: transparent;
+  }
+</style>

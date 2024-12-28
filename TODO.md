@@ -9,7 +9,9 @@
 - [x] poner al inicio habilidades tecnicas y permitir filtrar en experiencias, proyectos y educacion por donde use o adquiri las mismas.
 - [x] eliminar ./push.sh y crear un hook para ello.
 - [x] boton de seleccionar todo y des seleccionar todo. y que filter se pueda seleccionar y desseleccionar
-- [] poner al inicio skills y subdividir en habilidades tecnicas, blandas... por colores. En habilidades tecnicas poner lo siguiente aprox:
+- [x] sacar acordion sections
+- [x] poner al inicio skills y subdividir en habilidades tecnicas.
+- [] En habilidades tecnicas poner lo siguiente aprox:
 
 ```markdown
 ## 🚀 Tecnologías
@@ -36,7 +38,6 @@
 en herramientas hacer tm un cuadro con por ej:
 control de versiones: git, ...
 
-- [] optimizar con webAssembly y sqlite
 - [] mejorar lo visual:
   - [] corregir el desplazamiento de la barra de scroll
   - [] corregir los laterales del avatar
@@ -47,5 +48,6 @@ control de versiones: git, ...
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina
 - [] limpiar o entender codigo que no se que hace aun
+- [] poner soft skills?
 - [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
 - [] agregar este proyecto a mis proyectos

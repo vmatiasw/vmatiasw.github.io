@@ -85,7 +85,7 @@
         "tools": [
           {
             "name": "Quartus",
-            "icon": "simple-icons:quartus"
+            "icon": null
           },
           {
             "name": "Git",
@@ -101,7 +101,7 @@
           },
           {
             "name": "Omnet++",
-            "icon": "simple-icons:omnetplusplus"
+            "icon": null
           }
         ],
         "soft": [

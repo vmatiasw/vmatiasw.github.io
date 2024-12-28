@@ -1,6 +1,6 @@
 ---
-import AcordionSection from "../AcordionSection.astro";
-import Skills from "../Skills.astro";
+import Section from "../Section.astro";
+import ItemSkills from "../ItemSkills.astro";
 import CV from "@cv";
 import { Icon } from "astro-icon/components";
 import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
@@ -8,7 +8,7 @@ import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
 const { work } = CV;
 ---
 
-<AcordionSection className={Astro.props.className} title="Experience">
+<Section className={Astro.props.className} title="Experience">
   <ul class="flex flex-col">
     {
       work.map(
@@ -106,7 +106,7 @@ const { work } = CV;
                         <span class="expand-text">Show more</span>
                         <Icon name="ri:arrow-up-s-line" class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out group-data-[expanded=true]:rotate-180" width={24} height={24}></Icon>
                       </button>
-                      <Skills skills={skills} />
+                      <ItemSkills skills={skills} />
                     )}
                   </div>
                 </div>
@@ -117,7 +117,7 @@ const { work } = CV;
       )
     }
   </ul>
-</AcordionSection>
+</Section>
 
 <script>
   const expandButton = document.querySelectorAll(".expand-button");

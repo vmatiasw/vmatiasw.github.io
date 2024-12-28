@@ -39,7 +39,7 @@ class CVRepository implements CV {
     items.forEach((item) => {
       this.addSkills(skills.languages || [], item.skills?.languages);
       this.addSkills(skills.tools || [], item.skills?.tools);
-      this.addSkills(skills.soft || [], item.skills?.soft);
+      // this.addSkills(skills.soft || [], item.skills?.soft);
     });
   }
 

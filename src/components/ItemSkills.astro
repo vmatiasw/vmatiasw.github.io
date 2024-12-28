@@ -1,0 +1,17 @@
+---
+import type { Skills } from "@/cv-types";
+import SkillsList from "./SkillsList.astro";
+
+interface Props {
+  skills: Skills;
+}
+
+const { skills }: Props = Astro.props;
+---
+
+<section class="mt-2 print:hidden">
+  <div class="flex flex-col gap-2">
+    <SkillsList items={skills.tools || []} type="tools" />
+    <SkillsList items={skills.languages || []} type="languages" />
+  </div>
+</section>

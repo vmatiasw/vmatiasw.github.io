@@ -1,37 +1,14 @@
 ---
-import AcordionSection from "../AcordionSection.astro";
+import Section from "../Section.astro";
 import CV from "@cv";
-import { Icon } from "astro-icon/components";
-import { getclassId } from "../../classes-generator";
+import SubSkillMenu from "../SubSkillMenu.astro";
 
 const { skills } = CV;
 ---
 
-<AcordionSection className={Astro.props.className} title="Skills">
-  <ul
-    class="inline-flex flex-wrap gap-4 print:mt-4 [&>li>svg]:text-skin-hue [&>li]:text-sm"
-  >
-    {
-      skills.languages?.map(({ name, icon }) => (
-        <li>
-          <input
-            type="checkbox"
-            id={getclassId("languages", name)}
-            value={name}
-            class="skill-checkbox hidden"
-            checked
-          />
-          <label
-            for={getclassId("languages", name)}
-            class="flex cursor-pointer items-center gap-1 rounded-md border border-solid border-skin-hue/20 bg-skin-button-accent/20 px-1 py-0.5 text-xs text-skin-hue print:border-none print:bg-transparent print:p-0 print:text-zinc-800"
-          >
-            {icon && <Icon name={icon} width={16} height={16} />}
-            <span>{name}</span>
-          </label>
-        </li>
-      ))
-    }
-  </ul>
+<Section className={Astro.props.className} title="Skills">
+  <SubSkillMenu title="Tools" type="tools" items={skills.tools || []} />
+  <SubSkillMenu title="Languages" type="languages" items={skills.languages || []} />
   <div class="mt-4 flex gap-4">
     <label>
       <input type="checkbox" id="skills-filter-checkbox" />
@@ -52,7 +29,7 @@ const { skills } = CV;
       Deselect All
     </button>
   </div>
-</AcordionSection>
+</Section>
 
 <script>
   import { SKILL_FILTER_CLASS } from "../../classes-generator";
@@ -67,48 +44,55 @@ const { skills } = CV;
     const filterCheckbox = document.getElementById(
       "skills-filter-checkbox",
     ) as HTMLInputElement;
-    const checkboxes = [
-      ...document.querySelectorAll(".skill-checkbox"),
+
+    const menuSkillBoxes = [
+      ...document.querySelectorAll(".input-skill-box"),
     ] as HTMLInputElement[];
+    const childSkillBoxes = [
+      ...document.querySelectorAll(".child-skill-box"),
+    ] as HTMLElement[];
     const skillFilterElements = [
-      ...document.querySelectorAll(`.${SKILL_FILTER_CLASS}`),
+      ...document.querySelectorAll(`.${SKILL_FILTER_CLASS}`), // TODO: sacar SKILL_FILTER_CLASS
     ] as HTMLElement[];
 
     const toggleCheckboxes = (checked: boolean) => {
-      checkboxes.forEach((checkbox) => (checkbox.checked = checked));
+      menuSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
       filterCheckbox.dispatchEvent(new Event("change"));
     };
     checkAllBtn.addEventListener("click", () => toggleCheckboxes(true));
     uncheckAllBtn.addEventListener("click", () => toggleCheckboxes(false));
 
-    checkboxes.forEach((checkbox) => {
+    menuSkillBoxes.forEach((checkbox) => {
       checkbox.addEventListener("change", () => {
         filterCheckbox.dispatchEvent(new Event("change"));
       });
     });
 
     filterCheckbox.addEventListener("change", () => {
-      const displayStyle = filterCheckbox.checked ? "none" : "block";
+      const elemStyle = filterCheckbox.checked ? "none" : "block";
+      const skillStyle = filterCheckbox.checked ? "transparent" : "";
+
       skillFilterElements.forEach(
-        (element) => (element.style.display = displayStyle),
+        (element) => (element.style.display = elemStyle),
       );
 
+      childSkillBoxes.forEach((element) => {
+        (element as HTMLElement).style.backgroundColor = skillStyle;
+      });
+
       if (filterCheckbox.checked) {
-        checkboxes
+        menuSkillBoxes
           .filter((checkbox) => checkbox.checked)
           .map((checkbox) => checkbox.id)
-          .forEach((skill: string) => {
-            [...document.getElementsByClassName(skill)].forEach(
+          .forEach((skillClassId: string) => {
+            [...document.getElementsByClassName(skillClassId)].forEach(
               (element) => ((element as HTMLElement).style.display = "block"),
+            );
+            [...document.getElementsByClassName("child-"+skillClassId)].forEach(
+              (element) => ((element as HTMLElement).style.backgroundColor = ""),
             );
           });
       }
     });
   });
 </script>
-
-<style>
-  .skill-checkbox:not(:checked) + label {
-    background-color: transparent;
-  }
-</style>

@@ -10,11 +10,11 @@ export function getSkillsClassIds(skills: Skills): string {
   const languages: string[] =
     skills.languages?.map((skill) => getclassId("languages", skill.name)) || [];
 
-  // const tools = skills.tools
-  // ?.map((skill) => getclassId("tools", skill.name)) || [];
+  const tools = skills.tools
+  ?.map((skill) => getclassId("tools", skill.name)) || [];
 
   // const soft = skills.soft
-  // ?.map((skill) => getclassId("soft", skill.name)) || [];
-  // , ...tools, ...soft
-  return [...languages].join(" ");
+  // ?.map((skill) => getclassId("soft", skill.name)) || [];, ...soft
+  
+  return [...languages, ...tools].join(" ");
 }
