@@ -155,12 +155,18 @@
   }
 }
 
+@media (hover: none) {
+  *:hover {
+    all: unset;
+  }
+}
+
 @layer components {
   .section-title {
     @apply relative flex w-full items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl;
   }
   .button-hover-effect {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:focus:bg-skin-button-accent hover:focus:text-skin-inverted;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent/20;
   }
 
   input[type="checkbox"]:checked + .button-hover-effect {
