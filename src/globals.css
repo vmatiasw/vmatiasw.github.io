@@ -165,6 +165,9 @@
   .section-title {
     @apply relative flex w-full items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl;
   }
+  .skill-box {
+    @apply flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm;
+  }
   .button-hover-effect {
     @apply inline-flex cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent/20;
   }

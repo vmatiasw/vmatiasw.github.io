@@ -27,14 +27,14 @@ const { items, type, input = false }: Props = Astro.props;
           />
           <label
             for={getclassId(type, name)}
-            class="flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm"
+            class="skill-box"
           >
             {icon && <Icon name={icon} width={16} height={16} />}
             <span>{name}</span>
           </label>
         </li>
       ) : (
-        <li class={`child-${getclassId(type, name)} child-skill-box flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm`}>
+        <li class={`child-${getclassId(type, name)} child-skill-box skill-box`}>
           {icon && <Icon name={icon} width={16} height={16} />}
           <span>{name}</span>
         </li>
