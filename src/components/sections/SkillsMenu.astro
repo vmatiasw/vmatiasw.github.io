@@ -12,24 +12,30 @@ const { skills } = CV;
   <div class="mt-4 flex gap-4">
     <label>
       <input type="checkbox" id="skills-filter-checkbox" />
-      <span class="button-hover-effect">Filter</span>
+      <span class="button-hover-effect skills-menu-button">Filter</span>
     </label>
     <button
       id="skills-check-all-btn"
-      class="button-hover-effect"
+      class="button-hover-effect skills-menu-button"
       aria-label="Select all skills"
     >
       Select All
     </button>
     <button
       id="skills-uncheck-all-btn"
-      class="button-hover-effect"
+      class="button-hover-effect skills-menu-button"
       aria-label="Deselect all skills"
     >
       Deselect All
     </button>
   </div>
 </Section>
+
+<style>
+  .skills-menu-button {
+    box-shadow: 0 0 4px;
+  }
+</style>
 
 <script>
   import { SKILL_FILTER_CLASS } from "../../classes-generator";
@@ -88,8 +94,11 @@ const { skills } = CV;
             [...document.getElementsByClassName(skillClassId)].forEach(
               (element) => ((element as HTMLElement).style.display = "block"),
             );
-            [...document.getElementsByClassName("child-"+skillClassId)].forEach(
-              (element) => ((element as HTMLElement).style.backgroundColor = ""),
+            [
+              ...document.getElementsByClassName("child-" + skillClassId),
+            ].forEach(
+              (element) =>
+                ((element as HTMLElement).style.backgroundColor = ""),
             );
           });
       }
