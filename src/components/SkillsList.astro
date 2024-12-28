@@ -7,43 +7,44 @@ interface Props {
   items: NameAndIcon[];
   type: "languages" | "tools";
   input?: boolean;
+  title?: string;
 }
 
-const { items, type, input = false }: Props = Astro.props;
-
+const { items, type, input = false, title }: Props = Astro.props;
 ---
 
-<ul class="flex flex-wrap gap-2">
-  {
-    items.map(({ name, icon }) =>
-      input ? (
-        <li class="cursor-pointer">
-          <input
-            type="checkbox"
-            id={getclassId(type, name)}
-            value={name}
-            class="input-skill-box hidden"
-            checked
-          />
-          <label
-            for={getclassId(type, name)}
-            class="skill-box"
+<div>
+  {title && <h2 class="mb-2 text-lg font-semibold text-skin-hue">{title}</h2>}
+  <ul class="flex flex-wrap gap-2">
+    {
+      items.map(({ name, icon }) =>
+        input ? (
+          <li class="cursor-pointer">
+            <input
+              type="checkbox"
+              id={getclassId(type, name)}
+              value={name}
+              class="input-skill-box hidden"
+              checked
+            />
+            <label for={getclassId(type, name)} class="skill-box">
+              {icon && <Icon name={icon} width={16} height={16} />}
+              <span>{name}</span>
+            </label>
+          </li>
+        ) : (
+          <li
+            class={`child-${getclassId(type, name)} child-skill-box skill-box`}
           >
             {icon && <Icon name={icon} width={16} height={16} />}
             <span>{name}</span>
-          </label>
-        </li>
-      ) : (
-        <li class={`child-${getclassId(type, name)} child-skill-box skill-box`}>
-          {icon && <Icon name={icon} width={16} height={16} />}
-          <span>{name}</span>
-        </li>
-      ),
-    )
-  }
-</ul>
-
-<style> 
+          </li>
+        ),
+      )
+    }
+  </ul>
+</div>
+<style>
   .input-skill-box:not(:checked) + label {
     background-color: transparent;
   }

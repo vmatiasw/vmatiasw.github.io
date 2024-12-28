@@ -1,14 +1,14 @@
 ---
 import Section from "../Section.astro";
 import CV from "@cv";
-import SubSkillMenu from "../SubSkillMenu.astro";
+import SkillsList from "../SkillsList.astro";
 
 const { skills } = CV;
 ---
 
 <Section className={Astro.props.className} title="Skills">
-  <SubSkillMenu title="Tools" type="tools" items={skills.tools || []} />
-  <SubSkillMenu title="Languages" type="languages" items={skills.languages || []} />
+  <SkillsList title="Tools" type="tools" items={skills.tools || []} input={true} />
+  <SkillsList title="Languages" type="languages" items={skills.languages || []} input={true} />
   <div class="mt-4 flex gap-4">
     <label>
       <input type="checkbox" id="skills-filter-checkbox" />
