@@ -38,8 +38,6 @@ const { skills } = CV;
 </style>
 
 <script>
-  import { SKILL_FILTER_CLASS } from "../../classes-generator";
-
   document.addEventListener("DOMContentLoaded", () => {
     const checkAllBtn = document.getElementById(
       "skills-check-all-btn",
@@ -58,7 +56,7 @@ const { skills } = CV;
       ...document.querySelectorAll(".child-skill-box"),
     ] as HTMLElement[];
     const skillFilterElements = [
-      ...document.querySelectorAll(`.${SKILL_FILTER_CLASS}`), // TODO: sacar SKILL_FILTER_CLASS
+      ...document.querySelectorAll(`.skill-filter-item`), 
     ] as HTMLElement[];
 
     const toggleCheckboxes = (checked: boolean) => {

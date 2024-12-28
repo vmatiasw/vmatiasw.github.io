@@ -1,7 +1,7 @@
 ---
 import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
-import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
+import { getSkillsClassIds } from "../../classes-generator";
 import CV from "@cv";
 const { education } = CV;
 ---
@@ -18,7 +18,7 @@ const { education } = CV;
 
           return (
             <div
-              class={`flex items-baseline${getSkillsClassIds(skills)} ${SKILL_FILTER_CLASS}`}
+              class={`flex items-baseline${getSkillsClassIds(skills)} skill-filter-item`}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 import ItemSkills from "../ItemSkills.astro";
 import CV from "@cv";
 import { Image } from "astro:assets";
-import { getSkillsClassIds, SKILL_FILTER_CLASS } from "../../classes-generator";
+import { getSkillsClassIds } from "../../classes-generator";
 
 const { projects } = CV;
 ---
@@ -27,7 +27,7 @@ const { projects } = CV;
             <div
               role="contentinfo"
               class:list={[
-                `project-container grid-span-1 group relative flex min-h-80 flex-col overflow-hidden rounded-md bg-skin-button-muted/50 p-5 shadow-sm ring-1 ring-skin-muted ${getSkillsClassIds(skills)} ${SKILL_FILTER_CLASS}`,
+                `project-container grid-span-1 group relative flex min-h-80 flex-col overflow-hidden rounded-md bg-skin-button-muted/50 p-5 shadow-sm ring-1 ring-skin-muted ${getSkillsClassIds(skills)} skill-filter-item`,
               ]}
             >
               <div

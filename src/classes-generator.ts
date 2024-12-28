@@ -1,7 +1,5 @@
 import type { Skills } from "./cv-types";
 
-export const SKILL_FILTER_CLASS: string = "skill-filterer";
-
 export function getclassId(type: string, name: string): string {
   return type.toLowerCase() + ":" + name.toLowerCase().replace(/\s+/g, "-");
 }
