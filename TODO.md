@@ -11,7 +11,7 @@
 - [x] boton de seleccionar todo y des seleccionar todo. y que filter se pueda seleccionar y desseleccionar
 - [x] sacar acordion sections
 - [x] poner al inicio skills y subdividir en habilidades tecnicas.
-- [] En habilidades tecnicas poner lo siguiente aprox:
+- [] En habilidades tecnicas poner lo siguiente aprox: (poner una ayuda en technologies que diga que sin frameworks, y librerias no estadard)
 
 ```markdown
 ## 🚀 Tecnologías

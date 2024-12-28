@@ -171,7 +171,7 @@
           {
             "name": "Python",
             "icon": "simple-icons:python",
-            "thirdPartyLibraries": ["yfinance", "matplotlib", "numpy", "scipy"]
+            "technologies": ["yfinance", "matplotlib", "numpy", "scipy"]
           },
           {
             "name": "Pine Script",
@@ -211,18 +211,7 @@
           {
             "name": "Python",
             "icon": "simple-icons:python",
-            "standardLibraries": [
-              "collections",
-              "typing",
-              "dataclasses",
-              "os",
-              "logging",
-              "contextlib",
-              "abc",
-              "random"
-            ],
-            "thirdPartyLibraries": ["SQLAlchemy", "Django", "Pytest"],
-            "tools": ["black"]
+            "technologies": ["SQLAlchemy", "Django", "Pytest"]
           }
         ],
         "tools": [

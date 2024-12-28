@@ -13,11 +13,9 @@ export interface NameAndIcon {
 }
 
 export interface Language extends NameAndIcon {
-  frameworks?: string[];
-  standardLibraries?: string[];
-  thirdPartyLibraries?: string[];
-  tools?: string[];
+  technologies?: string[];
 }
+
 export interface Skills {
   languages?: Language[];
   tools?: NameAndIcon[];
