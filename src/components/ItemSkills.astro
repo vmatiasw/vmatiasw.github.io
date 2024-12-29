@@ -13,5 +13,15 @@ const { skills }: Props = Astro.props;
   <div class="flex flex-col gap-2">
     <SkillsList items={skills.tools || []} type="tools" />
     <SkillsList items={skills.languages || []} type="languages" />
+    {skills.languages?.map((language) => {
+      const technologies = language.technologies;
+      return technologies ? (
+      <SkillsList
+        groupBy={language.name}
+        type="languages"
+        items={technologies}
+      />
+      ) : null;
+    })}
   </div>
 </section>

@@ -3,7 +3,6 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@cv": ["src/CVRepository.ts"],
       "@/*": ["src/*"]
     }
   }

@@ -162,8 +162,11 @@
 }
 
 @layer components {
-  .section-title {
+  .section-title1 {
     @apply relative flex w-full items-center gap-3 pb-4 text-3xl print:gap-1 print:pb-0 print:text-xl;
+  }
+  .section-title2 {
+    @apply mb-2 text-lg font-semibold text-skin-hue print:text-base;
   }
   .skill-box {
     @apply flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm;
