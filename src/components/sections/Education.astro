@@ -4,10 +4,14 @@ import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
 
-const { education } = CV;
+const { education, educationSkills } = CV;
 ---
 
-<Section className={Astro.props.className} title="Education">
+<Section
+  className={Astro.props.className}
+  title="Education"
+  filterClassNames={getFilterClassNames(educationSkills)}
+>
   <ul class="space-y-4 py-3 print:space-y-0">
     {
       education.map(

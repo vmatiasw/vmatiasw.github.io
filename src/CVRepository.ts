@@ -1,96 +1,89 @@
-import type {
-  CV,
-  Basics,
-  Work,
-  Education,
-  Skills,
-  Projects,
-  NameAndIcon,
-  Language,
-} from "./cv-types";
+import type { CV, Basics, Work, Education, Skills, Projects } from "./cv-types";
 import fs from "fs";
 
 const dataSource: CV = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
 
-type CVSkill = NameAndIcon;
-type CVLanguage = Language;
-type SkillMap = { [name: string]: CVSkill };
-type LanguageMap = { [name: string]: CVLanguage };
-
-interface CVSkills {
-  languages: LanguageMap;
-  tools: SkillMap;
+interface CVSkill {
+  name: string;
+  [key: string]: any;
 }
 
+type CVSkills = Skills;
 class CVRepository implements CV {
   public readonly basics: Basics;
   public readonly work: Work[];
   public readonly education: Education[];
   public readonly projects: Projects[];
-  private skills: CVSkills;
+  public readonly workSkills: CVSkills;
+  public readonly educationSkills: CVSkills;
+  public readonly projectsSkills: CVSkills;
+  public readonly skills: CVSkills;
 
   constructor(data: CV) {
     this.basics = data.basics;
     this.work = data.work;
     this.education = data.education;
     this.projects = data.projects;
-    this.skills = this.collectAllSkills();
-  }
-
-  public get skillLanguages(): CVLanguage[] {
-    return Object.values(this.skills.languages);
-  }
-
-  public getLanguageTecnologies(language: CVLanguage): string[] | null {
-    if (!language.technologies) {
-      return null;
-    }
-    return [...language.technologies];
-  }
-
-  public get skillTools(): CVSkill[] {
-    return Object.values(this.skills.tools);
+    this.workSkills = this.collectAllSkills([data.work]);
+    this.educationSkills = this.collectAllSkills([data.education]);
+    this.projectsSkills = this.collectAllSkills([data.projects]);
+    this.skills = this.collectAllSkills([
+      data.work,
+      data.education,
+      data.projects,
+    ]);
   }
 
   // ------------------------- Private -------------------------
-  private collectAllSkills(): CVSkills {
-    const allSkills: CVSkills = { languages: {}, tools: {} };
+  private collectAllSkills(
+    source: (Work | Education | Projects)[][],
+  ): CVSkills {
+    const collectedSkills: CVSkills = { languages: [], tools: [] };
 
-    const source: Skills[] = [
-      ...this.work.map((item) => ({ ...item.skills })),
-      ...this.education.map((item) => ({ ...item.skills })),
-      ...this.projects.map((item) => ({ ...item.skills })),
-    ];
+    const skillsSource: Skills[] = source.flatMap((subArray) =>
+      subArray.map((item) => ({ ...item.skills })),
+    );
 
-    source.forEach((skill) => {
-      this.addSkillsToCategory(allSkills.languages, skill.languages);
-      this.addSkillsToCategory(allSkills.tools, skill.tools);
+    skillsSource.forEach((skill) => {
+      this.mergeSkills(collectedSkills.languages, skill.languages);
+      this.mergeSkills(collectedSkills.tools, skill.tools);
     });
 
-    return allSkills;
+    return collectedSkills;
   }
 
-  private addSkillsToCategory(
-    target: SkillMap,
-    source: NameAndIcon[] = [],
+  private mergeSkills(
+    target: CVSkill[] = [],
+    sourceSkills: CVSkill[] = [],
   ): void {
-    source.forEach((skill) => {
-      if (target[skill.name]) {
-        const existingSkill = { ...target[skill.name] };
-        this.mergeSkillProperties(existingSkill, skill);
-        target[skill.name] = existingSkill;
+    const targetMap: Map<string, CVSkill> = new Map(
+      target.map((skill) => [skill.name, skill]),
+    );
+    sourceSkills.forEach((skill) => {
+      const existingSkill = targetMap.get(skill.name);
+      if (existingSkill) {
+        const updatedSkill = { ...existingSkill };
+        this.mergeSkillProperties(updatedSkill, skill);
+        targetMap.set(skill.name, updatedSkill);
       } else {
-        target[skill.name] = { ...skill };
+        targetMap.set(skill.name, { ...skill });
       }
     });
+    target.length = 0;
+    target.push(...Array.from(targetMap.values()));
   }
 
-  private mergeSkillProperties(target: any, source: any): void {
-    Object.keys(source).forEach((key) => {
-      if (Array.isArray(source[key])) {
-        target[key] = [...new Set([...(target[key] || []), ...source[key]])];
+  private mergeSkillProperties(
+    targetSkill: CVSkill,
+    sourceSkill: CVSkill,
+  ): void {
+    Object.keys(sourceSkill).forEach((key) => {
+      if (Array.isArray(sourceSkill[key])) {
+        targetSkill[key] = [
+          ...new Set([...(targetSkill[key] || []), ...sourceSkill[key]]),
+        ];
       } else {
-        target[key] = source[key];
+        targetSkill[key] = sourceSkill[key];
       }
     });
   }
@@ -99,8 +92,3 @@ class CVRepository implements CV {
 // The data is pre-calculated and included in the static files, improving performance.
 const cvRepository = new CVRepository(dataSource);
 export { cvRepository as CV };
-
-// console.assert(
-//   JSON.stringify(dataSource) === fs.readFileSync("./cv.json", "utf-8"),
-//   "El objeto dataSource fue modificado.",
-// );

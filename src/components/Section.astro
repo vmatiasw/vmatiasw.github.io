@@ -1,8 +1,17 @@
 ---
-const { className, title } = Astro.props;
+interface Props {
+  className?: string;
+  title?: string;
+  filterClassNames?: string;
+  children: any;
+}
+
+const { className, title, filterClassNames='' }: Props = Astro.props;
 ---
 
 <section class:list={["flex flex-col gap-4 print:gap-0", className]}>
   {title && <h3 class="section-title1">{title}</h3>}
-  <slot />
+  <div class=`${filterClassNames}`>
+    <slot />
+  </div>
 </section>
