@@ -13,7 +13,7 @@ interface Props {
 
 const { items, type, input = false, title, groupBy }: Props = Astro.props;
 
-const idType = groupBy ? `${CV.getclassId("languages", groupBy)}-technologies` : type;
+const idType = groupBy ? `${CV.createFilterID("languages", groupBy)}-technologies` : type;
 
 const namedItems = items.map((item) => {
   if (typeof item === "string") {
@@ -36,18 +36,18 @@ const namedItems = items.map((item) => {
         <li class="cursor-pointer">
           <input
             type="checkbox"
-            id={CV.getclassId(idType, name)}
+            id={CV.createFilterID(idType, name)}
             value={name}
             class="input-skill-box hidden"
             checked
           />
-          <label for={CV.getclassId(idType, name)} class="skill-box">
+          <label for={CV.createFilterID(idType, name)} class="skill-box">
             {icon && <Icon name={icon} width={16} height={16} />}
             <span>{name}</span>
           </label>
         </li>
       ) : (
-        <li class={`child-${CV.getclassId(idType, name)} child-skill-box skill-box`}>
+        <li class={`child-${CV.createFilterID(idType, name)} child-skill-box skill-box`}>
           {icon && <Icon name={icon} width={16} height={16} />}
           <span>{name}</span>
         </li>

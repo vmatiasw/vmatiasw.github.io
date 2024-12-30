@@ -6,7 +6,7 @@ import type {
   Skills,
   Projects,
   NameAndIcon,
-  Language
+  Language,
 } from "./cv-types";
 import fs from "fs";
 const dataSource: CV = JSON.parse(fs.readFileSync("./cv.json", "utf-8"));
@@ -49,38 +49,43 @@ class CVRepository implements CV {
     return Object.values(this.skills.tools);
   }
 
-  public getclassId(type: string, name: string): string {
+  public createFilterID(type: string, name: string): string {
     return `${type}:${name.replace(/\s+/g, "-")}`.toLowerCase();
   }
 
-  public getSkillsClassIds(skills: Skills): string {
-    const getClassIds = (skillMap: SkillMap, skillList: NameAndIcon[] = []) =>
-      skillList.map((skill) => skillMap[skill.name].classId) || [];
+  public getFilterClassNames(skills: Skills): string {
+    const mapSkillClassIds = (
+      skillMap: SkillMap,
+      skillList: NameAndIcon[] = [],
+    ) => skillList.map((skill) => skillMap[skill.name].classId) || [];
 
-    const getLanguagesClassIds = (
+    const mapLanguagesClassIds = (
       skillMap: LanguageMap,
       skillList: Language[] = [],
     ) =>
       skillList.map((skill) => {
         const langClassId = skillMap[skill.name].classId;
         if (skill.technologies) {
-          return [ langClassId,
+          return [
+            langClassId,
             ...skill.technologies.map((tech) =>
-              this.getclassId(`${langClassId}-technologies`, tech),
+              this.createFilterID(`${langClassId}-technologies`, tech),
             ),
           ].join(" ");
         }
         return langClassId;
       });
 
-    const toolsClassId = getClassIds(this.skills.tools, skills.tools);
+    const toolsClassId = mapSkillClassIds(this.skills.tools, skills.tools);
 
-    const languagesClassId = getLanguagesClassIds(
+    const languagesClassId = mapLanguagesClassIds(
       this.skills.languages,
       skills.languages,
     );
 
-    return [...languagesClassId, ...toolsClassId].join(" ");
+    return [...languagesClassId, ...toolsClassId, "skill-filter-item"].join(
+      " ",
+    );
   }
 
   // ------------------------- Private -------------------------
@@ -122,7 +127,7 @@ class CVRepository implements CV {
       } else {
         const cvSkill: CVSkill = {
           ...skill,
-          classId: this.getclassId(category, skill.name),
+          classId: this.createFilterID(category, skill.name),
         };
         target[skill.name] = cvSkill;
       }
