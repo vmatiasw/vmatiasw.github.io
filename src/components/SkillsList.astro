@@ -1,7 +1,7 @@
 ---
 import type { NameAndIcon } from "@/cv-types";
 import { Icon } from "astro-icon/components";
-import { CV } from "../CVRepository";
+import { createFilterID } from "@/skill-filter";
 
 interface Props {
   items: NameAndIcon[] | string[];
@@ -13,7 +13,9 @@ interface Props {
 
 const { items, type, input = false, title, groupBy }: Props = Astro.props;
 
-const idType = groupBy ? `${CV.createFilterID("languages", groupBy)}-technologies` : type;
+const idType = groupBy
+  ? `${createFilterID("languages", groupBy)}-technologies`
+  : type;
 
 const namedItems = items.map((item) => {
   if (typeof item === "string") {
@@ -25,29 +27,33 @@ const namedItems = items.map((item) => {
 
 {title && <h2 class="section-title2">{title}</h2>}
 <ul class="flex flex-wrap gap-2">
-  {groupBy && (
-    <li class="flex items-center">
-      <p class="font-semibold text-skin-hue">{groupBy + ":"}</p>
-    </li>
-  )}
+  {
+    groupBy && (
+      <li class="flex items-center">
+        <p class="font-semibold text-skin-hue">{groupBy + ":"}</p>
+      </li>
+    )
+  }
   {
     namedItems.map(({ name, icon }) =>
       input ? (
         <li class="cursor-pointer">
           <input
             type="checkbox"
-            id={CV.createFilterID(idType, name)}
+            id={createFilterID(idType, name)}
             value={name}
             class="input-skill-box hidden"
             checked
           />
-          <label for={CV.createFilterID(idType, name)} class="skill-box">
+          <label for={createFilterID(idType, name)} class="skill-box">
             {icon && <Icon name={icon} width={16} height={16} />}
             <span>{name}</span>
           </label>
         </li>
       ) : (
-        <li class={`child-${CV.createFilterID(idType, name)} child-skill-box skill-box`}>
+        <li
+          class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
+        >
           {icon && <Icon name={icon} width={16} height={16} />}
           <span>{name}</span>
         </li>

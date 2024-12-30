@@ -2,6 +2,8 @@
 import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
+import { getFilterClassNames } from "@/skill-filter";
+
 const { education } = CV;
 ---
 
@@ -16,9 +18,7 @@ const { education } = CV;
           const years = `${startYear} - ${endYear}`;
 
           return (
-            <div
-              class={`flex items-baseline ${CV.getFilterClassNames(skills)}`}
-            >
+            <div class={`flex items-baseline ${getFilterClassNames(skills)}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

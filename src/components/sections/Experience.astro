@@ -3,6 +3,7 @@ import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
 import { Icon } from "astro-icon/components";
+import {getFilterClassNames} from "@/skill-filter";
 
 const { work } = CV;
 
@@ -30,7 +31,7 @@ const { work } = CV;
             endDate != null ? new Date(endDate).getFullYear() : "Present";
 
           return (
-            <li class={`relative print:py-2 ${CV.getFilterClassNames(skills)} `}>
+            <li class={`relative print:py-2 ${getFilterClassNames(skills)} `}>
               <div
                 data-expanded="false"
                 class="expand-container group relative grid pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 print:grid-cols-1 print:gap-1 print:pb-0"

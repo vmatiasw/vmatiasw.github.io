@@ -52,34 +52,6 @@ class CVRepository implements CV {
     return Object.values(this.skills.tools);
   }
 
-  public createFilterID(type: string, name: string): string {
-    return `${type}:${name.replace(/\s+/g, "-")}`.toLowerCase();
-  }
-
-  public getFilterClassNames(skills: Skills): string {
-    const toolsClassId =
-      skills.tools?.map((skill) => this.createFilterID("tools", skill.name)) ||
-      [];
-
-    const languagesClassId =
-      skills.languages?.map((skill) => {
-        const langClassId = this.createFilterID("languages", skill.name);
-        if (skill.technologies) {
-          return [
-            langClassId,
-            ...skill.technologies.map((tech) =>
-              this.createFilterID(`${langClassId}-technologies`, tech),
-            ),
-          ].join(" ");
-        }
-        return langClassId;
-      }) || [];
-
-    return [...languagesClassId, ...toolsClassId, "skill-filter-item"].join(
-      " ",
-    );
-  }
-
   // ------------------------- Private -------------------------
   private collectAllSkills(): CVSkills {
     const allSkills: CVSkills = { languages: {}, tools: {} };
