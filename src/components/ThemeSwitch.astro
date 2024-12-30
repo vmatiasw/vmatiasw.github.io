@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="inline-flex items-center print:hidden">
+<div class="button-hover-effect inline-flex items-center print:hidden">
   <div
     class="group/theme flex cursor-pointer items-center gap-2 rounded-md bg-transparent"
   >
@@ -12,7 +12,7 @@ import { Icon } from "astro-icon/components";
       aria-label="Toggle dark mode"
     >
       <i
-        class="flex items-center gap-1 text-sm font-medium leading-6 text-skin-base transition-transform ease-in-out group-hover/theme:rotate-45"
+        class="flex items-center gap-1 text-sm font-medium leading-6 transition-transform ease-in-out group-hover/theme:rotate-45"
       >
         <Icon
           name="ri:moon-fill"
@@ -22,18 +22,6 @@ import { Icon } from "astro-icon/components";
         />
         <Icon name="ri:sun-fill" class="dark:hidden" width={20} height={20} />
       </i>
-    </button>
-    <select
-      id="themeSelect"
-      class="block w-full rounded-md border-0 bg-transparent py-1.5 pl-3 pr-10 text-skin-base ring-1 ring-inset ring-skin-muted focus:ring-2 focus:ring-skin-hue sm:text-sm sm:leading-6"
-    >
-      <option value="red">Red</option>
-      <option value="pink">Pink</option>
-      <option value="orange">Orange</option>
-      <option value="cyber">Cyberpunk</option>
-      <option value="green">Green</option>
-      <option value="blue">Blue</option>
-    </select>
   </div>
 </div>
 

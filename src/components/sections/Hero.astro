@@ -3,6 +3,7 @@ import { CV } from "../../CVRepository";
 import Section from "@/components/Section.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import ThemeSwitch from "@/components/ThemeSwitch.astro";
 
 const { name, label, image, location, profiles, email } = CV.basics;
 const { city, region, address } = location;
@@ -58,6 +59,7 @@ const { city, region, address } = location;
         <div class="button-hover-effect size-8">
           <Icon name="ri:command-fill" class="h-5 w-5" />
         </div>
+        <ThemeSwitch />
       </footer>
     </div>
     <figure class="relative w-fit print:hidden">
