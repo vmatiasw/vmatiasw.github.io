@@ -3,7 +3,7 @@ import Section from "../Section.astro";
 import { CV } from "../../CVRepository";
 import SkillsList from "../SkillsList.astro";
 
-const { languages, tools, languageTecnologies } = CV;
+const { skillLanguages, skillTools, getLanguageTecnologies } = CV;
 ---
 
 <Section className={Astro.props.className} title="Skills">
@@ -11,7 +11,7 @@ const { languages, tools, languageTecnologies } = CV;
     <SkillsList
       title="Tools"
       type="tools"
-      items={tools || []}
+      items={skillTools || []}
       input={true}
     />
   </div>
@@ -19,19 +19,19 @@ const { languages, tools, languageTecnologies } = CV;
     <SkillsList
       title="Languages"
       type="languages"
-      items={languages || []}
+      items={skillLanguages || []}
       input={true}
     />
   </div>
   <div>
     <h2 class="section-title2">Technologies</h2>
-    {languages?.map((language) => {
-      const technologies = languageTecnologies(language);
-      return technologies ? (
+    {skillLanguages?.map((language) => {
+      const tech = getLanguageTecnologies(language);
+      return tech ? (
       <SkillsList
         groupBy={language.name}
         type="languages"
-        items={technologies}
+        items={tech}
         input={true}
       />
       ) : null;
