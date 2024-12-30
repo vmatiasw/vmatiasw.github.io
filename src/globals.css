@@ -51,3 +51,38 @@
     @apply bg-skin-button-accent text-skin-inverted;
   }
 }
+
+/* Reset margins and padding for common elements */
+body, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* Global box-sizing reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Body background and general layout */
+body {
+  background-attachment: fixed;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: 'Sans-serif', sans-serif;
+  color: var(--color-text-base);
+  margin: 0;
+}
+
+p {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  text-wrap: normal;
+}
+
+/* Print visibility control */
+.print {
+  display: none !important;
+}
