@@ -2,15 +2,19 @@
 import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
+import { getFilterClassNames } from "@/skill-filter";
+import TextList from "../TextList.astro";
 import { Icon } from "astro-icon/components";
-import {getFilterClassNames} from "@/skill-filter";
 
 const { work, workSkills } = CV;
-
 ---
 
-<Section className={Astro.props.className} title="Experience" filterClassNames={getFilterClassNames(workSkills)}>
-  <ul class="flex flex-col">
+<Section
+  className={Astro.props.className}
+  title="Experience"
+  filterClassNames={getFilterClassNames(workSkills)}
+>
+  <ul class="flex-col">
     {
       work.map(
         ({
@@ -30,12 +34,9 @@ const { work, workSkills } = CV;
             endDate != null ? new Date(endDate).getFullYear() : "Present";
 
           return (
-            <li class={`relative print:py-2 ${getFilterClassNames(skills)} `}>
-              <div
-                data-expanded="false"
-                class="expand-container group relative grid pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 print:grid-cols-1 print:gap-1 print:pb-0"
-              >
-                <header class="relative mt-1 text-xs font-semibold sm:col-span-2">
+            <li class={`${getFilterClassNames(skills)} `}>
+              <div class="grid pb-1 sm:grid-cols-12">
+                <header class="mt-1 text-xs font-semibold sm:col-span-2">
                   <time datetime={startDate} data-title={startDate}>
                     {startYear}
                   </time>{" "}
@@ -44,72 +45,35 @@ const { work, workSkills } = CV;
                     {endYear}
                   </time>
                 </header>
-                <div class="relative flex flex-col pb-6 before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted sm:col-span-10 print:pb-0 print:before:hidden">
-                  <div class="absolute mt-2 h-2 w-2 -translate-x-[1.71rem] rounded-full bg-skin-muted ring ring-skin-fill print:hidden" />
-                  <h3>
-                    <div
-                      class="group/link inline-flex items-center text-lg leading-tight focus-visible:text-amber-500 print:text-base"
-                      aria-label={`${position} - ${name}`}
-                    >
-                      <span>
-                        {position} <span>@</span>
-                        {<span>{name}</span>}
-                      </span>
-                    </div>
+                <div class="vertical-timeline sm:col-span-10">
+                  <div class="timeline-item-points" />
+                  <h3 class="text-lg" aria-label={`${position} - ${name}`}>
+                    {position} @ {name}
                   </h3>
-                  {(location || location_type) && (
-                    <div class="text-xs text-skin-muted">
-                      {location} {location && location_type && "-"}{" "}
-                      {location_type}
-                    </div>
-                  )}
-                  <div class="mt-4 flex flex-col gap-4 text-sm print:gap-0 print:text-xs">
-                    {summary && (
-                      <div class="flex flex-col gap-1">
-                        <h4>Summary:</h4>
-                        <ul class="flex list-disc flex-col gap-2 text-skin-muted [&>li]:ml-4">
-                          {Array.isArray(summary) ? (
-                            summary.map((item) => <li>{item}</li>)
-                          ) : (
-                            <li>{summary}</li>
-                          )}
-                        </ul>
-                      </div>
-                    )}
-                    {(responsibilities || achievements) && (
-                      <div class="relative flex h-16 flex-col gap-4 overflow-hidden duration-200 ease-out after:absolute after:bottom-0 after:h-12 after:w-full after:bg-gradient-to-t after:from-skin-hue after:content-[''] group-data-[expanded=true]:h-auto group-data-[expanded=true]:after:hidden dark:after:to-skin-hue/0 print:!h-auto print:gap-2 print:after:hidden">
-                        {responsibilities && (
-                          <div class="flex flex-col gap-1">
-                            <h4>Responsibilities:</h4>
-                            <ul class="flex list-disc flex-col gap-2 text-skin-muted [&>li]:ml-4">
-                              {responsibilities.map((responsibility) => (
-                                <li>{responsibility}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        {achievements && (
-                          <div class="flex flex-col gap-1">
-                            <h4>Achievements:</h4>
-                            <ul class="flex list-disc flex-col gap-2 text-skin-muted [&>li]:ml-4">
-                              {achievements.map((achievement) => (
-                                <li>{achievement}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                      
-
-
-
-                      <button class="print:hidden group/more w-fit cursor-pointer items-center justify-center gap-1.5 text-xs underline text-skin-muted transition-all hover:text-skin-base flex expand-button">
-                        <span class="expand-text">Show more</span>
-                        <Icon name="ri:arrow-up-s-line" class="w-4 h-4 group-hover/more:translate-y-0.5 duration-200 ease-out group-data-[expanded=true]:rotate-180" width={24} height={24}></Icon>
-                      </button>
-                      <ItemSkills skills={skills} />
-                    )}
+                  <p class="text-xs text-skin-muted">
+                    {location} - {location_type}
+                  </p>
+                  <div class="mb-6 mt-4 space-y-2 text-sm">
+                    <TextList title="Summary" items={summary} />
+                    <details class="group mt-4 space-y-2 text-sm">
+                      <summary class="flex w-fit cursor-pointer gap-1.5 text-xs text-skin-muted underline">
+                        <Icon
+                          name="ri:arrow-up-s-line"
+                          class="size-4 duration-200 group-open:rotate-180"
+                        />
+                        <span class="group-open:hidden">Show more</span>
+                        <span class="hidden group-open:block">Show less</span>
+                      </summary>
+                      <TextList
+                        title="Responsibilities"
+                        items={responsibilities}
+                      />
+                      {achievements && (
+                        <TextList title="Achievements" items={achievements} />
+                      )}
+                    </details>
                   </div>
+                  <ItemSkills skills={skills} />
                 </div>
               </div>
             </li>
@@ -120,23 +84,11 @@ const { work, workSkills } = CV;
   </ul>
 </Section>
 
-<script>
-  const expandButton = document.querySelectorAll(".expand-button");
-
-  expandButton.forEach((button) => {
-    button.addEventListener("click", () => {
-      const container = button.closest<HTMLElement>(".expand-container")!;
-      container.dataset.expanded =
-        container.dataset.expanded === "true" ? "false" : "true";
-      const expandText = button.querySelector(".expand-text")!;
-      expandText.innerHTML =
-        container.dataset.expanded === "true" ? "Show less" : "Show more";
-    });
-  });
-</script>
-
 <style>
-  li::marker {
-    @apply text-skin-hue;
+  .vertical-timeline {
+    @apply relative before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted;
+  }
+  .timeline-item-points {
+    @apply absolute mt-2 size-2 -translate-x-[1.71rem] rounded-full bg-skin-muted ring-skin-fill;
   }
 </style>

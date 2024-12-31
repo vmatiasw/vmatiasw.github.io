@@ -154,7 +154,7 @@
       "location": "Global",
       "startDate": "2022-01-15",
       "endDate": null,
-      "summary": "Developed custom trading indicators for clients on TradingView using Pine Script and Python.",
+      "summary": ["Developed custom trading indicators for clients on TradingView using Pine Script and Python."],
       "highlights": [
         "Successfully developed a wide range of custom indicators based on client requirements."
       ],

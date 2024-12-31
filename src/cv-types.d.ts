@@ -64,10 +64,10 @@ export interface Work {
   url: string;
   startDate: string;
   endDate: string | null;
-  summary: string;
+  summary: string[];
   highlights: string[];
   responsibilities: string[];
-  achievements: string[];
+  achievements?: string[];
   skills: Skills;
   location: string;
   location_type: string;

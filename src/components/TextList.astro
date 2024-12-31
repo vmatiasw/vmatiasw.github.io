@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  items: string[];
+}
+
+const { title, items }: Props = Astro.props;
+---
+
+<div>
+  <h4>{title}:</h4>
+  <ul class="flex list-disc flex-col gap-2 text-skin-muted">
+    {items.map((item) => <li class="ml-4 marker:text-skin-hue">{item}</li>)}
+  </ul>
+</div>
