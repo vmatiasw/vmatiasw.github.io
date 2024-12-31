@@ -1,19 +1,17 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className }: Props = Astro.props;
 ---
 
-<div class="button-hover-effect inline-flex items-center print:hidden">
-  <div
-    class="group/theme flex cursor-pointer items-center gap-2 rounded-md bg-transparent"
-  >
-    <button
-      id="themeSwitch"
-      class="cursor-pointer"
-      aria-label="Toggle dark mode"
-    >
-      <i
-        class="flex items-center gap-1 text-sm font-medium leading-6 transition-transform ease-in-out group-hover/theme:rotate-45"
-      >
+<div class=`${className}`>
+  <div class="group/theme flex">
+    <button id="themeSwitch" class="cursor-pointer">
+      <i class="flex transition-transform group-hover/theme:rotate-45">
         <Icon
           name="ri:moon-fill"
           class="hidden dark:block"
@@ -22,6 +20,7 @@ import { Icon } from "astro-icon/components";
         />
         <Icon name="ri:sun-fill" class="dark:hidden" width={20} height={20} />
       </i>
+    </button>
   </div>
 </div>
 
