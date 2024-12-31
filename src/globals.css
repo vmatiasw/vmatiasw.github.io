@@ -50,6 +50,9 @@
   input[type="checkbox"]:checked + .button-hover-effect {
     @apply bg-skin-button-accent text-skin-inverted;
   }
+  .container-muted-box {
+    @apply rounded-md bg-skin-button-muted/50 p-5 ring-1 ring-skin-muted;
+  }
 }
 
 /* Reset margins and padding for common elements */
