@@ -1,34 +1,34 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
 import Projects from "@/components/sections/Projects.astro";
 import SkillsMenu from "@/components/sections/SkillsMenu.astro";
+import Education from "@/components/sections/Education.astro";
 import KeyboardManager from "@/components/KeyboardManager.astro";
 
 import { CV } from "../CVRepository";
-import Education from "@/components/sections/Education.astro";
+
 const { name, label } = CV.basics;
 ---
 
-<Layout title={`${name}'s' Portfolio - ${label}`}>
+<Layout title={`${name}'s Portfolio - ${label}`}>
   <main
-    class="relative grid h-full max-w-7xl gap-12 p-8 max-sm:py-16 md:min-h-screen md:grid-cols-6 md:p-16 xl:gap-24 print:max-w-none print:grid-cols-1 print:gap-6"
+    class="md:grid-cols-6 grid max-w-7xl md:min-h-screen p-8 md:p-16 gap-12"
   >
     <div
-      class="slide-enter space-y-6 ease-in md:col-span-2 md:max-h-screen md:overflow-y-auto print:col-span-1 print:grid print:grid-cols-2 print:gap-5 print:space-y-0"
+      class="md:col-span-2 space-y-6 "
     >
       <Hero />
       <About />
     </div>
     <div
-      class="slide-enter-content space-y-8 md:col-span-4 md:max-h-screen md:overflow-y-auto print:col-span-1 print:grid print:grid-cols-4 print:gap-2 print:space-y-0"
+      class="md:col-span-4 space-y-6 "
     >
-      <SkillsMenu className="print:hidden" />
-      <Experience className="print:col-span-3" />
-      <Projects className="print:hidden" />
+      <SkillsMenu />
+      <Experience />
+      <Projects />
       <Education className="order-first" />
     </div>
   </main>
@@ -37,60 +37,8 @@ const { name, label } = CV.basics;
 
 <style is:global>
   main {
+    position: relative;
     margin: auto;
     width: 100%;
-  }
-  @keyframes slide-enter {
-    0% {
-      transform: translateY(10px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .slide-enter,
-    .slide-enter-content > *:not(:has(.table-of-contents)) {
-      --enter-stage: 0;
-      --enter-step: 400ms;
-      --enter-initial: 0ms;
-      animation: slide-enter 1s both 1;
-      animation-delay: calc(
-        var(--enter-initial) + var(--enter-stage) * var(--enter-step)
-      );
-    }
-
-    .slide-enter-content > *:nth-child(1) {
-      --enter-stage: 1 !important;
-    }
-    .slide-enter-content > *:nth-child(2) {
-      --enter-stage: 2 !important;
-    }
-    .slide-enter-content > *:nth-child(3) {
-      --enter-stage: 3 !important;
-    }
-    .slide-enter-content > *:nth-child(4) {
-      --enter-stage: 4 !important;
-    }
-    .slide-enter-content > *:nth-child(5) {
-      --enter-stage: 5 !important;
-    }
-    .slide-enter-content > *:nth-child(6) {
-      --enter-stage: 6 !important;
-    }
-    .slide-enter-content > *:nth-child(7) {
-      --enter-stage: 7 !important;
-    }
-    .slide-enter-content > *:nth-child(8) {
-      --enter-stage: 8 !important;
-    }
-    .slide-enter-content > *:nth-child(9) {
-      --enter-stage: 9 !important;
-    }
-    .slide-enter-content > *:nth-child(10) {
-      --enter-stage: 10 !important;
-    }
   }
 </style>
