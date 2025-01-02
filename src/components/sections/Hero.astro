@@ -1,6 +1,5 @@
 ---
 import { CV } from "../../CVRepository";
-import Section from "@/components/Section.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ThemeSwitch from "@/components/ThemeSwitch.astro";
@@ -9,7 +8,7 @@ const { name, label, image, location, profiles, email } = CV.basics;
 const { city, region } = location;
 ---
 
-<Section>
+<section class={Astro.props.className}>
   <div class="flex flex-col-reverse gap-8">
     <div class="flex flex-col gap-1">
       <h1 class="text-4xl font-bold">{name}</h1>
@@ -55,12 +54,7 @@ const { city, region } = location;
       </div>
     </div>
     <figure class="relative w-fit">
-      <Image
-        height={600}
-        width={600}
-        src={image}
-        alt={name}
-      />
+      <Image height={600} width={600} src={image} alt={name} />
       <div class="absolute -inset-2">
         <div class="gradient-y-mask right-0"></div>
         <div class="gradient-y-mask left-0"></div>
@@ -69,7 +63,7 @@ const { city, region } = location;
       </div>
     </figure>
   </div>
-</Section>
+</section>
 
 <style>
   .gradient-y-mask {

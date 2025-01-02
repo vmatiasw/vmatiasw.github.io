@@ -1,12 +1,11 @@
 ---
-import Section from "../Section.astro";
-
 import { CV } from "../../CVRepository";
 const { summary } = CV.basics;
 ---
 
-<Section title="About">
+<section class={Astro.props.className}>
+  <h3 class="section-title1">About</h3>
   <p class="font-mono opacity-75 print:font-sans">
     {summary}
   </p>
-</Section>
+</section>

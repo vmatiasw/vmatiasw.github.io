@@ -1,5 +1,4 @@
 ---
-import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
@@ -9,12 +8,9 @@ import { Icon } from "astro-icon/components";
 const { work, workSkills } = CV;
 ---
 
-<Section
-  className={Astro.props.className}
-  title="Experience"
-  filterClassNames={getFilterClassNames(workSkills)}
->
-  <ul class="md:muted-box grid">
+<section class={Astro.props.className}>
+  <h3 class="section-title1">Experience</h3>
+  <ul class=`md:muted-box grid ${getFilterClassNames(workSkills)}`>
     {
       work.map(
         ({
@@ -84,7 +80,7 @@ const { work, workSkills } = CV;
       )
     }
   </ul>
-</Section>
+</section>
 
 <style>
   @media (min-width: 768px) {

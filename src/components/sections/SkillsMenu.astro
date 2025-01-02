@@ -1,5 +1,4 @@
 ---
-import Section from "../Section.astro";
 import { CV } from "../../CVRepository";
 import SkillsList from "../SkillsList.astro";
 import { Icon } from "astro-icon/components";
@@ -7,69 +6,67 @@ import { Icon } from "astro-icon/components";
 const { skills } = CV;
 ---
 
-<Section className={Astro.props.className} title="Skills">
-  <div class="flex flex-col gap-4">
-    <div>
-      <SkillsList
-        title="Tools"
-        type="tools"
-        items={skills.tools || []}
-        input={true}
-      />
-    </div>
-    <div>
-      <SkillsList
-        title="Languages"
-        type="languages"
-        items={skills.languages || []}
-        input={true}
-      />
-    </div>
-    <div>
-      <h2 class="section-title2">Technologies</h2>
-      {
-        skills.languages!.map((language) => {
-          const tech = language.technologies;
-          return tech ? (
-            <SkillsList
-              groupBy={language.name}
-              type="languages"
-              items={tech}
-              input={true}
-            />
-          ) : null;
-        })
-      }
-    </div>
-    <div class="mt-4 flex gap-4">
-      <div>
-        <input
-          type="checkbox"
-          id="skills-filter-checkbox"
-          class="hidden"
-        />
-        <label for="skills-filter-checkbox" class="skills-menu-button button-hover-effect">
-          <Icon name="mdi:filter" class="size-5" />
-          Filter
-        </label>
-      </div>
-      <button
-        id="skills-check-all-btn"
-        class="button-hover-effect skills-menu-button"
-        aria-label="Select all skills"
-      >
-        Select All
-      </button>
-      <button
-        id="skills-uncheck-all-btn"
-        class="button-hover-effect skills-menu-button"
-        aria-label="Deselect all skills"
-      >
-        Deselect All
-      </button>
-    </div>
+<section class={`${Astro.props.className}`}>
+  <h3 class="section-title1">Skills</h3>
+  <div>
+    <SkillsList
+      title="Tools"
+      type="tools"
+      items={skills.tools || []}
+      input={true}
+    />
   </div>
-</Section>
+  <div>
+    <SkillsList
+      title="Languages"
+      type="languages"
+      items={skills.languages || []}
+      input={true}
+    />
+  </div>
+  <div>
+    <h2 class="section-title2">Technologies</h2>
+    {
+      skills.languages!.map((language) => {
+        const tech = language.technologies;
+        return tech ? (
+          <SkillsList
+            groupBy={language.name}
+            type="languages"
+            items={tech}
+            input={true}
+          />
+        ) : null;
+      })
+    }
+  </div>
+  <div class="mt-4 flex gap-4">
+    <div>
+      <input type="checkbox" id="skills-filter-checkbox" class="hidden" />
+      <label
+        for="skills-filter-checkbox"
+        class="skills-menu-button button-hover-effect"
+      >
+        <Icon name="mdi:filter" class="size-5" />
+        Filter
+      </label>
+    </div>
+    <button
+      id="skills-check-all-btn"
+      class="button-hover-effect skills-menu-button"
+      aria-label="Select all skills"
+    >
+      Select All
+    </button>
+    <button
+      id="skills-uncheck-all-btn"
+      class="button-hover-effect skills-menu-button"
+      aria-label="Deselect all skills"
+    >
+      Deselect All
+    </button>
+  </div>
+</section>
 
 <style>
   .skills-menu-button {

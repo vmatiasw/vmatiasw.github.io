@@ -1,5 +1,4 @@
 ---
-import Section from "../Section.astro";
 import { Icon } from "astro-icon/components";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
@@ -10,12 +9,9 @@ import TextList from "../TextList.astro";
 const { projects, projectsSkills } = CV;
 ---
 
-<Section
-  className={Astro.props.className}
-  title="Projects"
-  filterClassNames={getFilterClassNames(projectsSkills)}
->
-  <div class="grid md:grid-cols-2">
+<section class={Astro.props.className}>
+  <h3 class="section-title1">Projects</h3>
+  <div class=`grid md:grid-cols-2 ${getFilterClassNames(projectsSkills)}`>
     {
       projects.map(
         ({
@@ -29,9 +25,7 @@ const { projects, projectsSkills } = CV;
           skills,
         }) => {
           return (
-            <div
-              class={`muted-box ${getFilterClassNames(skills)} `}
-            >
+            <div class={`muted-box ${getFilterClassNames(skills)} `}>
               <div class="flex justify-between">
                 <div class="flex items-center gap-2">
                   <Icon name="mdi:folder-outline" class="size-4" />
@@ -84,7 +78,8 @@ const { projects, projectsSkills } = CV;
       )
     }
   </div>
-</Section>
+</section>
+
 <script>
   import { Fancybox } from "@fancyapps/ui";
   Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });

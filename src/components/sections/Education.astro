@@ -1,5 +1,4 @@
 ---
-import Section from "../Section.astro";
 import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
@@ -7,12 +6,9 @@ import { getFilterClassNames } from "@/skill-filter";
 const { education, educationSkills } = CV;
 ---
 
-<Section
-  className={Astro.props.className}
-  title="Education"
-  filterClassNames={getFilterClassNames(educationSkills)}
->
-  <ul class="grid">
+<section class={Astro.props.className}>
+  <h3 class="section-title1">Education</h3>
+  <ul class=`grid ${getFilterClassNames(educationSkills)}`>
     {
       education.map(
         ({ institution, startDate, endDate, area, url, skills }) => {
@@ -22,7 +18,9 @@ const { education, educationSkills } = CV;
           const years = `${startYear} - ${endYear}`;
 
           return (
-            <div class={`muted-box flex items-baseline ${getFilterClassNames(skills)}`}>
+            <div
+              class={`muted-box flex items-baseline ${getFilterClassNames(skills)}`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -61,4 +59,4 @@ const { education, educationSkills } = CV;
       )
     }
   </ul>
-</Section>
+</section>
