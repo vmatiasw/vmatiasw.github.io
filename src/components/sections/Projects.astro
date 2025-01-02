@@ -9,7 +9,7 @@ import TextList from "../TextList.astro";
 const { projects, projectsSkills } = CV;
 ---
 
-<section class={Astro.props.className}>
+<section class={Astro.props.class}>
   <h3 class="section-title1">Projects</h3>
   <div class=`grid md:grid-cols-2 ${getFilterClassNames(projectsSkills)}`>
     {

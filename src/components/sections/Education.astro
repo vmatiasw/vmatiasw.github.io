@@ -6,7 +6,7 @@ import { getFilterClassNames } from "@/skill-filter";
 const { education, educationSkills } = CV;
 ---
 
-<section class={Astro.props.className}>
+<section class={Astro.props.class}>
   <h3 class="section-title1">Education</h3>
   <ul class=`grid ${getFilterClassNames(educationSkills)}`>
     {

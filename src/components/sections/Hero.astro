@@ -8,7 +8,7 @@ const { name, label, image, location, profiles, email } = CV.basics;
 const { city, region } = location;
 ---
 
-<section class={Astro.props.className}>
+<section class={Astro.props.class}>
   <div class="flex flex-col-reverse gap-8">
     <div class="flex flex-col gap-1">
       <h1 class="text-4xl font-bold">{name}</h1>
@@ -50,7 +50,9 @@ const { city, region } = location;
         <div class="button-hover-effect size-8">
           <Icon name="ri:command-fill" class="size-5" />
         </div>
-        <ThemeSwitch class="button-hover-effect size-8" />
+        <div class="button-hover-effect size-8">
+          <ThemeSwitch />
+        </div>
       </div>
     </div>
     <figure class="relative w-fit">
