@@ -14,13 +14,13 @@ const { name, label } = CV.basics;
 ---
 
 <Layout title={`${name}'s Portfolio - ${label}`}>
-  <main class="max-w-5xl gap-12 space-y-6 p-8 md:p-16">
-    <div class="md:grid-cols-5 grid gap-12 md:mb-12">
-      <div class="md:col-span-2">
+  <main class="max-w-5xl space-y-6 p-8 md:p-16">
+    <div class="space-y-6 md:space-x-6 md:mb-8 md:flex md:flex-row">
+      <div class="space-y-6 md:flex-1">
         <Hero />
         <About />
       </div>
-      <div class="md:col-span-3">
+      <div class="md:flex-1">
         <SkillsMenu />
       </div>
     </div>
