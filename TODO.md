@@ -40,7 +40,8 @@ control de versiones: git, ...
 
 - [x] desacomplar nuevamente lo de los ids y poner skill-filter-item en la funcion para items de filtrado...
 - [x] que la experiencia,... este todo debajo, dejar arriba a la derecha un buen filtro con skills
-- [] que se filtre siempre, que al inicio este todo sin seleccionar y que haya un mensaje de filtrar para ver todo y otro boton al lado de ese mensaje para ver todo
+- [] crear un muted-boxes-container
+- [] ver patrones d efiltro, que se filtre siempre, que al inicio este todo sin seleccionar y que haya un mensaje de filtrar para ver todo y otro boton al lado de ese mensaje para ver todo
 - [] mover nuevamente la barra al costado y fijar el costado
 - [] mejorar lo visual:
   - [] corregir el desplazamiento de la barra de scroll

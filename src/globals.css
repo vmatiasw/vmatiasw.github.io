@@ -1,8 +1,7 @@
-/* Directivas de Tailwind */
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
-/* Clases personalizadas o componentes */
 @layer base {
   :root {
     --color-text-base: 0, 0, 0;
@@ -50,28 +49,16 @@
   input[type="checkbox"]:checked + .button-hover-effect {
     @apply bg-skin-button-accent text-skin-inverted;
   }
-  .container-muted-box {
-    @apply rounded-md bg-skin-button-muted/50 p-5 ring-1 ring-skin-muted;
+  .muted-box {
+    @apply m-2 rounded-md bg-skin-button-muted/50 p-5 ring-1 ring-skin-muted;
+  }
+  @media (max-width: 768px) { 
+    .below-md-muted-box {
+       @apply muted-box;
+    }
   }
 }
 
-/* Reset margins and padding for common elements */
-body, figure {
-  margin: 0;
-  padding: 0;
-}
-
-/* Global box-sizing reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Body background and general layout */
-body {
-  background-attachment: fixed;
-}
-
-/* Typography */
 h1, h2, h3, h4 {
   font-family: 'Sans-serif', sans-serif;
   color: var(--color-text-base);
@@ -85,7 +72,7 @@ p {
   text-wrap: normal;
 }
 
-/* Print visibility control */
-.print {
-  display: none !important;
+main {
+  margin: auto;
+  position: relative;
 }

@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
     if (opacityValue !== undefined) {
@@ -7,7 +9,7 @@ function withOpacity(variableName) {
   };
 }
 
-export default {
+module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {

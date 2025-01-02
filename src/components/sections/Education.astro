@@ -12,7 +12,7 @@ const { education, educationSkills } = CV;
   title="Education"
   filterClassNames={getFilterClassNames(educationSkills)}
 >
-  <ul class="space-y-4 py-3 print:space-y-0">
+  <ul class="grid">
     {
       education.map(
         ({ institution, startDate, endDate, area, url, skills }) => {
@@ -22,7 +22,7 @@ const { education, educationSkills } = CV;
           const years = `${startYear} - ${endYear}`;
 
           return (
-            <div class={`flex items-baseline ${getFilterClassNames(skills)}`}>
+            <div class={`muted-box flex items-baseline ${getFilterClassNames(skills)}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

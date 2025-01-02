@@ -15,7 +15,7 @@ const { projects, projectsSkills } = CV;
   title="Projects"
   filterClassNames={getFilterClassNames(projectsSkills)}
 >
-  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
+  <div class="grid md:grid-cols-2">
     {
       projects.map(
         ({
@@ -30,7 +30,7 @@ const { projects, projectsSkills } = CV;
         }) => {
           return (
             <div
-              class={`container-muted-box ${getFilterClassNames(skills)} `}
+              class={`muted-box ${getFilterClassNames(skills)} `}
             >
               <div class="flex justify-between">
                 <div class="flex items-center gap-2">
