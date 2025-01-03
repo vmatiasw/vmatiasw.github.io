@@ -113,7 +113,7 @@ const { skills } = CV;
     });
 
     filterCheckbox.addEventListener("change", () => {
-      const elemStyle = filterCheckbox.checked ? "none" : "block";
+      const elemStyle = filterCheckbox.checked ? "none" : "";
       const skillStyle = filterCheckbox.checked ? "transparent" : "";
 
       skillFilterElements.forEach(
@@ -130,7 +130,7 @@ const { skills } = CV;
           .map((checkbox) => checkbox.id)
           .forEach((skillClassId: string) => {
             [...document.getElementsByClassName(skillClassId)].forEach(
-              (element) => ((element as HTMLElement).style.display = "block"),
+              (element) => ((element as HTMLElement).style.display = ""),
             );
             [
               ...document.getElementsByClassName("child-" + skillClassId),
