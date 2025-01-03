@@ -1,13 +1,12 @@
 ---
 interface Props {
-    class?: string;
-    title: string;
-    ulClass: string;
-    children: any;
+  class?: string;
+  title: string;
+  ulClass: string;
+  children: any;
 }
 
 const { ulClass, title }: Props = Astro.props;
-
 ---
 
 <section class={Astro.props.class}>
@@ -15,11 +14,16 @@ const { ulClass, title }: Props = Astro.props;
   <ul id="list-contenent" class={ulClass}>
     <slot />
   </ul>
-  <p id="empty-message" class="text-skin-muted text-center font-semibold hidden">No {title.toLowerCase()} available for the selected filters.</p>
+  <p
+    id="empty-message"
+    class="hidden text-center font-semibold text-skin-muted"
+  >
+    No {title.toLowerCase()} available for the selected filters.
+  </p>
 </section>
 
 <style>
-#list-contenent.hidden + #empty-message {
-  display: block;
-}
+  #list-contenent.hidden + #empty-message {
+    display: block;
+  }
 </style>

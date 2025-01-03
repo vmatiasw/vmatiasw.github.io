@@ -1,53 +1,17 @@
 # TODO
 
-- [x] que cada seccion sea desplegable.
-- [x] crear un repositoty con los datos del cv
-- [x] hacer que la pagina se divida en dos columnas y que bajar en una no haga bajar en otra.
-- [x] eliminar skills, que se calculen segun las que haya en proyectos,...
-- [x] generar una estructura de datos de maps y sets a partir del json para manipular mejor los datos o precargar los datos del repositorio. (ya se hace)
-- [x] agregar skills a lo demas
-- [x] poner al inicio habilidades tecnicas y permitir filtrar en experiencias, proyectos y educacion por donde use o adquiri las mismas.
-- [x] eliminar ./push.sh y crear un hook para ello.
-- [x] boton de seleccionar todo y des seleccionar todo. y que filter se pueda seleccionar y desseleccionar
-- [x] sacar acordion sections
-- [x] poner al inicio skills y subdividir en habilidades tecnicas.
-- [x] En habilidades tecnicas poner lo siguiente aprox: (poner una ayuda en technologies que diga que sin frameworks, y librerias no estadard)
-
-```markdown
-## 🚀 Tecnologías
-
-| Lenguajes de programación | Frameworks y Librerías<br>(ademas de las estandar)   |
-| ------------------------- | ---------------------------------------------------- |
-| Python                    | Django, SQLAlchemy, Flask, Pydantic, Pytest, FastAPI |
-| SQL                       | Django, SQLAlchemy en python                         |
-| MongoDB                   |                                                      |
-| Typescript                |                                                      |
-| Javascript                |                                                      |
-| C                         |                                                      |
-| C++                       |                                                      |
-
-## Herramientas
-
-- Git
-- GitHub
-- Docker
-- Visual Studio Code
-- Jupyter Notebooks
-```
-
-en herramientas hacer tm un cuadro con por ej:
-control de versiones: git, ...
-
-- [x] desacomplar nuevamente lo de los ids y poner skill-filter-item en la funcion para items de filtrado...
-- [x] que la experiencia,... este todo debajo, dejar arriba a la derecha un buen filtro con skills
-- [] que cada item de las secciones sea un componente
-- [] ver patrones d efiltro, que se filtre siempre, que al inicio este todo sin seleccionar y que haya un mensaje de filtrar para ver todo y otro boton al lado de ese mensaje para ver todo
-- [] mejorar el avatar, o mejor poner mi foto y para la pagina un logo?
-- [] mejorar la accesibilidad, investigar,...
-- [] mejorar cv pdf para imprimir: definir un formato de imprecion, por ejemplo solo imprimir las experiencias laborales seleccionadas, o solo N. imprimir skills y cuantas LOC tengo en cada una de ellas? ,... estadisticas? resumir mucha info sobre mi en lo menos posible, definir que es lo importante que este, averiguar y uscar modelos,...
+- [] poner mi foto
+- [] Revisar y arreglar el KeyboardManager
+- [] mejorar cv pdf para imprimir
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina
-- [] limpiar o entender codigo que no se que hace aun
-- [] poner soft skills?
+- [] Revisar el ThemeSwitch
+- [] Revisar el ArtPlums
+- [] mejorar la accesibilidad y el SEO, investigar,...
 - [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
 - [] agregar este proyecto a mis proyectos
+
+## Opcional
+
+- [] ver patrones de filtro
+- [] poner soft skills?

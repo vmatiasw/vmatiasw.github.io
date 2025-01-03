@@ -3,7 +3,6 @@ import { CV } from "../../CVRepository";
 import SkillsList from "../SkillsList.astro";
 import { Icon } from "astro-icon/components";
 
-
 const { skills } = CV;
 ---
 
@@ -134,7 +133,7 @@ const { skills } = CV;
           .map((checkbox) => checkbox.id)
           .forEach((skillClassId: string) => {
             [...document.getElementsByClassName(skillClassId)].forEach(
-              (element) => ((element as HTMLElement).classList.remove("hidden")),
+              (element) => (element as HTMLElement).classList.remove("hidden"),
             );
             [
               ...document.getElementsByClassName("child-" + skillClassId),

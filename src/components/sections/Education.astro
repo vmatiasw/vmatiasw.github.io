@@ -7,24 +7,28 @@ import DynamicSection from "../DynamicSection.astro";
 const { education, educationSkills } = CV;
 ---
 
-<DynamicSection class={Astro.props.class} title="Education" ulClass={`md:muted-box grid ${getFilterClassNames(educationSkills)}`}> 
-    {
-      education.map(
-        ({ institution, startDate, endDate, area, url, skills, summary }) => {
-          return (
-            <li class={`${getFilterClassNames(skills)}`}>
-              <TimelineCard
-                startDate={startDate}
-                endDate={endDate}
-                title={area}
-                titleUrl={url}
-                subtitle={institution}
-                skills={skills}
-                summary={summary}
-              />
-            </li>
-          );
-        },
-      )
-    }
+<DynamicSection
+  class={Astro.props.class}
+  title="Education"
+  ulClass={`md:muted-box grid ${getFilterClassNames(educationSkills)}`}
+>
+  {
+    education.map(
+      ({ institution, startDate, endDate, area, url, skills, summary }) => {
+        return (
+          <li class={`${getFilterClassNames(skills)}`}>
+            <TimelineCard
+              startDate={startDate}
+              endDate={endDate}
+              title={area}
+              titleUrl={url}
+              subtitle={institution}
+              skills={skills}
+              summary={summary}
+            />
+          </li>
+        );
+      },
+    )
+  }
 </DynamicSection>
