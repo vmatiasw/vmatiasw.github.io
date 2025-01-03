@@ -40,13 +40,8 @@ control de versiones: git, ...
 
 - [x] desacomplar nuevamente lo de los ids y poner skill-filter-item en la funcion para items de filtrado...
 - [x] que la experiencia,... este todo debajo, dejar arriba a la derecha un buen filtro con skills
-- [] crear un muted-boxes-container
+- [] que cada item de las secciones sea un componente
 - [] ver patrones d efiltro, que se filtre siempre, que al inicio este todo sin seleccionar y que haya un mensaje de filtrar para ver todo y otro boton al lado de ese mensaje para ver todo
-- [] mover nuevamente la barra al costado y fijar el costado
-- [] mejorar lo visual:
-  - [] corregir el desplazamiento de la barra de scroll
-  - [] corregir los laterales del avatar
-  - [] elegir solo un tema de color para modo light y dark
 - [] mejorar el avatar, o mejor poner mi foto y para la pagina un logo?
 - [] mejorar la accesibilidad, investigar,...
 - [] mejorar cv pdf para imprimir: definir un formato de imprecion, por ejemplo solo imprimir las experiencias laborales seleccionadas, o solo N. imprimir skills y cuantas LOC tengo en cada una de ellas? ,... estadisticas? resumir mucha info sobre mi en lo menos posible, definir que es lo importante que este, averiguar y uscar modelos,...

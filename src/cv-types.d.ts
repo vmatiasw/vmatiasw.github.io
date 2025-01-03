@@ -64,7 +64,7 @@ export interface Work {
   url: string;
   startDate: string;
   endDate: string | null;
-  summary: string[];
+  summary: string;
   highlights: string[];
   responsibilities: string[];
   achievements?: string[];
@@ -77,19 +77,19 @@ export interface Work {
 export interface Education {
   institution: string;
   url: string;
+  summary: string;
   area: string;
   studyType: string;
   startDate: string;
   endDate: string | null;
-  score: int;
+  score: number;
   skills: Skills;
   courses: string[];
 }
 // ------------------------- Projects -------------------------
 export interface Projects {
   name: string;
-  isActive: boolean;
-  description: string;
+  summary: string;
   skills: Skills;
   highlights: string[];
   url: string;

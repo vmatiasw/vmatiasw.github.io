@@ -37,7 +37,8 @@
     {
       "institution": "Facultad de matematica, astronomia, fisica y computacion",
       "url": "https://www.famaf.unc.edu.ar/academica/grado/licenciatura-en-ciencias-de-la-computaci%C3%B3n/",
-      "area": "Regular Student",
+      "summary": "In the program, I developed a strong foundation in computer science principles, including algorithms, data structures, database management, system design, and system architecture. I also gained proficiency in software development best practices and foundational leadership skills. Additionally, I enhanced my ability to analyze and manipulate symbolic expressions, rigorously define complex problem requirements, and design efficient, reliable software solutions. Practical experience in teamwork allowed me to collaborate effectively with diverse groups, solving complex challenges and delivering impactful results.",
+      "area": "Licenciatura en ciencias de la computacion",
       "studyType": "Full-time student",
       "startDate": "2021-03-24",
       "endDate": null,
@@ -154,7 +155,7 @@
       "location": "Global",
       "startDate": "2022-01-15",
       "endDate": null,
-      "summary": ["Developed custom trading indicators for clients on TradingView using Pine Script and Python."],
+      "summary": "Developed custom trading indicators for clients on TradingView using Pine Script and Python.",
       "highlights": [
         "Successfully developed a wide range of custom indicators based on client requirements."
       ],
@@ -196,15 +197,14 @@
   "projects": [
     {
       "name": "DB ORM Test Library",
-      "isActive": false,
-      "description": "A Python library for testing relational databases and ORMs. It captures the database state between two points and compares them to generate complete and accurate tests.",
+      "summary": "A Python library for testing relational databases and ORMs. It captures the database state between two points and compares them to generate complete and accurate tests.",
       "highlights": [
         "🎯 Designed to seamlessly integrate with popular ORMs like SQLAlchemy and Django",
         "✨ Supports multiple database backends (e.g., MySQL, PostgreSQL)",
         "💡 Captures database snapshots for accurate comparisons between test states",
         "🚀 Facilitates automatic generation of functional tests for database-driven applications"
       ],
-      "url": "https://github.com/vmatiasw/DeltaDB",
+      "url": null,
       "github": "https://github.com/vmatiasw/DeltaDB",
       "skills": {
         "languages": [

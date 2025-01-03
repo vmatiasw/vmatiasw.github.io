@@ -1,11 +1,11 @@
 ---
-import ItemSkills from "../ItemSkills.astro";
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
-import TextList from "../TextList.astro";
-import { Icon } from "astro-icon/components";
+import CardContenent from "../CardContenent.astro";
+import { filterNonNullEntries } from "@/data-helpers";
 
 const { work, workSkills } = CV;
+
 ---
 
 <section class={Astro.props.class}>
@@ -28,6 +28,10 @@ const { work, workSkills } = CV;
           const startYear = new Date(startDate).getFullYear();
           const endYear =
             endDate != null ? new Date(endDate).getFullYear() : "Present";
+          const details = filterNonNullEntries({
+            Responsibilities: responsibilities,
+            Achievements: achievements,
+          });
 
           return (
             <li class={`${getFilterClassNames(skills)}`}>
@@ -45,33 +49,13 @@ const { work, workSkills } = CV;
                 </header>
                 <div class="vertical-timeline md:col-span-10 md:pb-6">
                   <div class="timeline-item-points" />
-                  <h3 class="text-lg" aria-label={`${position} - ${name}`}>
-                    {position} @ {name}
-                  </h3>
-                  <p class="text-xs text-skin-muted">
-                    {location} - {location_type}
-                  </p>
-                  <div class="my-4 space-y-2 text-sm">
-                    <TextList title="Summary" items={summary} />
-                    <details class="group mt-4 space-y-2 text-sm">
-                      <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-muted underline">
-                        <Icon
-                          name="ri:arrow-up-s-line"
-                          class="size-4 duration-200 group-open:rotate-180"
-                        />
-                        <span class="group-open:hidden">Show more</span>
-                        <span class="hidden group-open:block">Show less</span>
-                      </summary>
-                      <TextList
-                        title="Responsibilities"
-                        items={responsibilities}
-                      />
-                      {achievements && (
-                        <TextList title="Achievements" items={achievements} />
-                      )}
-                    </details>
-                  </div>
-                  <ItemSkills skills={skills} />
+                  <CardContenent
+                    title={`${position} @ ${name}`}
+                    subtitle={`${location} - ${location_type}`}
+                    summary={[summary]}
+                    details={details}
+                    skills={skills}
+                  />
                 </div>
               </div>
             </li>
