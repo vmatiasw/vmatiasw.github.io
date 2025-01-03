@@ -1,30 +1,29 @@
 ---
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
-import CardContenent from "../CardContenent.astro";
-import { filterNonNullEntries } from "@/data-helpers";
-
+import TimelineCard from "../TimelineCard.astro";
 
 const { education, educationSkills } = CV;
 ---
 
 <section class={Astro.props.class}>
   <h3 class="section-title1">Education</h3>
-  <ul class=`grid ${getFilterClassNames(educationSkills)}`>
+  <ul class=`md:muted-box grid  ${getFilterClassNames(educationSkills)}`>
     {
       education.map(
         ({ institution, startDate, endDate, area, url, skills, summary }) => {
-          const startYear = new Date(startDate).getFullYear();
-          const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Actual";
-          const years = `${startYear} - ${endYear}`;
-
           return (
-            <div
-              class={`muted-box ${getFilterClassNames(skills)}`}
-            >
-              <CardContenent title={institution} titleUrl={url} subtitle={`${area} - ${years}`} skills={skills} summary={[summary]}></CardContenent>
-            </div>
+            <li class={`${getFilterClassNames(skills)}`}>
+              <TimelineCard
+                startDate={startDate}
+                endDate={endDate}
+                title={area}
+                titleUrl={url}
+                subtitle={institution}
+                skills={skills}
+                summary={summary}
+              />
+            </li>
           );
         },
       )

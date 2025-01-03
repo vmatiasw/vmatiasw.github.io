@@ -1,11 +1,10 @@
 ---
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
-import CardContenent from "../CardContenent.astro";
+import TimelineCard from "../TimelineCard.astro";
 import { filterNonNullEntries } from "@/data-helpers";
 
 const { work, workSkills } = CV;
-
 ---
 
 <section class={Astro.props.class}>
@@ -25,9 +24,6 @@ const { work, workSkills } = CV;
           location,
           location_type,
         }) => {
-          const startYear = new Date(startDate).getFullYear();
-          const endYear =
-            endDate != null ? new Date(endDate).getFullYear() : "Present";
           const details = filterNonNullEntries({
             Responsibilities: responsibilities,
             Achievements: achievements,
@@ -35,29 +31,15 @@ const { work, workSkills } = CV;
 
           return (
             <li class={`${getFilterClassNames(skills)}`}>
-              <div class="below-md-muted-box md:grid md:grid-cols-12">
-                <header class="text-xs font-semibold md:col-span-2">
-                  <div class="mt-1">
-                    <time datetime={startDate} data-title={startDate}>
-                      {startYear}
-                    </time>{" "}
-                    -{" "}
-                    <time datetime={endDate} data-title={endDate}>
-                      {endYear}
-                    </time>
-                  </div>
-                </header>
-                <div class="vertical-timeline md:col-span-10 md:pb-6">
-                  <div class="timeline-item-points" />
-                  <CardContenent
-                    title={`${position} @ ${name}`}
-                    subtitle={`${location} - ${location_type}`}
-                    summary={[summary]}
-                    details={details}
-                    skills={skills}
-                  />
-                </div>
-              </div>
+              <TimelineCard
+                startDate={startDate}
+                endDate={endDate}
+                title={`${position} @ ${name}`}
+                subtitle={`${location} - ${location_type}`}
+                summary={summary}
+                details={details}
+                skills={skills}
+              />
             </li>
           );
         },
@@ -65,14 +47,3 @@ const { work, workSkills } = CV;
     }
   </ul>
 </section>
-
-<style>
-  @media (min-width: 768px) {
-    .vertical-timeline {
-      @apply relative before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted;
-    }
-    .timeline-item-points {
-      @apply absolute mt-2 size-2 -translate-x-[1.71rem] rounded-full bg-skin-muted ring-skin-fill;
-    }
-  }
-</style>

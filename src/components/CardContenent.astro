@@ -1,6 +1,5 @@
 ---
 import ItemSkills from "./ItemSkills.astro";
-import TextList from "./TextList.astro";
 import { Icon } from "astro-icon/components";
 import type { Skills } from "../cv-types";
 import { Image } from "astro:assets";
@@ -10,8 +9,7 @@ interface Props {
   titleUrl?: string;
   titleIcons?: { url: string; icon: string; name: string }[] | undefined;
   subtitle?: string;
-  timeDate?: string;
-  summary: string[];
+  summary: string;
   details?: [string, string[]][] | undefined;
   image?: string;
   fancybox?: string;
@@ -67,7 +65,7 @@ const {
 </div>
 {subtitle && <p class="text-xs text-skin-muted">{subtitle}</p>}
 <div class="my-4 space-y-2 text-sm">
-  <TextList title="Summary" items={summary} />
+  <p class="text-skin-muted">{summary}</p>
   {
     details && (
       <details class="group mt-4 space-y-2 text-sm">
@@ -80,7 +78,14 @@ const {
           <span class="hidden group-open:block">Show less</span>
         </summary>
         {details.map(([key, value]) => (
-          <TextList title={key} items={value} />
+          <div>
+            <h4>{key}:</h4>
+            <ul class="flex list-disc flex-col gap-2 text-skin-muted">
+              {value.map((item) => (
+                <li class="ml-4 marker:text-skin-hue">{item}</li>
+              ))}
+            </ul>
+          </div>
         ))}
       </details>
     )
