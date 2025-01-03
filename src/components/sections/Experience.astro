@@ -3,47 +3,49 @@ import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
 import TimelineCard from "../TimelineCard.astro";
 import { filterNonNullEntries } from "@/data-helpers";
+import DynamicSection from "../DynamicSection.astro";
 
 const { work, workSkills } = CV;
 ---
 
-<section class={Astro.props.class}>
-  <h3 class="section-title1">Experience</h3>
-  <ul class=`md:muted-box grid ${getFilterClassNames(workSkills)}`>
-    {
-      work.map(
-        ({
-          name,
-          startDate,
-          endDate,
-          position,
-          summary,
-          responsibilities,
-          achievements,
-          skills,
-          location,
-          location_type,
-        }) => {
-          const details = filterNonNullEntries({
-            Responsibilities: responsibilities,
-            Achievements: achievements,
-          });
+<DynamicSection
+  class={Astro.props.class}
+  title="Experience"
+  ulClass=`md:muted-box grid ${getFilterClassNames(workSkills)}`
+>
+  {
+    work.map(
+      ({
+        name,
+        startDate,
+        endDate,
+        position,
+        summary,
+        responsibilities,
+        achievements,
+        skills,
+        location,
+        location_type,
+      }) => {
+        const details = filterNonNullEntries({
+          Responsibilities: responsibilities,
+          Achievements: achievements,
+        });
 
-          return (
-            <li class={`${getFilterClassNames(skills)}`}>
-              <TimelineCard
-                startDate={startDate}
-                endDate={endDate}
-                title={`${position} @ ${name}`}
-                subtitle={`${location} - ${location_type}`}
-                summary={summary}
-                details={details}
-                skills={skills}
-              />
-            </li>
-          );
-        },
-      )
-    }
-  </ul>
-</section>
+        return (
+          <li class={`${getFilterClassNames(skills)}`}>
+            <TimelineCard
+              startDate={startDate}
+              endDate={endDate}
+              title={`${position} @ ${name}`}
+              subtitle={`${location} - ${location_type}`}
+              summary={summary}
+              details={details}
+              skills={skills}
+            />
+          </li>
+        );
+      },
+    )
+  }
+</DynamicSection>

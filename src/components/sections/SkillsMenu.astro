@@ -3,6 +3,7 @@ import { CV } from "../../CVRepository";
 import SkillsList from "../SkillsList.astro";
 import { Icon } from "astro-icon/components";
 
+
 const { skills } = CV;
 ---
 
@@ -113,12 +114,15 @@ const { skills } = CV;
     });
 
     filterCheckbox.addEventListener("change", () => {
-      const elemStyle = filterCheckbox.checked ? "none" : "";
       const skillStyle = filterCheckbox.checked ? "transparent" : "";
 
-      skillFilterElements.forEach(
-        (element) => (element.style.display = elemStyle),
-      );
+      skillFilterElements.forEach((element) => {
+        if (filterCheckbox.checked) {
+          element.classList.add("hidden");
+        } else {
+          element.classList.remove("hidden");
+        }
+      });
 
       childSkillBoxes.forEach((element) => {
         (element as HTMLElement).style.backgroundColor = skillStyle;
@@ -130,7 +134,7 @@ const { skills } = CV;
           .map((checkbox) => checkbox.id)
           .forEach((skillClassId: string) => {
             [...document.getElementsByClassName(skillClassId)].forEach(
-              (element) => ((element as HTMLElement).style.display = ""),
+              (element) => ((element as HTMLElement).classList.remove("hidden")),
             );
             [
               ...document.getElementsByClassName("child-" + skillClassId),

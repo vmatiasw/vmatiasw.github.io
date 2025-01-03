@@ -2,13 +2,12 @@
 import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
 import TimelineCard from "../TimelineCard.astro";
+import DynamicSection from "../DynamicSection.astro";
 
 const { education, educationSkills } = CV;
 ---
 
-<section class={Astro.props.class}>
-  <h3 class="section-title1">Education</h3>
-  <ul class=`md:muted-box grid  ${getFilterClassNames(educationSkills)}`>
+<DynamicSection class={Astro.props.class} title="Education" ulClass={`md:muted-box grid ${getFilterClassNames(educationSkills)}`}> 
     {
       education.map(
         ({ institution, startDate, endDate, area, url, skills, summary }) => {
@@ -28,5 +27,4 @@ const { education, educationSkills } = CV;
         },
       )
     }
-  </ul>
-</section>
+</DynamicSection>

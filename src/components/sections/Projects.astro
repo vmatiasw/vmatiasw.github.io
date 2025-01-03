@@ -3,43 +3,43 @@ import { CV } from "../../CVRepository";
 import { getFilterClassNames } from "@/skill-filter";
 import CardContenent from "../CardContenent.astro";
 import { filterNonNullEntries } from "@/data-helpers";
+import DynamicSection from "../DynamicSection.astro";
 
 const { projects, projectsSkills } = CV;
 ---
 
-<section class={Astro.props.class}>
-  <h3 class="section-title1">Projects</h3>
-  <div class=`grid md:grid-cols-2 ${getFilterClassNames(projectsSkills)}`>
-    {
-      projects.map(
-        ({ url, summary, highlights, name, github, image, skills }) => {
-          const titleIcons = url
-            ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
-            : undefined;
-
-          const details = filterNonNullEntries({
-            Highlights: highlights,
-          });
-
-          return (
-            <div class={`muted-box ${getFilterClassNames(skills)}`}>
-              <CardContenent
-                title={name}
-                titleUrl={url}
-                titleIcons={titleIcons}
-                summary={summary}
-                details={details}
-                image={image}
-                fancybox="projects"
-                skills={skills}
-              />
-            </div>
-          );
-        },
-      )
-    }
-  </div>
-</section>
+<DynamicSection
+  class={Astro.props.class}
+  title="Projects"
+  ulClass=`grid md:grid-cols-2 ${getFilterClassNames(projectsSkills)}`
+>
+  {
+    projects.map(
+      ({ url, summary, highlights, name, github, image, skills }) => {
+        const titleIcons = url
+          ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
+          : undefined;
+        const details = filterNonNullEntries({
+          Highlights: highlights,
+        });
+        return (
+          <li class={`muted-box ${getFilterClassNames(skills)}`}>
+            <CardContenent
+              title={name}
+              titleUrl={url}
+              titleIcons={titleIcons}
+              summary={summary}
+              details={details}
+              image={image}
+              fancybox="projects"
+              skills={skills}
+            />
+          </li>
+        );
+      },
+    )
+  }
+</DynamicSection>
 
 <script>
   import { Fancybox } from "@fancyapps/ui";

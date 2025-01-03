@@ -1,0 +1,25 @@
+---
+interface Props {
+    class?: string;
+    title: string;
+    ulClass: string;
+    children: any;
+}
+
+const { ulClass, title }: Props = Astro.props;
+
+---
+
+<section class={Astro.props.class}>
+  <h3 class="section-title1">{title}</h3>
+  <ul id="list-contenent" class={ulClass}>
+    <slot />
+  </ul>
+  <p id="empty-message" class="text-skin-muted text-center font-semibold hidden">No {title.toLowerCase()} available for the selected filters.</p>
+</section>
+
+<style>
+#list-contenent.hidden + #empty-message {
+  display: block;
+}
+</style>
