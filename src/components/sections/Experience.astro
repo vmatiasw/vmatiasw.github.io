@@ -17,6 +17,7 @@ const { work, workSkills } = CV;
     work.map(
       ({
         name,
+        url,
         startDate,
         endDate,
         position,
@@ -37,7 +38,9 @@ const { work, workSkills } = CV;
             <TimelineCard
               startDate={startDate}
               endDate={endDate}
-              title={`${position} @ ${name}`}
+              firstTitle={position}
+              entityTitle={name}
+              entityUrl={url}
               subtitle={`${location} - ${location_type}`}
               summary={summary}
               details={details}

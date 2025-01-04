@@ -16,7 +16,7 @@ const { projects, projectsSkills } = CV;
   {
     projects.map(
       ({ url, summary, highlights, name, github, image, skills }) => {
-        const titleIcons = url
+        const headerIcons = github
           ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
           : undefined;
         const details = filterNonNullEntries({
@@ -25,9 +25,9 @@ const { projects, projectsSkills } = CV;
         return (
           <li class={`muted-box ${getFilterClassNames(skills)}`}>
             <CardContenent
-              title={name}
-              titleUrl={url}
-              titleIcons={titleIcons}
+              entityTitle={name}
+              entityUrl={url}
+              headerIcons={headerIcons}
               summary={summary}
               details={details}
               image={image}

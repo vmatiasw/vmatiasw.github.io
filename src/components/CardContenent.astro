@@ -4,10 +4,11 @@ import { Icon } from "astro-icon/components";
 import type { Skills } from "../cv-types";
 import { Image } from "astro:assets";
 
-interface Props {
-  title: string;
-  titleUrl?: string;
-  titleIcons?: { url: string; icon: string; name: string }[] | undefined;
+export interface Props {
+  firstTitle?: string;
+  entityTitle?: string;
+  entityUrl?: string;
+  headerIcons?: { url: string; icon: string; name: string }[] | undefined;
   subtitle?: string;
   summary: string;
   details?: [string, string[]][] | undefined;
@@ -17,40 +18,48 @@ interface Props {
 }
 
 const {
-  title,
-  titleUrl,
-  titleIcons,
+  firstTitle,
+  entityTitle,
+  entityUrl,
+  headerIcons,
   subtitle,
   summary,
   details,
-  skills,
   image,
   fancybox,
+  skills,
 }: Props = Astro.props;
 ---
 
-<div class={titleIcons && "flex items-center gap-2 justify-between"}>
+<div class={headerIcons && "flex items-center gap-2 justify-between"}>
+  <h3 class="text-lg">
+    {firstTitle && <span>{firstTitle}</span>}
+    {firstTitle && entityTitle && <span class="text-skin-muted"> @ </span>}
+    {
+      entityTitle &&
+        (entityUrl ? (
+          <a
+            href={entityUrl}
+            class="group flex gap-3 text-skin-hue hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Visit ${entityTitle}`}
+          >
+            {entityTitle}
+            <Icon
+              name="ri:arrow-up-line"
+              class="size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            />
+          </a>
+        ) : (
+          <span>{entityTitle}</span>
+        ))
+    }
+  </h3>
+
   {
-    titleUrl ? (
-      <a
-        class="group flex items-center gap-[6px] text-lg hover:text-skin-hue hover:underline"
-        href={titleUrl}
-        title={`View ${title}`}
-        target="_blank"
-      >
-        {title}
-        <Icon
-          name="ri:arrow-up-line"
-          class="rotate-45 text-skin-hue group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-        />
-      </a>
-    ) : (
-      <h3 class="text-lg">{title}</h3>
-    )
-  }
-  {
-    titleIcons &&
-      titleIcons.map(({ url, icon, name }) => (
+    headerIcons &&
+      headerIcons.map(({ url, icon, name }) => (
         <a
           href={url}
           title={name}

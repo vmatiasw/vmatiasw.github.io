@@ -2,6 +2,7 @@
 
 - [x] Borrar el KeyboardManager.
 - [x] crear boton para imprimir
+en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mueva al segundo
 - [] mejorar cv pdf para imprimir
 - [] revisar errores de consola y de astro inspect
 - [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
