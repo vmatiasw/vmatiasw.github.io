@@ -3,6 +3,7 @@
 - [x] Borrar el KeyboardManager.
 - [x] crear boton para imprimir
 - [] mejorar cv pdf para imprimir
+- [] revisar errores de consola y de astro inspect
 - [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina
