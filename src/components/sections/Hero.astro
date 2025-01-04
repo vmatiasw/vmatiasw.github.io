@@ -47,10 +47,10 @@ const { city, region } = location;
             );
           })
         }
-        <div class="button-hover-effect size-8">
-          <Icon name="ri:command-fill" class="size-5" />
-        </div>
-        <div class="button-hover-effect size-8">
+        <button title="Print my cv" class="button-hover-effect size-8" onclick="window.print()">
+          <Icon name="mdi:printer" class="size-5" />
+        </button>
+        <div title="Change theme" class="button-hover-effect size-8">
           <ThemeSwitch />
         </div>
       </div>

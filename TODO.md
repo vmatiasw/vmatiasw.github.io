@@ -1,8 +1,9 @@
 # TODO
 
-- [x] Borrar el KeyboardManager, solo dejarboto para imprimir y no romper nada, extraer lo necesario.
-- [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
+- [x] Borrar el KeyboardManager.
+- [x] crear boton para imprimir
 - [] mejorar cv pdf para imprimir
+- [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina
 - [] sacar y poner mi foto
