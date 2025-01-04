@@ -1,6 +1,7 @@
 # TODO
 
-- [] Revisar y arreglar el KeyboardManager
+- [x] Borrar el KeyboardManager, solo dejarboto para imprimir y no romper nada, extraer lo necesario.
+- [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
 - [] mejorar cv pdf para imprimir
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina

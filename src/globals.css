@@ -40,9 +40,6 @@
   .section-title2 {
     @apply mb-2 text-lg font-semibold text-skin-hue;
   }
-  .skill-box {
-    @apply flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm;
-  }
   .button-hover-effect {
     @apply inline-flex cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent/20;
   }

@@ -46,7 +46,7 @@ const namedItems = items.map((item) => {
             checked
           />
           <label for={createFilterID(idType, name)} class="skill-box">
-            {icon && <Icon name={icon} width={16} height={16} />}
+            {icon && <Icon name={icon} class="size-4" />}
             <span>{name}</span>
           </label>
         </li>
@@ -54,7 +54,7 @@ const namedItems = items.map((item) => {
         <li
           class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
         >
-          {icon && <Icon name={icon} width={16} height={16} />}
+          {icon && <Icon name={icon} class="size-4" />}
           <span>{name}</span>
         </li>
       ),
@@ -63,6 +63,9 @@ const namedItems = items.map((item) => {
 </ul>
 
 <style>
+  .skill-box {
+    @apply flex gap-1 rounded-md border-solid border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue backdrop-blur-sm;
+  }
   .input-skill-box:not(:checked) + label {
     background-color: transparent;
   }
