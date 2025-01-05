@@ -2,19 +2,19 @@
 
 - [x] Borrar el KeyboardManager.
 - [x] crear boton para imprimir
-en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mueva al segundo
+      en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mueva al segundo
 - [] mejorar cv pdf para imprimir
-  - [] hacer un modo imprecion (como el modo oscuro) que se ponga al imprimir.
+  - [] hacer un modo impresion (como el modo oscuro) que se ponga al imprimir.
   - [] normalizar las skills en listas mas normales
   - [] hacer que se desplegue todo
   - [] investigar detalles a sacar u agregar...
+- [] fixear que no se muestra mi foto en el icono de la pagina
 - [] Revisar el ArtPlums, etablecer un limite para que no se vaya al pasto
 - [] Revisar el ThemeSwitch, mover la logica de Hero a ThemeSwitch, ver para incluir tema del sistema (por defecto?)
 - [] revisar errores de consola y de astro inspect
 - [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
 - [] agregar boton para compartir link
 - [] agregar vista previa en el link de la pagina
-- [] sacar y poner mi foto
 - [] mejorar la accesibilidad y el SEO, investigar,...
 - [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
 - [] agregar este proyecto a mis proyectos
