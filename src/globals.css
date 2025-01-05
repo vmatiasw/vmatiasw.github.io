@@ -1,31 +1,4 @@
-@tailwind base;
 @tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --color-text-base: 0, 0, 0;
-    --color-text-muted: 120, 120, 120;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 245, 245, 245;
-    --muted: 200, 200, 200;
-    --color: 249, 115, 22;
-    --color-button-accent: 249, 115, 22;
-    --color-button-accent-hover: 55, 55, 55;
-    --color-button-muted: 244, 239, 238;
-  }
-  .dark {
-    --color-text-base: 255, 255, 255;
-    --color-text-muted: 150, 150, 150;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 36, 36, 36;
-    --muted: 100, 100, 100;
-    --color: 227, 77, 10;
-    --color-button-accent: 227, 77, 10;
-    --color-button-accent-hover: 231, 121, 43;
-    --color-button-muted: 37, 42, 43;
-  }
-}
 
 @media (hover: none), (pointer: coarse) {
   bg-skin-button-accent:hover {
