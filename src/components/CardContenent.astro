@@ -32,7 +32,7 @@ const {
 ---
 
 <div class={headerIcons && "flex items-center gap-2 justify-between"}>
-  <h3 class="text-lg">
+  <h3 class="flex-inline text-lg">
     {firstTitle && <span>{firstTitle}</span>}
     {firstTitle && entityTitle && <span class="text-skin-muted"> @ </span>}
     {
@@ -40,7 +40,7 @@ const {
         (entityUrl ? (
           <a
             href={entityUrl}
-            class="group flex gap-3 text-skin-hue hover:underline"
+            class="group gap-3 text-skin-hue hover:underline"
             target="_blank"
             rel="noopener noreferrer"
             title={`Visit ${entityTitle}`}
@@ -48,7 +48,7 @@ const {
             {entityTitle}
             <Icon
               name="ri:arrow-up-line"
-              class="size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
             />
           </a>
         ) : (
@@ -56,7 +56,6 @@ const {
         ))
     }
   </h3>
-
   {
     headerIcons &&
       headerIcons.map(({ url, icon, name }) => (
