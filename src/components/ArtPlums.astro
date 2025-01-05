@@ -1,15 +1,23 @@
-<div
-  class="fixed bottom-0 left-0 right-0 top-0"
-  style="mask-image: radial-gradient(circle, transparent, black); -webkit-mask-image: radial-gradient(circle, transparent, black);"
->
-  <canvas id="artPlumCanvas" width="400" height="400"></canvas>
-</div>
+<canvas id="artPlumCanvas" class={Astro.props.class}></canvas>
+
+<style>
+  #artPlumCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    mask-image: radial-gradient(circle, transparent, black);
+    -webkit-mask-image: radial-gradient(circle, transparent, black);
+  }
+</style>
 
 <script>
   const r180 = Math.PI;
   const r90 = Math.PI / 2;
   const r15 = Math.PI / 12;
-  const color = "#80808050"; // This is an 8-digit hexadecimal color code with alpha transparency
+  const color = "#90909050"; // This is an 8-digit hexadecimal color code with alpha transparency
 
   const MIN_BRANCH = 30;
   const len = 6;

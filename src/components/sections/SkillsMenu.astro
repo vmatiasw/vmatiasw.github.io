@@ -7,7 +7,7 @@ const { skills } = CV;
 ---
 
 <section class={Astro.props.class}>
-  <h3 class="section-title1">Skills</h3>
+  <h3 class="section-title1">Hard Skills</h3>
   <div>
     <SkillsList
       title="Tools"
@@ -40,7 +40,7 @@ const { skills } = CV;
       })
     }
   </div>
-  <div class="mt-4 flex gap-4">
+  <div class="mt-4 flex gap-4 print:hidden">
     <div>
       <input type="checkbox" id="skills-filter-checkbox" class="hidden" />
       <label

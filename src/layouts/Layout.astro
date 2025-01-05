@@ -1,7 +1,6 @@
 ---
 import "../theme.css";
 import "../globals.css";
-import "../print.css";
 import ArtPlums from "@/components/ArtPlums.astro";
 import { CV } from "../CVRepository";
 
@@ -25,7 +24,7 @@ const { image, summary } = CV.basics;
     <link rel="preload" as="image" href={image} />
   </head>
   <body class="bg-skin-fill">
-    <ArtPlums class="background-fixed" />
+    <ArtPlums class="print:hidden" />
     <slot />
   </body>
 </html>
@@ -34,14 +33,5 @@ const { image, summary } = CV.basics;
   body {
     background-attachment: fixed;
     margin: 0;
-  }
-
-  .background-fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
   }
 </style>

@@ -11,7 +11,7 @@ const { work, workSkills } = CV;
 <DynamicSection
   class={Astro.props.class}
   title="Experience"
-  ulClass={`md:muted-box grid ${getFilterClassNames(workSkills)}`}
+  ulClass={`md:muted-box md:gap-0 ${getFilterClassNames(workSkills)}`}
 >
   {
     work.map(

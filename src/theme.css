@@ -23,6 +23,17 @@
     --color-button-accent-hover: 231, 121, 43;
     --color-button-muted: 37, 42, 43;
   }
+  .print {
+    --color-text-base: 0, 0, 0;
+    --color-text-muted: 0, 0, 0;
+    --color-text-inverted: 0, 0, 0;
+    --color-fill: 255, 255, 255;
+    --muted: 0, 0, 0;
+    --color: 0, 0, 0;
+    --color-button-accent: 0, 0, 0;
+    --color-button-accent-hover: 0, 0, 0;
+    --color-button-muted: 0, 0, 0;
+  }
 }
 
 ::view-transition-old(root),

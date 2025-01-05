@@ -4,6 +4,12 @@
 - [x] crear boton para imprimir
 en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mueva al segundo
 - [] mejorar cv pdf para imprimir
+  - [] hacer un modo imprecion (como el modo oscuro) que se ponga al imprimir.
+  - [] normalizar las skills en listas mas normales
+  - [] hacer que se desplegue todo
+  - [] investigar detalles a sacar u agregar...
+- [] Revisar el ArtPlums, etablecer un limite para que no se vaya al pasto
+- [] Revisar el ThemeSwitch, mover la logica de Hero a ThemeSwitch, ver para incluir tema del sistema (por defecto?)
 - [] revisar errores de consola y de astro inspect
 - [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
 - [] agregar boton para compartir link
@@ -15,8 +21,6 @@ en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mue
 
 ## Opcional
 
-- [] Revisar el ThemeSwitch
-- [] Revisar el ArtPlums
 - [] cambiar la visualizacion de las skills a subrayado en el texto:
   - antes que todo crear una funcion que reciba los textos del item y lo devuelva con las entidades nombradas procesadas para poderse subrayar y que se hayan creado los ids para ese item.
   - identificar las entidades nombradas solo por mayusculas o que esten entre el algun simbolo que se ignore si tiene adelante un \ .

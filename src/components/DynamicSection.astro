@@ -11,7 +11,7 @@ const { ulClass, title }: Props = Astro.props;
 
 <section class={Astro.props.class}>
   <h3 class="section-title1">{title}</h3>
-  <ul id="list-contenent" class={ulClass}>
+  <ul id="list-contenent" class={`${ulClass} grid gap-4`}>
     <slot />
   </ul>
   <p
