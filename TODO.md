@@ -9,6 +9,7 @@
   - [] hacer que se desplegue todo
   - [] investigar detalles a sacar u agregar...
 - [] fixear que no se muestra mi foto en el icono de la pagina
+- [] que los contenidos en columna de hero, about y de skills sean siempre del mismo largo.
 - [] Revisar el ArtPlums, etablecer un limite para que no se vaya al pasto
 - [] Revisar el ThemeSwitch, mover la logica de Hero a ThemeSwitch, ver para incluir tema del sistema (por defecto?)
 - [] revisar errores de consola y de astro inspect
