@@ -52,7 +52,8 @@ module.exports = {
   },
   plugins: [
     function ({ addVariant }) {
-      addVariant('not-print', '@media not print');
+      addVariant("not-print", "@media not print");
+      addVariant("below-md", "@media (max-width: 768px)");
     },
   ],
 };

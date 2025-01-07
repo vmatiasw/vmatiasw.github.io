@@ -48,9 +48,4 @@ section {
   .muted-box {
     @apply rounded-md bg-skin-button-muted/50 p-5 ring-1 ring-skin-muted;
   }
-  @media (max-width: 768px) {
-    .below-md-muted-box {
-      @apply muted-box;
-    }
-  }
 }
