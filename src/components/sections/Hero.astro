@@ -2,7 +2,7 @@
 import { CV } from "../../CVRepository";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import ThemeSwitch from "@/components/ThemeSwitch.astro";
+import ThemeSwitchBtn from "@/components/ThemeSwitchBtn.astro";
 import PrintBtn from "../PrintBtn.astro";
 
 const { name, label, image, location, profiles, email, website } = CV.basics;
@@ -54,7 +54,7 @@ const { city, region } = location;
           })
         }
         <PrintBtn class="button-hover-effect size-8" />
-        <ThemeSwitch class="button-hover-effect size-8" />
+        <ThemeSwitchBtn class="button-hover-effect size-8" />
       </div>
     </div>
     <figure class="relative w-fit">
