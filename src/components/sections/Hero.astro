@@ -3,35 +3,41 @@ import { CV } from "../../CVRepository";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ThemeSwitch from "@/components/ThemeSwitch.astro";
+import PrintBtn from "../PrintBtn.astro";
 
-const { name, label, image, location, profiles, email } = CV.basics;
+const { name, label, image, location, profiles, email, website } = CV.basics;
 const { city, region } = location;
 ---
 
 <section class={Astro.props.class}>
   <div class="flex flex-col-reverse gap-8">
     <div class="flex flex-col gap-1">
-      <h1 class="text-4xl font-bold">{name}</h1>
+      <h1 class="text-3xl font-bold">{name}</h1>
       <h2 class="text-skin-muted">{label}</h2>
-      <div class="flex gap-2 pt-2 text-sm text-skin-muted">
+      <div class="inline-flex items-center gap-2 text-skin-muted">
         <Icon name="mdi:world" class="size-5" />
-        {city}, {region}
+        <p>{city}, {region}</p>
       </div>
-      <p>{email}</p>
+      <div class="inline-flex items-center gap-2 text-skin-muted">
+        <Icon name="mdi:email" class="size-5" />
+        <p>{email}</p>
+      </div>
+      <div
+        class="inline-flex items-center gap-2 text-skin-muted not-print:hidden"
+      >
+        <Icon name="mdi:web" class="size-5" />
+        <p>{website}</p>
+      </div>
       <div class="print:hidden">
-        {
-          email && (
-            <a
-              class="button-hover-effect size-8"
-              href={`mailto:${email}`}
-              title={`Send email to me`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name="mdi:email" class="size-5" />
-            </a>
-          )
-        }
+        <a
+          class="button-hover-effect size-8"
+          href={`mailto:${email}`}
+          title={`Send email to me`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="mdi:email" class="size-5" />
+        </a>
         {
           profiles.map(({ network, url, icon }) => {
             return (
@@ -47,13 +53,7 @@ const { city, region } = location;
             );
           })
         }
-        <button
-          title="Print my cv"
-          class="button-hover-effect size-8"
-          onclick="window.print()"
-        >
-          <Icon name="mdi:printer" class="size-5" />
-        </button>
+        <PrintBtn class="button-hover-effect size-8" />
         <ThemeSwitch class="button-hover-effect size-8" />
       </div>
     </div>

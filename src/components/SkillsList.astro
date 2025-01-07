@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import { createFilterID } from "@/skill-filter";
 
 interface Props {
+  class?: string;
   items: NameAndIcon[] | string[];
   type: "languages" | "tools";
   input?: boolean;
@@ -25,46 +26,50 @@ const namedItems = items.map((item) => {
 });
 ---
 
-{title && <h2 class="section-title2">{title}</h2>}
-<ul class="flex flex-wrap gap-2">
-  {
-    groupBy && (
-      <li class="flex items-center">
-        <p class="font-semibold text-skin-hue">{groupBy + ":"}</p>
-      </li>
-    )
-  }
-  {
-    namedItems.map(({ name, icon }) =>
-      input ? (
-        <li class="cursor-pointer">
-          <input
-            type="checkbox"
-            id={createFilterID(idType, name)}
-            value={name}
-            class="input-skill-box hidden"
-            checked
-          />
-          <label for={createFilterID(idType, name)} class="skill-box">
-            {icon && <Icon name={icon} class="size-4" />}
+<div class={`${Astro.props.class}`}>
+  {title && <h2 class="section-title2 mb-2 print:mb-0">{title}</h2>}
+  <ul class="flex flex-wrap gap-2 print:text-sm">
+    {
+      groupBy && (
+        <li class="flex items-center">
+          <p class="font-semibold text-skin-hue">{groupBy + ":"}</p>
+        </li>
+      )
+    }
+    {
+      namedItems.map(({ name, icon }) =>
+        input ? (
+          <li class="cursor-pointer">
+            <input
+              type="checkbox"
+              id={createFilterID(idType, name)}
+              value={name}
+              class="input-skill-box hidden"
+              checked
+            />
+            <label for={createFilterID(idType, name)} class="skill-box">
+              {icon && <Icon name={icon} class="size-4 print:hidden" />}
+              <span>{name}</span>
+            </label>
+          </li>
+        ) : (
+          <li
+            class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
+          >
+            {icon && <Icon name={icon} class="size-4 print:hidden" />}
             <span>{name}</span>
-          </label>
-        </li>
-      ) : (
-        <li
-          class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
-        >
-          {icon && <Icon name={icon} class="size-4" />}
-          <span>{name}</span>
-        </li>
-      ),
-    )
-  }
-</ul>
+          </li>
+        ),
+      )
+    }
+  </ul>
+</div>
 
 <style>
-  .skill-box {
-    @apply flex rounded-md p-1 gap-1 text-xs text-skin-hue bg-skin-button-accent/20 border-4 border-skin-hue/20;
+  @media not print {
+    .skill-box {
+      @apply flex gap-1 rounded-md border-4 border-skin-hue/20 bg-skin-button-accent/20 p-1 text-xs text-skin-hue;
+    }
   }
   .input-skill-box:not(:checked) + label {
     background-color: transparent;

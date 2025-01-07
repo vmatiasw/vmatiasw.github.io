@@ -32,7 +32,7 @@ const {
 ---
 
 <div class={headerIcons && "flex items-center gap-2 justify-between"}>
-  <h3 class="flex-inline text-lg">
+  <h3 class="flex-inline text-lg print:text-base">
     {firstTitle && <span>{firstTitle}</span>}
     {firstTitle && entityTitle && <span class="text-skin-muted"> @ </span>}
     {
@@ -48,7 +48,7 @@ const {
             {entityTitle}
             <Icon
               name="ri:arrow-up-line"
-              class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 print:hidden"
             />
           </a>
         ) : (
@@ -71,12 +71,12 @@ const {
       ))
   }
 </div>
-{subtitle && <p class="text-xs text-skin-muted">{subtitle}</p>}
+{subtitle && <p class="text-xs text-skin-muted print:text-sm">{subtitle}</p>}
 <div class="my-4 space-y-2 text-sm">
   <p class="text-skin-muted">{summary}</p>
   {
     details && (
-      <details class="group mt-4 space-y-2 text-sm">
+      <details class="group mt-4 space-y-2 text-sm print:hidden">
         <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-muted underline">
           <Icon
             name="ri:arrow-up-s-line"

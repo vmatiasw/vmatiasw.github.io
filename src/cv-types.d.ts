@@ -36,6 +36,8 @@ export interface Basics {
   label: string;
   image: string;
   email: string;
+  website: string;
+  printMessage: string;
   phone: string;
   url: string;
   summary: string;
@@ -52,7 +54,6 @@ export interface SpeakLanguage {
 export interface Profile {
   icon: string;
   network: string;
-  username: string;
   url: string;
 }
 

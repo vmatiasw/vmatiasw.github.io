@@ -50,5 +50,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('not-print', '@media not print');
+    },
+  ],
 };

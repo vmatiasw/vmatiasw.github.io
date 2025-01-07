@@ -9,7 +9,7 @@ interface Props {
 const { skills }: Props = Astro.props;
 ---
 
-<section class="mt-2">
+<section class="mt-2 print:hidden">
   <div class="flex flex-col gap-2">
     <SkillsList items={skills.tools || []} type="tools" />
     <SkillsList items={skills.languages || []} type="languages" />

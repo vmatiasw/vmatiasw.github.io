@@ -34,13 +34,13 @@ section {
 
 @layer components {
   .section-title1 {
-    @apply text-3xl;
+    @apply text-3xl print:text-2xl;
   }
   .section-title2 {
-    @apply mb-2 text-lg font-semibold text-skin-hue;
+    @apply text-lg font-semibold text-skin-hue;
   }
   .button-hover-effect {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-md p-1 text-skin-hue transition-all duration-500 ease-linear hover:bg-skin-button-accent/20;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-hue transition-all duration-500 hover:bg-skin-button-accent/20;
   }
   input[type="checkbox"]:checked + .button-hover-effect {
     @apply bg-skin-button-accent text-skin-inverted;

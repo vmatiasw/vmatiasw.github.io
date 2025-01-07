@@ -29,7 +29,7 @@ import { Icon } from "astro-icon/components";
   const isAppearanceTransition =
     "startViewTransition" in document &&
     !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  
+
   const InitialTheme = localStorage.getItem("theme") || systemTheme;
   document.documentElement.classList.add(InitialTheme);
   localStorage.setItem("theme", InitialTheme);
@@ -88,13 +88,4 @@ import { Icon } from "astro-icon/components";
         swapTheme();
       }
     });
-
-  window.addEventListener("beforeprint", () => {
-    document.documentElement.classList.remove("dark");
-  });
-  window.addEventListener("afterprint", () => {
-    if (isDark) {
-      document.documentElement.classList.add("dark");
-    }
-  });
 </script>
