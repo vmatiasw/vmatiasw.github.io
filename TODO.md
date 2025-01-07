@@ -1,13 +1,10 @@
 # TODO
 
-- [x] Borrar el KeyboardManager.
-- [x] crear boton para imprimir
-      en Card hacer el el titulo se pueda dividir en dos con un @ y que el link se mueva al segundo
 - [] mejorar cv pdf para imprimir
-  - [] hacer un modo impresion (como el modo oscuro) que se ponga al imprimir.
-  - [] normalizar las skills en listas mas normales
-  - [] hacer que se desplegue todo
-  - [] investigar detalles a sacar u agregar...
+  - hacer un modo impresion (como el modo oscuro) que se ponga al imprimir.
+  - normalizar las skills en listas mas normales
+  - hacer que se desplegue todo
+  - investigar detalles a sacar u agregar...
 - [] fixear que no se muestra mi foto en el icono de la pagina
 - [] que los contenidos en columna de hero, about y de skills sean siempre del mismo largo.
 - [] Revisar el ArtPlums, etablecer un limite para que no se vaya al pasto
