@@ -17,10 +17,10 @@
   const r180 = Math.PI;
   const r90 = Math.PI / 2;
   const r15 = Math.PI / 12;
-  const color = "#90909050"; // This is an 8-digit hexadecimal color code with alpha transparency
-
-  const MIN_BRANCH = 30;
-  const len = 6;
+  const color = "#a0a0a050"; // This is an 8-digit hexadecimal color code with alpha transparency
+  const MIN_BRANCH = 40;
+  const MAX_BRANCH = 10000;
+  const len = 10;
 
   const randomMiddle = (): number => Math.random() * 0.6 + 0.2;
 
@@ -39,11 +39,8 @@
     height: number = 400,
     _dpi?: number,
   ) => {
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Unable to get canvas context");
-
+    const ctx = canvas.getContext("2d")!;
     const dpr = window.devicePixelRatio || 1;
-
     const bsr =
       //@ts-ignore
       ctx.webkitBackingStorePixelRatio ||
@@ -116,7 +113,12 @@
     )
       return;
 
-    const rate = counter.value <= MIN_BRANCH ? 0.8 : 0.5;
+    const rate =
+      counter.value <= MIN_BRANCH
+        ? 0.8
+        : counter.value >= MAX_BRANCH
+          ? 0.2
+          : 0.5;
 
     if (Math.random() < rate) steps.push(() => step(nx, ny, rad1, counter));
     if (Math.random() < rate) steps.push(() => step(nx, ny, rad2, counter));
