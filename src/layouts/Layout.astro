@@ -10,8 +10,8 @@ interface Props {
 
 const { title } = Astro.props;
 
-const { image, summary, website } = CV.basics;
-const { url, description } = website;
+const { image, website } = CV.basics;
+const { description } = website;
 ---
 
 <!doctype html>
@@ -19,14 +19,10 @@ const { url, description } = website;
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <meta name="description" content={summary} />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/avatar.png" />
     <link rel="preload" as="image" href={image} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body class="bg-skin-fill">
