@@ -1,0 +1,10 @@
+---
+import { CV } from "../../CVRepository";
+
+const { printMessage } = CV.basics;
+---
+
+<section class={Astro.props.class}>
+  <h1 class="text-4xl font-bold">Curriculum Vitae</h1>
+  <p>{printMessage}</p>
+</section>
