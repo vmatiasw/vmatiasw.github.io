@@ -12,7 +12,7 @@ const { city, region } = location;
 const InfoItems = [
   { icon: "mdi:world", text: `${city}, ${region}` },
   { icon: "mdi:email", text: email },
-  { icon: "mdi:web", text: website, className: "not-print:hidden" },
+  { icon: "mdi:web", text: website.url, className: "not-print:hidden" },
 ];
 
 interface BtnItem extends Profile {

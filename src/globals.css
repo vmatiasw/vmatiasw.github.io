@@ -13,6 +13,11 @@ p {
   text-wrap: normal;
 }
 
+body {
+  background-attachment: fixed;
+  margin: 0;
+}
+
 main {
   margin: auto;
   position: relative;

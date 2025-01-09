@@ -36,7 +36,7 @@ export interface Basics {
   label: string;
   image: string;
   email: string;
-  website: string;
+  website: WebSite;
   printMessage: string;
   phone: string;
   url: string;
@@ -57,6 +57,10 @@ export interface Profile {
   url: string;
 }
 
+export interface WebSite {
+  description: string;
+  url: string;
+}
 // ------------------------- Work -------------------------
 
 export interface Work {

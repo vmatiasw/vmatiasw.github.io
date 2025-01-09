@@ -4,7 +4,10 @@
     "label": "Full Stack Developer",
     "image": "/avatar.png",
     "email": "matiasvioladi@gmail.com",
-    "website": "https://vmatiasw.github.io/",
+    "website": {
+      "description": "Visit my website to access my curriculum vitae and learn more about my education, work experience, and personal projects.",
+      "url": "https://vmatiasw.github.io/"
+    },
     "printMessage": "This is a summarized and possibly filtered version of my website. There, you can find more information about my education, work experience, and personal projects, as well as details on how and where I have applied each of my skills in every case.",
     "phone": "",
     "url": "",
