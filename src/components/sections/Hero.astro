@@ -4,74 +4,83 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ThemeSwitchBtn from "@/components/ThemeSwitchBtn.astro";
 import PrintBtn from "../PrintBtn.astro";
+import type { Profile } from "../../cv-types";
 
 const { name, label, image, location, profiles, email, website } = CV.basics;
 const { city, region } = location;
+
+const InfoItems = [
+  { icon: "mdi:world", text: `${city}, ${region}` },
+  { icon: "mdi:email", text: email },
+  { icon: "mdi:web", text: website, className: "not-print:hidden" },
+];
+
+interface BtnItem extends Profile {
+  message?: string;
+}
+
+const btnItems: BtnItem[] = [
+  {
+    network: "email",
+    icon: "mdi:email",
+    message: "Send email to me",
+    url: `mailto:${email}`,
+  },
+  ...profiles,
+];
 ---
 
-<section class={Astro.props.class}>
-  <div class="flex flex-col-reverse gap-8">
-    <div class="flex flex-col gap-1">
-      <h1 class="text-3xl font-bold">{name}</h1>
-      <h2 class="text-skin-muted">{label}</h2>
-      <div class="inline-flex items-center gap-2 text-skin-muted">
-        <Icon name="mdi:world" class="size-5" />
-        <p>{city}, {region}</p>
-      </div>
-      <div class="inline-flex items-center gap-2 text-skin-muted">
-        <Icon name="mdi:email" class="size-5" />
-        <p>{email}</p>
-      </div>
-      <div
-        class="inline-flex items-center gap-2 text-skin-muted not-print:hidden"
-      >
-        <Icon name="mdi:web" class="size-5" />
-        <p>{website}</p>
-      </div>
-      <div class="print:hidden">
-        <a
-          class="button-hover-effect size-8"
-          href={`mailto:${email}`}
-          title={`Send email to me`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="mdi:email" class="size-5" />
-        </a>
-        {
-          profiles.map(({ network, url, icon }) => {
-            return (
-              <a
-                class="button-hover-effect size-8"
-                href={url}
-                title={`Visit ${name} profile on ${network}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name={icon} class="size-5" />
-              </a>
-            );
-          })
-        }
-        <PrintBtn class="button-hover-effect size-8" />
-        <ThemeSwitchBtn class="button-hover-effect size-8" />
-      </div>
+<section class={`gap-2 ${Astro.props.class}`}>
+  <figure class="relative mb-6 w-fit">
+    <Image
+      class="rounded-3xl"
+      height={200}
+      width={200}
+      src={image}
+      alt={name}
+    />
+    <div class="absolute -inset-3">
+      <div class="gradient-y-mask right-0"></div>
+      <div class="gradient-y-mask left-0"></div>
+      <div class="gradient-x-mask bottom-0"></div>
+      <div class="gradient-x-mask top-0"></div>
     </div>
-    <figure class="relative w-fit">
-      <Image
-        class="rounded-3xl"
-        height={200}
-        width={200}
-        src={image}
-        alt={name}
-      />
-      <div class="absolute -inset-3">
-        <div class="gradient-y-mask right-0"></div>
-        <div class="gradient-y-mask left-0"></div>
-        <div class="gradient-x-mask bottom-0"></div>
-        <div class="gradient-x-mask top-0"></div>
-      </div>
-    </figure>
+  </figure>
+  <div class="flex flex-col gap-1">
+    <h1 class="text-3xl font-bold">{name}</h1>
+    <h2 class="text-skin-muted">{label}</h2>
+    {
+      InfoItems.map(({ icon, text, className }) => {
+        return (
+          <div
+            class={`inline-flex items-center gap-2 text-skin-muted ${className}`}
+          >
+            <Icon name={icon} class="size-5" />
+            <p>{text}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+  <div class="flex gap-1 print:hidden">
+    {
+      btnItems.map(({ network, url, icon, message }) => {
+        const defaultMessage = `Visit ${network} profile`;
+        return (
+          <a
+            class="button-hover-effect size-8"
+            href={url}
+            title={message || defaultMessage}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name={icon} class="size-5" />
+          </a>
+        );
+      })
+    }
+    <PrintBtn class="button-hover-effect size-8" />
+    <ThemeSwitchBtn class="button-hover-effect size-8" />
   </div>
 </section>
 
