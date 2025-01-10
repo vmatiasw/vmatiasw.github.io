@@ -18,7 +18,6 @@ const {
   summary,
   details,
   image,
-  fancybox,
   skills,
 }: Props = Astro.props;
 
@@ -51,7 +50,6 @@ const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
       entityUrl={entityUrl}
       headerIcons={headerIcons}
       image={image}
-      fancybox={fancybox}
     />
   </div>
 </div>

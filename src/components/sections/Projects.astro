@@ -31,7 +31,6 @@ const { projects, projectsSkills } = CV;
               summary={summary}
               details={details}
               image={image}
-              fancybox="projects"
               skills={skills}
             />
           </li>
@@ -40,8 +39,3 @@ const { projects, projectsSkills } = CV;
     )
   }
 </DynamicSection>
-
-<script>
-  import { Fancybox } from "@fancyapps/ui";
-  Fancybox.bind('[data-fancybox="projects"]', { hideScrollbar: false });
-</script>

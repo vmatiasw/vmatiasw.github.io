@@ -13,7 +13,6 @@ export interface Props {
   summary: string;
   details?: [string, string[]][] | undefined;
   image?: string;
-  fancybox?: string;
   skills: Skills;
 }
 
@@ -26,7 +25,6 @@ const {
   summary,
   details,
   image,
-  fancybox,
   skills,
 }: Props = Astro.props;
 ---
@@ -109,7 +107,7 @@ const {
 
 {
   image && (
-    <a data-src={image} data-fancybox={fancybox}>
+    <a data-src={image}>
       <Image
         src={image}
         alt=""
