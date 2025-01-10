@@ -32,7 +32,7 @@ section {
 @tailwind components;
 
 @media (hover: none), (pointer: coarse) {
-  bg-skin-button-primary:hover {
+  bg-skin-button:hover {
     all: unset;
   }
 }
@@ -45,12 +45,12 @@ section {
     @apply text-lg font-semibold text-skin-accent;
   }
   .button-hover-effect {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-accent transition-all duration-500 hover:bg-skin-button-primary/20;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-accent transition-all duration-500 hover:bg-skin-button/20;
   }
   input[type="checkbox"]:checked + .button-hover-effect {
-    @apply bg-skin-button-primary text-skin-contrast;
+    @apply bg-skin-button text-skin-contrast;
   }
   .muted-box {
-    @apply rounded-md bg-skin-button-secondary/50 p-5 ring-1 ring-skin-muted;
+    @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
   }
 }

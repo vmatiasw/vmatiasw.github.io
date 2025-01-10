@@ -23,9 +23,9 @@ module.exports = {
       },
       backgroundColor: {
         skin: {
-          fill: withOpacity("--background-primary"),
-          "button-primary": withOpacity("--button-primary"),
-          "button-secondary": withOpacity("--button-secondary"),
+          primary: withOpacity("--background-primary"),
+          secondary: withOpacity("--background-secondary"),
+          button: withOpacity("--background-button"),
         },
       },
       colors: {

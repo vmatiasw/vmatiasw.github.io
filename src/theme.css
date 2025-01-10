@@ -8,8 +8,8 @@
     --background-primary: 245, 245, 245;
     --muted: 200, 200, 200;
     --accent: 249, 115, 22;
-    --button-primary: 249, 115, 22;
-    --button-secondary: 244, 239, 238;
+    --background-button: 249, 115, 22;
+    --background-secondary: 244, 239, 238;
   }
   .dark {
     --text-primary: 255, 255, 255;
@@ -18,8 +18,8 @@
     --background-primary: 36, 36, 36;
     --muted: 100, 100, 100;
     --accent: 227, 77, 10;
-    --button-primary: 227, 77, 10;
-    --button-secondary: 37, 42, 43;
+    --background-button: 227, 77, 10;
+    --background-secondary: 37, 42, 43;
   }
   .print {
     --text-primary: 0, 0, 0;
@@ -28,8 +28,8 @@
     --background-primary: 255, 255, 255;
     --muted: 0, 0, 0;
     --accent: 0, 0, 0;
-    --button-primary: 0, 0, 0;
-    --button-secondary: 0, 0, 0;
+    --background-button: 0, 0, 0;
+    --background-secondary: 0, 0, 0;
   }
 }
 
