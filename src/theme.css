@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --text-primary: 0, 0, 0;
+    --text-primary: 60, 60, 60;
     --text-secondary: 120, 120, 120;
     --text-contrast: 255, 255, 255;
     --background-primary: 245, 245, 245;

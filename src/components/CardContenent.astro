@@ -73,7 +73,7 @@ const {
 </div>
 {subtitle && <p class="text-xs text-skin-secondary print:text-sm">{subtitle}</p>}
 <div class="my-4 space-y-2 text-sm">
-  <p class="text-skin-secondary">{summary}</p>
+  <p class="text-skin-primary">{summary}</p>
   {
     details && (
       <details class="group mt-4 space-y-2 text-sm print:hidden">
@@ -88,7 +88,7 @@ const {
         {details.map(([key, value]) => (
           <div>
             <h4 aria-label={`Details for ${key}`}>{key}:</h4>
-            <ul class="flex list-disc flex-col gap-2 text-skin-secondary">
+            <ul class="flex list-disc flex-col gap-2 text-skin-primary">
               {value.map((item) => (
                 <li class="ml-4 marker:text-skin-accent">{item}</li>
               ))}
