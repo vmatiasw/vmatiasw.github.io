@@ -3,7 +3,7 @@ import { CV } from "../../CVRepository";
 const { summary } = CV.basics;
 ---
 
-<section class={Astro.props.class}>
+<section class={Astro.props.class} itemscope itemtype="https://schema.org/Person">
   <h3 class="section-title1">About</h3>
   <p class="font-mono text-skin-muted print:text-xs">
     {summary}

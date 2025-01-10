@@ -31,7 +31,10 @@ const {
 }: Props = Astro.props;
 ---
 
-<div class={headerIcons && "flex items-center gap-2 justify-between"}>
+<div class={headerIcons && "flex items-center gap-2 justify-between"} itemscope itemtype="https://schema.org/CreativeWork">
+  <meta itemprop="name" content={`${firstTitle} ${entityTitle}` || ""} />
+  <meta itemprop="description" content={summary || ""} />
+  
   <h3 class="flex-inline text-lg print:text-base">
     {firstTitle && <span>{firstTitle}</span>}
     {firstTitle && entityTitle && <span class="text-skin-muted"> @ </span>}
@@ -73,7 +76,9 @@ const {
       ))
   }
 </div>
+
 {subtitle && <p class="text-xs text-skin-muted print:text-sm">{subtitle}</p>}
+
 <div class="my-4 space-y-2 text-sm">
   <p class="text-skin-muted">{summary}</p>
   {
@@ -101,6 +106,7 @@ const {
     )
   }
 </div>
+
 {
   image && (
     <a data-src={image} data-fancybox={fancybox}>
@@ -114,4 +120,11 @@ const {
     </a>
   )
 }
+
 <ItemSkills skills={skills} />
+
+
+<div itemscope itemtype="https://schema.org/EducationalOccupationalOccupationalExperience">
+  <meta itemprop="roleName" content={firstTitle || "Unknown Role"} />
+  <meta itemprop="employer" content={entityTitle || "Unknown Employer"} />
+</div>
