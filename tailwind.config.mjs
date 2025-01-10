@@ -25,13 +25,13 @@ module.exports = {
         skin: {
           primary: withOpacity("--background-primary"),
           secondary: withOpacity("--background-secondary"),
-          button: withOpacity("--background-button"),
         },
       },
       colors: {
         skin: {
           muted: withOpacity("--muted"),
           accent: withOpacity("--accent"),
+          button: withOpacity("--background-button"),
         },
       },
     },

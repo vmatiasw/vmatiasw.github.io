@@ -45,7 +45,7 @@ section {
     @apply text-lg font-semibold text-skin-accent;
   }
   .button-hover-effect {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-accent transition-all duration-500 hover:bg-skin-button/20;
+    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-button transition-all duration-500 hover:bg-skin-button/20;
   }
   input[type="checkbox"]:checked + .button-hover-effect {
     @apply bg-skin-button text-skin-contrast;

@@ -39,7 +39,7 @@ const namedItems = items.map((item) => {
     {
       namedItems.map(({ name, icon }) =>
         input ? (
-          <li class="cursor-pointer">
+          <li>
             <input
               type="checkbox"
               id={createFilterID(idType, name)}
@@ -47,7 +47,7 @@ const namedItems = items.map((item) => {
               class="input-skill-box hidden"
               checked
             />
-            <label for={createFilterID(idType, name)} class="skill-box">
+            <label for={createFilterID(idType, name)} class="skill-box cursor-pointer">
               {icon && <Icon name={icon} class="size-4 print:hidden" />}
               <span>{name}</span>
             </label>
@@ -68,7 +68,7 @@ const namedItems = items.map((item) => {
 <style>
   @media not print {
     .skill-box {
-      @apply flex gap-1 rounded-md border-4 border-skin-accent/20 bg-skin-button/20 p-1 text-xs text-skin-accent;
+      @apply flex p-1 gap-1 rounded-md border-4 border-skin-button/20 bg-skin-button/20 text-xs text-skin-button;
     }
   }
   .input-skill-box:not(:checked) + label {
