@@ -1,6 +1,7 @@
 # TODO
 
-- [] revisar errores de consola
+- [] mejorar paleta de colores con relación de contraste mínima de 4.5:1
+- [] Evitar operaciones pesadas en el hilo principal, usando Web Workers (ej: animacion del fondo)
 - [] mejorar la accesibilidad y el SEO, investigar,...
 - [] cambiar la visualizacion de las skills a subrayado en el texto:
   - antes que todo crear una funcion que reciba los textos del item y lo devuelva con las entidades nombradas procesadas para poderse subrayar y que se hayan creado los ids para ese item.
@@ -9,6 +10,7 @@
   - Eliminar skills del cv.json y que las skills deban aparecer el los textos de summary,...
   - en vez de tags, que se subrayen las palabras filtradas y ademas que se filtre el item claramente.
 - [] ver que todos los links abran en nueva pestana y no redirijan automaticamente.
+- [] Google Analytics
 - [] revisar completamente en celulares, compus, sistemas operativos y navegadores diferentes
 - [] agregar este proyecto a mis proyectos
 

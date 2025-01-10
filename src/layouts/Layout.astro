@@ -1,6 +1,4 @@
 ---
-import "../theme.css";
-import "../globals.css";
 import ArtPlums from "@/components/ArtPlums.astro";
 import { CV } from "../CVRepository";
 
@@ -17,8 +15,13 @@ const { url, description } = website;
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="preload" href="src/globals.css" as="style" />
+    <link rel="stylesheet" href="src/globals.css" />
+    <link rel="preload" href="src/theme.css" as="style" />
+    <link rel="stylesheet" href="src/theme.css" />
+
     <!-- Viewport and General Settings -->
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="author" content="Matías Viola" />
     <link rel="icon" href={image} />
