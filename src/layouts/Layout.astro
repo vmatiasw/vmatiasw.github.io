@@ -17,17 +17,35 @@ const { url, description } = website;
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <!-- Viewport and General Settings -->
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/avatar.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Matías Viola" />
+    <link rel="icon" href={image} />
     <link rel="preload" as="image" href={image} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="software developer, web developer, backend developer, frontend developer, full-stack developer, software engineer, software development, programming, coding, technology, developer portfolio, portfolio, software projects, web applications, app development"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
-    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
   </head>
   <body class="bg-skin-fill">
     <ArtPlums class="print:hidden" />
