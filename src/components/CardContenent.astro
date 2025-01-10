@@ -44,6 +44,7 @@ const {
             target="_blank"
             rel="noopener noreferrer"
             title={`Visit ${entityTitle}`}
+            aria-label={`Visit ${entityTitle}`}
           >
             {entityTitle}
             <Icon
@@ -62,6 +63,7 @@ const {
         <a
           href={url}
           title={name}
+          aria-label={name}
           target="_blank"
           rel="noopener"
           class="opacity-75 hover:scale-125 hover:opacity-100"
@@ -87,7 +89,7 @@ const {
         </summary>
         {details.map(([key, value]) => (
           <div>
-            <h4>{key}:</h4>
+            <h4 aria-label={`Details for ${key}`}>{key}:</h4>
             <ul class="flex list-disc flex-col gap-2 text-skin-muted">
               {value.map((item) => (
                 <li class="ml-4 marker:text-skin-hue">{item}</li>

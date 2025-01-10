@@ -6,12 +6,14 @@ import { Icon } from "astro-icon/components";
   id="themeSwitch"
   class=`${Astro.props.class} group/theme`
   title="Change theme"
+  aria-label="Change theme"
 >
   <i class="transition-transform group-hover/theme:rotate-45">
     <Icon name="ri:moon-fill" class="hidden size-5 dark:block" />
     <Icon name="ri:sun-fill" class="size-5 dark:hidden" />
   </i>
 </button>
+<div id="themeStatus" aria-live="polite" class="sr-only"></div>
 
 <style>
   :global(.dark) {
@@ -39,6 +41,8 @@ import { Icon } from "astro-icon/components";
     isDark = !isDark;
     document.documentElement.classList.toggle("dark", isDark);
     localStorage.setItem("theme", isDark ? "dark" : "light");
+    const themeStatus = document.getElementById("themeStatus");
+    themeStatus!.textContent = isDark ? "Dark theme activated" : "Light theme activated";
   }
 
   function toggleDark() {

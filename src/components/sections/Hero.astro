@@ -34,6 +34,7 @@ const btnItems: BtnItem[] = [
   <figure class="relative mb-6 w-fit">
     <Image
       class="rounded-3xl"
+      loading="eager"
       height={200}
       width={200}
       src={image}
@@ -71,6 +72,7 @@ const btnItems: BtnItem[] = [
             class="button-hover-effect size-8"
             href={url}
             title={message || defaultMessage}
+            aria-label={message || defaultMessage}
             target="_blank"
             rel="noopener noreferrer"
           >
