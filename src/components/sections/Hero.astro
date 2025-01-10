@@ -30,7 +30,7 @@ const btnItems: BtnItem[] = [
 ];
 ---
 
-<section class={`gap-2 ${Astro.props.class}`} itemscope itemtype="https://schema.org/Person">
+<section class={`gap-2 ${Astro.props.class}`}>
   <figure class="relative mb-6 w-fit">
     <Image
       class="rounded-3xl"
@@ -48,8 +48,8 @@ const btnItems: BtnItem[] = [
     </div>
   </figure>
   <div class="flex flex-col gap-1">
-    <h1 class="text-3xl font-bold" itemprop="name">{name}</h1>
-    <h2 class="text-skin-muted" itemprop="jobTitle">{label}</h2>
+    <h1 class="text-3xl font-bold">{name}</h1>
+    <h2 class="text-skin-muted">{label}</h2>
     {
       InfoItems.map(({ icon, text, className }) => {
         return (
@@ -57,7 +57,7 @@ const btnItems: BtnItem[] = [
             class={`inline-flex items-center gap-2 text-skin-muted ${className}`}
           >
             <Icon name={icon} class="size-5" />
-            <p itemprop="address" itemprop="location">{text}</p>
+            <p>{text}</p>
           </div>
         );
       })
@@ -84,8 +84,6 @@ const btnItems: BtnItem[] = [
     <PrintBtn class="button-hover-effect size-8" />
     <ThemeSwitchBtn class="button-hover-effect size-8" />
   </div>
-
-  <meta itemprop="email" content={email} />
 </section>
 
 <style>
