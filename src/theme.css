@@ -2,37 +2,34 @@
 
 @layer base {
   :root {
-    --color-text-base: 0, 0, 0;
-    --color-text-muted: 120, 120, 120;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 245, 245, 245;
+    --text-primary: 0, 0, 0;
+    --text-secondary: 120, 120, 120;
+    --text-contrast: 255, 255, 255;
+    --background-primary: 245, 245, 245;
     --muted: 200, 200, 200;
-    --color: 249, 115, 22;
-    --color-button-accent: 249, 115, 22;
-    --color-button-accent-hover: 55, 55, 55;
-    --color-button-muted: 244, 239, 238;
+    --accent: 249, 115, 22;
+    --button-primary: 249, 115, 22;
+    --button-secondary: 244, 239, 238;
   }
   .dark {
-    --color-text-base: 255, 255, 255;
-    --color-text-muted: 150, 150, 150;
-    --color-text-inverted: 255, 255, 255;
-    --color-fill: 36, 36, 36;
+    --text-primary: 255, 255, 255;
+    --text-secondary: 150, 150, 150;
+    --text-contrast: 255, 255, 255;
+    --background-primary: 36, 36, 36;
     --muted: 100, 100, 100;
-    --color: 227, 77, 10;
-    --color-button-accent: 227, 77, 10;
-    --color-button-accent-hover: 231, 121, 43;
-    --color-button-muted: 37, 42, 43;
+    --accent: 227, 77, 10;
+    --button-primary: 227, 77, 10;
+    --button-secondary: 37, 42, 43;
   }
   .print {
-    --color-text-base: 0, 0, 0;
-    --color-text-muted: 0, 0, 0;
-    --color-text-inverted: 0, 0, 0;
-    --color-fill: 255, 255, 255;
+    --text-primary: 0, 0, 0;
+    --text-secondary: 0, 0, 0;
+    --text-contrast: 0, 0, 0;
+    --background-primary: 255, 255, 255;
     --muted: 0, 0, 0;
-    --color: 0, 0, 0;
-    --color-button-accent: 0, 0, 0;
-    --color-button-accent-hover: 0, 0, 0;
-    --color-button-muted: 0, 0, 0;
+    --accent: 0, 0, 0;
+    --button-primary: 0, 0, 0;
+    --button-secondary: 0, 0, 0;
   }
 }
 

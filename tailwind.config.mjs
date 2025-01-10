@@ -16,39 +16,25 @@ module.exports = {
     extend: {
       textColor: {
         skin: {
-          base: withOpacity("--color-text-base"),
-          muted: withOpacity("--color-text-muted"),
-          inverted: withOpacity("--color-text-inverted"),
+          primary: withOpacity("--text-primary"),
+          secondary: withOpacity("--text-secondary"),
+          contrast: withOpacity("--text-contrast"),
         },
       },
       backgroundColor: {
         skin: {
-          fill: withOpacity("--color-fill"),
-          "button-accent": withOpacity("--color-button-accent"),
-          "button-accent-hover": withOpacity("--color-button-accent-hover"),
-          "button-muted": withOpacity("--color-button-muted"),
+          fill: withOpacity("--background-primary"),
+          "button-primary": withOpacity("--button-primary"),
+          "button-secondary": withOpacity("--button-secondary"),
         },
       },
       colors: {
         skin: {
-          hue: withOpacity("--color"),
           muted: withOpacity("--muted"),
-        },
-      },
-      ringColor: {
-        skin: {
-          fill: withOpacity("--color-fill"),
-        },
-      },
-      gradientColorStops: {
-        skin: {
-          hue: withOpacity("--color-fill"),
+          accent: withOpacity("--accent"),
         },
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [
     function ({ addVariant }) {
