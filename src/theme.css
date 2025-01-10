@@ -7,18 +7,18 @@
     --text-contrast: 255, 255, 255;
     --background-primary: 245, 245, 245;
     --muted: 200, 200, 200;
-    --accent: 249, 115, 22;
-    --background-interactive: 249, 115, 22;
+    --accent: 230, 81, 0;
+    --background-interactive: 245, 124, 0;
     --background-secondary: 244, 239, 238;
   }
   .dark {
     --text-primary: 255, 255, 255;
     --text-secondary: 150, 150, 150;
-    --text-contrast: 255, 255, 255;
+    --text-contrast: 0, 0, 0;
     --background-primary: 36, 36, 36;
-    --muted: 100, 100, 100;
-    --accent: 227, 77, 10;
-    --background-interactive: 227, 77, 10;
+    --muted: 120, 120, 120;
+    --accent: 230, 81, 0;
+    --background-interactive: 245, 124, 0;
     --background-secondary: 37, 42, 43;
   }
   .print {

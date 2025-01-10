@@ -49,7 +49,7 @@ const namedItems = items.map((item) => {
             />
             <label
               for={createFilterID(idType, name)}
-              class="skill-box border-skin-interactive/20 bg-skin-interactive/20 text-skin-interactive cursor-pointer"
+              class="interactive-skill-box"
             >
               {icon && <Icon name={icon} class="size-4 print:hidden" />}
               <span>{name}</span>
@@ -57,7 +57,7 @@ const namedItems = items.map((item) => {
           </li>
         ) : (
           <li
-            class={`child-${createFilterID(idType, name)} child-skill-box border-skin-accent/20 bg-skin-accent/20 text-skin-accent skill-box`}
+            class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
           >
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
             <span>{name}</span>
@@ -71,7 +71,10 @@ const namedItems = items.map((item) => {
 <style>
   @media not print {
     .skill-box {
-      @apply flex gap-1 rounded-md border-4 p-1 text-xs;
+      @apply border-skin-muted/60 border-2 bg-skin-muted/30 text-skin-accent flex rounded-md gap-1 p-1 text-xs;
+    }
+    .interactive-skill-box {
+      @apply border-skin-interactive/30 bg-skin-interactive/20 text-skin-interactive flex cursor-pointer gap-1 rounded-md border-4 p-1 text-xs;
     }
   }
   .input-skill-box:not(:checked) + label {
