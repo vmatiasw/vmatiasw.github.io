@@ -32,13 +32,13 @@ const {
 <div class={headerIcons && "flex items-center gap-2 justify-between"}>
   <h3 class="flex-inline text-lg print:text-base">
     {firstTitle && <span>{firstTitle}</span>}
-    {firstTitle && entityTitle && <span class="text-skin-secondary"> @ </span>}
+    {firstTitle && entityTitle && <span class="text-skin-primary"> @ </span>}
     {
       entityTitle &&
         (entityUrl ? (
           <a
             href={entityUrl}
-            class="group gap-3 text-skin-accent hover:underline"
+            class="group gap-3 text-skin-interactive hover:underline"
             target="_blank"
             rel="noopener noreferrer"
             title={`Visit ${entityTitle}`}
@@ -64,7 +64,7 @@ const {
           aria-label={name}
           target="_blank"
           rel="noopener"
-          class="opacity-75 hover:scale-125 hover:opacity-100"
+          class="opacity-75 hover:scale-125 hover:opacity-100 text-skin-interactive"
         >
           <Icon name={icon} class="size-6" />
         </a>
@@ -77,7 +77,7 @@ const {
   {
     details && (
       <details class="group mt-4 space-y-2 text-sm print:hidden">
-        <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-secondary underline">
+        <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-interactive underline">
           <Icon
             name="ri:arrow-up-s-line"
             class="size-4 duration-200 group-open:rotate-180"

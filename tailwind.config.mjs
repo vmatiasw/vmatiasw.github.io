@@ -31,7 +31,7 @@ module.exports = {
         skin: {
           muted: withOpacity("--muted"),
           accent: withOpacity("--accent"),
-          button: withOpacity("--background-button"),
+          interactive: withOpacity("--background-interactive"),
         },
       },
     },

@@ -32,7 +32,7 @@ const namedItems = items.map((item) => {
     {
       groupBy && (
         <li class="flex items-center">
-          <p class="font-semibold text-skin-accent">{groupBy + ":"}</p>
+          <p class="text-skin-accent font-semibold">{groupBy + ":"}</p>
         </li>
       )
     }
@@ -47,14 +47,17 @@ const namedItems = items.map((item) => {
               class="input-skill-box hidden"
               checked
             />
-            <label for={createFilterID(idType, name)} class="skill-box cursor-pointer">
+            <label
+              for={createFilterID(idType, name)}
+              class="skill-box border-skin-interactive/20 bg-skin-interactive/20 text-skin-interactive cursor-pointer"
+            >
               {icon && <Icon name={icon} class="size-4 print:hidden" />}
               <span>{name}</span>
             </label>
           </li>
         ) : (
           <li
-            class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
+            class={`child-${createFilterID(idType, name)} child-skill-box border-skin-accent/20 bg-skin-accent/20 text-skin-accent skill-box`}
           >
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
             <span>{name}</span>
@@ -68,7 +71,7 @@ const namedItems = items.map((item) => {
 <style>
   @media not print {
     .skill-box {
-      @apply flex p-1 gap-1 rounded-md border-4 border-skin-button/20 bg-skin-button/20 text-xs text-skin-button;
+      @apply flex gap-1 rounded-md border-4 p-1 text-xs;
     }
   }
   .input-skill-box:not(:checked) + label {
