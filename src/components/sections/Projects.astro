@@ -1,6 +1,6 @@
 ---
-import { CV } from "../../CVRepository";
-import CardContenent from "../CardContenent.astro";
+import { CV } from "@/CVRepository";
+import CardContenent from "@/components/CardContenent.astro";
 import { filterNonNullEntries } from "@/data-helpers";
 
 const { projects } = CV;
@@ -8,31 +8,31 @@ const { projects } = CV;
 
 <section class={Astro.props.class}>
   <h3 class="section-title1">Projects</h3>
-  <ul class="md:grid-cols-2 grid gap-4">
-  {
-    projects.map(
-      ({ url, summary, highlights, name, github, image, skills }) => {
-        const headerIcons = github
-          ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
-          : undefined;
-        const details = filterNonNullEntries({
-          Highlights: highlights,
-        });
-        return (
-          <li class="muted-box">
-            <CardContenent
-              entityTitle={name}
-              entityUrl={url}
-              headerIcons={headerIcons}
-              summary={summary}
-              details={details}
-              image={image}
-              skills={skills}
-            />
-          </li>
-        );
-      },
-    )
-  }
+  <ul class="grid gap-4 md:grid-cols-2">
+    {
+      projects.map(
+        ({ url, summary, highlights, name, github, image, skills }) => {
+          const headerIcons = github
+            ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
+            : undefined;
+          const details = filterNonNullEntries({
+            Highlights: highlights,
+          });
+          return (
+            <li class="muted-box">
+              <CardContenent
+                entityTitle={name}
+                entityUrl={url}
+                headerIcons={headerIcons}
+                summary={summary}
+                details={details}
+                image={image}
+                skills={skills}
+              />
+            </li>
+          );
+        },
+      )
+    }
   </ul>
 </section>

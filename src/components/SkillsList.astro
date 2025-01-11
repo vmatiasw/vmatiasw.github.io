@@ -35,7 +35,7 @@ const namedItems = items.map((item) => {
     {
       groupBy && (
         <li class="flex items-center">
-          <p class="text-skin-accent font-semibold">{groupBy + ":"}</p>
+          <p class="font-semibold text-skin-accent">{groupBy + ":"}</p>
         </li>
       )
     }
@@ -74,10 +74,10 @@ const namedItems = items.map((item) => {
 <style>
   @media not print {
     .skill-box {
-      @apply border-skin-accent/30 border-2 bg-skin-accent/20 text-skin-accent flex rounded-md gap-1 p-1 text-xs;
+      @apply flex gap-1 rounded-md border-2 border-skin-accent/30 bg-skin-accent/20 p-1 text-xs text-skin-accent;
     }
     .interactive-skill-box {
-      @apply border-skin-interactive/60 bg-skin-interactive/20 text-skin-interactive flex cursor-pointer gap-1 rounded-md border-2 p-1 text-xs;
+      @apply flex cursor-pointer gap-1 rounded-md border-2 border-skin-interactive/60 bg-skin-interactive/20 p-1 text-xs text-skin-interactive;
     }
   }
   .input-skill-box:not(:checked) + label {

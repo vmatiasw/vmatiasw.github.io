@@ -1,11 +1,11 @@
 ---
-import { CV } from "../../CVRepository";
+import type { Profile } from "@/cv-types";
+import { CV } from "@/CVRepository";
+import ThemeSwitchBtn from "@/components/buttons/ThemeSwitchBtn.astro";
+import PrintBtn from "@/components/buttons/PrintBtn.astro";
+import HighlightSkillsBtn from "@/components/buttons/HighlightSkillsBtn.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import ThemeSwitchBtn from "@/components/ThemeSwitchBtn.astro";
-import PrintBtn from "../PrintBtn.astro";
-import HighlightSkillsBtn from "../HighlightSkillsBtn.astro";
-import type { Profile } from "../../cv-types";
 
 const { name, label, image, location, profiles, email, website } = CV.basics;
 const { city, region } = location;

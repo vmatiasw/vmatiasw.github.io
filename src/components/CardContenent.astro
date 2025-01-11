@@ -1,7 +1,7 @@
 ---
-import ItemSkills from "./ItemSkills.astro";
+import type { Skills } from "@/cv-types";
+import ItemSkills from "@/components/ItemSkills.astro";
 import { Icon } from "astro-icon/components";
-import type { Skills } from "../cv-types";
 import { Image } from "astro:assets";
 
 export interface Props {
@@ -64,14 +64,18 @@ const {
           aria-label={`View in ${name}`}
           target="_blank"
           rel="noopener"
-          class="hover:scale-125 text-skin-interactive"
+          class="text-skin-interactive hover:scale-125"
         >
           <Icon name={icon} class="size-6" />
         </a>
       ))
   }
 </div>
-{subtitle && <p class="text-xs text-skin-secondary print:text-sm">{subtitle}</p>}
+{
+  subtitle && (
+    <p class="text-xs text-skin-secondary print:text-sm">{subtitle}</p>
+  )
+}
 <div class="my-4 space-y-2 text-sm">
   <p class="text-skin-primary">{summary}</p>
   {
