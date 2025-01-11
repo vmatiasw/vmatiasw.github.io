@@ -1,7 +1,5 @@
 # TODO
 
-- [] eliminar los filtros
-- [] que pueda subrayar las skills que le interesan con un boton
 - [] que se pueda seleccionar que items imprimir, al tocar el boton para imprimir que se abra una caja que pregunte que secciones imprimir y si se quiere seleccionar los items manualmente, si si, entonces que se habilite un boton para elegirlos.
 - [] mejorar paleta de colores con relación de contraste mínima de 4.5:1
 - [] Evitar operaciones pesadas en el hilo principal, usando Web Workers (ej: animacion del fondo)

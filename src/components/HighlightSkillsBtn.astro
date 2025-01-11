@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+import Modal from "./Modal.astro";
+import AllSkills from "./AllSkills.astro";
+
+const modalId = "skillsModal";
+---
+
+<button
+  title="Highlight my skills"
+  aria-label="Highlight my skills"
+  class={Astro.props.class}
+  id={`open-modal:${modalId}`}
+>
+  <Icon name="ri:brush-fill" class="size-5" />
+</button>
+
+<Modal class="space-y-4 p-5 md:space-y-6 md:p-7" modalId={modalId} title="Select Skills">
+  <AllSkills class="space-y-3" input={true} />
+  <div class="flex justify-center gap-8">
+    <button
+      id="skills-check-all-btn"
+      class="button-hover-effect p-1"
+      aria-label="Select all skills"
+    >
+      Select All
+    </button>
+    <button
+      id="skills-uncheck-all-btn"
+      class="button-hover-effect p-1"
+      aria-label="Deselect all skills"
+    >
+      Deselect All
+    </button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const selectAllBtn = document.getElementById(
+        "skills-check-all-btn",
+      ) as HTMLButtonElement;
+      const deselectAllBtn = document.getElementById(
+        "skills-uncheck-all-btn",
+      ) as HTMLButtonElement;
+
+      const modalSkillBoxes = [
+        ...document.querySelectorAll(".input-skill-box"),
+      ] as HTMLInputElement[];
+      const childSkillBoxes = [
+        ...document.querySelectorAll(".child-skill-box"),
+      ] as HTMLElement[];
+
+      const toggleCheckboxes = (checked: boolean) => {
+        modalSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
+        const skillStyle = checked ? "" : "transparent";
+        childSkillBoxes.forEach((element) => {
+          (element as HTMLElement).style.backgroundColor = skillStyle;
+        });
+      };
+      selectAllBtn.addEventListener("click", () => toggleCheckboxes(true));
+      deselectAllBtn.addEventListener("click", () => toggleCheckboxes(false));
+
+      modalSkillBoxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          const skillStyle = checkbox.checked ? "" : "transparent";
+          [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
+            (element) =>
+              ((element as HTMLElement).style.backgroundColor = skillStyle),
+          );
+        });
+      });
+    });
+  </script>
+</Modal>

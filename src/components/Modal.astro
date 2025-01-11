@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  modalId: string;
+  title: string;
+  class?: string;
+}
+
+const { modalId, title }: Props = Astro.props;
+---
+
+<div
+  id={modalId}
+  role="dialog"
+  aria-modal="true"
+  tabindex="-1"
+  class="modal fixed inset-0 z-50 flex hidden items-center justify-center bg-skin-muted/30"
+>
+  <div class="w-full max-w-md">
+    <div class="rounded-lg bg-skin-secondary">
+      <div
+        class="flex justify-between border-b border-skin-muted p-4 text-skin-primary md:p-5"
+      >
+        <h3 class="text-xl font-semibold">
+          {title}
+        </h3>
+        <button
+          type="button"
+          id=`close-modal:${modalId}`
+          class="button-hover-effect size-8"
+          title="Close modal"
+          aria-label="Close modal"
+        >
+          <Icon name="mdi:close" class="size-6" />
+        </button>
+      </div>
+      <div class=`${Astro.props.class}`>
+        <slot />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(modal: HTMLElement) {
+    modal.classList.remove("hidden");
+  }
+  function closeModal(modal: HTMLElement) {
+    modal.classList.add("hidden");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".modal").forEach((value) => {
+      const modal = value as HTMLElement;
+      const openBtn = document.getElementById(`open-modal:${modal.id}`);
+      const closeBtn = document.getElementById(`close-modal:${modal.id}`);
+
+      openBtn?.addEventListener("click", () => openModal(modal));
+      closeBtn?.addEventListener("click", () => closeModal(modal));
+      modal.addEventListener("click", (event: MouseEvent) => {
+        if (event.target === modal) closeModal(modal);
+      });
+      window.addEventListener("keydown", (event: KeyboardEvent) => {
+        if (event.key === "Escape" && !modal.classList.contains("hidden"))
+          closeModal(modal);
+      });
+    });
+  });
+</script>

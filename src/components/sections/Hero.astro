@@ -4,6 +4,7 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import ThemeSwitchBtn from "@/components/ThemeSwitchBtn.astro";
 import PrintBtn from "../PrintBtn.astro";
+import HighlightSkillsBtn from "../HighlightSkillsBtn.astro";
 import type { Profile } from "../../cv-types";
 
 const { name, label, image, location, profiles, email, website } = CV.basics;
@@ -82,6 +83,7 @@ const btnItems: BtnItem[] = [
       })
     }
     <PrintBtn class="button-hover-effect size-8" />
+    <HighlightSkillsBtn class="button-hover-effect size-8" />
     <ThemeSwitchBtn class="button-hover-effect size-8" />
   </div>
 </section>

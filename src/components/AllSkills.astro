@@ -1,0 +1,44 @@
+---
+import { CV } from "../CVRepository";
+import SkillsList from "./SkillsList.astro";
+
+const { skills } = CV;
+
+interface Props {
+  input?: boolean;
+  class?: string;
+}
+
+const { input = false }: Props = Astro.props;
+---
+
+<div class=`${Astro.props.class}`>
+  <SkillsList
+    title="Tools"
+    type="tools"
+    items={skills.tools || []}
+    input={input}
+  />
+  <SkillsList
+    title="Languages"
+    type="languages"
+    items={skills.languages || []}
+    input={input}
+  />
+  <div>
+    <h2 class="section-title2 mb-2 print:mb-0">Technologies</h2>
+    {
+      skills.languages!.map((language) => {
+        const tech = language.technologies;
+        return tech ? (
+          <SkillsList
+            groupBy={language.name}
+            type="languages"
+            items={tech}
+            input={input}
+          />
+        ) : null;
+      })
+    }
+  </div>
+</div>
