@@ -42,12 +42,6 @@ section {
   .section-title2 {
     @apply text-lg font-semibold text-skin-accent;
   }
-  .button-hover-effect {
-    @apply inline-flex cursor-pointer items-center justify-center rounded-md text-skin-interactive transition-all duration-500 hover:bg-skin-interactive/20;
-  }
-  input[type="checkbox"]:checked + .button-hover-effect {
-    @apply bg-skin-interactive text-skin-contrast;
-  }
   .muted-box {
     @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
   }

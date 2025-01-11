@@ -1,6 +1,6 @@
 ---
 import Modal from "@/components/Modal.astro";
-import AllSkills from "@/components/AllSkills.astro";
+import AllSkillsList from "@/components/AllSkillsList.astro";
 import { Icon } from "astro-icon/components";
 
 const modalId = "skillsModal";
@@ -18,61 +18,70 @@ const modalId = "skillsModal";
 <Modal
   class="space-y-4 p-5 md:space-y-6 md:p-7"
   modalId={modalId}
-  title="Select Skills"
+  title="Highlight Skills"
 >
-  <AllSkills class="space-y-3" input={true} />
+  <p>
+    Highlight the skills you're interested in to emphasize them on the website.
+  </p>
+  <AllSkillsList class="space-y-3" input={true} />
   <div class="flex justify-center gap-8">
     <button
       id="skills-check-all-btn"
-      class="button-hover-effect p-1"
+      class="select-button"
       aria-label="Select all skills"
     >
       Select All
     </button>
     <button
       id="skills-uncheck-all-btn"
-      class="button-hover-effect p-1"
+      class="select-button"
       aria-label="Deselect all skills"
     >
       Deselect All
     </button>
   </div>
+</Modal>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const selectAllBtn = document.getElementById(
-        "skills-check-all-btn",
-      ) as HTMLButtonElement;
-      const deselectAllBtn = document.getElementById(
-        "skills-uncheck-all-btn",
-      ) as HTMLButtonElement;
+<style>
+  .select-button {
+    @apply inline-flex cursor-pointer rounded-md bg-skin-interactive p-1 text-skin-contrast hover:scale-110;
+  }
+</style>
 
-      const modalSkillBoxes = [
-        ...document.querySelectorAll(".input-skill-box"),
-      ] as HTMLInputElement[];
-      const childSkillBoxes = [
-        ...document.querySelectorAll(".child-skill-box"),
-      ] as HTMLElement[];
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const selectAllBtn = document.getElementById(
+      "skills-check-all-btn",
+    ) as HTMLButtonElement;
+    const deselectAllBtn = document.getElementById(
+      "skills-uncheck-all-btn",
+    ) as HTMLButtonElement;
 
-      const toggleCheckboxes = (checked: boolean) => {
-        modalSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
-        const skillStyle = checked ? "" : "transparent";
-        childSkillBoxes.forEach((element) => {
-          (element as HTMLElement).style.backgroundColor = skillStyle;
-        });
-      };
-      selectAllBtn.addEventListener("click", () => toggleCheckboxes(true));
-      deselectAllBtn.addEventListener("click", () => toggleCheckboxes(false));
+    const modalSkillBoxes = [
+      ...document.querySelectorAll(".input-skill-box"),
+    ] as HTMLInputElement[];
+    const childSkillBoxes = [
+      ...document.querySelectorAll(".child-skill-box"),
+    ] as HTMLElement[];
 
-      modalSkillBoxes.forEach((checkbox) => {
-        checkbox.addEventListener("change", () => {
-          const skillStyle = checkbox.checked ? "" : "transparent";
-          [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
-            (element) =>
-              ((element as HTMLElement).style.backgroundColor = skillStyle),
-          );
-        });
+    const toggleCheckboxes = (checked: boolean) => {
+      modalSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
+      const skillStyle = checked ? "" : "transparent";
+      childSkillBoxes.forEach((element) => {
+        (element as HTMLElement).style.backgroundColor = skillStyle;
+      });
+    };
+    selectAllBtn.addEventListener("click", () => toggleCheckboxes(true));
+    deselectAllBtn.addEventListener("click", () => toggleCheckboxes(false));
+
+    modalSkillBoxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const skillStyle = checkbox.checked ? "" : "transparent";
+        [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
+          (element) =>
+            ((element as HTMLElement).style.backgroundColor = skillStyle),
+        );
       });
     });
-  </script>
-</Modal>
+  });
+</script>

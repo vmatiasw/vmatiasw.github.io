@@ -1,0 +1,137 @@
+---
+import type { Skills } from "@/cv-types";
+import SkillsList from "@/components/SkillsList.astro";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+
+export interface Props {
+  class?: string;
+  firstTitle?: string;
+  entityTitle?: string;
+  entityUrl?: string;
+  headerIcons?: { url: string; icon: string; name: string }[] | undefined;
+  subtitle?: string;
+  summary: string;
+  details?: [string, string[]][] | undefined;
+  image?: string;
+  skills: Skills;
+}
+
+const {
+  firstTitle,
+  entityTitle,
+  entityUrl,
+  headerIcons,
+  subtitle,
+  summary,
+  details,
+  image,
+  skills,
+}: Props = Astro.props;
+---
+
+<div class={Astro.props.class}>
+  <div class={headerIcons && "flex items-center gap-2 justify-between"}>
+    <h3 class="flex-inline text-lg print:text-base">
+      {firstTitle && <span>{firstTitle}</span>}
+      {firstTitle && entityTitle && <span class="text-skin-primary"> @ </span>}
+      {
+        entityTitle &&
+          (entityUrl ? (
+            <a
+              href={entityUrl}
+              class="group gap-3 text-skin-interactive hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`Visit ${entityTitle}`}
+              aria-label={`Visit ${entityTitle}`}
+            >
+              {entityTitle}
+              <Icon
+                name="ri:arrow-up-line"
+                class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 print:hidden"
+              />
+            </a>
+          ) : (
+            <span>{entityTitle}</span>
+          ))
+      }
+    </h3>
+    {
+      headerIcons &&
+        headerIcons.map(({ url, icon, name }) => (
+          <a
+            href={url}
+            title={`View in ${name}`}
+            aria-label={`View in ${name}`}
+            target="_blank"
+            rel="noopener"
+            class="text-skin-interactive hover:scale-125"
+          >
+            <Icon name={icon} class="size-6" />
+          </a>
+        ))
+    }
+  </div>
+  {
+    subtitle && (
+      <p class="text-xs text-skin-secondary print:text-sm">{subtitle}</p>
+    )
+  }
+  <div class="my-4 space-y-2 text-sm">
+    <p class="text-skin-primary">{summary}</p>
+    {
+      details && (
+        <details class="group mt-4 space-y-2 text-sm print:hidden">
+          <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-interactive hover:underline">
+            <Icon
+              name="ri:arrow-up-s-line"
+              class="size-4 duration-200 group-open:rotate-180"
+            />
+            <span class="group-open:hidden">Show more</span>
+            <span class="hidden group-open:block">Show less</span>
+          </summary>
+          {details.map(([key, value]) => (
+            <div>
+              <h4 aria-label={`Details for ${key}`}>{key}:</h4>
+              <ul class="flex list-disc flex-col gap-2 text-skin-primary">
+                {value.map((item) => (
+                  <li class="ml-4 marker:text-skin-accent">{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </details>
+      )
+    }
+  </div>
+  {
+    image && (
+      <a data-src={image}>
+        <Image
+          src={image}
+          alt=""
+          width={800}
+          height={1080}
+          class="mt-3 max-w-full rounded-lg"
+        />
+      </a>
+    )
+  }
+  <div class="flex flex-col gap-2 print:hidden">
+    <SkillsList items={skills.tools || []} type="tools" />
+    <SkillsList items={skills.languages || []} type="languages" />
+    {
+      skills.languages?.map((language) => {
+        const technologies = language.technologies;
+        return technologies ? (
+          <SkillsList
+            groupBy={language.name}
+            type="languages"
+            items={technologies}
+          />
+        ) : null;
+      })
+    }
+  </div>
+</div>
