@@ -2,14 +2,14 @@
 
 @layer base {
   :root {
-    --text-primary: 60, 60, 60;
+    --text-primary: 26, 26, 25;
     --text-secondary: 120, 120, 120;
     --text-contrast: 255, 255, 255;
-    --background-primary: 245, 245, 245;
+    --background-primary: 255, 245, 228;
     --muted: 180, 180, 180;
-    --accent: 230, 81, 0;
-    --background-interactive: 245, 124, 0;
-    --background-secondary: 244, 239, 238;
+    --accent: 180, 63, 63;
+    --background-interactive: 255, 130, 37;
+    --background-secondary: 248, 237, 237;
   }
   .dark {
     --text-primary: 255, 255, 255;
