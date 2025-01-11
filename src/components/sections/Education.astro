@@ -1,34 +1,31 @@
 ---
 import { CV } from "../../CVRepository";
-import { getFilterClassNames } from "@/skill-filter";
 import TimelineCard from "../TimelineCard.astro";
-import DynamicSection from "../DynamicSection.astro";
 
-const { education, educationSkills } = CV;
+const { education } = CV;
 ---
 
-<DynamicSection
-  class={Astro.props.class}
-  title="Education"
-  ulClass={`md:muted-box md:gap-0 ${getFilterClassNames(educationSkills)}`}
->
-  {
-    education.map(
-      ({ institution, startDate, endDate, area, url, skills, summary }) => {
-        return (
-          <li class={`${getFilterClassNames(skills)}`}>
-            <TimelineCard
-              startDate={startDate}
-              endDate={endDate}
-              firstTitle={area}
-              entityUrl={url}
-              entityTitle={institution}
-              skills={skills}
-              summary={summary}
-            />
-          </li>
-        );
-      },
-    )
-  }
-</DynamicSection>
+<section class={Astro.props.class}>
+  <h3 class="section-title1">Education</h3>
+  <ul class="md:muted-box grid gap-4 md:gap-0">
+    {
+      education.map(
+        ({ institution, startDate, endDate, area, url, skills, summary }) => {
+          return (
+            <li>
+              <TimelineCard
+                startDate={startDate}
+                endDate={endDate}
+                firstTitle={area}
+                entityUrl={url}
+                entityTitle={institution}
+                skills={skills}
+                summary={summary}
+              />
+            </li>
+          );
+        },
+      )
+    }
+  </ul>
+</section>

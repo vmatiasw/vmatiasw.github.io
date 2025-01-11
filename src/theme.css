@@ -7,8 +7,8 @@
     --text-contrast: 255, 255, 255;
     --background-primary: 255, 245, 228;
     --muted: 180, 180, 180;
-    --accent: 180, 63, 63;
-    --background-interactive: 255, 130, 37;
+    --accent: 255, 130, 37;
+    --background-interactive: 180, 63, 63;
     --background-secondary: 248, 237, 237;
   }
   .dark {
@@ -17,8 +17,8 @@
     --text-contrast: 0, 0, 0;
     --background-primary: 36, 36, 36;
     --muted: 120, 120, 120;
-    --accent: 230, 81, 0;
-    --background-interactive: 245, 124, 0;
+    --accent: 245, 124, 0;
+    --background-interactive: 230, 81, 0;
     --background-secondary: 37, 42, 43;
   }
   .print {

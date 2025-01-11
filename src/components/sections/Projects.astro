@@ -1,18 +1,14 @@
 ---
 import { CV } from "../../CVRepository";
-import { getFilterClassNames } from "@/skill-filter";
 import CardContenent from "../CardContenent.astro";
 import { filterNonNullEntries } from "@/data-helpers";
-import DynamicSection from "../DynamicSection.astro";
 
-const { projects, projectsSkills } = CV;
+const { projects } = CV;
 ---
 
-<DynamicSection
-  class={Astro.props.class}
-  title="Projects"
-  ulClass={`md:grid-cols-2 ${getFilterClassNames(projectsSkills)}`}
->
+<section class={Astro.props.class}>
+  <h3 class="section-title1">Projects</h3>
+  <ul class="md:grid-cols-2 grid gap-4">
   {
     projects.map(
       ({ url, summary, highlights, name, github, image, skills }) => {
@@ -23,7 +19,7 @@ const { projects, projectsSkills } = CV;
           Highlights: highlights,
         });
         return (
-          <li class={`muted-box ${getFilterClassNames(skills)}`}>
+          <li class="muted-box">
             <CardContenent
               entityTitle={name}
               entityUrl={url}
@@ -38,4 +34,5 @@ const { projects, projectsSkills } = CV;
       },
     )
   }
-</DynamicSection>
+  </ul>
+</section>

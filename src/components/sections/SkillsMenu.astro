@@ -1,7 +1,6 @@
 ---
 import { CV } from "../../CVRepository";
 import SkillsList from "../SkillsList.astro";
-import { Icon } from "astro-icon/components";
 
 const { skills } = CV;
 ---
@@ -12,13 +11,11 @@ const { skills } = CV;
     title="Tools"
     type="tools"
     items={skills.tools || []}
-    input={true}
   />
   <SkillsList
     title="Languages"
     type="languages"
     items={skills.languages || []}
-    input={true}
   />
   <div>
     <h2 class="section-title2 mb-2 print:mb-0">Technologies</h2>
@@ -30,115 +27,9 @@ const { skills } = CV;
             groupBy={language.name}
             type="languages"
             items={tech}
-            input={true}
           />
         ) : null;
       })
     }
   </div>
-  <div class="mt-4 flex gap-4 print:hidden">
-    <div>
-      <input type="checkbox" id="skills-filter-checkbox" class="hidden" />
-      <label
-        for="skills-filter-checkbox"
-        class="skills-menu-button button-hover-effect p-1"
-      >
-        <Icon name="mdi:filter" class="size-5" />
-        Filter
-      </label>
-    </div>
-    <button
-      id="skills-check-all-btn"
-      class="button-hover-effect skills-menu-button p-1"
-      aria-label="Select all skills"
-    >
-      Select All
-    </button>
-    <button
-      id="skills-uncheck-all-btn"
-      class="button-hover-effect skills-menu-button p-1"
-      aria-label="Deselect all skills"
-    >
-      Deselect All
-    </button>
-  </div>
 </section>
-
-<style>
-  .skills-menu-button {
-    box-shadow: 0 0 6px;
-  }
-  #skills-filter-checkbox:checked + label {
-    box-shadow: 0 0 0px;
-  }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const checkAllBtn = document.getElementById(
-      "skills-check-all-btn",
-    ) as HTMLButtonElement;
-    const uncheckAllBtn = document.getElementById(
-      "skills-uncheck-all-btn",
-    ) as HTMLButtonElement;
-    const filterCheckbox = document.getElementById(
-      "skills-filter-checkbox",
-    ) as HTMLInputElement;
-
-    const menuSkillBoxes = [
-      ...document.querySelectorAll(".input-skill-box"),
-    ] as HTMLInputElement[];
-    const childSkillBoxes = [
-      ...document.querySelectorAll(".child-skill-box"),
-    ] as HTMLElement[];
-    const skillFilterElements = [
-      ...document.querySelectorAll(`.skill-filter-item`),
-    ] as HTMLElement[];
-
-    const toggleCheckboxes = (checked: boolean) => {
-      menuSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
-      filterCheckbox.dispatchEvent(new Event("change"));
-    };
-    checkAllBtn.addEventListener("click", () => toggleCheckboxes(true));
-    uncheckAllBtn.addEventListener("click", () => toggleCheckboxes(false));
-
-    menuSkillBoxes.forEach((checkbox) => {
-      checkbox.addEventListener("change", () => {
-        filterCheckbox.dispatchEvent(new Event("change"));
-      });
-    });
-
-    filterCheckbox.addEventListener("change", () => {
-      const skillStyle = filterCheckbox.checked ? "transparent" : "";
-
-      skillFilterElements.forEach((element) => {
-        if (filterCheckbox.checked) {
-          element.classList.add("hidden");
-        } else {
-          element.classList.remove("hidden");
-        }
-      });
-
-      childSkillBoxes.forEach((element) => {
-        (element as HTMLElement).style.backgroundColor = skillStyle;
-      });
-
-      if (filterCheckbox.checked) {
-        menuSkillBoxes
-          .filter((checkbox) => checkbox.checked)
-          .map((checkbox) => checkbox.id)
-          .forEach((skillClassId: string) => {
-            [...document.getElementsByClassName(skillClassId)].forEach(
-              (element) => (element as HTMLElement).classList.remove("hidden"),
-            );
-            [
-              ...document.getElementsByClassName("child-" + skillClassId),
-            ].forEach(
-              (element) =>
-                ((element as HTMLElement).style.backgroundColor = ""),
-            );
-          });
-      }
-    });
-  });
-</script>

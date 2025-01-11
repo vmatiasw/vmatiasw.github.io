@@ -1,7 +1,6 @@
 ---
 import type { NameAndIcon } from "@/cv-types";
 import { Icon } from "astro-icon/components";
-import { createFilterID } from "@/skill-filter";
 
 interface Props {
   class?: string;
@@ -13,6 +12,10 @@ interface Props {
 }
 
 const { items, type, input = false, title, groupBy }: Props = Astro.props;
+
+function createFilterID(type: string, name: string): string {
+  return `${type}:${name.replace(/\s+/g, "-")}`.toLowerCase();
+}
 
 const idType = groupBy
   ? `${createFilterID("languages", groupBy)}-technologies`
