@@ -15,16 +15,15 @@ const modalId = "skillsModal";
   <Icon name="ri:brush-fill" class="size-5" />
 </button>
 
-<Modal
-  class="space-y-4 p-5 md:space-y-6 md:p-7"
-  modalId={modalId}
-  title="Highlight Skills"
->
-  <p>
-    Highlight the skills you're interested in to emphasize them on the website.
-  </p>
-  <AllSkillsList class="space-y-3" input={true} />
-  <div class="flex justify-center gap-8">
+<Modal modalId={modalId} title="Highlight Skills">
+  <div slot="body" class="space-y-3">
+    <p>
+      Highlight the skills you're interested in to emphasize them on the
+      website.
+    </p>
+    <AllSkillsList class="space-y-3" input={true} />
+  </div>
+  <div slot="footer" class="flex items-center justify-center space-x-6">
     <button
       id="skills-check-all-btn"
       class="select-button"
