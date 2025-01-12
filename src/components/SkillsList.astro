@@ -30,12 +30,12 @@ const namedItems = items.map((item) => {
 ---
 
 <div class={`${Astro.props.class} space-y-2 print:space-y-0`}>
-  {title && <h2 class="section-title2">{title}</h2>}
-  <ul class="flex flex-wrap gap-2 print:gap-y-0 print:text-sm">
+  {title && <h5>{title}</h5>}
+  <ul class="flex flex-wrap gap-2 print:gap-y-0">
     {
       groupBy && (
         <li class="flex items-center">
-          <p class="font-semibold text-skin-accent">{groupBy + ":"}</p>
+          <h6 class="text-skin-accent">{groupBy + ":"}</h6>
         </li>
       )
     }
@@ -55,7 +55,9 @@ const namedItems = items.map((item) => {
               class="interactive-skill-box"
             >
               {icon && <Icon name={icon} class="size-4 print:hidden" />}
-              <span>{name}</span>
+              <span>
+                <p>{name}</p>
+              </span>
             </label>
           </li>
         ) : (
@@ -63,7 +65,9 @@ const namedItems = items.map((item) => {
             class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
           >
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
-            <span>{name}</span>
+            <span>
+                <p class="text-xs">{name}</p>
+            </span>
           </li>
         ),
       )

@@ -26,17 +26,10 @@ const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
 ---
 
 <div class="below-md:muted-box md:grid md:grid-cols-12">
-  <header class="text-xs font-semibold md:col-span-2">
-    <div class="mt-1">
-      <time datetime={startDate} data-title={startDate}>
-        {startYear}
-      </time>{" "}
-      -{" "}
-      <time datetime={endDate} data-title={endDate}>
-        {endYear}
-      </time>
-    </div>
-  </header>
+  <p class="md:col-span-2 font-semibold text-sm">
+    <time datetime={startDate}>{startYear}</time> -
+    <time datetime={endDate}>{endYear}</time>
+  </p>
   <div class="vertical-timeline md:col-span-10 md:pb-6">
     <div class="timeline-item-points"></div>
     <CardContenent

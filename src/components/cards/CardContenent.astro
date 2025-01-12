@@ -32,7 +32,7 @@ const {
 
 <div class={Astro.props.class}>
   <div class={headerIcons && "flex items-center gap-2 justify-between"}>
-    <h3 class="flex-inline text-lg print:text-base">
+    <h4 class="flex-inline">
       {firstTitle && <span>{firstTitle}</span>}
       {firstTitle && entityTitle && <span class="text-skin-primary"> @ </span>}
       {
@@ -56,7 +56,7 @@ const {
             <span>{entityTitle}</span>
           ))
       }
-    </h3>
+    </h4>
     {
       headerIcons &&
         headerIcons.map(({ url, icon, name }) => (
@@ -75,14 +75,14 @@ const {
   </div>
   {
     subtitle && (
-      <p class="text-xs text-skin-secondary print:text-sm">{subtitle}</p>
+      <h6 class="text-skin-secondary">{subtitle}</h6>
     )
   }
-  <div class="my-4 space-y-2 text-sm">
+  <div class="my-4 space-y-2">
     <p class="text-skin-primary">{summary}</p>
     {
       details && (
-        <details class="group mt-4 space-y-2 text-sm print:hidden">
+        <details class="group mt-4 space-y-2 print:hidden">
           <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-interactive hover:underline">
             <Icon
               name="ri:arrow-up-s-line"
@@ -93,10 +93,10 @@ const {
           </summary>
           {details.map(([key, value]) => (
             <div>
-              <h4 aria-label={`Details for ${key}`}>{key}:</h4>
+              <h5 aria-label={`Details for ${key}`}>{key}:</h6>
               <ul class="flex list-disc flex-col gap-2 text-skin-primary">
                 {value.map((item) => (
-                  <li class="ml-4 marker:text-skin-accent">{item}</li>
+                  <li class="ml-4 marker:text-skin-accent"><p>{item}</p></li>
                 ))}
               </ul>
             </div>

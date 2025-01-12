@@ -1,17 +1,16 @@
 h1,
 h2,
 h3,
-h4 {
-  font-family: "Sans-serif", sans-serif;
-  color: var(--text-primary);
-}
-
-p {
-  font-size: 0.9rem;
-  line-height: 1.5;
+h4,
+h5,
+h6 {
+  font-family: "Georgia", serif;
+  font-weight: 600;
 }
 
 body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
   background-attachment: fixed;
   margin: 0;
 }
@@ -36,12 +35,6 @@ section {
 }
 
 @layer components {
-  .section-title1 {
-    @apply text-3xl print:text-2xl;
-  }
-  .section-title2 {
-    @apply text-lg font-semibold text-skin-accent;
-  }
   .muted-box {
     @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
   }
