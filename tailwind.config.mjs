@@ -52,8 +52,7 @@ function addCustomBaseStyles({ addBase }) {
     h4: { fontSize: "1.125rem", lineHeight: "1.75rem" }, // text-lg
     h5: { fontSize: "1rem", lineHeight: "1.5rem" }, // text-base
     h6: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
-    p: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
-    em: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
+    body: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
     "@media print": {
       h1: { fontSize: "1.875rem", lineHeight: "2rem" }, // text-3xl
       h2: { fontSize: "1.5rem", lineHeight: "1.75rem" }, // text-2xl
