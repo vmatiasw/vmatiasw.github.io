@@ -60,6 +60,7 @@ function addCustomBaseStyles({ addBase }) {
       h3: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
       h4: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
       h5: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
+      body: { fontSize: "0.875rem", lineHeight: "1.25rem" }, // text-sm
     },
   });
 }
