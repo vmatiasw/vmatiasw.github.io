@@ -48,6 +48,14 @@ const modalId = "skillsModal";
 </style>
 
 <script>
+  function updateChildStyle(checkbox: HTMLInputElement) {
+    const skillStyle = checkbox.checked ? "" : "transparent";
+    [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
+      (element) =>
+        ((element as HTMLElement).style.backgroundColor = skillStyle),
+    );
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     const selectAllBtn = document.getElementById(
       "skills-check-all-btn",
@@ -74,12 +82,9 @@ const modalId = "skillsModal";
     deselectAllBtn.addEventListener("click", () => toggleCheckboxes(false));
 
     modalSkillBoxes.forEach((checkbox) => {
+      updateChildStyle(checkbox);
       checkbox.addEventListener("change", () => {
-        const skillStyle = checkbox.checked ? "" : "transparent";
-        [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
-          (element) =>
-            ((element as HTMLElement).style.backgroundColor = skillStyle),
-        );
+        updateChildStyle(checkbox);
       });
     });
   });
