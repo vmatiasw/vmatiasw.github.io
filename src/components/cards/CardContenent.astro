@@ -32,7 +32,7 @@ const {
 
 <div class={Astro.props.class}>
   <div class={headerIcons && "flex items-center gap-2 justify-between"}>
-    <h4 class="flex-inline">
+    <h3 class="flex-inline">
       {firstTitle && <span>{firstTitle}</span>}
       {firstTitle && entityTitle && <span class="text-skin-primary"> @ </span>}
       {
@@ -56,7 +56,7 @@ const {
             <span>{entityTitle}</span>
           ))
       }
-    </h4>
+    </h3>
     {
       headerIcons &&
         headerIcons.map(({ url, icon, name }) => (
@@ -75,7 +75,7 @@ const {
   </div>
   {
     subtitle && (
-      <h6 class="text-skin-secondary">{subtitle}</h6>
+      <h5 class="text-skin-secondary">{subtitle}</h5>
     )
   }
   <div class="my-4 space-y-2">
@@ -93,7 +93,7 @@ const {
           </summary>
           {details.map(([key, value]) => (
             <div>
-              <h5 aria-label={`Details for ${key}`}>{key}:</h6>
+              <h5 aria-label={`Details for ${key}`}>{key}:</h5>
               <ul class="flex list-disc flex-col gap-2 text-skin-primary">
                 {value.map((item) => (
                   <li class="ml-4 marker:text-skin-accent"><p>{item}</p></li>
