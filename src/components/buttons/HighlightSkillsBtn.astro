@@ -26,26 +26,20 @@ const modalId = "skillsModal";
   <div slot="footer" class="flex items-center justify-center space-x-6">
     <button
       id="skills-check-all-btn"
-      class="select-button"
+      class="btn-primary"
       aria-label="Select all skills"
     >
       Select All
     </button>
     <button
       id="skills-uncheck-all-btn"
-      class="select-button"
+      class="btn-primary"
       aria-label="Deselect all skills"
     >
       Deselect All
     </button>
   </div>
 </Modal>
-
-<style>
-  .select-button {
-    @apply inline-flex cursor-pointer rounded-md bg-skin-interactive p-1 text-skin-contrast hover:scale-110;
-  }
-</style>
 
 <script>
   function updateChildStyle(checkbox: HTMLInputElement) {

@@ -3,7 +3,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Trebuchet MS", sans-serif; /* "Georgia"*/
+  font-family: "Trebuchet MS", sans-serif; /* "Georgia" (serif) */
   font-weight: 600;
 }
 
@@ -25,16 +25,8 @@ section {
   gap: 1rem;
 }
 
-@tailwind components;
-
 @media (hover: none), (pointer: coarse) {
   bg-skin-interactive:hover {
     all: unset;
-  }
-}
-
-@layer components {
-  .muted-box {
-    @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
   }
 }

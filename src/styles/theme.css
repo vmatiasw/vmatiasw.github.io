@@ -1,5 +1,4 @@
 @tailwind base;
-
 @layer base {
   :root {
     --text-primary: 26, 26, 25;

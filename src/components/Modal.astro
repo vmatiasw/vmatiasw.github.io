@@ -22,7 +22,7 @@ const { modalId, title }: Props = Astro.props;
         {title}
       </h4>
       <button
-        type="button"
+        class="btn-icon"
         id=`close-modal:${modalId}`
         title="Close modal"
         aria-label="Close modal"
@@ -40,9 +40,6 @@ const { modalId, title }: Props = Astro.props;
 </div>
 
 <style>
-  button {
-    @apply inline-flex size-8 cursor-pointer items-center justify-center rounded-md text-skin-interactive transition-all duration-500 hover:bg-skin-interactive/20;
-  }
   section > * {
     @apply p-4 md:p-5;
   }

@@ -70,7 +70,7 @@ const btnItems: BtnItem[] = [
         const defaultMessage = `Visit ${network} profile`;
         return (
           <a
-            class="hero-button"
+            class="btn-icon"
             href={url}
             title={message || defaultMessage}
             aria-label={message || defaultMessage}
@@ -82,9 +82,9 @@ const btnItems: BtnItem[] = [
         );
       })
     }
-    <PrintBtn class="hero-button" />
-    <HighlightSkillsBtn class="hero-button" />
-    <ThemeSwitchBtn class="hero-button" />
+    <PrintBtn class="btn-icon" />
+    <HighlightSkillsBtn class="btn-icon" />
+    <ThemeSwitchBtn class="btn-icon" />
   </div>
 </section>
 
@@ -94,11 +94,5 @@ const btnItems: BtnItem[] = [
   }
   .gradient-x-mask {
     @apply absolute -inset-x-10 h-[2px] bg-skin-accent/50 [mask-image:linear-gradient(to_left,transparent,white_5rem,white_calc(100%-5rem),transparent)];
-  }
-</style>
-
-<style is:global>
-  .hero-button {
-    @apply inline-flex size-9 cursor-pointer items-center justify-center rounded-md text-skin-interactive transition-all duration-500 hover:bg-skin-interactive/20;
   }
 </style>
