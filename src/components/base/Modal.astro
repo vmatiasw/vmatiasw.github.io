@@ -1,12 +1,32 @@
 ---
 import { Icon } from "astro-icon/components";
 
-interface Props {
-  modalId: string;
-  title: string;
+interface Button {
+  ariaLabel: string;
+  text: string;
+  icon?: string;
+  id: string;
+  buttonClass?: string;
 }
 
-const { modalId, title }: Props = Astro.props;
+interface Props {
+  title: string;
+  modalId: string;
+  buttons?: Button[];
+  closePrimary?: boolean;
+}
+
+const { title, modalId, closePrimary, buttons: propsButtons = [] }: Props = Astro.props;
+
+const buttons = closePrimary ? [
+  ...propsButtons,
+  {
+    ariaLabel: "Close modal",
+    text: "Close",
+    id: `close-modal:${modalId}`,
+    buttonClass: "btn-primary",
+  },
+] : propsButtons;
 ---
 
 <div
@@ -18,23 +38,35 @@ const { modalId, title }: Props = Astro.props;
 >
   <section class="max-w-md rounded-lg bg-skin-secondary">
     <div class="flex justify-between border-b border-skin-muted">
-      <h4>
+      <h3>
         {title}
-      </h4>
-      <button
+      </h3>
+      {!closePrimary && <button
         class="btn-icon"
         id=`close-modal:${modalId}`
         title="Close modal"
         aria-label="Close modal"
       >
         <Icon name="mdi:close" class="size-6" />
-      </button>
+      </button>}
     </div>
     <div>
-      <slot name="body" />
+      <slot />
     </div>
-    <div class="border-t border-skin-muted">
-      <slot name="footer" />
+    <div class="flex items-center justify-center gap-3 border-t border-skin-muted">
+      {
+        buttons.map(({ ariaLabel, text, icon, id, buttonClass }) => (
+          <button
+            id={id}
+            title={ariaLabel}
+            aria-label={ariaLabel}
+            class={buttonClass || "btn-secondary"}
+          >
+            {icon && <Icon name={icon} class="size-5" />}
+            {text}
+          </button>
+        ))
+      }
     </div>
   </section>
 </div>

@@ -32,7 +32,7 @@ const {
 
 <div class={Astro.props.class}>
   <div class={headerIcons && "flex items-center gap-2 justify-between"}>
-    <h3 class="flex-inline">
+    <h4 class="flex-inline">
       {firstTitle && <span>{firstTitle}</span>}
       {firstTitle && entityTitle && <span class="text-skin-primary"> @ </span>}
       {
@@ -40,7 +40,7 @@ const {
           (entityUrl ? (
             <a
               href={entityUrl}
-              class="group gap-3 text-skin-interactive hover:underline"
+              class="group gap-3 btn-text"
               target="_blank"
               rel="noopener noreferrer"
               title={`Visit ${entityTitle}`}
@@ -56,7 +56,7 @@ const {
             <span>{entityTitle}</span>
           ))
       }
-    </h3>
+    </h4>
     {
       headerIcons &&
         headerIcons.map(({ url, icon, name }) => (
@@ -66,20 +66,20 @@ const {
             aria-label={`View in ${name}`}
             target="_blank"
             rel="noopener"
-            class="text-skin-interactive hover:scale-125"
+            class="btn-icon"
           >
             <Icon name={icon} class="size-6" />
           </a>
         ))
     }
   </div>
-  {subtitle && <h5 class="text-skin-secondary">{subtitle}</h5>}
+  {subtitle && <h6 class="text-skin-secondary">{subtitle}</h6>}
   <div class="my-4 space-y-2">
     <p class="text-skin-primary">{summary}</p>
     {
       details && (
         <details class="group mt-4 space-y-2 print:hidden">
-          <summary class="flex cursor-pointer gap-1.5 text-xs text-skin-interactive hover:underline">
+          <summary class="flex gap-1.5 text-xs btn-text">
             <Icon
               name="ri:arrow-up-s-line"
               class="size-4 duration-200 group-open:rotate-180"
@@ -89,7 +89,7 @@ const {
           </summary>
           {details.map(([key, value]) => (
             <div>
-              <h5 aria-label={`Details for ${key}`}>{key}:</h5>
+              <h6 aria-label={`Details for ${key}`}>{key}:</h6>
               <ul class="flex list-disc flex-col gap-2 text-skin-primary">
                 {value.map((item) => (
                   <li class="ml-4 marker:text-skin-accent">

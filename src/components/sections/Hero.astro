@@ -50,7 +50,7 @@ const btnItems: BtnItem[] = [
   </figure>
   <div class="flex flex-col gap-1">
     <h1 class="font-bold">{name}</h1>
-    <h4 class="text-skin-secondary">{label}</h4>
+    <h5 class="text-skin-secondary">{label}</h5>
     {
       InfoItems.map(({ icon, text, className }) => {
         return (
@@ -64,13 +64,13 @@ const btnItems: BtnItem[] = [
       })
     }
   </div>
-  <div class="flex gap-1 print:hidden">
+  <div class="flex gap-2 print:hidden">
     {
       btnItems.map(({ network, url, icon, message }) => {
         const defaultMessage = `Visit ${network} profile`;
         return (
           <a
-            class="btn-icon"
+            class="btn-secondary"
             href={url}
             title={message || defaultMessage}
             aria-label={message || defaultMessage}
@@ -82,9 +82,9 @@ const btnItems: BtnItem[] = [
         );
       })
     }
-    <PrintBtn class="btn-icon" />
-    <HighlightSkillsBtn class="btn-icon" />
-    <ThemeSwitchBtn class="btn-icon" />
+    <PrintBtn class="btn-secondary" />
+    <HighlightSkillsBtn class="btn-secondary" />
+    <ThemeSwitchBtn class="btn-secondary" />
   </div>
 </section>
 

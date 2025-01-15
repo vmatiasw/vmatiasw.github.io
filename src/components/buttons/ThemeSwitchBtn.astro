@@ -4,11 +4,11 @@ import { Icon } from "astro-icon/components";
 
 <button
   id="themeSwitch"
-  class=`${Astro.props.class} group/theme`
+  class=`${Astro.props.class}`
   title="Change theme"
   aria-label="Change theme"
 >
-  <i class="transition-transform group-hover/theme:rotate-45">
+  <i class="transition-transform">
     <Icon name="ri:moon-fill" class="hidden size-5 dark:block" />
     <Icon name="ri:sun-fill" class="size-5 dark:hidden" />
   </i>
