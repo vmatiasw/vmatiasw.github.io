@@ -1,0 +1,49 @@
+---
+import type { Profile } from "@/cv-types";
+import { CV } from "@/CVRepository";
+import ThemeSwitchBtn from "@/components/buttons/ThemeSwitchBtn.astro";
+import PrintBtn from "@/components/buttons/PrintBtn.astro";
+import HighlightSkillsBtn from "@/components/buttons/HighlightModalBtn.astro";
+import { Icon } from "astro-icon/components";
+
+const { profiles, email } = CV.basics;
+
+interface BtnItem extends Profile {
+  message?: string;
+}
+
+const btnItems: BtnItem[] = [
+  {
+    network: "email",
+    icon: "mdi:email",
+    message: "Send email to me",
+    url: `mailto:${email}`,
+  },
+  ...profiles,
+];
+---
+
+<section class={Astro.props.class}>
+  <div class="flex gap-2">
+    {
+      btnItems.map(({ network, url, icon, message }) => {
+        const defaultMessage = `Visit ${network} profile`;
+        return (
+          <a
+            class="btn-secondary"
+            href={url}
+            title={message || defaultMessage}
+            aria-label={message || defaultMessage}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name={icon} class="size-5" />
+          </a>
+        );
+      })
+    }
+    <PrintBtn class="btn-secondary" />
+    <HighlightSkillsBtn class="btn-secondary" />
+    <ThemeSwitchBtn class="btn-secondary" />
+  </div>
+</section>

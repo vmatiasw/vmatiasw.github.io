@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
+import Panel from "@/components/sections/Panel.astro";
 import Projects from "@/components/sections/Projects.astro";
 import SkillsMenu from "@/components/sections/HardSkills.astro";
 import Education from "@/components/sections/Education.astro";
@@ -19,6 +20,7 @@ const { name, label } = CV.basics;
     >
       <div class="space-y-6">
         <Hero />
+        <Panel class="print:hidden"/>
         <About />
       </div>
       <div>
