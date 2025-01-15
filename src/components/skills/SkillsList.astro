@@ -7,11 +7,10 @@ interface Props {
   items: NameAndIcon[] | string[];
   type: "languages" | "tools";
   input?: boolean;
-  title?: string;
   groupBy?: string;
 }
 
-const { items, type, input = false, title, groupBy }: Props = Astro.props;
+const { items, type, input = false, groupBy }: Props = Astro.props;
 
 function createFilterID(type: string, name: string): string {
   return `${type}:${name.replace(/\s+/g, "-")}`.toLowerCase();
@@ -29,51 +28,48 @@ const namedItems = items.map((item) => {
 });
 ---
 
-<div class={`${Astro.props.class} space-y-2 print:space-y-0`}>
-  {title && <h4>{title}</h4>}
-  <ul class="flex flex-wrap gap-2 print:gap-y-0">
-    {
-      groupBy && (
-        <li class="flex items-center">
-          <h6 class="text-skin-secondary">{groupBy + ":"}</h6>
-        </li>
-      )
-    }
-    {
-      namedItems.map(({ name, icon }) =>
-        input ? (
-          <li>
-            <input
-              type="checkbox"
-              id={createFilterID(idType, name)}
-              value={name}
-              class="input-skill-box hidden"
-            />
-            <label
-              for={createFilterID(idType, name)}
-              class="interactive-skill-box"
-            >
-              {icon && <Icon name={icon} class="size-4 print:hidden" />}
-              <span>
-                <p>{name}</p>
-              </span>
-            </label>
-          </li>
-        ) : (
-          <li
-            class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
-            data-checked="false"
+<ul class={`flex flex-wrap gap-2 print:gap-y-0 ${Astro.props.class}`}>
+  {
+    groupBy && (
+      <li class="flex items-center">
+        <h6 class="text-skin-secondary">{groupBy + ":"}</h6>
+      </li>
+    )
+  }
+  {
+    namedItems.map(({ name, icon }) =>
+      input ? (
+        <li>
+          <input
+            type="checkbox"
+            id={createFilterID(idType, name)}
+            value={name}
+            class="input-skill-box hidden"
+          />
+          <label
+            for={createFilterID(idType, name)}
+            class="interactive-skill-box"
           >
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
             <span>
-              <p class="text-xs">{name}</p>
+              <p>{name}</p>
             </span>
-          </li>
-        ),
-      )
-    }
-  </ul>
-</div>
+          </label>
+        </li>
+      ) : (
+        <li
+          class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
+          data-checked="false"
+        >
+          {icon && <Icon name={icon} class="size-4 print:hidden" />}
+          <span>
+            <p class="text-xs">{name}</p>
+          </span>
+        </li>
+      ),
+    )
+  }
+</ul>
 
 <style>
   @media not print {

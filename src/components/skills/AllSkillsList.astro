@@ -13,20 +13,16 @@ const { input = false }: Props = Astro.props;
 ---
 
 <div class=`${Astro.props.class}`>
-  <SkillsList
-    title="Tools"
-    type="tools"
-    items={skills.tools || []}
-    input={input}
-  />
-  <SkillsList
-    title="Languages"
-    type="languages"
-    items={skills.languages || []}
-    input={input}
-  />
+  <div class="space-y-2 print:space-y-0">
+    <h4>Tools</h4>
+    <SkillsList type="tools" items={skills.tools || []} input={input} />
+  </div>
+  <div class="space-y-2 print:space-y-0">
+    <h4>Languages</h4>
+    <SkillsList type="languages" items={skills.languages || []} input={input} />
+  </div>
   <div>
-    <h4 class="mb-2 print:mb-0">Technologies</h5>
+    <h4 class="mb-2 print:mb-0">Technologies</h4>
     {
       skills.languages!.map((language) => {
         const tech = language.technologies;
