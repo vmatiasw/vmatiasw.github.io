@@ -16,17 +16,24 @@ interface Props {
   closePrimary?: boolean;
 }
 
-const { title, modalId, closePrimary, buttons: propsButtons = [] }: Props = Astro.props;
+const {
+  title,
+  modalId,
+  closePrimary,
+  buttons: propsButtons = [],
+}: Props = Astro.props;
 
-const buttons = closePrimary ? [
-  ...propsButtons,
-  {
-    ariaLabel: "Close modal",
-    text: "Close",
-    id: `close-modal:${modalId}`,
-    buttonClass: "btn-primary",
-  },
-] : propsButtons;
+const buttons = closePrimary
+  ? [
+      ...propsButtons,
+      {
+        ariaLabel: "Close modal",
+        text: "Close",
+        id: `close-modal:${modalId}`,
+        buttonClass: "btn-primary",
+      },
+    ]
+  : propsButtons;
 ---
 
 <div
@@ -36,24 +43,30 @@ const buttons = closePrimary ? [
   tabindex="-1"
   class="modal fixed inset-0 z-50 flex hidden items-center justify-center bg-skin-muted/30"
 >
-  <section class="max-w-md rounded-lg bg-skin-secondary">
+  <div class="max-w-md rounded-lg bg-skin-secondary [&>*]:p-4 [&>*]:md:p-5">
     <div class="flex justify-between border-b border-skin-muted">
       <h3>
         {title}
       </h3>
-      {!closePrimary && <button
-        class="btn-icon"
-        id=`close-modal:${modalId}`
-        title="Close modal"
-        aria-label="Close modal"
-      >
-        <Icon name="mdi:close" class="size-6" />
-      </button>}
+      {
+        !closePrimary && (
+          <button
+            class="btn-icon"
+            id={`close-modal:${modalId}`}
+            title="Close modal"
+            aria-label="Close modal"
+          >
+            <Icon name="mdi:close" class="size-6" />
+          </button>
+        )
+      }
     </div>
     <div>
       <slot />
     </div>
-    <div class="flex items-center justify-center gap-3 border-t border-skin-muted">
+    <div
+      class="flex items-center justify-center gap-3 border-t border-skin-muted"
+    >
       {
         buttons.map(({ ariaLabel, text, icon, id, buttonClass }) => (
           <button
@@ -68,14 +81,8 @@ const buttons = closePrimary ? [
         ))
       }
     </div>
-  </section>
+  </div>
 </div>
-
-<style>
-  section > * {
-    @apply p-4 md:p-5;
-  }
-</style>
 
 <script>
   function openModal(modal: HTMLElement) {
