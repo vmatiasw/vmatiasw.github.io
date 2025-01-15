@@ -14,6 +14,6 @@
     @apply cursor-pointer text-skin-interactive hover:scale-125;
   }
   .btn-text {
-    @apply cursor-pointer text-skin-interactive hover:underline;
+    @apply cursor-pointer text-skin-interactive underline decoration-0 underline-offset-4 hover:underline-offset-2;
   }
 }

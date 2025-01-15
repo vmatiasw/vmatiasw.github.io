@@ -22,7 +22,16 @@ const { input = false }: Props = Astro.props;
     <SkillsList type="languages" items={skills.languages || []} input={input} />
   </div>
   <div>
-    <h4 class="mb-2 print:mb-0">Technologies</h4>
+    <div class="mb-2 print:mb-0">
+      <h4>Technologies</h4>
+      {
+        !input && (
+          <p class="text-sm text-skin-secondary">
+            (Standard libraries are not included)
+          </p>
+        )
+      }
+    </div>
     {
       skills.languages!.map((language) => {
         const tech = language.technologies;
