@@ -1,6 +1,6 @@
 ---
 import type { Skills } from "@/cv-types";
-import SkillsList from "@/components/SkillsList.astro";
+import SkillsList from "@/components/skills/SkillsList.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
@@ -73,11 +73,7 @@ const {
         ))
     }
   </div>
-  {
-    subtitle && (
-      <h5 class="text-skin-secondary">{subtitle}</h5>
-    )
-  }
+  {subtitle && <h5 class="text-skin-secondary">{subtitle}</h5>}
   <div class="my-4 space-y-2">
     <p class="text-skin-primary">{summary}</p>
     {
@@ -96,7 +92,9 @@ const {
               <h5 aria-label={`Details for ${key}`}>{key}:</h5>
               <ul class="flex list-disc flex-col gap-2 text-skin-primary">
                 {value.map((item) => (
-                  <li class="ml-4 marker:text-skin-accent"><p>{item}</p></li>
+                  <li class="ml-4 marker:text-skin-accent">
+                    <p>{item}</p>
+                  </li>
                 ))}
               </ul>
             </div>

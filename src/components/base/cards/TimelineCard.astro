@@ -1,6 +1,6 @@
 ---
-import CardContenent from "@/components/cards/CardContenent.astro";
-import type { Props as CardProps } from "@/components/cards/CardContenent.astro";
+import CardContenent from "@/components/base/cards/CardContenent.astro";
+import type { Props as CardProps } from "@/components/base/cards/CardContenent.astro";
 
 interface Props extends CardProps {
   startDate: string;
@@ -26,7 +26,7 @@ const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
 ---
 
 <div class="below-md:muted-box md:grid md:grid-cols-12">
-  <p class="md:col-span-2 font-semibold text-sm">
+  <p class="text-sm font-semibold md:col-span-2">
     <time datetime={startDate}>{startYear}</time> -
     <time datetime={endDate}>{endYear}</time>
   </p>
