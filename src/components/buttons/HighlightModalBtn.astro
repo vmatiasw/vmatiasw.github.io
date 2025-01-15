@@ -1,6 +1,6 @@
 ---
 import Modal from "@/components/base/Modal.astro";
-import AllSkillsList from "@/components/skills/AllSkillsList.astro";
+import AllSkills from "@/components/skills/AllSkills.astro";
 import { Icon } from "astro-icon/components";
 
 const modalId = "skillsModal";
@@ -34,7 +34,7 @@ const buttons = [
       Highlight the skills you're interested in to emphasize them on the
       website.
     </p>
-    <AllSkillsList class="space-y-3" input={true} />
+    <AllSkills class="space-y-3" input={true} />
   </div>
 </Modal>
 
