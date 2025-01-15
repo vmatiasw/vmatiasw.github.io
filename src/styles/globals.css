@@ -25,9 +25,3 @@ section {
   flex-direction: column;
   gap: 1rem;
 }
-
-@media (hover: none), (pointer: coarse) {
-  bg-skin-interactive:hover {
-    all: unset;
-  }
-}
