@@ -7,19 +7,17 @@ export interface CV {
 
 // ------------------------- Common -------------------------
 
-export interface NameAndIcon {
+export interface NamedEntity {
   name: string;
-  icon: string;
 }
 
-export interface Language extends NameAndIcon {
+export interface Language extends NamedEntity {
   technologies?: string[];
 }
 
 export interface Skills {
   languages?: Language[];
-  tools?: NameAndIcon[];
-  soft?: NameAndIcon[];
+  tools?: NamedEntity[];
 }
 
 export interface Location {

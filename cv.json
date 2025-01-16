@@ -55,102 +55,23 @@
       "courses": [],
       "skills": {
         "languages": [
-          {
-            "name": "Python",
-            "icon": "simple-icons:python"
-          },
-          {
-            "name": "Java",
-            "icon": null
-          },
-          {
-            "name": "C",
-            "icon": "simple-icons:c"
-          },
-          {
-            "name": "SQL",
-            "icon": "simple-icons:mysql"
-          },
-          {
-            "name": "Haskell",
-            "icon": "simple-icons:haskell"
-          },
-          {
-            "name": "C++",
-            "icon": "simple-icons:cplusplus"
-          },
-          {
-            "name": "MongoDB",
-            "icon": "simple-icons:mongodb"
-          },
-          {
-            "name": "Assembly",
-            "icon": null
-          },
-          {
-            "name": "SystemVerilog",
-            "icon": null
-          }
+          { "name": "Python" },
+          { "name": "Java" },
+          { "name": "C" },
+          { "name": "SQL" },
+          { "name": "Haskell" },
+          { "name": "C++" },
+          { "name": "MongoDB" },
+          { "name": "Assembly" },
+          { "name": "SystemVerilog" }
         ],
         "tools": [
-          {
-            "name": "Quartus",
-            "icon": null
-          },
-          {
-            "name": "Git",
-            "icon": "mdi:git"
-          },
-          {
-            "name": "GitHub",
-            "icon": "mdi:github"
-          },
-          {
-            "name": "Linux",
-            "icon": "simple-icons:linux"
-          },
-          {
-            "name": "Jupyter Notebook",
-            "icon": "simple-icons:jupyter"
-          },
-          {
-            "name": "Omnet++",
-            "icon": null
-          }
-        ],
-        "soft": [
-          {
-            "name": "Problem Solving",
-            "icon": "mdi:lightbulb-on-outline"
-          },
-          {
-            "name": "Teamwork",
-            "icon": "mdi:account-group"
-          },
-          {
-            "name": "Communication",
-            "icon": "mdi:forum"
-          },
-          {
-            "name": "Time Management",
-            "icon": "mdi:timer"
-          },
-          {
-            "name": "Adaptability",
-            "icon": "mdi:adjust"
-          },
-          {
-            "name": "Creativity",
-            "icon": "mdi:palette"
-          },
-          {
-            "name": "Critical Thinking",
-            "icon": "mdi:thought-bubble"
-          },
-          {
-            "name": "Leadership",
-            "icon": "mdi:account-tie"
-          }
+          { "name": "Quartus" },
+          { "name": "Git" },
+          { "name": "GitHub" },
+          { "name": "Linux" },
+          { "name": "Jupyter Notebook" },
+          { "name": "Omnet++" }
         ]
       }
     }
@@ -180,26 +101,11 @@
         "languages": [
           {
             "name": "Python",
-            "icon": "simple-icons:python",
             "technologies": ["yfinance", "matplotlib", "numpy", "scipy"]
           },
-          {
-            "name": "Pine Script",
-            "icon": "mdi:chart-line"
-          }
+          { "name": "Pine Script" }
         ],
-        "tools": [
-          {
-            "name": "TradingView",
-            "icon": "mdi:chart-line"
-          }
-        ],
-        "soft": [
-          {
-            "name": "Problem Solving",
-            "icon": "mdi:lightbulb-on-outline"
-          }
-        ]
+        "tools": [{ "name": "TradingView" }]
       }
     }
   ],
@@ -219,21 +125,10 @@
         "languages": [
           {
             "name": "Python",
-            "icon": "simple-icons:python",
             "technologies": ["SQLAlchemy", "Django", "Pytest"]
           }
         ],
-        "tools": [
-          { "name": "Git", "icon": "mdi:git" },
-          { "name": "GitHub", "icon": "mdi:github" },
-          { "name": "Linux", "icon": "simple-icons:linux" }
-        ],
-        "soft": [
-          {
-            "name": "Problem Solving",
-            "icon": "mdi:lightbulb-on-outline"
-          }
-        ]
+        "tools": [{ "name": "Git" }, { "name": "GitHub" }, { "name": "Linux" }]
       }
     }
   ]

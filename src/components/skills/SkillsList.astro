@@ -1,10 +1,11 @@
 ---
-import type { NameAndIcon } from "@/cv-types";
+import type { NamedEntity } from "@/cv-types";
+import { entitiesIconsMap } from "@/entitiesIconsMap";
 import { Icon } from "astro-icon/components";
 
 interface Props {
   class?: string;
-  items: NameAndIcon[] | string[];
+  items: NamedEntity[] | string[];
   type: "languages" | "tools";
   input?: boolean;
   groupBy?: string;
@@ -24,7 +25,7 @@ const namedItems = items.map((item) => {
   if (typeof item === "string") {
     return { name: item, icon: null };
   }
-  return item;
+  return { name: item.name, icon: entitiesIconsMap[item.name] };
 });
 ---
 

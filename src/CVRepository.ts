@@ -88,6 +88,7 @@ class CVRepository implements CV {
     });
   }
 }
+
 // This instance of CVRepository is created once during the build process.
 // The data is pre-calculated and included in the static files, improving performance.
 const cvRepository = new CVRepository(dataSource);
