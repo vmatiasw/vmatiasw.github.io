@@ -1,14 +1,10 @@
----
-import { Icon } from "astro-icon/components";
----
-
 <button
-  title="Print my cv"
-  aria-label="Print my CV"
+  title="View my cv"
+  aria-label="View my CV"
   class={Astro.props.class}
   onclick="window.print()"
 >
-  <Icon name="mdi:printer" class="size-5" />
+  <p class="size-5 font-mono font-extrabold">CV</p>
 </button>
 
 <style>
