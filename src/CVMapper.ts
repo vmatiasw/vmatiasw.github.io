@@ -6,13 +6,19 @@ import type {
   Project,
   ToProcessTexts,
 } from "@/cv-types";
-import { createID, capitalize } from "@/data-helpers";
+import {
+  createID,
+  capitalize,
+  getPurgedObject,
+  collectNestedKeyValues,
+  mapObjectFields,
+} from "@/data-helpers";
 import cvData from "data/cv.json";
 import skillsData from "data/skills.json";
 
-const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{word} in text
-const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{word-link} in text
-const SKILL_NAMES = extractSkillNames(skillsData);
+const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{text} in text
+const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{text-link} in text
+const SKILL_NAMES = collectNestedKeyValues(skillsData, "name");
 
 interface NamedEntity {
   icon?: string;
@@ -21,7 +27,7 @@ interface NamedEntity {
 }
 
 interface ProgrammingLanguage extends NamedEntity {
-  technologies?: string[];
+  technologies?: NamedEntity[];
 }
 
 interface SkillSet {
@@ -33,10 +39,10 @@ type S<T> = T & { skills: SkillSet };
 
 class CVProcessor implements CV {
   public basics: Basics = cvData.basics;
-  public work: S<Work>[] = processSkillData(cvData.work);
-  public education: S<Education>[] = processSkillData(cvData.education);
-  public projects: S<Project>[] = processSkillData(cvData.projects);
-  public skills: SkillSet = aggregateSkills([
+  public work: S<Work>[] = processItems(cvData.work);
+  public education: S<Education>[] = processItems(cvData.education);
+  public projects: S<Project>[] = processItems(cvData.projects);
+  public skills: SkillSet = extractSkillsFromTexts([
     ...cvData.work,
     ...cvData.education,
     ...cvData.projects,
@@ -49,24 +55,9 @@ const cvProcessor = new CVProcessor();
 export { cvProcessor as CV };
 export type { SkillSet, NamedEntity };
 
-function extractSkillNames(data: any): Set<string> {
-  const skillNames = new Set<string>();
-  const traverseNames = (obj: any) => {
-    if (typeof obj === "object" && obj !== null) {
-      if ("name" in obj && typeof obj.name === "string") {
-        skillNames.add(obj.name.toLowerCase());
-      }
-      Object.values(obj).forEach(traverseNames);
-    } else if (Array.isArray(obj)) {
-      obj.forEach(traverseNames);
-    }
-  };
-  traverseNames(data);
-  return skillNames;
-}
 
-function processSkillData<T>(items: (ToProcessTexts & T)[]): S<T>[] {
-  const processSkills = (text: string) =>
+function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
+  const formatSkills = (text: string) =>
     text.replace(SKILL_PATTERN, (match, skillName: string) => {
       if (SKILL_NAMES.has(skillName.toLowerCase()))
         return `<em 
@@ -79,8 +70,7 @@ function processSkillData<T>(items: (ToProcessTexts & T)[]): S<T>[] {
         return skillName;
       }
     });
-
-  const processLinks = (text: string) =>
+  const formatLinks = (text: string) =>
     text.replace(LINK_PATTERN, (match, text: string, link: string) => {
       return `<a 
           href="${link}" 
@@ -92,28 +82,19 @@ function processSkillData<T>(items: (ToProcessTexts & T)[]): S<T>[] {
             ${text}
         </a>`;
     });
-
-  const processText = (text: string) => processLinks(processSkills(text));
-
-  const processRecordText = (body: Record<string, any>) =>
-    Object.fromEntries(
-      Object.entries(body).map(([title, content]) => [
-        processText(title),
-        Array.isArray(content) ? content.map(processText) : content,
-      ]),
-    );
+  const formatText = (text: string) => formatLinks(formatSkills(text));
 
   return items.map((item) => ({
     ...item,
-    skills: aggregateSkills([item]),
-    summary: processText(item.summary),
-    body: processRecordText(item.body || {}),
-    details: processRecordText(item.details || {}),
+    skills: extractSkillsFromTexts([item]),
+    summary: formatText(item.summary),
+    body: mapObjectFields(item.body || {}, formatText),
+    details: mapObjectFields(item.details || {}, formatText),
   }));
 }
 
-function aggregateSkills(items: ToProcessTexts[]): SkillSet {
-  const skillsFromText = new Set(
+function extractSkillsFromTexts(items: ToProcessTexts[]): SkillSet {
+  const textSkills = new Set(
     items
       .flatMap((item) => [
         item.summary,
@@ -128,16 +109,15 @@ function aggregateSkills(items: ToProcessTexts[]): SkillSet {
       ),
   );
 
-  return Object.entries(skillsData).reduce(
-    (acc: SkillSet, [category, skills]) => {
-      const filteredSkills = skills.filter((skill) =>
-        skillsFromText.has(skill.name.toLowerCase()),
-      );
-      if (filteredSkills.length > 0) {
-        acc[category as keyof SkillSet] = filteredSkills;
-      }
-      return acc;
-    },
-    {},
-  );
+  const purgeCondition = (obj: any) =>
+    "name" in obj && !textSkills.has(obj.name.toLowerCase());
+
+  const skills = getPurgedObject(skillsData, purgeCondition);
+
+  // Check for unknown skills
+  const resultSkills = new Set(collectNestedKeyValues(skills, "name"));
+  const diff = [...textSkills].filter((x) => !resultSkills.has(x));
+  console.assert(diff.length == 0, `\x1b[33mUnknown skills: ${diff}\x1b[0m`);
+
+  return skills;
 }
