@@ -48,7 +48,7 @@ interface Work extends ToProcessSkills {
   position?: string;
   url?: string;
   startDate: string;
-  endDate: string | undefined;
+  endDate?: string;
   location: string;
   location_type: string;
 }
