@@ -45,7 +45,8 @@
       "technologies": [
         { "name": "TypeScript", "icon": "simple-icons:typescript" },
         { "name": "Vite", "icon": "simple-icons:vite" },
-        { "name": "ReactJS", "icon": "simple-icons:react" }
+        { "name": "ReactJS", "icon": "simple-icons:react" },
+        { "name": "Jest", "icon": "simple-icons:jest" }
       ]
     },
     { "name": "MySQL", "icon": "simple-icons:mysql" },

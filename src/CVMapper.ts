@@ -68,14 +68,17 @@ function extractSkillNames(data: any): Set<string> {
 
 function processSkillData<T>(items: (ToProcessSkills & T)[]): S<T>[] {
   const processText = (text: string) =>
-    text.replace(SKILL_PATTERN, (match, skillName:string) => {
-      return SKILL_NAMES.has(skillName.toLowerCase())
-        ? `<em 
+    text.replace(SKILL_PATTERN, (match, skillName: string) => {
+      if (SKILL_NAMES.has(skillName.toLowerCase()))
+        return `<em 
             data-checked="false" 
             class="dynamic-child child-${createID(skillName)}">
             ${capitalize(skillName)}
-          </em>`
-        : skillName;
+          </em>`;
+      else {
+        console.warn(`\x1b[33mUnknown skill: ${skillName}\x1b[0m`);
+        return skillName;
+      }
     });
 
   const processRecordText = (body: Record<string, any>) =>
