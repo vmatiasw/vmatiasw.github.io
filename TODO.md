@@ -1,5 +1,7 @@
 # TODO
 
+- Cuando tocas un modal en celular, scroll en el modal
+- Sacar "fuertes" de about
 - agregar un punto colorido en ver mas que indique que alli se resalta.
 - agregar que se pueda poner links en el texto
 - agregar este proyecto a mis proyectos
