@@ -4,7 +4,7 @@ import type { Props as CardProps } from "@/components/base/cards/CardContenent.a
 
 interface Props extends CardProps {
   startDate: string;
-  endDate: string | null;
+  endDate: string | undefined;
 }
 
 const {
@@ -16,6 +16,7 @@ const {
   headerIcons,
   subtitle,
   summary,
+  body,
   details,
   image,
   skills,
@@ -38,6 +39,7 @@ const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
       entityUrl={entityUrl}
       subtitle={subtitle}
       summary={summary}
+      body={body}
       details={details}
       skills={skills}
       entityUrl={entityUrl}

@@ -1,73 +1,51 @@
 ---
-import type { NamedEntity } from "@/cv-types";
-import { entitiesIconsMap } from "@/entitiesIconsMap";
+import type { NamedEntity } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
+import { createID } from "@/data-helpers";
 
 interface Props {
   class?: string;
   items: NamedEntity[] | string[];
-  type: "languages" | "tools";
   input?: boolean;
   groupBy?: string;
 }
 
-const { items, type, input = false, groupBy }: Props = Astro.props;
-
-function createFilterID(type: string, name: string): string {
-  return `${type}:${name.replace(/\s+/g, "-")}`.toLowerCase();
-}
-
-const idType = groupBy
-  ? `${createFilterID("languages", groupBy)}-technologies`
-  : type;
+const { items, input = false, groupBy }: Props = Astro.props;
 
 const namedItems = items.map((item) => {
   if (typeof item === "string") {
     return { name: item, icon: null };
   }
-  return { name: item.name, icon: entitiesIconsMap[item.name] };
+  return { name: item.name, icon: item.icon };
 });
 ---
 
 <ul
   class={`flex flex-wrap gap-2 print:gap-y-0 items-center ${Astro.props.class}`}
 >
-  {
-    groupBy && (
-      <li class="flex items-center">
-        <h6 class="text-skin-secondary">{groupBy + ":"}</h6>
-      </li>
-    )
-  }
+  {groupBy && <h6 class="text-skin-secondary">{groupBy + ":"}</h6>}
   {
     namedItems.map(({ name, icon }) =>
       input ? (
         <li>
           <input
             type="checkbox"
-            id={createFilterID(idType, name)}
+            id={createID(name)}
             value={name}
             class="input-skill-box hidden"
           />
-          <label
-            for={createFilterID(idType, name)}
-            class="interactive-skill-box"
-          >
+          <label for={createID(name)} class="interactive-skill-box">
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
-            <span>
-              <p>{name}</p>
-            </span>
+            <p>{name}</p>
           </label>
         </li>
       ) : (
         <li
-          class={`child-${createFilterID(idType, name)} child-skill-box skill-box`}
+          class={`child-${createID(name)} dynamic-child skill-box`}
           data-checked="false"
         >
           {icon && <Icon name={icon} class="size-4 print:hidden" />}
-          <span>
-            <p class="text-xs">{name}</p>
-          </span>
+          <p class="text-xs">{name}</p>
         </li>
       ),
     )
@@ -86,7 +64,7 @@ const namedItems = items.map((item) => {
   .input-skill-box:checked + label {
     @apply border-skin-bg-primary bg-skin-interactive text-skin-contrast;
   }
-  .child-skill-box[data-checked="true"] {
+  .dynamic-child[data-checked="true"] {
     @apply border-skin-bg-primary bg-skin-accent text-skin-contrast;
   }
 </style>

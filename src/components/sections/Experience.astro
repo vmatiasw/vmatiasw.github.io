@@ -1,7 +1,6 @@
 ---
-import { CV } from "@/CVRepository";
+import { CV } from "@/CVMapper";
 import TimelineCard from "@/components/base/cards/TimelineCard.astro";
-import { filterNonNullEntries } from "@/data-helpers";
 
 const { work } = CV;
 ---
@@ -18,20 +17,16 @@ const { work } = CV;
           endDate,
           position,
           summary,
-          responsibilities,
-          achievements,
+          body,
+          details,
           skills,
           location,
           location_type,
         }) => {
-          const details = filterNonNullEntries({
-            Responsibilities: responsibilities,
-            Achievements: achievements,
-          });
-
           return (
             <li>
               <TimelineCard
+                body={body}
                 startDate={startDate}
                 endDate={endDate}
                 firstTitle={position}

@@ -1,7 +1,6 @@
 ---
-import { CV } from "@/CVRepository";
+import { CV } from "@/CVMapper";
 import CardContenent from "@/components/base/cards/CardContenent.astro";
-import { filterNonNullEntries } from "@/data-helpers";
 
 const { projects } = CV;
 ---
@@ -11,16 +10,14 @@ const { projects } = CV;
   <ul class="grid gap-4 md:grid-cols-2">
     {
       projects.map(
-        ({ url, summary, highlights, name, github, image, skills }) => {
+        ({ url, summary, body, details, name, github, image, skills }) => {
           const headerIcons = github
             ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
             : undefined;
-          const details = filterNonNullEntries({
-            Highlights: highlights,
-          });
           return (
             <li class="muted-box">
               <CardContenent
+                body={body}
                 entityTitle={name}
                 entityUrl={url}
                 headerIcons={headerIcons}

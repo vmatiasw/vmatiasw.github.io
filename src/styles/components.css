@@ -16,4 +16,11 @@
   .btn-text {
     @apply cursor-pointer text-skin-interactive decoration-0 underline-offset-4 hover:underline-offset-2 not-print:underline;
   }
+  em {
+    @apply text-skin-accent;
+  }
+  .dynamic-child[data-checked="true"] {
+    @apply rounded bg-skin-accent px-0.5 py-0.5 text-sm text-skin-contrast;
+  }
 }
+/* border-skin-bg-primary bg-skin-accent text-skin-contrast */

@@ -1,5 +1,5 @@
 ---
-import { CV } from "@/CVRepository";
+import { CV } from "@/CVMapper";
 import TimelineCard from "@/components/base/cards/TimelineCard.astro";
 
 const { education } = CV;
@@ -10,10 +10,21 @@ const { education } = CV;
   <ul class="md:muted-box grid gap-4 md:gap-0">
     {
       education.map(
-        ({ institution, startDate, endDate, area, url, skills, summary }) => {
+        ({
+          institution,
+          startDate,
+          endDate,
+          area,
+          url,
+          skills,
+          summary,
+          body,
+          details,
+        }) => {
           return (
             <li>
               <TimelineCard
+                body={body}
                 startDate={startDate}
                 endDate={endDate}
                 firstTitle={area}
@@ -21,6 +32,7 @@ const { education } = CV;
                 entityTitle={institution}
                 skills={skills}
                 summary={summary}
+                details={details}
               />
             </li>
           );

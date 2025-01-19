@@ -1,0 +1,73 @@
+{
+  "languages": [
+    {
+      "name": "Python",
+      "technologies": [
+        { "name": "Jupyter", "icon": "simple-icons:jupyter" },
+        { "name": "Pandas" },
+        { "name": "Seaborn" },
+        { "name": "Pydantic" },
+        { "name": "FastAPI" },
+        { "name": "yfinance", "icon": "mdi:chart-line" },
+        { "name": "Matplotlib" },
+        { "name": "NumPy" },
+        { "name": "scipy" },
+        { "name": "SQLAlchemy" },
+        { "name": "Django", "icon": "simple-icons:django" },
+        { "name": "Flask" },
+        { "name": "Pytest" },
+        { "name": "TensorFlow", "icon": "simple-icons:tensorflow" },
+        { "name": "PyTorch", "icon": "simple-icons:pytorch" }
+      ]
+    },
+    { "name": "C++", "icon": "simple-icons:cplusplus" },
+    {
+      "name": "Java",
+      "technologies": [
+        { "name": "Apache Spark", "icon": "simple-icons:apachespark" }
+      ]
+    },
+    { "name": "Scala", "icon": "simple-icons:scala" },
+    { "name": "Haskell", "icon": "simple-icons:haskell" },
+    { "name": "SystemVerilog" },
+    { "name": "Assembler" },
+    { "name": "HTML", "icon": "simple-icons:html5" },
+    {
+      "name": "CSS",
+      "icon": "simple-icons:css3",
+      "technologies": [
+        { "name": "Tailwind", "icon": "simple-icons:tailwindcss" }
+      ]
+    },
+    {
+      "name": "JavaScript",
+      "icon": "simple-icons:javascript",
+      "technologies": [
+        { "name": "TypeScript", "icon": "simple-icons:typescript" },
+        { "name": "Vite", "icon": "simple-icons:vite" },
+        { "name": "ReactJS", "icon": "simple-icons:react" }
+      ]
+    },
+    { "name": "MySQL", "icon": "simple-icons:mysql" },
+    { "name": "PostgreSQL", "icon": "simple-icons:postgresql" },
+    { "name": "SQLite", "icon": "simple-icons:sqlite" },
+    { "name": "MongoDB", "icon": "simple-icons:mongodb" },
+    { "name": "SQL", "icon": "simple-icons:mysql" },
+    { "name": "C", "icon": "simple-icons:c" },
+    { "name": "Pine Script", "icon": "mdi:chart-line" },
+    { "name": "Rust", "icon": "simple-icons:rust" }
+  ],
+  "tools": [
+    { "name": "Quartus" },
+    { "name": "Git", "icon": "mdi:git" },
+    { "name": "GitHub", "icon": "mdi:github" },
+    { "name": "Linux", "icon": "simple-icons:linux" },
+    { "name": "OMNeT++" },
+    { "name": "TradingView", "icon": "mdi:chart-line" },
+    { "name": "Docker", "icon": "simple-icons:docker" },
+    { "name": "Kubernetes", "icon": "simple-icons:kubernetes" },
+    { "name": "Vercel", "icon": "simple-icons:vercel" },
+    { "name": "Netlify", "icon": "simple-icons:netlify" },
+    { "name": "Jira", "icon": "simple-icons:jira" }
+  ]
+}

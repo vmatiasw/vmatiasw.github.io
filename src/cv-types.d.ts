@@ -1,35 +1,35 @@
-export interface CV {
+interface CV {
   basics: Basics;
   work: Work[];
   education: Education[];
   projects: Projects[];
 }
-
-// ------------------------- Common -------------------------
-
-export interface NamedEntity {
-  name: string;
+interface ToProcessSkills {
+  summary: string;
+  body?: Record<string, string[]>;
+  details?: Record<string, string[]>;
 }
-
-export interface Language extends NamedEntity {
-  technologies?: string[];
-}
-
-export interface Skills {
-  languages?: Language[];
-  tools?: NamedEntity[];
-}
-
-export interface Location {
+interface Location {
   address: string;
   postalCode: string;
   city: string;
   countryCode: string;
   region: string;
 }
-
-// ------------------------- Basics -------------------------
-export interface Basics {
+interface SpeakLanguage {
+  language: string;
+  fluency: string;
+}
+interface Profile {
+  icon: string;
+  network: string;
+  url: string;
+}
+interface WebSite {
+  description: string;
+  url: string;
+}
+interface Basics {
   name: string;
   label: string;
   image: string;
@@ -43,59 +43,41 @@ export interface Basics {
   languages: SpeakLanguage[];
   profiles: Profile[];
 }
-
-export interface SpeakLanguage {
-  language: string;
-  proficiency: "basic" | "intermediate" | "advanced" | "native";
-}
-
-export interface Profile {
-  icon: string;
-  network: string;
-  url: string;
-}
-
-export interface WebSite {
-  description: string;
-  url: string;
-}
-// ------------------------- Work -------------------------
-
-export interface Work {
+interface Work extends ToProcessSkills {
   name: string;
-  position: string;
-  url: string;
+  position?: string;
+  url?: string;
   startDate: string;
   endDate: string | null;
-  summary: string;
-  highlights: string[];
-  responsibilities: string[];
-  achievements?: string[];
-  skills: Skills;
   location: string;
   location_type: string;
 }
-
-// ------------------------- Education -------------------------
-export interface Education {
+interface Education extends ToProcessSkills {
   institution: string;
   url: string;
-  summary: string;
   area: string;
   studyType: string;
   startDate: string;
-  endDate: string | null;
+  endDate?: string;
   score: number;
-  skills: Skills;
   courses: string[];
 }
-// ------------------------- Projects -------------------------
-export interface Projects {
+interface Project extends ToProcessSkills {
   name: string;
-  summary: string;
-  skills: Skills;
-  highlights: string[];
-  url: string;
+  url?: string;
   github?: string;
   image?: string;
 }
+
+export type {
+  CV,
+  ToProcessSkills,
+  Location,
+  SpeakLanguage,
+  Profile,
+  WebSite,
+  Basics,
+  Work,
+  Education,
+  Project,
+};

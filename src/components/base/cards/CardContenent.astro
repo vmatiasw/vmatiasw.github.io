@@ -1,6 +1,5 @@
 ---
-import type { Skills } from "@/cv-types";
-import SkillsList from "@/components/skills/SkillsList.astro";
+import type { SkillSet } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
@@ -12,9 +11,10 @@ export interface Props {
   headerIcons?: { url: string; icon: string; name: string }[] | undefined;
   subtitle?: string;
   summary: string;
-  details?: [string, string[]][] | undefined;
+  body: Record<string, string[]> | undefined;
+  details?: Record<string, string[]> | undefined;
   image?: string;
-  skills: Skills;
+  skills: SkillSet;
 }
 
 const {
@@ -26,7 +26,7 @@ const {
   summary,
   details,
   image,
-  skills,
+  body,
 }: Props = Astro.props;
 ---
 
@@ -40,7 +40,7 @@ const {
           (entityUrl ? (
             <a
               href={entityUrl}
-              class="group gap-3 btn-text"
+              class="btn-text group gap-3"
               target="_blank"
               rel="noopener noreferrer"
               title={`Visit ${entityTitle}`}
@@ -75,11 +75,26 @@ const {
   </div>
   {subtitle && <h6 class="text-skin-secondary">{subtitle}</h6>}
   <div class="my-4 space-y-2">
-    <p class="text-skin-primary">{summary}</p>
+    <p class="text-skin-primary" set:html={summary} />
+    {
+      body &&
+        Object.entries(body).map(([key, value]) => (
+          <div>
+            <h6>{key}</h6>
+            <ul class="flex list-disc flex-col gap-2 text-skin-primary">
+              {value.map((item) => (
+                <li class="ml-4 marker:text-skin-accent">
+                  <p set:html={item} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+    }
     {
       details && (
         <details class="group mt-4 space-y-2 print:hidden">
-          <summary class="flex gap-1.5 text-xs btn-text">
+          <summary class="btn-text flex gap-1.5 text-xs">
             <Icon
               name="ri:arrow-up-s-line"
               class="size-4 duration-200 group-open:rotate-180"
@@ -87,18 +102,19 @@ const {
             <span class="group-open:hidden">Show more</span>
             <span class="hidden group-open:block">Show less</span>
           </summary>
-          {details.map(([key, value]) => (
-            <div>
-              <h6 aria-label={`Details for ${key}`}>{key}:</h6>
-              <ul class="flex list-disc flex-col gap-2 text-skin-primary">
-                {value.map((item) => (
-                  <li class="ml-4 marker:text-skin-accent">
-                    <p>{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {details &&
+            Object.entries(details).map(([key, value]) => (
+              <div>
+                <h6 aria-label={`Details for ${key}`}>{key}:</h6>
+                <ul class="flex list-disc flex-col gap-2 text-skin-primary">
+                  {value.map((item) => (
+                    <li class="ml-4 marker:text-skin-accent">
+                      <p set:html={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
         </details>
       )
     }
@@ -116,20 +132,4 @@ const {
       </a>
     )
   }
-  <div class="flex flex-col gap-2 print:hidden">
-    <SkillsList items={skills.tools || []} type="tools" />
-    <SkillsList items={skills.languages || []} type="languages" />
-    {
-      skills.languages?.map((language) => {
-        const technologies = language.technologies;
-        return technologies ? (
-          <SkillsList
-            groupBy={language.name}
-            type="languages"
-            items={technologies}
-          />
-        ) : null;
-      })
-    }
-  </div>
 </div>

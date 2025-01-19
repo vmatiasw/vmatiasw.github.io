@@ -8,7 +8,7 @@ import Projects from "@/components/sections/Projects.astro";
 import SkillsMenu from "@/components/sections/HardSkills.astro";
 import Education from "@/components/sections/Education.astro";
 import PrintHeader from "@/components/sections/PrintHeader.astro";
-import { CV } from "@/CVRepository";
+import { CV } from "@/CVMapper";
 
 const { name, label } = CV.basics;
 ---
@@ -20,7 +20,7 @@ const { name, label } = CV.basics;
     >
       <div class="space-y-6">
         <Hero />
-        <Panel class="print:hidden"/>
+        <Panel class="print:hidden" />
         <About />
       </div>
       <div>

@@ -28,7 +28,12 @@ const buttons = [
   <Icon name="ri:brush-fill" class="size-5" />
 </button>
 
-<Modal modalId={modalId} title="Highlight Skills" buttons={buttons} closePrimary={true}>
+<Modal
+  modalId={modalId}
+  title="Highlight Skills"
+  buttons={buttons}
+  closePrimary={true}
+>
   <div class="space-y-3">
     <p>
       Highlight the skills you're interested in to emphasize them on the
@@ -57,7 +62,7 @@ const buttons = [
       ...document.querySelectorAll(".input-skill-box"),
     ] as HTMLInputElement[];
     const childSkillBoxes = [
-      ...document.querySelectorAll(".child-skill-box"),
+      ...document.querySelectorAll(".dynamic-child"),
     ] as HTMLElement[];
 
     const toggleCheckboxes = (checked: boolean) => {

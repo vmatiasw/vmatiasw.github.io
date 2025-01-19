@@ -1,5 +1,5 @@
 ---
-import { CV } from "@/CVRepository";
+import { CV } from "@/CVMapper";
 import SkillsList from "@/components/skills/SkillsList.astro";
 
 const { skills } = CV;
@@ -12,36 +12,29 @@ interface Props {
 const { input = false }: Props = Astro.props;
 ---
 
-<div class=`${Astro.props.class}`>
-  <div class="space-y-2 print:space-y-0">
+<div class=`${Astro.props.class} [&>*]:space-y-1`>
+  <div>
     <h4>Tools</h4>
-    <SkillsList type="tools" items={skills.tools || []} input={input} />
-  </div>
-  <div class="space-y-2 print:space-y-0">
-    <h4>Languages</h4>
-    <SkillsList type="languages" items={skills.languages || []} input={input} />
+    <SkillsList items={skills.tools || []} input={input} />
   </div>
   <div>
-    <div class="mb-2 print:mb-0">
-      <h4>Technologies</h4>
-      {
-        !input && (
-          <p class="text-sm text-skin-secondary print:text-xs">
-            (Standard libraries are not included)
-          </p>
-        )
-      }
-    </div>
+    <h4>Languages</h4>
+    <SkillsList items={skills.languages || []} input={input} />
+  </div>
+  <div>
+    <h4>Technologies</h4>
+    {
+      !input && (
+        <p class="text-sm text-skin-secondary print:text-xs">
+          (Standard libraries are not included)
+        </p>
+      )
+    }
     {
       skills.languages!.map((language) => {
         const tech = language.technologies;
         return tech ? (
-          <SkillsList
-            groupBy={language.name}
-            type="languages"
-            items={tech}
-            input={input}
-          />
+          <SkillsList groupBy={language.name} items={tech} input={input} />
         ) : null;
       })
     }
