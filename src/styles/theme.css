@@ -4,11 +4,11 @@
     --text-primary: 26, 26, 25;
     --text-secondary: 120, 120, 120;
     --text-contrast: 255, 255, 255;
-    --background-primary: 255, 250, 248;
+    --background-primary: 255, 255, 255;
     --muted: 180, 180, 180;
     --accent: 255, 130, 37;
     --background-interactive: 180, 63, 63;
-    --background-secondary: 255, 245, 228;
+    --background-secondary: 255, 250, 245;
   }
   .dark {
     --text-primary: 255, 255, 255;

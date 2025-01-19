@@ -85,13 +85,4 @@ import { Icon } from "astro-icon/components";
   }
 
   themeSwitchBtn.addEventListener("click", toggleDark);
-
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (e) => {
-      if (!("theme" in localStorage)) {
-        isDark = e.matches;
-        switchTheme();
-      }
-    });
 </script>

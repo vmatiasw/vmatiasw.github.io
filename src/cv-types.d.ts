@@ -4,7 +4,7 @@ interface CV {
   education: Education[];
   projects: Projects[];
 }
-interface ToProcessSkills {
+interface ToProcessTexts {
   summary: string;
   body?: Record<string, string[]>;
   details?: Record<string, string[]>;
@@ -43,7 +43,7 @@ interface Basics {
   languages: SpeakLanguage[];
   profiles: Profile[];
 }
-interface Work extends ToProcessSkills {
+interface Work extends ToProcessTexts {
   name: string;
   position?: string;
   url?: string;
@@ -52,7 +52,7 @@ interface Work extends ToProcessSkills {
   location: string;
   location_type: string;
 }
-interface Education extends ToProcessSkills {
+interface Education extends ToProcessTexts {
   institution: string;
   url: string;
   area: string;
@@ -62,7 +62,7 @@ interface Education extends ToProcessSkills {
   score: number;
   courses: string[];
 }
-interface Project extends ToProcessSkills {
+interface Project extends ToProcessTexts {
   name: string;
   url?: string;
   github?: string;
@@ -71,7 +71,7 @@ interface Project extends ToProcessSkills {
 
 export type {
   CV,
-  ToProcessSkills,
+  ToProcessTexts,
   Location,
   SpeakLanguage,
   Profile,

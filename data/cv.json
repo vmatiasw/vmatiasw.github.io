@@ -51,7 +51,7 @@
         "Software Development with SCRUM": [
           "I collaborated in a multidisciplinary team using #{Jira} and applying SCRUM best practices to ensure agile project management and continuous delivery of value.",
           "We used #{Git} as a version control system, following standard workflows for branch management, code reviews, and collaboration in a shared repository, which enabled efficient continuous integration and conflict-free development.",
-          "We developed an online board game with #{HTML}, #{CSS}, and #{Tailwind} on the frontend, and #{JavaScript} and #{TypeScript} with #{Vite} and #{ReactJS}, while on the backend we used #{Python} with #{Pydantic}, #{FastAPI}, #{SQLAlchemy}, and for testing, we used #{Jest} for the frontend and #{Pytest} for the backend.",
+          "We developed an &{online board game called 'El Switcher' - https://github.com/orgs/DeMarc-Team/repositories} with #{HTML}, #{CSS}, and #{Tailwind} on the frontend, and #{JavaScript} and #{TypeScript} with #{Vite} and #{ReactJS}, while on the backend we used #{Python} with #{Pydantic}, #{FastAPI}, #{SQLAlchemy}, and for testing, we used #{Jest} for the frontend and #{Pytest} for the backend.",
           "We implemented a client-server architecture with communication based on the HTTP and WebSocket protocols."
         ],
         "Databases": [
@@ -76,7 +76,7 @@
           "I designed modules for a virtual microprocessor using #{Quartus}, #{SystemVerilog}, and #{Assembler}, gaining an in-depth understanding of processor architecture."
         ],
         "Functional Programming": [
-          "I learned functional programming with #{Haskell}, implementing map, filter, reduce, and structures like trees, as well as developing a DSL for drawing on the screen."
+          "I learned functional programming with #{Haskell}, implementing map, filter, reduce, and structures like trees, as well as developing a &{DSL for drawing on the screen - https://cs.famaf.unc.edu.ar/~mpagano/henderson-funcgeo2.pdf}."
         ],
         "Algorithms and Data Structures": [
           "I implemented algorithms and structures like the greedy algorithm for graph coloring and data structures like stacks, queues, and sets in #{C}."

@@ -4,13 +4,14 @@ import type {
   Work,
   Education,
   Project,
-  ToProcessSkills,
+  ToProcessTexts,
 } from "@/cv-types";
 import { createID, capitalize } from "@/data-helpers";
 import cvData from "data/cv.json";
 import skillsData from "data/skills.json";
 
 const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{word} in text
+const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{word-link} in text
 const SKILL_NAMES = extractSkillNames(skillsData);
 
 interface NamedEntity {
@@ -50,8 +51,7 @@ export type { SkillSet, NamedEntity };
 
 function extractSkillNames(data: any): Set<string> {
   const skillNames = new Set<string>();
-
-  function traverseNames(obj: any): void {
+  const traverseNames = (obj: any) => {
     if (typeof obj === "object" && obj !== null) {
       if ("name" in obj && typeof obj.name === "string") {
         skillNames.add(obj.name.toLowerCase());
@@ -60,14 +60,13 @@ function extractSkillNames(data: any): Set<string> {
     } else if (Array.isArray(obj)) {
       obj.forEach(traverseNames);
     }
-  }
-
+  };
   traverseNames(data);
   return skillNames;
 }
 
-function processSkillData<T>(items: (ToProcessSkills & T)[]): S<T>[] {
-  const processText = (text: string) =>
+function processSkillData<T>(items: (ToProcessTexts & T)[]): S<T>[] {
+  const processSkills = (text: string) =>
     text.replace(SKILL_PATTERN, (match, skillName: string) => {
       if (SKILL_NAMES.has(skillName.toLowerCase()))
         return `<em 
@@ -80,6 +79,21 @@ function processSkillData<T>(items: (ToProcessSkills & T)[]): S<T>[] {
         return skillName;
       }
     });
+
+  const processLinks = (text: string) =>
+    text.replace(LINK_PATTERN, (match, text: string, link: string) => {
+      return `<a 
+          href="${link}" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="btn-text"
+          title="Visit ${text}"
+          aria-label="Visit ${text}">
+            ${text}
+        </a>`;
+    });
+
+  const processText = (text: string) => processLinks(processSkills(text));
 
   const processRecordText = (body: Record<string, any>) =>
     Object.fromEntries(
@@ -98,7 +112,7 @@ function processSkillData<T>(items: (ToProcessSkills & T)[]): S<T>[] {
   }));
 }
 
-function aggregateSkills(items: ToProcessSkills[]): SkillSet {
+function aggregateSkills(items: ToProcessTexts[]): SkillSet {
   const skillsFromText = new Set(
     items
       .flatMap((item) => [
