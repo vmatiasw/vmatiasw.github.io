@@ -1,6 +1,5 @@
 # TODO
 
-- agregar una mini descripcion a cada skill con las que aparecen. y ver de sacar las mas comunes?
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 

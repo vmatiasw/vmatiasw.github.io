@@ -10,33 +10,46 @@ interface Props {
 }
 
 const { input = false }: Props = Astro.props;
+
+const toolsDescription =
+  "List of development and DevOps tools used to streamline workflows, manage version control, facilitate containerization and orchestration, and enhance project management:";
+const languagesDescription =
+  "List of programming, markup, domain-specific, and query and data manipulation languages:";
+const techDescription =
+  "List of third-party libraries, frameworks, testing tools, and modules/packages that extend the functionality of the listed languages:";
 ---
 
-<div class=`${Astro.props.class} [&>*]:space-y-1`>
+<div class=`${Astro.props.class} [&>*]:space-y-2`>
   <div>
     <h4>Tools</h4>
+    {!input && <p class="description">{toolsDescription}</p>}
     <SkillsList items={skills.tools || []} input={input} />
   </div>
   <div>
     <h4>Languages</h4>
+    {!input && <p class="description">{languagesDescription}</p>}
     <SkillsList items={skills.languages || []} input={input} />
   </div>
   <div>
     <h4>Technologies</h4>
-    {
-      !input && (
-        <p class="text-sm text-skin-secondary print:text-xs">
-          (Standard libraries are not included)
-        </p>
-      )
-    }
-    {
-      skills.languages!.map((language) => {
-        const tech = language.technologies;
-        return tech ? (
-          <SkillsList groupBy={language.name} items={tech} input={input} />
-        ) : null;
-      })
-    }
+    {!input && <p class="description">{techDescription}</p>}
+    <ul class="space-y-1">
+      {
+        skills.languages!.map((language) => {
+          const tech = language.technologies;
+          return tech ? (
+            <li>
+              <SkillsList groupBy={language.name} items={tech} input={input} />
+            </li>
+          ) : null;
+        })
+      }
+    </ul>
   </div>
 </div>
+
+<style>
+  .description {
+    @apply text-sm text-skin-secondary print:hidden;
+  }
+</style>
