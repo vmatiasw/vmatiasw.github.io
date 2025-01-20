@@ -41,9 +41,11 @@ const buttons = closePrimary
   role="dialog"
   aria-modal="true"
   tabindex="-1"
-  class="modal overflow-y-scroll fixed inset-0 z-50 flex hidden items-center justify-center bg-skin-muted/30"
+  class="modal fixed inset-0 z-50 flex hidden items-center justify-center bg-skin-muted/30"
 >
-  <div class="max-w-lg rounded-lg bg-skin-secondary [&>*]:p-4 [&>*]:md:p-5">
+  <div
+    class="max-h-screen max-w-lg overflow-y-scroll rounded-lg bg-skin-secondary [&>*]:p-4 [&>*]:md:p-5"
+  >
     <div class="flex justify-between border-b border-skin-muted">
       <h3>
         {title}

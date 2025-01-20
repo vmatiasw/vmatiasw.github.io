@@ -1,8 +1,9 @@
 # TODO
 
-- ensanchar el texto de las secciones del cv?
 - fixear el titulo en celu del modal
 - fixear el punto en 'ver mas'
+- ensanchar el texto de las secciones del cv?
+- agregar otros perfiles, para enviar mensaje a whatsapp y telegram,...
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 
