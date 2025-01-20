@@ -1,14 +1,29 @@
 ---
 import { CV } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
+import type { Profile } from "@/cv-types";
 
-const { name, label, location, email, website } = CV.basics;
+const { name, label, location, profiles, email, website } = CV.basics;
 const { city, region } = location;
 
 const InfoItems = [
   { icon: "mdi:world", text: `${city}, ${region}` },
   { icon: "mdi:email", text: email },
   { icon: "mdi:web", text: website.url, className: "not-print:hidden" },
+];
+
+interface BtnItem extends Profile {
+  message?: string;
+}
+
+const btnItems: BtnItem[] = [
+  {
+    network: "email",
+    icon: "mdi:email",
+    message: "Send email to me",
+    url: `mailto:${email}`,
+  },
+  ...profiles,
 ];
 ---
 
@@ -27,4 +42,27 @@ const InfoItems = [
       );
     })
   }
+  <div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
+    <Icon name="mdi:user" class="size-5" />
+    <p>Profiles:</p>
+    <ul class="inline-flex gap-3">
+      {
+        btnItems.map(({ network, url, icon, message }) => {
+          const defaultMessage = `Visit ${network} profile`;
+          return (
+            <a
+              class="btn-icon"
+              href={url}
+              title={message || defaultMessage}
+              aria-label={message || defaultMessage}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name={icon} class="size-6" />
+            </a>
+          );
+        })
+      }
+    </ul>
+  </div>
 </div>
