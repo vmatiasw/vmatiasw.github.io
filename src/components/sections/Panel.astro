@@ -23,7 +23,7 @@ const btnItems: BtnItem[] = [
 ];
 ---
 
-<section class={Astro.props.class}>
+<div class={Astro.props.class}>
   <div class="flex gap-2">
     {
       btnItems.map(({ network, url, icon, message }) => {
@@ -46,4 +46,4 @@ const btnItems: BtnItem[] = [
     <HighlightSkillsBtn class="btn-secondary" />
     <ThemeSwitchBtn class="btn-secondary" />
   </div>
-</section>
+</div>

@@ -1,5 +1,6 @@
 # TODO
 
+- fixear el punto en 'ver mas'
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 

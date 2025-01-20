@@ -1,7 +1,10 @@
 ---
 import Modal from "@/components/base/Modal.astro";
-import AllSkills from "@/components/skills/AllSkills.astro";
+import { CV } from "@/CVMapper";
+import SkillsList from "@/components/skills/SkillsList.astro";
 import { Icon } from "astro-icon/components";
+
+const { skills } = CV;
 
 const modalId = "skillsModal";
 
@@ -39,7 +42,35 @@ const buttons = [
       Highlight the skills you're interested in to emphasize them on the
       website.
     </p>
-    <AllSkills class="space-y-3" input={true} />
+    <ul class=`space-y-3 [&>*]:space-y-2`>
+      <li>
+        <h4>Tools</h4>
+        <SkillsList items={skills.tools || []} input={true} />
+      </li>
+      <li>
+        <h4>Languages</h4>
+        <SkillsList items={skills.languages || []} input={true} />
+      </li>
+      <li>
+        <h4>Technologies</h4>
+        <ul class="space-y-1">
+          {
+            skills.languages!.map((language) => {
+              const tech = language.technologies;
+              return tech ? (
+                <li>
+                  <SkillsList
+                    groupBy={language.name}
+                    items={tech}
+                    input={true}
+                  />
+                </li>
+              ) : null;
+            })
+          }
+        </ul>
+      </li>
+    </ul>
   </div>
 </Modal>
 
