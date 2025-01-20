@@ -7,7 +7,7 @@ import type {
   ToProcessTexts,
 } from "@/cv-types";
 import {
-  createID,
+  createIDFromText,
   capitalize,
   getPurgedObject,
   collectNestedKeyValues,
@@ -61,8 +61,8 @@ function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
     text.replace(SKILL_PATTERN, (match, skillName: string) => {
       if (SKILL_NAMES.has(skillName.toLowerCase()))
         return `<em 
-            data-checked="false" 
-            class="dynamic-child child-${createID(skillName)}">
+            data-selected="false" 
+            class="dynamic-child ${createIDFromText(skillName,"child-")}">
             ${capitalize(skillName)}
           </em>`;
       else {

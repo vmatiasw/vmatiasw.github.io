@@ -47,7 +47,7 @@ const buttons = [
   function updateChildStyle(checkbox: HTMLInputElement) {
     const skillStyle = checkbox.checked ? "true" : "false";
     [...document.getElementsByClassName("child-" + checkbox.id)].forEach(
-      (element) => element.setAttribute("data-checked", skillStyle),
+      (element) => element.setAttribute("data-selected", skillStyle),
     );
   }
 
@@ -59,16 +59,16 @@ const buttons = [
       "skills-uncheck-all-btn",
     ) as HTMLButtonElement;
     const modalSkillBoxes = [
-      ...document.querySelectorAll(".input-skill-box"),
+      ...document.getElementsByClassName("input-skill-box"),
     ] as HTMLInputElement[];
-    const childSkillBoxes = [
-      ...document.querySelectorAll(".dynamic-child"),
+    const selectedChilds = [
+      ...document.getElementsByClassName("dynamic-child"),
     ] as HTMLElement[];
 
     const toggleCheckboxes = (checked: boolean) => {
       modalSkillBoxes.forEach((checkbox) => (checkbox.checked = checked));
-      childSkillBoxes.forEach((element) => {
-        element.setAttribute("data-checked", checked ? "true" : "false");
+      selectedChilds.forEach((element) => {
+        element.setAttribute("data-selected", checked ? "true" : "false");
       });
     };
     selectAllBtn.addEventListener("click", () => toggleCheckboxes(true));

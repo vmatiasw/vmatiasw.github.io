@@ -1,7 +1,7 @@
 ---
 import type { NamedEntity } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
-import { createID } from "@/data-helpers";
+import { createIDFromText } from "@/data-helpers";
 
 interface Props {
   class?: string;
@@ -30,19 +30,19 @@ const namedItems = items.map((item) => {
         <li>
           <input
             type="checkbox"
-            id={createID(name)}
+            id={createIDFromText(name)}
             value={name}
             class="input-skill-box hidden"
           />
-          <label for={createID(name)} class="interactive-skill-box">
+          <label for={createIDFromText(name)} class="interactive-skill-box">
             {icon && <Icon name={icon} class="size-4 print:hidden" />}
             <p>{name}</p>
           </label>
         </li>
       ) : (
         <li
-          class={`child-${createID(name)} dynamic-child skill-box`}
-          data-checked="false"
+          class={`${createIDFromText(name,"child-")} dynamic-child skill-box`}
+          data-selected="false"
         >
           {icon && <Icon name={icon} class="size-4 print:hidden" />}
           <p class="text-xs">{name}</p>
@@ -64,7 +64,7 @@ const namedItems = items.map((item) => {
   .input-skill-box:checked + label {
     @apply border-skin-bg-primary bg-skin-interactive text-skin-contrast;
   }
-  .dynamic-child[data-checked="true"] {
+  .dynamic-child[data-selected="true"] {
     @apply border-skin-bg-primary bg-skin-accent text-skin-contrast;
   }
 </style>

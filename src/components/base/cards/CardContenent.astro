@@ -1,5 +1,6 @@
 ---
 import type { SkillSet } from "@/CVMapper";
+import { createIDFromText } from "@/data-helpers";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
@@ -27,6 +28,7 @@ const {
   details,
   image,
   body,
+  skills,
 }: Props = Astro.props;
 ---
 
@@ -74,7 +76,7 @@ const {
     }
   </div>
   {subtitle && <h6 class="text-skin-secondary">{subtitle}</h6>}
-  <div class="my-4 space-y-2">
+  <div class="my-4 space-y-4">
     <p class="text-skin-primary" set:html={summary} />
     {
       body &&
@@ -93,7 +95,7 @@ const {
     }
     {
       details && (
-        <details class="group mt-4 space-y-2 print:hidden">
+        <details class="group mt-4 space-y-4 print:hidden">
           <summary class="btn-text flex gap-1.5 text-xs">
             <Icon
               name="ri:arrow-up-s-line"
@@ -101,6 +103,10 @@ const {
             />
             <span class="group-open:hidden">Show more</span>
             <span class="hidden group-open:block">Show less</span>
+            <div
+              class={`dynamic-child relative ${createIDFromText(skills, "child-")}`}
+              data-selected="false"
+            />
           </summary>
           {details &&
             Object.entries(details).map(([key, value]) => (
@@ -133,3 +139,11 @@ const {
     )
   }
 </div>
+
+<style>
+  .dynamic-child[data-selected="true"]::after {
+    content: "•";
+    @apply absolute right-0 bottom-0.5 text-2xl text-skin-accent;
+  }
+  /* relative after:content-['•'] after:absolute after:right-0 after:top-1/2 after:transform after:-translate-y-1/2 after:text-xl after:text-skin-accent */
+</style>

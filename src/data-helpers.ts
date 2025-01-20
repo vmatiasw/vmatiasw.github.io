@@ -1,11 +1,21 @@
+import type { SkillSet } from "@/CVMapper";
 /**
- * Converts a string to a valid ID by replacing spaces with hyphens and converting to lowercase.
+ * Generates a slug-like ID from a string, array of strings, or a SkillSet object. 
+ * Spaces are replaced with hyphens and all characters are converted to lowercase.
  *
- * @param text - The text to convert to an ID.
- * @returns A string with all spaces replaced by hyphens and converted to lowercase.
+ * @param text - A string, an array of strings, or a SkillSet object (which will extract 'name' properties).
+ * @returns A string with the transformed text(s) suitable for use as an ID.
  */
-export function createID(text: string): string {
-  return `${text.replace(/\s+/g, "-")}`.toLowerCase();
+export function createIDFromText(text: string | string[] | SkillSet, prefix:string=""): string {
+  const texts: string[] = Array.isArray(text)
+    ? text
+    : typeof text === "string"
+      ? [text]
+      : [...collectNestedKeyValues(text, "name")];
+
+  return texts
+    .map((text) => `${prefix+text.replace(/\s+/g, "-")}`.toLowerCase())
+    .join(" ");
 }
 
 /**
@@ -61,7 +71,10 @@ export function getPurgedObject(
  * @param keyName - The key name to collect values from.
  * @returns A set of all values found in the object with the specified key name.
  */
-export function collectNestedKeyValues(obj: Record<string, any>, keyName: string): Set<string> {
+export function collectNestedKeyValues(
+  obj: Record<string, any>,
+  keyName: string,
+): Set<string> {
   const keyValues = new Set<string>();
   const traverseKeys = (obj: any) => {
     if (Array.isArray(obj)) {
@@ -79,7 +92,7 @@ export function collectNestedKeyValues(obj: Record<string, any>, keyName: string
 
 /**
  * Maps the fields (keys and values) of an object using the specified function.
- * 
+ *
  * @param obj - The object to map.
  * @param func - The function to apply to each field.
  * @returns A new object with the fields mapped.
