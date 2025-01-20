@@ -1,11 +1,14 @@
 # TODO
 
+- ensanchar el texto de las secciones del cv?
+- fixear el titulo en celu del modal
 - fixear el punto en 'ver mas'
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 
 ## Opcional
 
+- solo importar los iconos que necesito
 - al tocar para imprimir se abre un modal con la configuracion de impresion, estan las secciones para marcarse para imprimir y en cada una de ellas los titulos para seleccionar, y con la opcion de una vista previa?
 - desactivar hover en moviles
 - Evitar operaciones pesadas en el hilo principal, usando Web Workers (ej: animacion del fondo)

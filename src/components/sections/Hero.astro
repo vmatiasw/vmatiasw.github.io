@@ -3,12 +3,13 @@ import { CV } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
 import type { Profile } from "@/cv-types";
 
-const { name, label, location, profiles, email, website } = CV.basics;
+const { name, label, location, profiles, email, website, phone } = CV.basics;
 const { city, region } = location;
 
 const InfoItems = [
   { icon: "mdi:world", text: `${city}, ${region}` },
   { icon: "mdi:email", text: email },
+  { icon: "mdi:phone", text: phone },
   { icon: "mdi:web", text: website.url, className: "not-print:hidden" },
 ];
 

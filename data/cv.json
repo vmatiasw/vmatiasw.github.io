@@ -1,6 +1,7 @@
 {
   "basics": {
     "name": "Matias Viola Di Benedetto",
+    "phone": "+54 9 3541 562147",
     "label": "Full Stack Developer",
     "image": "/avatar.png",
     "email": "matiasvioladi@gmail.com",
@@ -9,7 +10,6 @@
       "url": "https://vmatiasw.github.io/"
     },
     "printMessage": "Below, you will find a summary of my professional profile. On my website, you can access more details about my academic background, work experience, personal projects, and how I have applied each of my skills in different contexts.",
-    "phone": "",
     "url": "",
     "summary": "I am a software developer with experience in designing and implementing scalable and maintainable solutions. I have worked in multidisciplinary teams across various areas of development and possess communication and collaboration skills, which allow me to interact effectively with colleagues and clients. I stand out for my ability to continuously learn, adapt quickly to new challenges, and manage time efficiently in complex projects.",
     "location": {
