@@ -41,9 +41,14 @@
         "url": "https://www.linkedin.com/in/matias-viola-di-benedetto-223b5a233/"
       },
       {
-        "network":"Telegram",
-        "icon":"mdi:telegram",
-        "url":"https://t.me/vmatiasw"
+        "network": "WhatsApp",
+        "icon": "mdi:whatsapp",
+        "url": "https://wa.me/5493541562147"
+      },
+      {
+        "network": "Telegram",
+        "icon": "mdi:telegram",
+        "url": "https://t.me/vmatiasw"
       }
     ]
   },
