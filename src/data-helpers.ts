@@ -16,7 +16,7 @@ export function createIDFromText(
   pattern?: RegExp,
 ): string {
   const texts: string[] = pattern
-    ? extractMatches(pattern, text as string)
+    ? [...extractUniqueMatches(pattern, text as string)]
     : Array.isArray(text)
       ? text
       : typeof text === "string"
@@ -120,14 +120,20 @@ export function mapObjectFields<T>(
 }
 
 /**
- * Extracts all matches from a text using a regular expression pattern.
+ * Extracts unique matches from the text based on a given regex pattern.
+ * It returns the first capture group from each match in lowercase.
  *
- * @param pattern The regular expression pattern to match.
- * @param text The text to search for matches.
- * @returns An array of all matches found in the text.
+ * @param pattern - The regex pattern to match.
+ * @param text - The input text to search.
+ * @returns An array of unique, lowercase strings from the matches.
  */
-export function extractMatches(pattern: RegExp, text: string): string[] {
-  return (text.match(pattern) ?? []).map((match) =>
-    match.replace(pattern, "$1").toLowerCase(),
+export function extractUniqueMatches(
+  pattern: RegExp,
+  text: string,
+): Set<string> {
+  return new Set(
+    (text.match(pattern) ?? []).map((match) =>
+      match.replace(pattern, "$1").toLowerCase(),
+    ),
   );
 }

@@ -12,7 +12,7 @@ import {
   getPurgedObject,
   collectNestedKeyValues,
   mapObjectFields,
-  extractMatches,
+  extractUniqueMatches,
 } from "@/data-helpers";
 import cvData from "data/cv.json";
 import skillsData from "data/skills.json";
@@ -20,7 +20,8 @@ import skillsData from "data/skills.json";
 const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{text} in text
 const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{text-link} in text
 
-const PROCESSED_SKILL_PATTERN = /<em[^>]*dynamic-child[^>]*>\\n\s*(.*?)\\n\s*<\/em>/g;
+const PROCESSED_SKILL_PATTERN =
+  /<em[^>]*dynamic-child[^>]*>\\n\s*(.*?)\\n\s*<\/em>/g;
 const SKILL_NAMES = collectNestedKeyValues(skillsData, "name");
 
 interface NamedEntity {
@@ -57,7 +58,6 @@ class CVProcessor implements CV {
 const cvProcessor = new CVProcessor();
 export { cvProcessor as CV, PROCESSED_SKILL_PATTERN };
 export type { SkillSet, NamedEntity };
-
 
 function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
   const formatSkills = (text: string) =>
@@ -97,15 +97,11 @@ function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
 }
 
 function extractSkillsFromTexts(items: ToProcessTexts[]): SkillSet {
-  const textSkills = new Set(
-    items
-      .flatMap((item) => [
-        item.summary,
-        ...Object.entries({ ...item.body, ...item.details }).flatMap(
-          ([title, content]) => [title, ...content],
-        ),
-      ])
-      .flatMap((text) => extractMatches(SKILL_PATTERN, text)),
+  const textSkills = extractUniqueMatches(
+    SKILL_PATTERN,
+    JSON.stringify(
+      items.flatMap((item) => [item.summary, item.body, item.details]),
+    ),
   );
 
   const purgeCondition = (obj: any) =>
