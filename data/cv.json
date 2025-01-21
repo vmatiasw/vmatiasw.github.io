@@ -39,7 +39,9 @@
         "network": "LinkedIn",
         "icon": "mdi:linkedin",
         "url": "https://www.linkedin.com/in/matias-viola-di-benedetto-223b5a233/"
-      },
+      }
+    ],
+    "contacts": [
       {
         "network": "WhatsApp",
         "icon": "mdi:whatsapp",

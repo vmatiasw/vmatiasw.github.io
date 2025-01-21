@@ -1,6 +1,5 @@
 # TODO
 
-- agregar otros perfiles, para enviar mensaje a whatsapp y telegram,...
 - que sean columnas de informacion de contacto?
 - agregar un dibujo de fondo a la izquierda del cv
 - agrear que al dedicarme a algo busco mejorar continuamente

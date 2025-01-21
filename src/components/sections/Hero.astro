@@ -1,9 +1,9 @@
 ---
 import { CV } from "@/CVMapper";
-import { Icon } from "astro-icon/components";
-import type { Profile } from "@/cv-types";
+import { Icon } from "astro-icon/components"; 
 
-const { name, label, location, profiles, email, website, phone } = CV.basics;
+const { name, label, location, profiles, email, website, phone, contacts } =
+  CV.basics;
 const { city, region } = location;
 
 const InfoItems = [
@@ -13,18 +13,9 @@ const InfoItems = [
   { icon: "mdi:web", text: website.url, className: "not-print:hidden" },
 ];
 
-interface BtnItem extends Profile {
-  message?: string;
-}
-
-const btnItems: BtnItem[] = [
-  {
-    network: "email",
-    icon: "mdi:email",
-    message: "Send email to me",
-    url: `mailto:${email}`,
-  },
-  ...profiles,
+const contactsAndEmail = [
+  ...contacts,
+  { network: "Email", url: `mailto:${email}`, icon: "mdi:email" },
 ];
 ---
 
@@ -44,25 +35,42 @@ const btnItems: BtnItem[] = [
     })
   }
   <div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
-    <Icon name="mdi:user" class="size-5" />
+    <Icon name="mdi:contact" class="size-5" />
+    <p>Contacts:</p>
+    <ul class="inline-flex gap-3">
+      {
+        contactsAndEmail.map(({ network, url, icon }) => (
+          <a
+            class="btn-icon"
+            href={url}
+            title={`Contact me on ${network}`}
+            aria-label={`Contact me on  ${network}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name={icon} class="size-6" />
+          </a>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
+    <Icon name="mdi:web" class="size-5" />
     <p>Profiles:</p>
     <ul class="inline-flex gap-3">
       {
-        btnItems.map(({ network, url, icon, message }) => {
-          const defaultMessage = `Visit ${network} profile`;
-          return (
-            <a
-              class="btn-icon"
-              href={url}
-              title={message || defaultMessage}
-              aria-label={message || defaultMessage}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon name={icon} class="size-6" />
-            </a>
-          );
-        })
+        profiles.map(({ network, url, icon }) => (
+          <a
+            class="btn-icon"
+            href={url}
+            title={`Visit ${network} profile`}
+            aria-label={`Visit ${network} profile`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name={icon} class="size-6" />
+          </a>
+        ))
       }
     </ul>
   </div>

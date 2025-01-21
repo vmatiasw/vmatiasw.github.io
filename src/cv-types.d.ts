@@ -20,7 +20,7 @@ interface SpeakLanguage {
   language: string;
   fluency: string;
 }
-interface Profile {
+interface Network {
   icon: string;
   network: string;
   url: string;
@@ -41,7 +41,8 @@ interface Basics {
   summary: string;
   location: Location;
   languages: SpeakLanguage[];
-  profiles: Profile[];
+  profiles: Network[];
+  contacts: Network[];
 }
 interface Work extends ToProcessTexts {
   name: string;
@@ -74,7 +75,7 @@ export type {
   ToProcessTexts,
   Location,
   SpeakLanguage,
-  Profile,
+  Network,
   WebSite,
   Basics,
   Work,
