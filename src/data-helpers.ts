@@ -1,20 +1,30 @@
 import type { SkillSet } from "@/CVMapper";
+
 /**
- * Generates a slug-like ID from a string, array of strings, or a SkillSet object. 
- * Spaces are replaced with hyphens and all characters are converted to lowercase.
+ * Generates a slug-like ID from a string, array of strings, or a SkillSet object.
+ * Transforms spaces into hyphens and converts all characters to lowercase.
+ * If a regular expression is provided, it extracts matching text before transforming.
  *
- * @param text - A string, an array of strings, or a SkillSet object (which will extract 'name' properties).
- * @returns A string with the transformed text(s) suitable for use as an ID.
+ * @param text - A string, array of strings, or SkillSet object (extracts 'name' properties if it's an object).
+ * @param prefix - An optional prefix added to the resulting slug(s).
+ * @param pattern - An optional regex pattern to extract specific text before creating the slug.
+ * @returns A slug-like string or concatenated slugs based on the input text(s).
  */
-export function createIDFromText(text: string | string[] | SkillSet, prefix:string=""): string {
-  const texts: string[] = Array.isArray(text)
-    ? text
-    : typeof text === "string"
-      ? [text]
-      : [...collectNestedKeyValues(text, "name")];
+export function createIDFromText(
+  text: string | string[] | SkillSet,
+  prefix: string = "",
+  pattern?: RegExp,
+): string {
+  const texts: string[] = pattern
+    ? extractMatches(pattern, text as string)
+    : Array.isArray(text)
+      ? text
+      : typeof text === "string"
+        ? [text]
+        : [...collectNestedKeyValues(text, "name")];
 
   return texts
-    .map((text) => `${prefix+text.replace(/\s+/g, "-")}`.toLowerCase())
+    .map((text) => `${prefix + text.replace(/\s+/g, "-")}`.toLowerCase())
     .join(" ");
 }
 
@@ -106,5 +116,18 @@ export function mapObjectFields<T>(
       func(key),
       Array.isArray(value) ? value.map(func) : func(value),
     ]),
+  );
+}
+
+/**
+ * Extracts all matches from a text using a regular expression pattern.
+ *
+ * @param pattern The regular expression pattern to match.
+ * @param text The text to search for matches.
+ * @returns An array of all matches found in the text.
+ */
+export function extractMatches(pattern: RegExp, text: string): string[] {
+  return (text.match(pattern) ?? []).map((match) =>
+    match.replace(pattern, "$1").toLowerCase(),
   );
 }

@@ -12,12 +12,15 @@ import {
   getPurgedObject,
   collectNestedKeyValues,
   mapObjectFields,
+  extractMatches,
 } from "@/data-helpers";
 import cvData from "data/cv.json";
 import skillsData from "data/skills.json";
 
 const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{text} in text
 const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{text-link} in text
+
+const PROCESSED_SKILL_PATTERN = /<em[^>]*dynamic-child[^>]*>\\n\s*(.*?)\\n\s*<\/em>/g;
 const SKILL_NAMES = collectNestedKeyValues(skillsData, "name");
 
 interface NamedEntity {
@@ -52,7 +55,7 @@ class CVProcessor implements CV {
 // This instance of CVProcessor is created once during the build process.
 // The data is pre-calculated and included in the static files, improving performance.
 const cvProcessor = new CVProcessor();
-export { cvProcessor as CV };
+export { cvProcessor as CV, PROCESSED_SKILL_PATTERN };
 export type { SkillSet, NamedEntity };
 
 
@@ -62,7 +65,7 @@ function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
       if (SKILL_NAMES.has(skillName.toLowerCase()))
         return `<em 
             data-selected="false" 
-            class="dynamic-child ${createIDFromText(skillName,"child-")}">
+            class="dynamic-child ${createIDFromText(skillName, "child-")}">
             ${capitalize(skillName)}
           </em>`;
       else {
@@ -102,11 +105,7 @@ function extractSkillsFromTexts(items: ToProcessTexts[]): SkillSet {
           ([title, content]) => [title, ...content],
         ),
       ])
-      .flatMap((text) =>
-        (text.match(SKILL_PATTERN) ?? []).map((match) =>
-          match.replace(SKILL_PATTERN, "$1").toLowerCase(),
-        ),
-      ),
+      .flatMap((text) => extractMatches(SKILL_PATTERN, text)),
   );
 
   const purgeCondition = (obj: any) =>
