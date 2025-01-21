@@ -1,12 +1,16 @@
 # TODO
 
-- ensanchar el texto de las secciones del cv?
 - agregar otros perfiles, para enviar mensaje a whatsapp y telegram,...
+- que sean columnas de informacion de contacto?
+- agregar un dibujo de fondo a la izquierda del cv
+- agrear que al dedicarme a algo busco mejorar continuamente
+- ensanchar el texto de las secciones del cv?
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 
 ## Opcional
 
+- que se ordenen automaticmente las timeline cards por fecha
 - solo importar los iconos que necesito
 - al tocar para imprimir se abre un modal con la configuracion de impresion, estan las secciones para marcarse para imprimir y en cada una de ellas los titulos para seleccionar, y con la opcion de una vista previa?
 - desactivar hover en moviles
