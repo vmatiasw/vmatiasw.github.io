@@ -3,8 +3,6 @@ import Layout from "@/layouts/Layout.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
-import ProfilePicture from "@/components/sections/ProfilePicture.astro";
-import Panel from "@/components/sections/Panel.astro";
 import Projects from "@/components/sections/Projects.astro";
 import SkillsMenu from "@/components/sections/HardSkills.astro";
 import Education from "@/components/sections/Education.astro";
@@ -15,20 +13,14 @@ const { name, label } = CV.basics;
 ---
 
 <Layout title={`${name}'s Portfolio - ${label}`}>
-  <main class="max-w-5xl space-y-6 p-8 md:p-16 print:flex print:gap-10">
-    <div
-      class="below-sm:space-y-6 not-print:flex-row-reverse not-print:sm:flex print:flex-1"
-    >
-      <div class="space-y-6 sm:flex-1 flex items-center not-print:sm:justify-end">
-        <ProfilePicture />
-      </div>
-      <div class="space-y-6 sm:flex-1">
-        <Hero />
-        <Panel class="print:hidden" />
-        <SkillsMenu class="not-print:hidden" />
-      </div>
+  <main
+    class="max-w-5xl space-y-6 p-8 md:p-16 print:flex print:gap-10 [&>*]:space-y-6"
+  >
+    <div class="print:flex-1">
+      <Hero />
+      <SkillsMenu class="not-print:hidden" />
     </div>
-    <div class="print:flex-2 space-y-6">
+    <div class="print:flex-2">
       <PrintHeader class="not-print:hidden" />
       <About />
       <SkillsMenu class="print:hidden" />

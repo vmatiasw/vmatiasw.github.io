@@ -1,0 +1,34 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  type: "Contact" | "Profile";
+  items: { network: string; icon: string; url: string }[];
+}
+
+const { type, items } = Astro.props;
+
+const typeIcon = type === "Contact" ? "mdi:contact" : "mdi:web";
+const title = type === "Contact" ? "Contact me on" : "Visit my ";
+---
+
+<div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
+  <Icon name={typeIcon} class="size-5" />
+  <p>{type+"s:"}</p>
+  <ul class="inline-flex gap-3">
+    {
+      items.map(({ network, url, icon }) => (
+        <a
+          class="btn-icon"
+          href={url}
+          title={title + network}
+          aria-label={title + network}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name={icon} class="size-6" />
+        </a>
+      ))
+    }
+  </ul>
+</div>

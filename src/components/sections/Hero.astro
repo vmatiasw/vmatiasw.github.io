@@ -1,8 +1,13 @@
 ---
+import { Image } from "astro:assets";
+import ThemeSwitchBtn from "@/components/buttons/ThemeSwitchBtn.astro";
+import PrintBtn from "@/components/buttons/PrintBtn.astro";
+import HighlightSkillsBtn from "@/components/buttons/HighlightModalBtn.astro";
+import LinksList from "@/components/base/LinksList.astro";
 import { CV } from "@/CVMapper";
-import { Icon } from "astro-icon/components"; 
+import { Icon } from "astro-icon/components";
 
-const { name, label, location, profiles, email, website, phone, contacts } =
+const { name, label, location, profiles, email, website, phone, contacts, image } =
   CV.basics;
 const { city, region } = location;
 
@@ -19,59 +24,59 @@ const contactsAndEmail = [
 ];
 ---
 
-<div class={`flex flex-col gap-1 ${Astro.props.class}`}>
-  <h1 class="font-bold">{name}</h1>
-  <h4 class="text-skin-secondary">{label}</h4>
-  {
-    InfoItems.map(({ icon, text, className }) => {
-      return (
-        <div
-          class={`inline-flex items-center gap-2 text-skin-secondary ${className}`}
-        >
-          <Icon name={icon} class="size-5" />
-          <p>{text}</p>
-        </div>
-      );
-    })
+<seccion
+  class="not-print:flex-row-reverse below-md:space-y-6 not-print:sm:flex print:space-y-6"
+>
+  <div class="flex items-center sm:flex-1 not-print:sm:justify-end">
+    <figure class="relative w-fit">
+      <Image
+        class="rounded-3xl"
+        loading="eager"
+        height={175}
+        width={175}
+        src={image}
+        alt={name}
+      />
+      <div class="absolute -inset-3 print:hidden">
+        <div class="gradient-y-mask right-0"></div>
+        <div class="gradient-y-mask left-0"></div>
+        <div class="gradient-x-mask bottom-0"></div>
+        <div class="gradient-x-mask top-0"></div>
+      </div>
+    </figure>
+  </div>
+  <div class="space-y-6 sm:flex-1">
+    <div class={`flex flex-col gap-1 ${Astro.props.class}`}>
+      <h1 class="font-bold">{name}</h1>
+      <h4 class="text-skin-secondary">{label}</h4>
+      {
+        InfoItems.map(({ icon, text, className }) => {
+          return (
+            <div
+              class={`inline-flex items-center gap-2 text-skin-secondary ${className}`}
+            >
+              <Icon name={icon} class="size-5" />
+              <p>{text}</p>
+            </div>
+          );
+        })
+      }
+      <LinksList type="Contact" items={contactsAndEmail} />
+      <LinksList type="Profile" items={profiles} />
+    </div>
+    <div class="flex gap-2 print:hidden">
+      <PrintBtn class="btn-secondary" />
+      <HighlightSkillsBtn class="btn-secondary" />
+      <ThemeSwitchBtn class="btn-secondary" />
+    </div>
+  </div>
+</seccion>
+
+<style>
+  .gradient-y-mask {
+    @apply absolute -inset-y-10 w-[2px] bg-skin-accent/50 [mask-image:linear-gradient(to_top,transparent,white_5rem,white_calc(100%-5rem),transparent)];
   }
-  <div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
-    <Icon name="mdi:contact" class="size-5" />
-    <p>Contacts:</p>
-    <ul class="inline-flex gap-3">
-      {
-        contactsAndEmail.map(({ network, url, icon }) => (
-          <a
-            class="btn-icon"
-            href={url}
-            title={`Contact me on ${network}`}
-            aria-label={`Contact me on  ${network}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name={icon} class="size-6" />
-          </a>
-        ))
-      }
-    </ul>
-  </div>
-  <div class="inline-flex items-center gap-2 text-skin-secondary print:hidden">
-    <Icon name="mdi:web" class="size-5" />
-    <p>Profiles:</p>
-    <ul class="inline-flex gap-3">
-      {
-        profiles.map(({ network, url, icon }) => (
-          <a
-            class="btn-icon"
-            href={url}
-            title={`Visit ${network} profile`}
-            aria-label={`Visit ${network} profile`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name={icon} class="size-6" />
-          </a>
-        ))
-      }
-    </ul>
-  </div>
-</div>
+  .gradient-x-mask {
+    @apply absolute -inset-x-10 h-[2px] bg-skin-accent/50 [mask-image:linear-gradient(to_left,transparent,white_5rem,white_calc(100%-5rem),transparent)];
+  }
+</style>
