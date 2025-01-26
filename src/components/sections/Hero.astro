@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import ThemeSwitchBtn from "@/components/buttons/ThemeSwitchBtn.astro";
-import PrintBtn from "@/components/buttons/PrintBtn.astro";
+import CVBtn from "@/components/buttons/CVBtn.astro";
 import HighlightSkillsBtn from "@/components/buttons/HighlightModalBtn.astro";
 import LinksList from "@/components/base/LinksList.astro";
 import { CV } from "@/CVMapper";
@@ -78,7 +78,7 @@ const contactsAndEmail = [
       <LinksList type="Profile" items={profiles} />
     </div>
     <div class="cv:hidden flex gap-2">
-      <PrintBtn class="btn-secondary" />
+      <CVBtn class="btn-secondary" />
       <HighlightSkillsBtn class="btn-secondary" />
       <ThemeSwitchBtn class="btn-secondary" />
     </div>

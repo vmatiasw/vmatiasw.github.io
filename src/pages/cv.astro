@@ -18,7 +18,7 @@ const { image } = CV.basics;
 <!doctype html>
 <html lang="en" class="light cv">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="author" content="Matías Viola" />
     <link rel="icon" href={image} />
@@ -49,5 +49,25 @@ const { image } = CV.basics;
   }
   :global(.cv) {
     color-scheme: cv;
+  }
+  /* A4 style */
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .main {
+    width: 210mm; /* A4 width */
+    height: 297mm; /* A4 high */
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* shadow */
+    padding: 20mm; /* Margen interno para contenido */
+    box-sizing: border-box; /* Asegura que los padding no afecten el tamaño */
+    overflow: hidden; /* Oculta contenido que sobresalga */
   }
 </style>
