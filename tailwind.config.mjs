@@ -41,7 +41,8 @@ function withOpacity(variableName) {
 }
 
 function addCustomVariants({ addVariant }) {
-  addVariant("not-print", "@media not print");
+  addVariant("cv", ".cv &");
+  addVariant("not-cv", ".not-cv &");
   addVariant("below-md", "@media (max-width: 768px)");
   addVariant("below-sm", "@media (max-width: 640px)");
 }
@@ -55,14 +56,5 @@ function addCustomBaseStyles({ addBase }) {
     h5: { fontSize: "1.125rem", lineHeight: "1.5rem" }, // text-lg
     h6: { fontSize: "1rem", lineHeight: "1.4rem" }, // text-base
     body: { fontSize: "1rem", lineHeight: "1.4rem" }, // text-base
-    "@media print": {
-      h1: { fontSize: "1.875rem", lineHeight: "2rem" }, // text-3xl
-      h2: { fontSize: "1.5rem", lineHeight: "1.75rem" }, // text-2xl
-      h3: { fontSize: "1.25rem", lineHeight: "1.5rem" }, // text-xl
-      h4: { fontSize: "1.125rem", lineHeight: "1.25rem" }, // text-lg
-      h5: { fontSize: "1rem", lineHeight: "1.25rem" }, // text-base
-      h6: { fontSize: "0.875rem", lineHeight: "1.25rem" }, // text-sm
-      body: { fontSize: "0.875rem", lineHeight: "1rem" }, // text-sm
-    },
   });
 }

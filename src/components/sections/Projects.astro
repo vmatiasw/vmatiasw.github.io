@@ -7,7 +7,7 @@ const { projects } = CV;
 
 <section class={Astro.props.class}>
   <h2>Projects</h2>
-  <ul class="grid gap-4 md:grid-cols-2">
+  <ul class="grid gap-4 not-cv:md:grid-cols-2">
     {
       projects.map(
         ({ url, summary, body, details, name, github, image, skills }) => {
@@ -15,7 +15,7 @@ const { projects } = CV;
             ? [{ url: github as string, icon: "mdi:github", name: "GitHub" }]
             : undefined;
           return (
-            <li class="muted-box">
+            <li class="card-box">
               <CardContenent
                 body={body}
                 entityTitle={name}

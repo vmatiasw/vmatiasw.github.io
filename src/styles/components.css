@@ -1,9 +1,6 @@
 @tailwind components;
 
 @layer components {
-  .muted-box {
-    @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
-  }
   .btn-primary {
     @apply inline-flex cursor-pointer rounded-md bg-skin-interactive p-2 text-skin-contrast hover:scale-110;
   }
@@ -14,10 +11,41 @@
     @apply cursor-pointer text-skin-interactive hover:scale-125;
   }
   .btn-text {
-    @apply cursor-pointer text-skin-interactive decoration-0 underline-offset-2 hover:underline-offset-4 not-print:underline;
+    @apply not-cv:underline cursor-pointer text-skin-interactive decoration-0 underline-offset-2 hover:underline-offset-4;
   }
   .dynamic-child[data-selected="true"] {
     @apply text-skin-accent;
   }
+  .skill-box {
+    @apply flex gap-1 rounded-md border-2 border-skin-accent/30 p-1 text-xs text-skin-accent;
+  }
+  .interactive-skill-box {
+    @apply flex cursor-pointer gap-1 rounded-md border-2 border-skin-interactive/60 p-1 text-xs text-skin-interactive;
+  }
+  /* Not CV */
+  .not-cv .card-box {
+    @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
+  }
+  /* CV */
+  .cv h1 {
+    @apply text-3xl leading-8;
+  }
+  .cv h2 {
+    @apply text-2xl leading-7;
+  }
+  .cv h3 {
+    @apply text-xl leading-6;
+  }
+  .cv h4 {
+    @apply text-lg leading-5;
+  }
+  .cv h5 {
+    @apply text-base leading-5;
+  }
+  .cv h6 {
+    @apply text-sm leading-5;
+  }
+  .cv p {
+    @apply text-sm leading-4;
+  }
 }
-/* border-skin-bg-primary bg-skin-accent text-skin-contrast */

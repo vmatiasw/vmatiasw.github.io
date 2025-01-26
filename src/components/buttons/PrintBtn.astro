@@ -1,23 +1,8 @@
-<button
+<a
   title="View my cv"
   aria-label="View my CV"
   class={Astro.props.class}
-  onclick="window.print()"
+  href="/cv"
 >
   <p class="size-5 font-mono font-extrabold">CV</p>
-</button>
-
-<style>
-  :global(.print) {
-    color-scheme: print;
-  }
-</style>
-
-<script>
-  window.addEventListener("beforeprint", () => {
-    document.documentElement.classList.add("print");
-  });
-  window.addEventListener("afterprint", () => {
-    document.documentElement.classList.remove("print");
-  });
-</script>
+</a>

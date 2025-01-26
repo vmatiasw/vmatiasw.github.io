@@ -2,7 +2,6 @@
 import "@/styles/theme.css";
 import "@/styles/globals.css";
 import "@/styles/components.css";
-import ArtPlums from "@/backgrounds/ArtPlums.astro";
 import { CV } from "@/CVMapper";
 
 interface Props {
@@ -16,7 +15,7 @@ const { url, description } = website;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="light not-cv">
   <head>
     <!-- Viewport and General Settings -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -49,7 +48,6 @@ const { url, description } = website;
     <meta property="twitter:image" content={image} />
   </head>
   <body class="bg-skin-primary">
-    <ArtPlums class="print:hidden" />
     <slot />
   </body>
 </html>

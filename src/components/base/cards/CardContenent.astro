@@ -52,7 +52,7 @@ const {
               {entityTitle}
               <Icon
                 name="ri:arrow-up-line"
-                class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 print:hidden"
+                class="inline size-6 rotate-45 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 cv:hidden"
               />
             </a>
           ) : (
@@ -71,7 +71,7 @@ const {
             rel="noopener"
             class="btn-icon"
           >
-            <Icon name={icon} class="size-6" />
+            <Icon name={icon} class="size-6 cv:hidden" />
           </a>
         ))
     }
@@ -96,7 +96,7 @@ const {
     }
     {
       details && (
-        <details class="group mt-4 space-y-4 print:hidden">
+        <details class="group mt-4 space-y-4 cv:hidden">
           <summary class="btn-text flex gap-1.5 text-xs">
             <Icon
               name="ri:arrow-up-s-line"

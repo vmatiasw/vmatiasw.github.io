@@ -26,12 +26,12 @@ const startYear = new Date(startDate).getFullYear();
 const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
 ---
 
-<div class="below-md:muted-box md:grid md:grid-cols-12">
-  <p class="text-sm font-semibold md:col-span-2">
+<div class="below-md:card-box not-cv:md:grid not-cv:md:grid-cols-12">
+  <p class="text-sm font-semibold not-cv:md:col-span-2">
     <time datetime={startDate}>{startYear}</time> -
     <time datetime={endDate}>{endYear}</time>
   </p>
-  <div class="vertical-timeline md:col-span-10 md:pb-6">
+  <div class="vertical-timeline not-cv:md:col-span-10 not-cv:md:pb-6">
     <div class="timeline-item-points"></div>
     <CardContenent
       firstTitle={firstTitle}
@@ -51,10 +51,10 @@ const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
 
 <style>
   @media (min-width: 768px) {
-    .vertical-timeline {
+    .not-cv .vertical-timeline {
       @apply relative before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted;
     }
-    .timeline-item-points {
+    .not-cv .timeline-item-points {
       @apply absolute mt-2 size-2 -translate-x-[1.71rem] rounded-full bg-skin-muted;
     }
   }

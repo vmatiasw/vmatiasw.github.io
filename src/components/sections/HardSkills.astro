@@ -14,21 +14,21 @@ const techDescription =
 
 <section class={Astro.props.class}>
   <h2>Hard Skills</h2>
-  <ul class=`[&>*]:space-y-2 not-print:[&>*]:muted-box grid gap-4`>
+  <ul class=`[&>*]:space-y-2 [&>*]:card-box grid gap-4`>
     <li>
       <h4>Tools</h4>
-      <p class="description">{toolsDescription}</p>
+      <p class="description cv:hidden">{toolsDescription}</p>
       <SkillsList items={skills.tools || []} />
     </li>
     <li>
       <h4>Languages</h4>
-      <p class="description">{languagesDescription}</p>
+      <p class="description cv:hidden">{languagesDescription}</p>
       <SkillsList items={skills.languages || []} />
     </li>
     <li>
       <h4>Technologies</h4>
-      <p class="description">{techDescription}</p>
-      <ul class="space-y-1">
+      <p class="description cv:hidden">{techDescription}</p>
+      <ul class="space-y-2">
         {
           skills.languages!.map((language) => {
             const tech = language.technologies;
@@ -46,6 +46,6 @@ const techDescription =
 
 <style>
   .description {
-    @apply text-sm text-skin-secondary print:hidden;
+    @apply text-sm text-skin-secondary;
   }
 </style>
