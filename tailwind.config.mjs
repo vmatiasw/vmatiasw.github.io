@@ -43,6 +43,7 @@ function withOpacity(variableName) {
 function addCustomVariants({ addVariant }) {
   addVariant("cv", ".cv &");
   addVariant("not-cv", ".not-cv &");
+  addVariant("not-print", "@media not print &");
   addVariant("below-md", "@media (max-width: 768px)");
   addVariant("below-sm", "@media (max-width: 640px)");
 }
