@@ -1,15 +1,15 @@
 # TODO
 
 - agregar campo al json para poner si se pone o no el item en el cv.
-- agrear que al dedicarme a algo busco mejorar continuamente
 - ensanchar el texto de las secciones del cv?
+- agrear que al dedicarme a algo busco mejorar continuamente
 - agregar sobre mis conocimeintos en ing en software y testing
 - agregar este proyecto a mis proyectos
 - mejorar colores y visual por ultima ves
 
 ## Opcional
 
-- ver lo de las islas de astro y la doc en general
+- volver a tener las skill-box y buscando una forma de que quede bien para los proyectos de ntro de proyectos. se podria hacer primero que se puedan agregar proyectos pequenos dentro de proyectos y alli ponerles skill-box
 - que se ordenen automaticmente las timeline cards por fecha
 - solo importar los iconos que necesito
 - poder seleccionar que va al cv
