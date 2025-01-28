@@ -61,25 +61,31 @@
       "summary": "During my university education, I participated in practical projects covering various areas of computer science, working with multiple technologies and paradigms. Some of the most notable experiences include:",
       "body": {
         "Software Development with SCRUM": [
-          "I collaborated in a multidisciplinary team using #{Jira} and applying SCRUM best practices to ensure agile project management and continuous delivery of value.",
+          "I collaborated in a multidisciplinary team using #{Jira} and applying !{SCRUM} best practices to ensure agile project management and continuous delivery of value.",
           "We used #{Git} as a version control system, following standard workflows for branch management, code reviews, and collaboration in a shared repository, which enabled efficient continuous integration and conflict-free development.",
           "We developed an &{online board game called 'El Switcher' - https://github.com/orgs/DeMarc-Team/repositories} with #{HTML}, #{CSS}, and #{Tailwind} on the frontend, and #{JavaScript} and #{TypeScript} with #{Vite} and #{ReactJS}, while on the backend we used #{Python} with #{Pydantic}, #{FastAPI}, #{SQLAlchemy}, and for testing, we used #{Jest} for the frontend and #{Pytest} for the backend.",
-          "We implemented a client-server architecture with communication based on the HTTP and WebSocket protocols."
+          "We implemented a !{client-server} architecture with communication based on the !{HTTP} and !{WebSocket} protocols."
+        ],
+        "Testing and Quality Assurance": [
+          "I gained experience in testing techniques such as functional, unit, integration, E2E, acceptance, and non-functional testing. I studied !{agile methodologies}, !{TDD}, and !{BDD} to integrate testing from the early stages of development.",
+          "I collaborated with developers in software testing, using tools like #{Pytest}, #{Unittest}, #{Mock} (#{Python}), and #{Jest} (#{JavaScript}). I was responsible for documenting tests and analyzing key metrics, such as code coverage and failure rates, to ensure the quality and reliability of the final product."
         ],
         "Databases": [
-          "I studied the design, optimization, and management of databases, both SQL (#{MySQL}) and NoSQL (#{MongoDB}), focusing on improving query performance and scalability."
+          "I studied the design, optimization, and management of databases, both !{SQL} (#{MySQL}) and !{NoSQL} (#{MongoDB}), focusing on improving query performance and scalability."
         ],
         "Data Analysis and Machine Learning": [
-          "I performed data analysis using #{Python} and #{Jupyter}, utilizing #{Pandas} for data manipulation and cleaning, and #{NumPy} for performing numerical calculations. In the field of machine learning, I developed models with #{TensorFlow} and #{PyTorch}, applying classification, regression, and neural network algorithms to solve prediction problems. Throughout the process, I used #{Seaborn} and #{Matplotlib} to visualize the results."
-        ],
+          "I performed data analysis using #{Python} and #{Jupyter}, utilizing #{Pandas} for data manipulation and cleaning, and #{NumPy} for performing numerical calculations.",
+          "In the field of machine learning, I developed models with #{TensorFlow} and #{PyTorch}, applying !{classification}, !{regression}, and !{neural network} algorithms to solve prediction problems.",
+          "Throughout the process, I used #{Seaborn} and #{Matplotlib} to visualize the results."
+        ]
+      },
+      "details": {
         "Distributed Computing": [
           "I implemented an automatic article reader using #{Java}, #{Scala}, and #{Apache Spark} for distributed computing and large-scale data analysis."
         ],
         "Network Simulation": [
           "I modeled data flow in networks, addressing issues such as flow control, congestion, and performance, using #{C++} and #{OMNeT++} for simulation. I implemented network protocols, optimized performance under high-load conditions, and analyzed network behavior under various traffic scenarios. Additionally, I used visualization tools to interpret simulation results and enhance decision-making in network design."
-        ]
-      },
-      "details": {
+        ],
         "Concurrency, Process Scheduling, and Resource Management in Linux": [
           "I replicated a #{Linux} terminal and delved into concurrent and parallel programming, managing threads and processes. I solved issues like race conditions using synchronization tools such as semaphores, mutexes, and barriers to ensure proper execution in concurrent environments.",
           "I investigated process scheduling in the Linux kernel, managing interrupts and optimizing priority allocation through techniques like context switching."
@@ -108,7 +114,7 @@
       "location": "Global",
       "startDate": "2022-01-15",
       "endDate": "2024-12-30",
-      "summary": "I developed custom technical and trading indicators on #{TradingView} using #{Pine Script} for international clients. During the process, I conducted interviews to understand their needs and, when necessary, created prototypes in #{Python} using #{yfinance} to retrieve historical financial data, #{matplotlib} for visualizations, and #{numpy} and #{scipy} for calculations, providing precise solutions tailored to each client.",
+      "summary": "I developed custom technical and trading indicators on #{TradingView} using #{Pine Script} for !{international clients}. During the process, I conducted !{interviews} to understand their needs and, when necessary, created !{prototypes} in #{Python} using #{yfinance} to retrieve historical financial data, #{matplotlib} for visualizations, and #{numpy} and #{scipy} for calculations, providing precise solutions tailored to each client.",
       "details": {
         "highlights": [
           "Worked directly with clients through Meet and Telegram to gather requirements and feedback.",
@@ -120,7 +126,7 @@
   "projects": [
     {
       "name": "DB ORM Test Library",
-      "summary": "A #{Python} library designed to be easily extensible to various ORMs and databases. Compatible with #{SQLAlchemy}, #{Django}, and more, it is built for high-level testing and debugging, enabling simple, comprehensive, and accurate analysis of changes between two points in a program's lifecycle within a database representative of a real environment. Its comprehensive approach ensures tests are quick to implement, capable of maximizing coverage with less code, while maintaining a secure and centralized design.",
+      "summary": "A #{Python} library designed to be easily extensible to various ORMs and databases. Compatible with #{SQLAlchemy}, #{Django}, and more, it is built for !{high-level testing} and !{debugging}, enabling simple, comprehensive, and accurate analysis of changes between two points in a program's lifecycle within a database representative of a real environment. Its comprehensive approach ensures tests are !{quick to implement}, capable of !{maximizing coverage with less code}, while maintaining a !{secure and centralized design}.",
       "details": {
         "Library testing": [
           "The library has been thoroughly tested using #{Pytest}, ensuring reliability and seamless integration with popular testing frameworks."

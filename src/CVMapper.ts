@@ -18,6 +18,7 @@ import cvData from "data/cv.json";
 import skillsData from "data/skills.json";
 
 const SKILL_PATTERN = /#\{(.*?)\}/g; // Matches #{text} in text
+const STRONG_PATTERN = /!\{(.*?)\}/g; // Matches !{text} in text
 const LINK_PATTERN = /&\{(.*?) - (.*?)\}/g; // Matches &{text-link} in text
 
 const PROCESSED_SKILL_PATTERN =
@@ -85,7 +86,16 @@ function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
             ${text}
         </a>`;
     });
-  const formatText = (text: string) => formatLinks(formatSkills(text));
+  const formatStrong = (text: string) =>
+    text.replace(STRONG_PATTERN, (match, text: string) => {
+      return `<strong>${text}</strong>`;
+    });
+
+  const formatText = (text: string) =>
+    [formatStrong, formatSkills, formatLinks].reduce(
+      (acc, fn) => fn(acc),
+      text,
+    );
 
   return items.map((item) => ({
     ...item,

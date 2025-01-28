@@ -83,7 +83,7 @@ const {
       body &&
         Object.entries(body).map(([key, value]) => (
           <div>
-            <h6>{key}</h6>
+            <h5>{key}</h5>
             <ul class="flex list-disc flex-col gap-2 text-skin-primary">
               {value.map((item) => (
                 <li class="ml-4 marker:text-skin-accent">
@@ -116,7 +116,7 @@ const {
           {details &&
             Object.entries(details).map(([key, value]) => (
               <div>
-                <h6 aria-label={`Details for ${key}`}>{key}:</h6>
+                <h5 aria-label={`Details for ${key}`}>{key}:</h5>
                 <ul class="flex list-disc flex-col gap-2 text-skin-primary">
                   {value.map((item) => (
                     <li class="ml-4 marker:text-skin-accent">
