@@ -132,7 +132,8 @@
           "The library has been thoroughly tested using #{Pytest}, ensuring reliability and seamless integration with popular testing frameworks."
         ]
       },
-      "github": "https://github.com/vmatiasw/DeltaDB"
+      "github": "https://github.com/vmatiasw/DeltaSnap",
+      "url": "https://pypi.org/project/deltasnap/"
     }
   ]
 }
