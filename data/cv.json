@@ -39,6 +39,11 @@
         "network": "LinkedIn",
         "icon": "mdi:linkedin",
         "url": "https://www.linkedin.com/in/matias-viola-di-benedetto-223b5a233/"
+      },
+      {
+        "network": "PyPI",
+        "icon": "simple-icons:pypi",
+        "url": "https://pypi.org/user/vmatiasw/"
       }
     ],
     "contacts": [
