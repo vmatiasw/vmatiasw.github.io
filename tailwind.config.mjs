@@ -23,7 +23,7 @@ module.exports = {
           "bg-primary": withOpacity("--background-primary"),
           muted: withOpacity("--muted"),
           accent: withOpacity("--accent"),
-          interactive: withOpacity("--background-interactive"),
+          interactive: withOpacity("--interactive"),
         },
       },
     },
