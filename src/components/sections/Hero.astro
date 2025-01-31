@@ -17,11 +17,16 @@ const {
   phone,
   contacts,
   image,
+  languages,
 } = CV.basics;
-const { city, region } = location;
+
+const languagesText = languages
+  .map((lang) => `${lang.fluency} ${lang.language}`)
+  .join(", ");
 
 const InfoItems = [
-  { icon: "mdi:world", text: `${city}, ${region}` },
+  { icon: "mdi:map-marker", text: `${location.city}, ${location.region}` },
+  { icon: "mdi:language", text: languagesText },
   { icon: "mdi:email", text: email },
   { icon: "mdi:phone", text: phone },
   { icon: "mdi:web", text: website.url, className: "not-cv:hidden" },
@@ -34,11 +39,9 @@ const contactsAndEmail = [
 ---
 
 <seccion
-  class="not-cv:flex-row-reverse not-cv:sm:flex cv:space-y-6 below-md:space-y-6"
+  class="cv:space-y-6 not-cv:flex-row-reverse below-md:space-y-6 not-cv:sm:flex"
 >
-  <div
-    class="flex items-center scale-90"
-  >
+  <div class="flex scale-90 items-center">
     <figure class="relative">
       <Image
         class="rounded-3xl"
@@ -48,7 +51,7 @@ const contactsAndEmail = [
         src={image}
         alt={name}
       />
-      <div class="cv:hidden absolute -inset-3">
+      <div class="absolute -inset-3 cv:hidden">
         <div class="gradient-y-mask right-0"></div>
         <div class="gradient-y-mask left-0"></div>
         <div class="gradient-x-mask bottom-0"></div>
@@ -66,10 +69,10 @@ const contactsAndEmail = [
         InfoItems.map(({ icon, text, className }) => {
           return (
             <div
-              class={`inline-flex items-center gap-2 text-skin-secondary ${className}`}
+              class={`flex items-center gap-2 text-skin-secondary ${className}`}
             >
-              <Icon name={icon} class="size-5" />
-              <p>{text}</p>
+              <Icon name={icon} class="size-5 flex-shrink-0" />
+              <p class="flex-1">{text}</p>
             </div>
           );
         })
@@ -77,7 +80,7 @@ const contactsAndEmail = [
       <LinksList type="Contact" items={contactsAndEmail} />
       <LinksList type="Profile" items={profiles} />
     </div>
-    <div class="cv:hidden flex gap-2">
+    <div class="flex gap-2 cv:hidden">
       <CVBtn class="btn-secondary" />
       <HighlightSkillsBtn class="btn-secondary" />
       <ThemeSwitchBtn class="btn-secondary" />

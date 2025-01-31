@@ -17,9 +17,7 @@
         { "name": "Pytest", "icon": "simple-icons:pytest" },
         { "name": "TensorFlow", "icon": "simple-icons:tensorflow" },
         { "name": "PyTorch", "icon": "simple-icons:pytorch" },
-        { "name": "FastAPI", "icon": "simple-icons:fastapi" },
-        {"name": "unittest" },
-        {"name": "mock" }
+        { "name": "FastAPI", "icon": "simple-icons:fastapi" }
       ]
     },
     { "name": "C++", "icon": "simple-icons:cplusplus" },
