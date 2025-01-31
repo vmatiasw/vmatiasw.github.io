@@ -3,7 +3,7 @@
     "name": "Matias Viola Di Benedetto",
     "phone": "+54 9 3541 562147",
     "label": "Full Stack Developer",
-    "image": "/avatar.png",
+    "image": "/avatar.webp",
     "email": "matiasvioladi@gmail.com",
     "website": {
       "description": "Visit my website to access my curriculum vitae and learn more about my education, work experience, and personal projects.",
@@ -73,7 +73,7 @@
         ],
         "Testing and Quality Assurance": [
           "I gained experience in testing techniques such as functional, unit, integration, E2E, acceptance, and non-functional testing. I studied !{agile methodologies}, !{TDD}, and !{BDD} to integrate testing from the early stages of development.",
-          "I collaborated with developers in software testing, using tools like #{Pytest}, #{Unittest}, #{Mock} (#{Python}), and #{Jest} (#{JavaScript}). I was responsible for documenting tests and analyzing key metrics, such as code coverage and failure rates, to ensure the quality and reliability of the final product."
+          "I collaborated with developers in software testing, using tools like #{Pytest}, Unittest, Mock (#{Python}), and #{Jest} (#{JavaScript}). I was responsible for documenting tests and analyzing key metrics, such as code coverage and failure rates, to ensure the quality and reliability of the final product."
         ],
         "Databases": [
           "I studied the design, optimization, and management of databases, both !{SQL} (#{MySQL}) and !{NoSQL} (#{MongoDB}), focusing on improving query performance and scalability."
