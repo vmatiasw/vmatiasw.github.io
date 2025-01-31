@@ -17,5 +17,4 @@
 - desactivar hover en moviles (se puede hacer un not-movile: para eso)
 - mejorar paleta de colores con relación de contraste mínima de 4.5:1
 - Tracking: Si integras análisis (por ejemplo, Google Analytics), puedes recopilar información sobre qué skills son las más seleccionadas, lo cual podría ayudarte a adaptar tu CV a las demandas del mercado.
-- Refactorizar el ArtPlums
 - poner soft skills, habilidades agiles,...

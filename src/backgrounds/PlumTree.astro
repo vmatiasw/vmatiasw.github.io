@@ -1,0 +1,80 @@
+<canvas id="plumTreeCanvas" class={Astro.props.class}></canvas>
+
+<style>
+  #plumTreeCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    mask-image: radial-gradient(circle, transparent, black);
+    -webkit-mask-image: radial-gradient(circle, transparent, black);
+  }
+</style>
+
+<script>
+  const worker = new Worker(new URL("./plumTreeWorker.ts", import.meta.url), {
+    type: "module",
+  });
+  const canvas = document.getElementById("plumTreeCanvas") as HTMLCanvasElement;
+  const ctx = canvas.getContext("2d")!;
+
+  function initCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.scale(dpr, dpr);
+  }
+
+  function drawBranch(x: number, y: number, nx: number, ny: number) {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(nx, ny);
+    ctx.stroke();
+  }
+
+  let drawingQueue: any[] = [];
+  let isDrawing = false;
+
+  function processQueue() {
+    if (drawingQueue.length === 0) {
+      isDrawing = false;
+      return;
+    }
+
+    for (let i = 0; i < 50 && drawingQueue.length; i++) {
+      const { x, y, nx, ny } = drawingQueue.shift();
+      drawBranch(x, y, nx, ny);
+    }
+
+    requestAnimationFrame(processQueue);
+  }
+
+  worker.onmessage = (event) => {
+    if (event.data.branches) {
+      drawingQueue.push(...event.data.branches);
+      if (!isDrawing) {
+        isDrawing = true;
+        processQueue();
+      }
+    }
+  };
+
+  function start() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#a0a0a050";
+    drawingQueue = [];
+    isDrawing = false;
+    worker.postMessage({ width: canvas.width, height: canvas.height });
+  }
+
+  window.addEventListener("resize", () => {
+    initCanvas();
+    start();
+  });
+
+  initCanvas();
+  start();
+</script>

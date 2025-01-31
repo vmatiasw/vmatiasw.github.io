@@ -1,6 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import ArtPlums from "@/backgrounds/ArtPlums.astro";
+import PlumTree from "@/backgrounds/PlumTree.astro";
 import About from "@/components/sections/About.astro";
 import Experience from "@/components/sections/Experience.astro";
 import Hero from "@/components/sections/Hero.astro";
@@ -13,7 +13,7 @@ const { name, label } = CV.basics;
 ---
 
 <Layout title={`${name}'s Portfolio - ${label}`}>
-  <ArtPlums />
+  <PlumTree />
   <main class="max-w-5xl space-y-6 p-8 md:p-16 m-auto relative">
     <Hero />
     <About />
