@@ -14,9 +14,7 @@
 </style>
 
 <script>
-  const worker = new Worker(new URL("./plumTreeWorker.ts", import.meta.url), {
-    type: "module",
-  });
+  let worker: Worker;
   const canvas = document.getElementById("plumTreeCanvas") as HTMLCanvasElement;
   const ctx = canvas.getContext("2d")!;
 
@@ -51,7 +49,8 @@
     requestAnimationFrame(processQueue);
   }
 
-  worker.onmessage = (event) => {
+  // Worker response handler
+  function onWorkerMessage(event: MessageEvent) {
     if (event.data.branches) {
       drawingQueue.push(...event.data.branches);
       if (!isDrawing) {
@@ -59,22 +58,36 @@
         processQueue();
       }
     }
-  };
+  }
 
   function start() {
+    // Terminate the previous worker before creating a new one
+    if (worker) {
+      worker.terminate();
+    }
+
+    // Create a new worker and start it again
+    worker = new Worker(new URL("./plumTreeWorker.ts", import.meta.url), {
+      type: "module",
+    });
+    worker.onmessage = onWorkerMessage;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.lineWidth = 1;
     ctx.strokeStyle = "#a0a0a050";
     drawingQueue = [];
     isDrawing = false;
+
+    // Post message to the worker to generate the branches
     worker.postMessage({ width: canvas.width, height: canvas.height });
   }
 
+  // Initialize on resize
   window.addEventListener("resize", () => {
     initCanvas();
     start();
   });
-
+  // Initialize on page load
   initCanvas();
   start();
 </script>
