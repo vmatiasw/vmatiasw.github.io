@@ -39,7 +39,7 @@ const namedItems = items.map((item) => {
         </li>
       ) : (
         <li
-          class={`${createIDFromText(name, "child-")} dynamic-child not-cv:skill-box`}
+          class={`${createIDFromText(name, "child-", undefined, "dynamic-child")} not-cv:skill-box`}
           data-selected="false"
         >
           {icon && <Icon name={icon} class="cv:hidden size-4" />}

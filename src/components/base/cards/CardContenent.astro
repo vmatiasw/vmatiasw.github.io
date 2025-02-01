@@ -105,10 +105,11 @@ const {
             <span class="group-open:hidden">Show more</span>
             <span class="hidden group-open:block">Show less</span>
             <div
-              class={`dynamic-child relative ${createIDFromText(
+              class={`relative ${createIDFromText(
                 JSON.stringify(details),
                 "child-",
                 PROCESSED_SKILL_PATTERN,
+                "dynamic-child"
               )}`}
               data-selected="false"
             />

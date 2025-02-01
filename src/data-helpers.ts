@@ -4,16 +4,19 @@ import type { SkillSet } from "@/CVMapper";
  * Generates a slug-like ID from a string, array of strings, or a SkillSet object.
  * Transforms spaces into hyphens and converts all characters to lowercase.
  * If a regular expression is provided, it extracts matching text before transforming.
+ * Optionally, appends an additional string if there are generated slugs.
  *
  * @param text - A string, array of strings, or SkillSet object (extracts 'name' properties if it's an object).
  * @param prefix - An optional prefix added to the resulting slug(s).
  * @param pattern - An optional regex pattern to extract specific text before creating the slug.
+ * @param append_if_nonempty - An optional string that will be appended if slugs are generated.
  * @returns A slug-like string or concatenated slugs based on the input text(s).
  */
 export function createIDFromText(
   text: string | string[] | SkillSet,
   prefix: string = "",
   pattern?: RegExp,
+  append_if_nonempty: string = "",
 ): string {
   const texts: string[] = pattern
     ? [...extractUniqueMatches(pattern, text as string)]
@@ -23,8 +26,11 @@ export function createIDFromText(
         ? [text]
         : [...collectNestedKeyValues(text, "name")];
 
+  if (texts.length === 0) return "";
+
   return texts
     .map((text) => `${prefix + text.replace(/\s+/g, "-")}`.toLowerCase())
+    .concat([append_if_nonempty])
     .join(" ");
 }
 

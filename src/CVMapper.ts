@@ -66,7 +66,7 @@ function processItems<T>(items: (ToProcessTexts & T)[]): S<T>[] {
       if (SKILL_NAMES.has(skillName.toLowerCase()))
         return `<em 
             data-selected="false" 
-            class="dynamic-child ${createIDFromText(skillName, "child-")}">
+            class="${createIDFromText(skillName, "child-", undefined, "dynamic-child")}">
             ${capitalize(skillName)}
           </em>`;
       else {
