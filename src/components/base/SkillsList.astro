@@ -21,7 +21,13 @@ const namedItems = items.map((item) => {
 ---
 
 <ul class={`flex flex-wrap gap-2 cv:gap-y-1 items-center ${Astro.props.class}`}>
-  {groupBy && <h6 class="text-skin-secondary">{groupBy + ":"}</h6>}
+  {
+    groupBy && (
+      <li>
+        <h6 class="text-skin-secondary">{groupBy + ":"}</h6>
+      </li>
+    )
+  }
   {
     namedItems.map(({ name, icon }) =>
       input ? (
@@ -32,8 +38,11 @@ const namedItems = items.map((item) => {
             value={name}
             class="input-skill-box hidden"
           />
-          <label for={createIDFromText(name)} class="not-cv:interactive-skill-box">
-            {icon && <Icon name={icon} class="cv:hidden size-4" />}
+          <label
+            for={createIDFromText(name)}
+            class="not-cv:interactive-skill-box"
+          >
+            {icon && <Icon name={icon} class="size-4 cv:hidden" />}
             <p>{name}</p>
           </label>
         </li>
@@ -42,7 +51,7 @@ const namedItems = items.map((item) => {
           class={`${createIDFromText(name, "child-", undefined, "dynamic-child")} not-cv:skill-box`}
           data-selected="false"
         >
-          {icon && <Icon name={icon} class="cv:hidden size-4" />}
+          {icon && <Icon name={icon} class="size-4 cv:hidden" />}
           <p class="text-xs">{name}</p>
         </li>
       ),
