@@ -2,6 +2,7 @@
   "languages": [
     {
       "name": "Python",
+      "icon": "simple-icons:python",
       "technologies": [
         { "name": "Jupyter", "icon": "simple-icons:jupyter" },
         { "name": "Pandas", "icon": "simple-icons:pandas" },
