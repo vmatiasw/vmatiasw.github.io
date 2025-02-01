@@ -7,7 +7,7 @@
     --text-secondary: 83, 83, 83;
     --text-contrast: 255, 255, 255;
     --muted: 180, 180, 180;
-    --accent: 155, 0, 0;
+    --accent: 0, 73, 193;
     --interactive: 119, 0, 193;
   }
   .dark {
@@ -17,8 +17,8 @@
     --text-secondary: 180, 180, 180;
     --text-contrast: 0, 0, 0;
     --muted: 120, 120, 120;
-    --accent: 255, 155, 40;
-    --interactive: 255, 132, 255;
+    --accent: 0, 191, 207;
+    --interactive: 253, 121, 255;
   }
   .cv {
     --background-primary: 255, 255, 255;
