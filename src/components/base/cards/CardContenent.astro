@@ -1,7 +1,6 @@
 ---
-import type { SkillSet } from "@/CVMapper";
-import { PROCESSED_SKILL_PATTERN } from "@/CVMapper";
-import { createIDFromText } from "@/data-helpers";
+import type { NamedEntity, SkillSet } from "@/CVMapper";
+import SkillsList from "@/components/base/SkillsList.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
@@ -104,15 +103,6 @@ const {
             />
             <span class="group-open:hidden">Show more</span>
             <span class="hidden group-open:block">Show less</span>
-            <div
-              class={`relative ${createIDFromText(
-                JSON.stringify(details),
-                "child-",
-                PROCESSED_SKILL_PATTERN,
-                "dynamic-child"
-              )}`}
-              data-selected="false"
-            />
           </summary>
           {details &&
             Object.entries(details).map(([key, value]) => (
@@ -145,10 +135,22 @@ const {
     )
   }
 </div>
-
-<style>
-  .dynamic-child[data-selected="true"]::after {
-    content: "•";
-    @apply absolute bottom-0.5 right-0 text-2xl text-skin-accent;
-  }
-</style>
+{
+  Object.keys(skills).length > 0 && (
+    <div class="cv:hidden">
+      <SkillsList
+        summarize={true}
+        items={
+          [
+            ...(skills.tools || []),
+            ...(skills.databases || []),
+            ...(skills.languages || []),
+            ...new Set(
+              skills.languages?.flatMap((lang) => lang.technologies) || [],
+            ),
+          ].filter(Boolean) as NamedEntity[] // This is necessary to filter out invalid values caused by a bug in getFilteredObject in data-helpers.
+        }
+      />
+    </div>
+  )
+}

@@ -6,8 +6,10 @@ const { skills } = CV;
 
 const toolsDescription =
   "List of development and DevOps tools used to streamline workflows, manage version control, facilitate containerization and orchestration, and enhance project management:";
+const databasesDescription =
+  "List of relational and non-relational databases and orms:";
 const languagesDescription =
-  "List of programming, markup, domain-specific, and query and data manipulation languages:";
+  "List of programming, markup and domain-specific languages:";
 const techDescription =
   "List of third-party libraries, frameworks, testing tools, and modules/packages that extend the functionality of the listed languages:";
 ---
@@ -21,12 +23,17 @@ const techDescription =
       <SkillsList items={skills.tools || []} />
     </li>
     <li>
+      <h4>Databases</h4>
+      <p class="description cv:hidden">{databasesDescription}</p>
+      <SkillsList items={skills.databases || []} />
+    </li>
+    <li>
       <h4>Languages</h4>
       <p class="description cv:hidden">{languagesDescription}</p>
       <SkillsList items={skills.languages || []} />
     </li>
     <li>
-      <h4>Technologies</h4>
+      <h4>Languages technologies</h4>
       <p class="description cv:hidden">{techDescription}</p>
       <ul class="space-y-2">
         {

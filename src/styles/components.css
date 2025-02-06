@@ -11,21 +11,25 @@
     @apply cursor-pointer text-skin-interactive hover:scale-125;
   }
   .btn-text {
-    @apply not-cv:underline cursor-pointer text-skin-interactive decoration-0 underline-offset-2 hover:underline-offset-4;
-  }
-  .dynamic-child[data-selected="true"] {
-    @apply text-skin-accent;
+    @apply cursor-pointer text-skin-interactive decoration-0 underline-offset-2 hover:underline-offset-4 not-cv:underline;
   }
   .skill-box {
     @apply flex gap-1 rounded-md border-2 border-skin-accent/30 p-1 text-xs text-skin-accent;
   }
-  .interactive-skill-box {
-    @apply flex cursor-pointer gap-1 rounded-md border-2 border-skin-interactive/60 p-1 text-xs text-skin-interactive;
-  }
+  
   /* Not CV */
   .not-cv .card-box {
     @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
   }
+  @media (min-width: 768px) {
+    .not-cv .vertical-timeline {
+      @apply relative before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted;
+    }
+    .not-cv .timeline-item-points {
+      @apply absolute mt-2 size-2 -translate-x-[1.71rem] rounded-full bg-skin-muted;
+    }
+  }
+
   /* CV */
   .cv h1 {
     @apply text-3xl leading-8;

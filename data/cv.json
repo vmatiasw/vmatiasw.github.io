@@ -9,7 +9,7 @@
       "description": "Visit my website to access my curriculum vitae and learn more about my education, work experience, and personal projects.",
       "url": "https://vmatiasw.github.io/"
     },
-    "printMessage": "Below, you will find a summary of my professional profile. On my website, you can access more details about my academic background, work experience, personal projects, and how I have applied each of my skills in different contexts.",
+    "printMessage": "Below, you will find a summary of my professional profile. On my website, you can access more details about my academic background, work experience and personal projects.",
     "url": "",
     "summary": "I am a software developer with experience in designing and implementing scalable and maintainable solutions. I have worked in multidisciplinary teams across various areas of development and possess communication and collaboration skills, which allow me to interact effectively with colleagues and clients. I stand out for my ability to continuously learn, adapt quickly to new challenges, and manage time efficiently in complex projects.",
     "location": {
@@ -63,53 +63,89 @@
     {
       "institution": "Faculty of Mathematics, Astronomy, Physics, and Computer Science (FAMAF)",
       "url": "https://www.famaf.unc.edu.ar/academica/grado/licenciatura-en-ciencias-de-la-computaci%C3%B3n/",
-      "summary": "During my university education, I participated in practical projects covering various areas of computer science, working with multiple technologies and paradigms. Some of the most notable experiences include:",
-      "body": {
-        "Software Development with SCRUM": [
-          "I collaborated in a multidisciplinary team using #{Jira} and applying !{SCRUM} best practices to ensure agile project management and continuous delivery of value.",
-          "We used #{Git} as a version control system, following standard workflows for branch management, code reviews, and collaboration in a shared repository, which enabled efficient continuous integration and conflict-free development.",
-          "We developed an &{online board game called 'El Switcher' - https://github.com/orgs/DeMarc-Team/repositories} with #{HTML}, #{CSS}, and #{Tailwind} on the frontend, and #{JavaScript} and #{TypeScript} with #{Vite} and #{ReactJS}, while on the backend we used #{Python} with #{Pydantic}, #{FastAPI}, #{SQLAlchemy}, and for testing, we used #{Jest} for the frontend and #{Pytest} for the backend.",
-          "We implemented a !{client-server} architecture with communication based on the !{HTTP} and !{WebSocket} protocols."
-        ],
-        "Testing and Quality Assurance": [
-          "I gained experience in testing techniques such as functional, unit, integration, E2E, acceptance, and non-functional testing. I studied !{agile methodologies}, !{TDD}, and !{BDD} to integrate testing from the early stages of development.",
-          "I collaborated with developers in software testing, using tools like #{Pytest}, Unittest, Mock (#{Python}), and #{Jest} (#{JavaScript}). I was responsible for documenting tests and analyzing key metrics, such as code coverage and failure rates, to ensure the quality and reliability of the final product."
-        ],
-        "Databases": [
-          "I studied the design, optimization, and management of databases, both !{SQL} (#{MySQL}) and !{NoSQL} (#{MongoDB}), focusing on improving query performance and scalability."
-        ],
-        "Data Analysis and Machine Learning": [
-          "I performed data analysis using #{Python} and #{Jupyter}, utilizing #{Pandas} for data manipulation and cleaning, and #{NumPy} for performing numerical calculations.",
-          "In the field of machine learning, I developed models with #{TensorFlow} and #{PyTorch}, applying !{classification}, !{regression}, and !{neural network} algorithms to solve prediction problems.",
-          "Throughout the process, I used #{Seaborn} and #{Matplotlib} to visualize the results."
-        ]
-      },
-      "details": {
-        "Distributed Computing": [
-          "I implemented an automatic article reader using #{Java}, #{Scala}, and #{Apache Spark} for distributed computing and large-scale data analysis."
-        ],
-        "Network Simulation": [
-          "I modeled data flow in networks, addressing issues such as flow control, congestion, and performance, using #{C++} and #{OMNeT++} for simulation. I implemented network protocols, optimized performance under high-load conditions, and analyzed network behavior under various traffic scenarios. Additionally, I used visualization tools to interpret simulation results and enhance decision-making in network design."
-        ],
-        "Concurrency, Process Scheduling, and Resource Management in Linux": [
-          "I replicated a #{Linux} terminal and delved into concurrent and parallel programming, managing threads and processes. I solved issues like race conditions using synchronization tools such as semaphores, mutexes, and barriers to ensure proper execution in concurrent environments.",
-          "I investigated process scheduling in the Linux kernel, managing interrupts and optimizing priority allocation through techniques like context switching."
-        ],
-        "Virtual Microprocessor Simulation": [
-          "I designed modules for a virtual microprocessor using #{Quartus}, #{SystemVerilog}, and #{Assembler}, gaining an in-depth understanding of processor architecture."
-        ],
-        "Functional Programming": [
-          "I learned functional programming with #{Haskell}, implementing map, filter, reduce, and structures like trees, as well as developing a &{DSL for drawing on the screen - https://cs.famaf.unc.edu.ar/~mpagano/henderson-funcgeo2.pdf}."
-        ],
-        "Algorithms and Data Structures": [
-          "I implemented algorithms and structures like the greedy algorithm for graph coloring and data structures like stacks, queues, and sets in #{C}."
-        ]
-      },
+      "summary": "During my academic training, I participated in practical projects covering various areas of computer science, working with multiple technologies and paradigms. Some of the most notable experiences include:",
       "area": "Degree in Computer Science (Five-Year Program)",
       "studyType": "Full-time student",
       "startDate": "2021-03-24",
       "score": 8.5,
-      "courses": []
+      "body": {
+        "Software Development with SCRUM": [
+          "I collaborated in a multidisciplinary team using !{Jira and Git}, applying !{SCRUM} best practices to ensure !{agile project management} and continuous value delivery.",
+          "We developed an &{online board game - https://github.com/orgs/DeMarc-Team/repositories}, designing its !{client-server} architecture with communication based on !{HTTP} and !{WebSockets}. Continuous integration and efficient version control were applied, optimizing workflow and reducing development conflicts."
+        ],
+        "Testing and Quality Assurance": [
+          "I implemented testing strategies (!{unit, integration, E2E, acceptance, and non-functional tests}) with tools such as !{Pytest, Unittest, Mock (Python)}, and !{Jest (JavaScript)}.",
+          "I documented tests and analyzed key metrics such as code coverage and failure rates, improving software reliability. !{TDD and BDD} methodologies were adopted to ensure quality from the early stages of development."
+        ],
+        "Databases": [
+          "I designed, optimized, and managed !{SQL (MySQL)} and !{NoSQL (MongoDB)} databases, focusing on improving query performance and scalability."
+        ],
+        "Data Analysis and Machine Learning": [
+          "I performed data analysis with !{Python and Jupyter}, using !{Pandas} for data manipulation and cleaning, and !{NumPy} for numerical calculations.",
+          "I developed !{machine learning} models with !{TensorFlow and PyTorch}, applying classification, regression, and neural network algorithms.",
+          "I used !{Seaborn and Matplotlib} to visualize results and facilitate data interpretation."
+        ]
+      },
+      "details": {
+        "Distributed Computing": [
+          "I implemented an !{automated article reader} using !{Java, Scala, and Apache Spark}, optimizing distributed computing for large-scale data analysis."
+        ],
+        "Network Simulation": [
+          "I modeled data flow in networks and optimized performance under high-load conditions. I used !{C++ and OMNeT++} for simulations, addressing issues such as !{flow control, congestion, and efficiency}. I also employed visualization tools to interpret results and enhance decision-making in network design."
+        ],
+        "Concurrency, Process Scheduling, and Resource Management in Linux": [
+          "I developed a !{simulated Linux terminal}, exploring !{concurrent and parallel programming} with thread and process management. I implemented !{synchronization} tools such as semaphores, mutexes, and barriers, ensuring correct execution in concurrent environments.",
+          "I analyzed !{process scheduling in the Linux kernel}, optimizing priority allocation and interrupt handling using context-switching techniques."
+        ],
+        "Virtual Microprocessor Simulation": [
+          "I designed modules for a virtual microprocessor using Quartus, SystemVerilog, and assembly language, gaining in-depth knowledge of processor architecture."
+        ],
+        "Functional Programming": [
+          "I developed applications in !{Haskell}, implementing functions like map, filter, and reduce, as well as tree structures. I created a DSL for generating on-screen &{graphics - https://cs.famaf.unc.edu.ar/~mpagano/henderson-funcgeo2.pdf}."
+        ],
+        "Algorithms and Data Structures": [
+          "I implemented advanced algorithms, including !{graph coloring using greedy algorithms}, and data structures such as !{stacks, queues, and sets} in !{C}."
+        ]
+      },
+      "skillNames": [
+        "Python",
+        "C++",
+        "Java",
+        "Scala",
+        "Haskell",
+        "SystemVerilog",
+        "Assembler",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "MySQL",
+        "SQLite",
+        "MongoDB",
+        "C",
+        "Quartus",
+        "Git",
+        "GitHub",
+        "Linux",
+        "OMNeT++",
+        "Jira",
+        "Apache Spark",
+        "Matplotlib",
+        "Seaborn",
+        "TensorFlow",
+        "PyTorch",
+        "Pandas",
+        "NumPy",
+        "Jupyter",
+        "Jest",
+        "Pytest",
+        "Pydantic",
+        "FastAPI",
+        "SQLAlchemy",
+        "ReactJS",
+        "Vite",
+        "TypeScript",
+        "Tailwind CSS"
+      ]
     }
   ],
   "work": [
@@ -119,26 +155,57 @@
       "location": "Global",
       "startDate": "2022-01-15",
       "endDate": "2024-12-30",
-      "summary": "I developed custom technical and trading indicators on #{TradingView} using #{Pine Script} for !{international clients}. During the process, I conducted !{interviews} to understand their needs and, when necessary, created !{prototypes} in #{Python} using #{yfinance} to retrieve historical financial data, #{matplotlib} for visualizations, and #{numpy} and #{scipy} for calculations, providing precise solutions tailored to each client.",
+      "summary": "I developed custom technical and trading indicators on !{TradingView} using !{Pine Script} for !{international clients}. During the process, I conducted !{interviews} to understand their needs and, when necessary, created !{prototypes} in !{Python} using !{yfinance} to retrieve historical financial data, !{matplotlib} for visualizations, and !{numpy} and !{scipy} for calculations, providing precise solutions tailored to each client.",
       "details": {
         "highlights": [
           "Worked directly with clients through Meet and Telegram to gather requirements and feedback.",
           "Successfully developed a wide range of custom indicators based on client requirements."
         ]
-      }
+      },
+      "skillNames": [
+        "TradingView",
+        "Pine Script",
+        "Python",
+        "Yfinance",
+        "Matplotlib",
+        "Numpy",
+        "Scipy"
+      ]
     }
   ],
   "projects": [
     {
       "name": "DB ORM Test Library",
-      "summary": "A #{Python} library designed to be easily extensible to various ORMs and databases. Compatible with #{SQLAlchemy}, #{Django}, and more, it is built for !{high-level testing} and !{debugging}, enabling simple, comprehensive, and accurate analysis of changes between two points in a program's lifecycle within a database representative of a real environment. Its comprehensive approach ensures tests are !{quick to implement}, capable of !{maximizing coverage with less code}, while maintaining a !{secure and centralized design}.",
+      "summary": "A !{Python} library designed to be easily extensible to various ORMs and databases. Compatible with !{SQLAlchemy}, !{Django}, and more, it is built for !{high-level testing} and !{debugging}, enabling simple, comprehensive, and accurate analysis of changes between two points in a program's lifecycle within a database representative of a real environment. Its comprehensive approach ensures tests are !{quick to implement}, capable of !{maximizing coverage with less code}, while maintaining a !{secure and centralized design}.",
       "details": {
         "Library testing": [
-          "The library has been thoroughly tested using #{Pytest}, ensuring reliability and seamless integration with popular testing frameworks."
+          "The library has been thoroughly tested using !{Pytest}, ensuring reliability and seamless integration with popular testing frameworks."
         ]
       },
       "github": "https://github.com/vmatiasw/DeltaSnap",
-      "url": "https://pypi.org/project/deltasnap/"
+      "url": "https://pypi.org/project/deltasnap/",
+      "skillNames": ["Python", "SQLAlchemy", "Django ORM", "Pytest"]
+    },
+    {
+      "name": "Personal Portfolio Website",
+      "summary": "A personal portfolio website optimized for !{advanced accessibility, high contrast design, and enhanced performance} using !{Web Workers}. The site follows best practices for !{responsive web development}, ensuring a smooth user experience across both mobile and desktop devices. It complies with accessibility standards and is !{SEO optimized} for better discoverability.",
+      "details": {
+        "Web performance optimization": [
+          "Implemented !{Web Workers} to offload background tasks, improving performance and ensuring smooth user interactions.",
+          "Made !{accessibility improvements} to comply with accessibility standards, including enhanced contrast for better readability.",
+          "Optimized the website for !{SEO} to improve search engine visibility."
+        ]
+      },
+      "github": "https://github.com/vmatiasw/vmatiasw.github.io",
+      "url": "https://vmatiasw.github.io/",
+      "skillNames": [
+        "Astro",
+        "Tailwind CSS",
+        "HTML",
+        "JavaScript",
+        "TypeScript",
+        "CSS"
+      ]
     }
   ]
 }

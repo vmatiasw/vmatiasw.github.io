@@ -12,8 +12,6 @@
         { "name": "Matplotlib" },
         { "name": "NumPy", "icon": "simple-icons:numpy" },
         { "name": "scipy", "icon": "simple-icons:scipy" },
-        { "name": "SQLAlchemy", "icon": "simple-icons:sqlalchemy" },
-        { "name": "Django", "icon": "simple-icons:django" },
         { "name": "Flask", "icon": "simple-icons:flask" },
         { "name": "Pytest", "icon": "simple-icons:pytest" },
         { "name": "TensorFlow", "icon": "simple-icons:tensorflow" },
@@ -37,7 +35,7 @@
       "name": "CSS",
       "icon": "simple-icons:css3",
       "technologies": [
-        { "name": "Tailwind", "icon": "simple-icons:tailwindcss" }
+        { "name": "Tailwind CSS", "icon": "simple-icons:tailwindcss" }
       ]
     },
     {
@@ -47,17 +45,19 @@
         { "name": "TypeScript", "icon": "simple-icons:typescript" },
         { "name": "Vite", "icon": "simple-icons:vite" },
         { "name": "ReactJS", "icon": "simple-icons:react" },
-        { "name": "Jest", "icon": "simple-icons:jest" }
+        { "name": "Jest", "icon": "simple-icons:jest" },
+        { "name": "Astro", "icon": "simple-icons:astro" }
       ]
     },
+    { "name": "C", "icon": "simple-icons:c" },
+    { "name": "Pine Script", "icon": "mdi:chart-line" }
+  ],
+  "databases": [
     { "name": "MySQL", "icon": "simple-icons:mysql" },
-    { "name": "PostgreSQL", "icon": "simple-icons:postgresql" },
     { "name": "SQLite", "icon": "simple-icons:sqlite" },
     { "name": "MongoDB", "icon": "simple-icons:mongodb" },
-    { "name": "SQL", "icon": "simple-icons:mysql" },
-    { "name": "C", "icon": "simple-icons:c" },
-    { "name": "Pine Script", "icon": "mdi:chart-line" },
-    { "name": "Rust", "icon": "simple-icons:rust" }
+    { "name": "SQLAlchemy", "icon": "simple-icons:sqlalchemy" },
+    { "name": "Django ORM", "icon": "simple-icons:django" }
   ],
   "tools": [
     { "name": "Quartus" },
@@ -66,10 +66,6 @@
     { "name": "Linux", "icon": "simple-icons:linux" },
     { "name": "OMNeT++" },
     { "name": "TradingView", "icon": "mdi:chart-line" },
-    { "name": "Docker", "icon": "simple-icons:docker" },
-    { "name": "Kubernetes", "icon": "simple-icons:kubernetes" },
-    { "name": "Vercel", "icon": "simple-icons:vercel" },
-    { "name": "Netlify", "icon": "simple-icons:netlify" },
     { "name": "Jira", "icon": "simple-icons:jira" }
   ]
 }

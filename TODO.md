@@ -1,6 +1,6 @@
 # TODO
 
-- Evitar operaciones pesadas en el hilo principal, usando Web Workers (ej: animacion del fondo)
+- agregar opcion en las skillsList para que si se pasan de cierto numero aparezca un ... que se deba tocar para ver el resto.
 - agregar campo al json para poner si se pone o no el item en el cv.
 - ensanchar el texto de las secciones del cv?
 - agrear que al dedicarme a algo busco mejorar continuamente
@@ -10,7 +10,7 @@
 
 ## Opcional
 
-- volver a tener las skill-box y buscando una forma de que quede bien para los proyectos de ntro de proyectos. se podria hacer primero que se puedan agregar proyectos pequenos dentro de proyectos y alli ponerles skill-box
+- ver de agregar subptoyectos
 - que se ordenen automaticmente las timeline cards por fecha
 - solo importar los iconos que necesito
 - poder seleccionar que va al cv

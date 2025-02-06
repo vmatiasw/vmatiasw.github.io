@@ -1,83 +1,34 @@
-import type { SkillSet } from "@/CVMapper";
-
 /**
- * Generates a slug-like ID from a string, array of strings, or a SkillSet object.
- * Transforms spaces into hyphens and converts all characters to lowercase.
- * If a regular expression is provided, it extracts matching text before transforming.
- * Optionally, appends an additional string if there are generated slugs.
+ * Filters an object based on a provided condition.
  *
- * @param text - A string, array of strings, or SkillSet object (extracts 'name' properties if it's an object).
- * @param prefix - An optional prefix added to the resulting slug(s).
- * @param pattern - An optional regex pattern to extract specific text before creating the slug.
- * @param append_if_nonempty - An optional string that will be appended if slugs are generated.
- * @returns A slug-like string or concatenated slugs based on the input text(s).
- */
-export function createIDFromText(
-  text: string | string[] | SkillSet,
-  prefix: string = "",
-  pattern?: RegExp,
-  append_if_nonempty: string = "",
-): string {
-  const texts: string[] = pattern
-    ? [...extractUniqueMatches(pattern, text as string)]
-    : Array.isArray(text)
-      ? text
-      : typeof text === "string"
-        ? [text]
-        : [...collectNestedKeyValues(text, "name")];
-
-  if (texts.length === 0) return "";
-
-  return texts
-    .map((text) => `${prefix + text.replace(/\s+/g, "-")}`.toLowerCase())
-    .concat([append_if_nonempty])
-    .join(" ");
-}
-
-/**
- * Capitalizes the first letter of a word and trim any leading/trailing whitespace.
+ * This function traverses the input object recursively and applies the filter condition
+ * to each element. If an element is an object, it continues to traverse and filter its properties.
+ * If an element is an array, it filters and maps each item in the array.
  *
- * @param word - The word to capitalize.
- * @returns The word with the first letter capitalized.
+ * @param object - The object to be filtered.
+ * @param filterCondition - A function that determines whether an element should be included.
+ * @returns A new object with elements filtered based on the provided condition.
  */
-export function capitalize(word: string): string {
-  const trimmed = word.trim();
-  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-}
-
-/**
- * Traverses an object copy and removes all objects that satisfy the purge condition.
- *
- * @param obj - The object to traverse.
- * @param purgeCondition - A function that returns true if the object should be purged.
- * @returns A new object with all objects that satisfy the purge condition removed.
- */
-export function getPurgedObject(
-  obj: Record<string, any>,
-  purgeCondition: (obj: any) => boolean,
+export function getFilteredObject(
+  object: Record<string, any>,
+  filterCondition: (obj: any) => boolean,
 ): any {
-  const newObj = JSON.parse(JSON.stringify(obj));
-
-  const traversePurge = (obj: any, purgeCondition: (obj: any) => boolean) => {
-    for (const key in obj) {
-      if (!obj.hasOwnProperty(key)) continue;
-
-      if (typeof obj[key] === "object" && obj[key] !== null) {
-        if (purgeCondition(obj[key])) {
-          delete obj[key];
-        } else {
-          traversePurge(obj[key], purgeCondition);
-        }
-      } else if (Array.isArray(obj[key]))
-        obj[key].forEach((item: any) => {
-          if (typeof item === "object" && item !== null)
-            traversePurge(item, purgeCondition);
-        });
-    }
+  const traverseFilter = (obj: any): any => {
+    for (const key of Object.keys(obj))
+      if (typeof obj[key] === "object" && obj[key] !== null)
+        obj[key] = Array.isArray(obj[key])
+          ? obj[key]
+              .filter(filterCondition)
+              .map((item: any) => traverseFilter(item))
+          : traverseFilter(obj[key]);
+    return obj;
   };
 
-  traversePurge(newObj, purgeCondition);
-  return newObj;
+  // FIXME: there are undefined values in the result:
+  // const result = traverseFilter(JSON.parse(JSON.stringify(object)));
+  // console.log(result.languages.flatMap((lang: any) => lang.technologies));
+
+  return traverseFilter(JSON.parse(JSON.stringify(object)));
 }
 
 /**
@@ -122,24 +73,5 @@ export function mapObjectFields<T>(
       func(key),
       Array.isArray(value) ? value.map(func) : func(value),
     ]),
-  );
-}
-
-/**
- * Extracts unique matches from the text based on a given regex pattern.
- * It returns the first capture group from each match in lowercase.
- *
- * @param pattern - The regex pattern to match.
- * @param text - The input text to search.
- * @returns An array of unique, lowercase strings from the matches.
- */
-export function extractUniqueMatches(
-  pattern: RegExp,
-  text: string,
-): Set<string> {
-  return new Set(
-    (text.match(pattern) ?? []).map((match) =>
-      match.replace(pattern, "$1").toLowerCase(),
-    ),
   );
 }

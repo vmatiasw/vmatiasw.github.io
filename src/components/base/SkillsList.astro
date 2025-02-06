@@ -1,16 +1,17 @@
 ---
 import type { NamedEntity } from "@/CVMapper";
 import { Icon } from "astro-icon/components";
-import { createIDFromText } from "@/data-helpers";
 
 interface Props {
   class?: string;
   items: NamedEntity[] | string[];
-  input?: boolean;
   groupBy?: string;
+  summarize?: boolean;
 }
 
-const { items, input = false, groupBy }: Props = Astro.props;
+const { items, groupBy, summarize = false }: Props = Astro.props;
+
+const MAX_ITEMS = 10;
 
 const namedItems = items.map((item) => {
   if (typeof item === "string") {
@@ -18,6 +19,8 @@ const namedItems = items.map((item) => {
   }
   return { name: item.name, icon: item.icon };
 });
+
+const showMoreButton = summarize && namedItems.length - 1 > MAX_ITEMS;
 ---
 
 <ul class={`flex flex-wrap gap-2 cv:gap-y-1 items-center ${Astro.props.class}`}>
@@ -29,41 +32,39 @@ const namedItems = items.map((item) => {
     )
   }
   {
-    namedItems.map(({ name, icon }) =>
-      input ? (
-        <li>
-          <input
-            type="checkbox"
-            id={createIDFromText(name)}
-            value={name}
-            class="input-skill-box hidden"
-          />
-          <label
-            for={createIDFromText(name)}
-            class="not-cv:interactive-skill-box"
-          >
-            {icon && <Icon name={icon} class="size-4 cv:hidden" />}
-            <p>{name}</p>
-          </label>
-        </li>
-      ) : (
-        <li
-          class={`${createIDFromText(name, "child-", undefined, "dynamic-child")} not-cv:skill-box`}
-          data-selected="false"
-        >
-          {icon && <Icon name={icon} class="size-4 cv:hidden" />}
-          <p class="text-xs">{name}</p>
-        </li>
-      ),
+    namedItems.map(({ name, icon }, index) => (
+      <li
+      class={`${index > MAX_ITEMS ? "item-overflow hidden" : "not-cv:skill-box"}`}}
+      >
+        {icon && <Icon name={icon} class="size-4 cv:hidden" />}
+        <p class="text-xs">{name}</p>
+      </li>
+    ))
+  }
+  {
+    showMoreButton && (
+      <li>
+        <button class="btn-icon text-2xl below-sm:text-1xl" id="toggle-list-overflow">
+          {"... <"}
+        </button>
+      </li>
     )
   }
 </ul>
 
-<style>
-  .input-skill-box:checked + label {
-    @apply border-skin-bg-primary bg-skin-interactive text-skin-contrast;
-  }
-  .dynamic-child[data-selected="true"] {
-    @apply border-skin-bg-primary bg-skin-accent text-skin-contrast;
-  }
-</style>
+<script>
+  function toggleOverflow() {
+    document.querySelectorAll(".item-overflow").forEach((el) => {
+      el.classList.toggle("hidden");
+      el.classList.toggle("not-cv:skill-box");
+    });
+    
+    const btn = document.getElementById("toggle-list-overflow");
+    if (btn)
+      btn.textContent = btn.textContent === ">" ? "... <" : ">";
+    }
+
+  document
+    .getElementById("toggle-list-overflow")
+    ?.addEventListener("click", toggleOverflow);
+</script>

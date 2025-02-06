@@ -4,10 +4,11 @@ interface CV {
   education: Education[];
   projects: Projects[];
 }
-interface ToProcessTexts {
+interface ToProcess {
   summary: string;
-  body?: Record<string, string[]>;
-  details?: Record<string, string[]>;
+  body?: any //Record<string, string[]>;
+  details?: any //Record<string, string[]>;
+  skillNames?: string[];
 }
 interface Location {
   address: string;
@@ -44,7 +45,7 @@ interface Basics {
   profiles: Network[];
   contacts: Network[];
 }
-interface Work extends ToProcessTexts {
+interface Work extends ToProcess {
   name: string;
   position?: string;
   url?: string;
@@ -53,7 +54,7 @@ interface Work extends ToProcessTexts {
   location: string;
   location_type: string;
 }
-interface Education extends ToProcessTexts {
+interface Education extends ToProcess {
   institution: string;
   url: string;
   area: string;
@@ -61,9 +62,8 @@ interface Education extends ToProcessTexts {
   startDate: string;
   endDate?: string;
   score: number;
-  courses: string[];
 }
-interface Project extends ToProcessTexts {
+interface Project extends ToProcess {
   name: string;
   url?: string;
   github?: string;
@@ -72,7 +72,7 @@ interface Project extends ToProcessTexts {
 
 export type {
   CV,
-  ToProcessTexts,
+  ToProcess,
   Location,
   SpeakLanguage,
   Network,
