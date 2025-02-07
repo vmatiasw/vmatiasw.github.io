@@ -16,7 +16,7 @@
   .skill-box {
     @apply flex gap-1 rounded-md border-2 border-skin-accent/30 p-1 text-xs text-skin-accent;
   }
-  
+
   /* Not CV */
   .not-cv .card-box {
     @apply rounded-md bg-skin-secondary/50 p-5 ring-1 ring-skin-muted;
@@ -28,28 +28,5 @@
     .not-cv .timeline-item-points {
       @apply absolute mt-2 size-2 -translate-x-[1.71rem] rounded-full bg-skin-muted;
     }
-  }
-
-  /* CV */
-  .cv h1 {
-    @apply text-3xl leading-8;
-  }
-  .cv h2 {
-    @apply text-2xl leading-7;
-  }
-  .cv h3 {
-    @apply text-xl leading-6;
-  }
-  .cv h4 {
-    @apply text-lg leading-5;
-  }
-  .cv h5 {
-    @apply text-base leading-5;
-  }
-  .cv h6 {
-    @apply text-sm leading-5;
-  }
-  .cv p {
-    @apply text-sm leading-4;
   }
 }

@@ -37,7 +37,7 @@ const showMoreButton = summarize && namedItems.length - 1 > MAX_ITEMS;
       class={`${index > MAX_ITEMS ? "item-overflow hidden" : "not-cv:skill-box"}`}}
       >
         {icon && <Icon name={icon} class="size-4 cv:hidden" />}
-        <p class="text-xs">{name}</p>
+        <p class="not-cv:text-xs">{name}</p>
       </li>
     ))
   }

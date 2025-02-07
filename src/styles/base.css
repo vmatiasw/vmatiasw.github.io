@@ -1,0 +1,62 @@
+@tailwind base;
+
+@layer base {
+  strong {
+    @apply font-bold;
+  }
+  section {
+    @apply flex flex-col gap-4 not-cv:below-sm:gap-2;
+  }
+
+  body {
+    @apply text-sm font-normal;
+    font-family: "Open Sans", sans-serif;
+  }
+  :is(h1, h2, h3, h4, h5, h6) {
+    font-family: "Trebuchet MS", sans-serif; /* "Georgia" (serif) */
+    @apply font-extrabold;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  h4 {
+    @apply text-lg;
+  }
+  h5 {
+    @apply text-base;
+  }
+  h6 {
+    @apply text-sm;
+  }
+
+  @media (min-width: 640px) {
+    .not-cv h1 {
+      @apply text-4xl;
+    }
+    .not-cv h2 {
+      @apply text-3xl;
+    }
+    .not-cv h3 {
+      @apply text-2xl;
+    }
+    .not-cv h4 {
+      @apply text-xl;
+    }
+    .not-cv h5 {
+      @apply text-lg;
+    }
+    .not-cv h6 {
+      @apply text-base;
+    }
+    .not-cv body {
+      @apply text-base;
+    }
+  }
+}
