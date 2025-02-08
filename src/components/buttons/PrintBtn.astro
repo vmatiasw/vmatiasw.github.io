@@ -5,16 +5,16 @@ import { Icon } from "astro-icon/components";
 <div class="print:hidden [&>*]:fixed [&>*]:bg-skin-accent">
   <!-- Mobile button -->
   <button
-    class="bottom-4 right-4 rounded-full p-8 text-skin-contrast md:hidden"
+    class="bottom-4 right-4 rounded-full p-6 text-skin-contrast md:hidden"
     aria-label="Floating print or download PDF button"
     onclick="window.print()"
   >
-    <Icon name="mdi:file" class="size-12" />
+    <Icon name="mdi:file" class="size-8" />
   </button>
 
   <!-- PC bar -->
   <div
-    class="hidden text-skin-primary md:bottom-0 md:left-0 md:right-0 md:flex md:items-center  md:justify-center md:py-2"
+    class="hidden text-skin-primary md:bottom-0 md:left-0 md:right-0 md:flex md:items-center md:justify-center md:py-2"
   >
     Press <kbd class="kdb">Ctrl</kbd> + <kbd class="kdb">P</kbd> to print or get
     a PDF
@@ -23,6 +23,6 @@ import { Icon } from "astro-icon/components";
 
 <style>
   .kdb {
-    @apply rounded-md bg-skin-primary p-1 m-1;
+    @apply m-1 rounded-md bg-skin-primary p-1;
   }
 </style>
